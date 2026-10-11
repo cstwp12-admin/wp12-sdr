@@ -4,7 +4,9 @@ A web app for recording site work with photos on **Projek Lebuhraya Pan Borneo S
 
 Take or add the day's photos, tag each one with the activity (BQ item), chainage, structure and RFI number, then produce a captioned PDF report and photo set to share on WhatsApp and keep on record. It works on iPhone, Android and laptop, in the browser, with nothing to install from an app store.
 
-**Open the app:** use the link under **About** at the top right of this page.
+**Open the app:** [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/) (also under **About** at the top right of this page). **New to the app?** Read the [user guide](GUIDE.md).
+
+**News:** [The pilot starts on 13 October](posts/2026-10-12-pilot-starts.md)
 
 <p>
   <img src="screenshot-app.png" alt="The app on a phone: report details, photo list with GPS chainage and activity" width="280">
@@ -21,7 +23,7 @@ The app is a simple, consistent way to record:
 - **site observations**: ESCP, safety, traffic management, slope condition, weather and site condition;
 - **site visits**: a dated, captioned photo record of what was seen.
 
-It is meant for all three parties on the contract: the **Construction Supervision Team (CST)**, the **Works Package Contractor (WPC)** and the **S.O. Representative (SOR)**. Each party uses the same app and keeps its own records and register.
+It is meant for all three parties on the contract: the **Consultant Supervision Team (CST)**, the **Works Package Contractor (WPC)** and the **S.O. Representative (SOR)**. Each party uses the same app and keeps its own records and register.
 
 It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to caption one by one, lose their context when forwarded, and often can no longer be downloaded later.
 
@@ -32,37 +34,45 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
 | **Activity list from the contract BQ** | 143 activities grouped by bill (earthworks, ground treatment, drainage, pavement, bridges, road furniture, ESCP, traffic, safety, QA testing & inspection, weather). Each shows its BQ item no., e.g. *Berm drain – concreting · BQ 9.2.3*. Bridge items show the BQ ref for the selected bridge. Search works in English or BM. |
 | **QC tests required by the contract** | 50 quality control tests that are not BQ items: joint sampling, laboratory tests, FDT, coring, plate load, CBR, DCP, spray rate, gradation, cube tests (G20–G50, grout), rebound hammer, RC pipe, geotextile and PVD tests. They are marked **QC** in the list and in the report, e.g. *Cube test – G40 · QC*. |
 | **More than one activity per photo** | A photo can be tagged with several activities, e.g. *Box culvert – concreting* + *Cube test – G30*. Tap each one in the list, then **Done**. |
-| **Chainage from GPS** | Photos with a GPS position get their chainage and side (LHS/RHS) from the WP12 centreline, e.g. *CH 70+000, 20 m RHS*. Chainage can always be typed or adjusted by hand. |
+| **Chainage from GPS** | Photos with a GPS position get their chainage and side (LHS/RHS) from the WP12 centreline, e.g. *CH 70+000, 20 m RHS*. Chainage can always be typed or adjusted by hand. For a stretch of work, tap **+ Chainage to** beside it, e.g. *CH 70+120 – 70+300*. |
+| **Level / element** | Type the berm level, fill layer or structure element on the photo card, e.g. *Berm 3*, *Layer 2*, *P2*. The caption then reads e.g. *Berm drain – concreting · CH 70+120 RHS, Berm 3*. |
+| **Status** | Each photo can have a status: In progress, Completed, Ready for inspection, Inspected, Re-inspection required, Rectification required, Observation, or your own wording. It prints in English and BM. |
 | **Structure list** | Bridges B1–B4, culverts C1–C32, junction culverts JC1–JC13 and the reinforced soil walls. Picking one fills in its drawing chainage, which you then adjust to the actual site position. |
-| **Tag many photos at once** | Select several photos and apply the same activity, chainage, side or RFI no. in one step. |
-| **PDF report** | A4, 4 photos per page, with the JKR and contractor logos, report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
+| **Zones** | The team's zones load with the setup. A team that reports by other zones, e.g. 5 zones for CST, can set its own in **Setup → Zones**; a team setup update keeps them. |
+| **Sort by time or chainage** | Photos are in the order taken; **Sort by chainage** puts them in order along the alignment instead, matching the diagram. |
+| **Tag many photos at once** | Select several photos and apply the same activity, chainage, side, status, RFI no. or remarks in one step. **Same as previous** copies the tags and remarks from the photo above, but keeps a photo's own GPS chainage. |
+| **PDF report** | A4, 4 photos per page or 2 larger photos per page, with the JKR and contractor logos, report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
 | **Captioned photos** | Each photo with the date, time, chainage, activity, BQ ref and RFI printed on it, renamed in order (e.g. `20261009_CST_03_CH71+770_Box-culvert-concreting.jpg`). The caption stays with the photo when it is forwarded. |
-| **RFI photo record** | One PDF per RFI no., set out to accompany the JKR Sabah *Request For Inspection* form (Arahan Jabatan Bil. 11/2026). It has the location, description, drawing reference, inspection result boxes, comments, sign-off blocks: Prepared by (WPC), Checked by (CST) and Acknowledged by (SOR), and the photos. |
+| **RFI photo record** | One PDF per RFI no., set out to accompany the JKR Sabah *Request For Inspection* form (Arahan Jabatan Bil. 11/2026). It is an attachment, so it carries what the photos show: location, description, activities with their BQ / QC refs, structure and level, a photo index with each photo's status, comments, sign-off blocks for **Prepared by (WPC)** and **Checked by (CST)**, and the photos. The drawing reference, stage and result stay on the signed RFI form. |
+| **Alignment diagram (experimental)** | An optional line from CH 62+700 to 77+508 with the zones, showing where each photo was taken: above the line for LHS, on it for CL, below it for RHS. Photos close together share one marker, and a line under it gives the chainage range covered. Optional structure lines under it show the bridges, pipe culverts, box culverts, junction culverts and RS walls, each ticked on its own. Tick it on the report screen; it is added to page 1 of the daily report and of each RFI photo record. |
+| **Check before you share** | Before you share, the app lists photos with no activity or no chainage. Tap a photo number to go straight to it. |
 | **WhatsApp message** | A short list of activities and chainages to paste with the PDF. |
+| **RFI inspection list (experimental, for WPC)** | The daily RFI summary list for the next day's inspections: paste the rows from Excel or add RFIs one by one (with the activity list, chainage, structure, PIC and time), then share it as an A4 PDF in the same layout as the Excel list, as WhatsApp text or as a CSV. On the inspection day, RFI nos. typed on photo cards are suggested from the list, and the RFI photo record takes its description. |
 | **Register log** | Every report saved or shared is logged on the device, with Reports, RFIs and Photos views, filters and CSV export (opens in Excel). Logs from other users can be imported. |
-| **Works offline** | Once opened, it works without signal on site. Drafts are kept if the phone closes the browser. |
+| **Works offline** | Once opened, it works without signal on site. Drafts are kept if the phone closes the browser. The app asks the browser to keep its data, and reminds you to export the register if it has not been exported for 7 days. |
+| **Feedback** | Setup → **Send feedback on WhatsApp** opens a message with the app version and phone type filled in, ready to post in the RFI coordination group. |
 
-<p><img src="screenshot-rfi-record.png" alt="RFI photo record: inspection details, result tick boxes and sign-off blocks" width="420"></p>
+<p><img src="screenshot-rfi-record.png" alt="RFI photo record: details, photo index with status, comments and sign-off blocks for WPC and CST" width="420"></p>
 
 ## Getting started
 
-1. Open the link under **About** on your phone.
+1. Open [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/) on your phone.
 2. Add it to the home screen:
    - **iPhone (Safari):** Share → *Add to Home Screen*
    - **Android (Chrome):** menu ⋮ → *Install app* or *Add to home screen*
 3. Open it from the home screen icon. The project setup (logos, zones, activity list, structures and centreline) loads by itself.
 4. In **Report details**, choose your team (CST, WPC or SOR) and enter your name and designation. These are remembered.
-5. Allow location when the camera asks, so photos taken in the app get their chainage.
+5. Allow location when the camera asks, so photos taken in the app get their chainage. Photos saved from WhatsApp have no location, so add the original camera photos when you want the chainage filled in.
 
 ## Daily use
 
 1. **Take photo** at site, or **Add photos** from the gallery afterwards.
-2. For each photo, or for several selected together, choose the **activity** (one or more) and check the **chainage** and **side**. Add the structure, element (e.g. A1, P2, pile 5), RFI no. and remarks where needed.
-3. Tap **Generate report**, then:
+2. For each photo, or for several selected together, choose the **activity** (one or more) and check the **chainage** and **side** (tap **+ Chainage to** for a stretch of work). Add the level or element (e.g. *Berm 3*, *Layer 2*, *P2*), structure, status, RFI no. and remarks where needed.
+3. Tap **Generate report**, check the list of photos still missing an activity or chainage, choose 2 or 4 photos per page and, if wanted, the alignment diagram, then:
    - **Share PDF**: pick WhatsApp and the group;
    - **Share photos**: the captioned photos;
    - **Copy text**: the WhatsApp summary;
-   - **RFI photo record**: one per RFI, to attach to the RFI form;
+   - **Make RFI photo records**: one per RFI, to attach to the RFI form (shown at the top when any photo has an RFI no.);
    - **Save ZIP**: everything, plus a CSV photo log, for your own files.
 4. Start the next day with **New report**.
 
@@ -103,9 +113,9 @@ The app is built so the project data is separate from the app itself. For anothe
 - road centreline with chainages, from the alignment KMZ or setting-out data;
 - client and contractor logos.
 
-## Version history and roadmap
+## User guide, version history and roadmap
 
-The current version is shown in the app under **Setup** (bottom panel). Changes are listed in [CHANGELOG.md](CHANGELOG.md). The pilot and rollout plan and the features under consideration are in [ROADMAP.md](ROADMAP.md).
+Step-by-step instructions with screenshots are in [GUIDE.md](GUIDE.md); in the app, Setup → **User guide** opens it. The current version is shown in the app under **Setup** (bottom panel). Changes are listed in [CHANGELOG.md](CHANGELOG.md); in the app, Setup → **What changed** opens it. The pilot and rollout plan and the features under consideration are in [ROADMAP.md](ROADMAP.md).
 
 ## Files
 
@@ -114,6 +124,8 @@ The current version is shown in the app under **Setup** (bottom panel). Changes 
 | `index.html` | The app |
 | `setup.json` | Project setup: logos, zones, activities, structures, centreline |
 | `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png` | Let the app install on a phone and work offline |
+| `GUIDE.md`, `guide/` | User guide and its screenshots |
+| `posts/` | News posts, e.g. the pilot announcement |
 | `CHANGELOG.md` | Revision history |
 | `ROADMAP.md` | Pilot and rollout plan, future features |
 | `TEAM_REGISTER.md`, `Code.gs` | Optional: guide and script for a team register in Google Sheets |
@@ -125,4 +137,4 @@ Aplikasi web untuk merekod kerja tapak, pemeriksaan, pemerhatian dan lawatan tap
 
 ---
 
-Developed for the WP12 Construction Supervision Team. Maintained by Br. Ts. Willon Paul Nanak, Resident Engineer.
+Developed for the WP12 Consultant Supervision Team. Maintained by Willon Paul.

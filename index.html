@@ -107,6 +107,12 @@ select{appearance:auto}
 .chrow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;align-items:end}
 .chrow .to{padding-bottom:11px;color:var(--muted);font-size:14px}
 .chin{position:relative}
+.lblrow{display:flex;justify-content:space-between;align-items:baseline;gap:6px}
+.xbtn{border:0;background:none;color:var(--accent);font-weight:600;font-size:12px;padding:0;min-height:0;text-transform:none;letter-spacing:0}
+.outlayers{display:flex;flex-wrap:wrap;gap:6px 14px;margin:-4px 0 0 28px}
+.lychk{display:inline-flex;gap:6px;align-items:center;font-size:14px}
+.lychk input{width:18px;height:18px;accent-color:var(--accent)}
+.addch2{width:100%;min-height:44px;border:1px dashed var(--line);border-radius:9px;background:transparent;color:var(--muted);font-weight:600}
 .chin input{font-family:var(--f-mono);font-weight:600;padding-left:38px}
 .chin::before{content:"CH";position:absolute;left:10px;bottom:12px;font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--accent)}
 .chin input.bad{border-color:var(--warn);background:var(--warn-soft)}
@@ -161,6 +167,14 @@ details.more[open] summary{margin-bottom:8px}
 .oa{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:12px}
 .oa p{margin:0;font-size:13.5px;color:var(--muted)}
 .oa b{font-size:16px}
+.notice{display:grid;gap:10px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:12px 14px;margin:12px 0 0;font-size:14.5px}
+.notice .nbtns{display:flex;gap:8px;flex-wrap:wrap}
+.rfibar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 12px;font-size:14.5px}
+.gobtn{border:1px solid currentColor;background:transparent;color:inherit;border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0;font-weight:700;font-family:var(--f-mono);font-size:13px;min-height:30px}
+a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:inherit}
+a.btn.acc{color:var(--accent-ink)}
+.card .body{min-width:0}
+.card.flash{outline:3px solid var(--accent);outline-offset:2px;transition:outline-color .3s}
 .warnbox{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 12px;font-size:14px}
 .okbox{background:var(--ok-soft);color:var(--ok);border-radius:8px;padding:10px 12px;font-size:14px}
 .progress{height:6px;background:var(--chip);border-radius:3px;overflow:hidden}
@@ -168,7 +182,7 @@ details.more[open] summary{margin-bottom:8px}
 .logo-slot{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;align-items:center}
 .logo-prev{width:96px;height:64px;border:1px dashed var(--line);border-radius:8px;display:grid;place-items:center;background:#fff;overflow:hidden;font-size:12px;color:#777}
 .logo-prev img{max-width:90px;max-height:58px}
-.ztable{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:6px;align-items:center}
+.ztable{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) auto;gap:6px;align-items:center}
 .ztable .h{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--ink);color:var(--bg);border-radius:10px;padding:10px 14px;display:flex;gap:12px;align-items:center;max-width:calc(100% - 32px);font-size:14.5px;box-shadow:var(--shadow)}
 .toast button{background:none;border:none;color:var(--accent);font-weight:700}
@@ -180,6 +194,19 @@ details.more[open] summary{margin-bottom:8px}
 .rfi-card{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
 .rfi-card summary{cursor:pointer;font-size:14.5px}
 .rfi-card[open] summary{margin-bottom:10px}
+.rflstrip{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:12px 14px;margin-top:12px;font-size:15px}
+.rflstrip .rflgo{font-size:26px;color:var(--muted);line-height:1}
+.rllist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rlrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface)}
+.rlno{font-weight:700;color:var(--muted);padding-top:2px}
+.rlb{display:grid;gap:3px;min-width:0;overflow-wrap:anywhere}
+.rld{white-space:pre-line}
+.rltools{grid-column:2;display:flex;gap:6px;flex-wrap:wrap}
+.rlhist{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding:8px 0 0}
+.rptable{overflow:auto;border:1px solid var(--line);border-radius:8px;max-height:46vh}
+.rptable table{border-collapse:collapse;font-size:13px;min-width:640px}
+.rptable th,.rptable td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+.rptable th{background:var(--sunk);font-size:12px;position:sticky;top:0}
 .copybox{width:100%;min-height:160px;font-family:var(--f-mono);font-size:12.5px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style></head><body>
@@ -194,6 +221,7 @@ details.more[open] summary{margin-bottom:8px}
 </header>
 
 <main class="wrap">
+  <div id="notices" aria-live="polite"></div>
   <section class="panel" id="sec-report" aria-labelledby="h-report">
     <div class="panel-h">
       <h2 id="h-report">Report details</h2>
@@ -213,6 +241,8 @@ details.more[open] summary{margin-bottom:8px}
     </div>
   </section>
 
+  <button type="button" class="rflstrip" id="btn-rfl" hidden><span><b>RFI inspection list</b> <span class="tag">Experimental</span><br><span class="small muted" id="rfl-sum">Make the next-day RFI summary list</span></span><span class="rflgo" aria-hidden="true">›</span></button>
+
   <section aria-labelledby="h-photos" style="display:grid;gap:12px">
     <div class="addbar">
       <button class="bigbtn primary" id="btn-camera" type="button"><b>Take photo</b><span>Camera, with GPS chainage</span></button>
@@ -225,7 +255,7 @@ details.more[open] summary{margin-bottom:8px}
       <h2 id="h-photos">Photos <span class="mono muted" id="count"></span></h2>
       <div style="display:flex;gap:4px;flex-wrap:wrap">
         <button class="linkbtn" id="btn-selectall" type="button" hidden>Select all</button>
-        <button class="linkbtn" id="btn-sort" type="button" hidden>Sort by time</button>
+        <button class="linkbtn" id="btn-sort" type="button" hidden>Sort by time</button> <button class="linkbtn" id="btn-sortch" type="button" hidden>Sort by chainage</button>
         <button class="linkbtn" id="btn-new" type="button" hidden>New report</button>
       </div>
     </div>
@@ -285,7 +315,7 @@ details.more[open] summary{margin-bottom:8px}
       <div><span class="lbl">Activity</span><button class="actbtn unset" id="bk-act" type="button">Choose activity</button></div>
       <div class="row2">
         <div><label class="lbl" for="bk-struct">Structure</label><select id="bk-struct"></select></div>
-        <div><label class="lbl" for="bk-el">Element / detail</label><input type="text" id="bk-el" placeholder="e.g. A1, P2, pile 5"></div>
+        <div><label class="lbl" for="bk-el">Level / element</label><input type="text" id="bk-el" placeholder="e.g. Berm 3, Layer 2, P2"></div>
       </div>
       <div class="chrow">
         <div class="chin"><label class="lbl" for="bk-ch">Chainage from</label><input type="text" id="bk-ch" inputmode="decimal" placeholder="71+775"></div>
@@ -294,6 +324,8 @@ details.more[open] summary{margin-bottom:8px}
       </div>
       <div><span class="lbl">Side</span><div class="seg" id="bk-side"></div></div>
       <div><label class="lbl" for="bk-rfi">RFI no.</label><div class="rfi"><span class="rfipre"></span><input type="text" id="bk-rfi" placeholder="TES-651" list="rfi-list" autocomplete="off"></div></div>
+      <div><label class="lbl" for="bk-status">Status</label><select id="bk-status"></select></div>
+      <div id="bk-stext-w" hidden><label class="lbl" for="bk-stext">Your status</label><input type="text" id="bk-stext" placeholder="e.g. Awaiting test result"></div>
       <div><label class="lbl" for="bk-rem">Remarks</label><textarea id="bk-rem"></textarea></div>
     </div>
     <div class="sheet-f"><button class="btn" data-close type="button">Cancel</button><button class="btn acc" id="bk-apply" type="button">Apply</button></div>
@@ -307,7 +339,11 @@ details.more[open] summary{margin-bottom:8px}
     <div class="sheet-b">
       <div id="out-summary" class="small"></div>
       <div id="out-warn"></div>
+      <div id="out-rfibar"></div>
+      <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="font-size:14.5px">Photos per page</span><div class="seg" id="out-ppp" role="group" aria-label="Photos per page"><button type="button" data-ppp="2" aria-pressed="false">2 (larger)</button><button type="button" data-ppp="4" aria-pressed="true">4</button></div></div>
       <label style="display:flex;gap:8px;align-items:center;font-size:14.5px"><input type="checkbox" id="out-sumpage" checked style="width:20px;height:20px;accent-color:var(--accent)"> Include summary table on page 1</label>
+      <label style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px"><input type="checkbox" id="out-diag" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Include alignment diagram <span class="tag">Experimental</span><br><span class="small muted">A line from CH start to end with the zones, showing where each photo was taken. Also added to RFI photo records.</span></span></label>
+      <div id="out-layers" class="outlayers" hidden></div>
       <div class="progress" id="out-prog" hidden><i></i></div>
       <div id="out-status" class="small muted" aria-live="polite"></div>
       <div class="out-actions" id="out-actions"></div>
@@ -322,6 +358,15 @@ details.more[open] summary{margin-bottom:8px}
     <div class="sheet-h"><h3 id="st-title">Setup</h3><button class="btn" data-close type="button">Done</button></div>
     <div class="sheet-b">
       <div class="panel" style="display:grid;gap:10px">
+        <h3 style="font-size:17px">Help and feedback</h3>
+        <p class="muted small" style="margin:0">Found a problem or have an idea? Send it to the WP12 RFI coordination group. The app version and your phone type are filled in for you.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn acc" id="st-feedback" href="#" target="_blank" rel="noopener">Send feedback on WhatsApp</a><a class="btn" id="st-help" href="#" target="_blank" rel="noopener" hidden>User guide</a><a class="btn" id="st-changes" href="#" target="_blank" rel="noopener">What changed</a></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <h3 style="font-size:17px">Experimental features</h3>
+        <label style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px"><input type="checkbox" id="st-rfl" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Show the <b>RFI inspection list</b> on the main screen<br><span class="small muted">For WPC: make the next-day RFI summary list and share it as a PDF. Shown for team WPC unless switched off here.</span></span></label>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
         <h3 style="font-size:17px">Report logos</h3>
         <p class="muted small" style="margin:0">Printed at the top of every PDF page. Saved on this device only; include them in the team setup file to pass them on.</p>
         <div class="logo-slot"><div class="logo-prev" id="lg-l-prev">Left</div><div style="display:grid;gap:6px"><b>Left logo (JKR)</b><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-logo="L" type="button">Choose image</button><button class="btn" data-logorm="L" type="button">Remove</button></div></div></div>
@@ -334,7 +379,8 @@ details.more[open] summary{margin-bottom:8px}
         <div><label class="lbl" for="st-contract">Contract no. (optional, printed under the title)</label><input type="text" id="st-contract"></div>
         <div><span class="lbl">Zones (chainage limits, optional)</span>
           <div class="ztable" id="st-zones"></div>
-          <p class="muted small" style="margin:6px 0 0">With limits filled in, the report header lists the zones covered by the photos when no zone is picked.</p></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn" id="st-zadd" type="button">+ Add zone</button><button class="btn" id="st-zteam" type="button" hidden>Use team zones</button></div>
+          <p class="muted small" style="margin:6px 0 0">Set the zones your team reports by, e.g. 5 zones for CST. With limits filled in, the report header lists the zones covered by the photos when no zone is picked, and the alignment diagram shows them. Your own zones stay on this phone: a team setup update does not change them.</p></div>
       </div>
       <div class="panel" style="display:grid;gap:10px">
         <h3 style="font-size:17px">Add an activity to the list</h3>
@@ -388,6 +434,77 @@ details.more[open] summary{margin-bottom:8px}
     <input type="file" id="in-reglog" accept=".csv,text/csv" multiple hidden>
   </div>
 </div>
+<div class="sheet" id="rfl" hidden role="dialog" aria-modal="true" aria-labelledby="rl-title">
+  <div class="box">
+    <div class="sheet-h"><h3 id="rl-title">RFI inspection list <span class="tag">Experimental</span></h3><button class="btn" data-close type="button">Close</button></div>
+    <div class="sheet-b">
+      <p class="muted small" style="margin:0">The daily RFI summary list for the next day's inspections, shared as a PDF in the WhatsApp group. Add RFIs one by one, or paste the rows from your Excel list.</p>
+      <div class="grid">
+        <div><label class="lbl" for="rl-insp">Inspection date</label><input type="date" id="rl-insp"></div>
+        <div><label class="lbl" for="rl-issued">Issued date</label><input type="date" id="rl-issued"></div>
+      </div>
+      <div id="rl-by" class="small"></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn acc" id="rl-add" type="button">+ Add RFI</button><button class="btn" id="rl-paste" type="button">Paste from Excel</button></div>
+      <div id="rl-sorts" class="small" style="display:flex;gap:6px 14px;flex-wrap:wrap;align-items:center" hidden><span class="muted">Sort:</span><button class="linkbtn" id="rl-sort" type="button">by time</button><button class="linkbtn" id="rl-sortref" type="button">by RFI no. (trade)</button></div>
+      <div id="rl-count" class="small muted"></div>
+      <div class="empty" id="rl-empty"><div class="small">No RFIs yet. Tap <b>+ Add RFI</b>, or copy the rows from Excel and tap <b>Paste from Excel</b>.</div></div>
+      <ol id="rl-list" class="rllist"></ol>
+      <div id="rl-out" class="panel" style="display:grid;gap:10px" hidden>
+        <b>Share the list</b>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn acc" id="rl-pdf" type="button">Share PDF</button><button class="btn" id="rl-copy" type="button">Copy text</button><button class="btn" id="rl-csv" type="button">Save CSV (Excel)</button></div>
+        <div id="rl-status" class="small muted" aria-live="polite"></div>
+        <textarea id="rl-text" class="copybox" rows="8" hidden readonly></textarea>
+        <p class="small muted" style="margin:0">The PDF is A4 landscape, with the name and caption language shown at the top of this screen.</p>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="btn" id="rl-new" type="button">New list</button><button class="btn" id="rl-clear" type="button" hidden>Clear list</button></div>
+      <details id="rl-hist" class="rfi-card" hidden><summary id="rl-histsum">Earlier lists</summary><div id="rl-histlist" class="rllist" style="margin-top:8px"></div></details>
+    </div>
+  </div>
+</div>
+
+<div class="sheet" id="rfl-ed" hidden role="dialog" aria-modal="true" aria-labelledby="re-title">
+  <div class="box">
+    <div class="sheet-h"><h3 id="re-title">Add an RFI</h3><button class="btn" data-close type="button">Cancel</button></div>
+    <div class="sheet-b">
+      <div><label class="lbl" for="re-ref">RFI no.</label><div class="rfi"><span class="rfipre"></span><input type="text" id="re-ref" placeholder="TES-651" autocapitalize="characters" autocomplete="off"></div></div>
+      <div><span class="lbl">Activity (optional)</span><button class="actbtn unset" id="re-act" type="button">Choose activity (optional)</button></div>
+      <div><label class="lbl" for="re-desc">Description</label><textarea id="re-desc" rows="3" placeholder="e.g. Joint inspection for cube compressive strength test, 28 days (G25)"></textarea><div class="small muted" style="margin-top:4px">Choosing an activity fills this in. Change the wording as you like; a second line is fine, e.g. Casting location.</div></div>
+      <div><label class="lbl" for="re-struct">Structure</label><select id="re-struct"></select></div>
+      <div class="row2">
+        <div class="chin"><label class="lbl" for="re-ch">Chainage</label><input type="text" id="re-ch" inputmode="decimal" placeholder="76+500"></div>
+        <div class="chin"><label class="lbl" for="re-ch2">Chainage to</label><input type="text" id="re-ch2" inputmode="decimal" placeholder="77+075"></div>
+      </div>
+      <div><span class="lbl">Side</span><div class="seg" id="re-side" role="group" aria-label="Side"></div></div>
+      <div><label class="lbl" for="re-loc">Other location</label><input type="text" id="re-loc" list="rfl-locs" placeholder="e.g. Site Laboratory WP12" autocomplete="off"><div class="small muted" style="margin-top:4px" id="re-locprev"></div></div>
+      <div class="row2">
+        <div><label class="lbl" for="re-pic">PIC</label><input type="text" id="re-pic" list="rfl-pics" placeholder="Name" autocomplete="off"></div>
+        <div><label class="lbl" for="re-time">Time of inspection</label><input type="time" id="re-time"><div class="hint" id="re-timetext"></div></div>
+      </div>
+      <details id="re-dates"><summary class="small">Dates, if different from the list</summary>
+        <div class="row2" style="margin-top:8px">
+          <div><label class="lbl" for="re-issued">Issued date</label><input type="date" id="re-issued"></div>
+          <div><label class="lbl" for="re-insp">Inspection date</label><input type="date" id="re-insp"></div>
+        </div>
+      </details>
+      <div id="re-msg" class="small" style="color:var(--warn)" aria-live="polite"></div>
+    </div>
+    <div class="sheet-f"><button class="btn" id="re-more" type="button">Save and add another</button><button class="btn acc" id="re-save" type="button">Save</button></div>
+  </div>
+</div>
+
+<div class="sheet" id="rfl-paste" hidden role="dialog" aria-modal="true" aria-labelledby="rp-title">
+  <div class="box">
+    <div class="sheet-h"><h3 id="rp-title">Paste from Excel</h3><button class="btn" data-close type="button">Cancel</button></div>
+    <div class="sheet-b">
+      <ol class="small" style="margin:0;padding-left:20px;display:grid;gap:4px"><li>In Excel, select the rows of the list, with the heading row if you can (No., RFI Reference No., Issued Date, Inspection Date, Description, Location, PIC, Time).</li><li>Copy, then paste in the box below.</li><li>Check the table, then tap <b>Add</b>.</li></ol>
+      <textarea id="rp-text" rows="5" placeholder="Paste here"></textarea>
+      <div id="rp-prev" style="display:grid;gap:8px"></div>
+    </div>
+    <div class="sheet-f"><button class="btn" data-close type="button">Cancel</button><button class="btn acc" id="rp-add" type="button" disabled>Add to the list</button></div>
+  </div>
+</div>
+
+<datalist id="rfl-pics"></datalist><datalist id="rfl-locs"></datalist>
 <datalist id="rfi-list"></datalist>
 
 <div class="toast" id="toast" hidden><span id="toast-msg"></span><button id="toast-btn" type="button" hidden></button></div>
@@ -810,7 +927,7 @@ const DEFAULT_CONFIG = {"version":6,"projectCode":"WP12","projectTitle":"PROJEK 
 <script>
 "use strict";
 /* ============ WP12 Site Photo Report ============ */
-const APP_VERSION = "1.2.2 (10 Oct 2026)";
+const APP_VERSION = "1.2.3 (11 Oct 2026)";
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1001,7 +1118,7 @@ async function resizeTo(srcBlob, maxSide, q) {
 const WX = [["", "—", "—"], ["fine", "Fine", "Cerah"], ["cloudy", "Cloudy", "Mendung"], ["light", "Light rain", "Hujan renyai"], ["heavy", "Heavy rain", "Hujan lebat"]];
 const SIDES = ["LHS", "RHS", "CL", "Both"];
 const SIDE_BM = { LHS: "Kiri (LHS)", RHS: "Kanan (RHS)", CL: "Garis tengah", Both: "Kedua-dua belah" };
-let settings = { team: "CST", name: "", designation: "", lang: "en", logoL: null, logoR: null, recent: [], projectTitle: null, zones: null, collapsed: false, extraActs: [], contractNo: "", regUrl: "", regKey: "", setupStamp: "" };
+let settings = { team: "CST", name: "", designation: "", lang: "en", logoL: null, logoR: null, recent: [], projectTitle: null, zones: null, collapsed: false, extraActs: [], contractNo: "", regUrl: "", regKey: "", setupStamp: "", ppp: 4, diagram: false, diagLayers: {}, zonesCustom: false, teamZones: null, seenVersion: "", lastExport: "", snoozeExport: "", rfiListShow: null };
 let report = {};
 let photos = [];
 const blobs = new Map();   // id -> {full, thumb, url}
@@ -1013,6 +1130,7 @@ function newReport() {
   return { rid: uid(), date: today(), team: settings.team || "CST", name: settings.name || "", designation: settings.designation || "", zone: "", wxAM: "", wxPM: "", lang: settings.lang || "en", rfi: {} };
 }
 function zones() { return settings.zones || CFG.zones || []; }
+function zoneSort(list) { const o = zones().map(z => z.name); return [...new Set(list.filter(Boolean))].sort((a, b) => (o.indexOf(a) + 1 || 99) - (o.indexOf(b) + 1 || 99)); }
 function projectTitle() { return settings.projectTitle || CFG.projectTitle; }
 
 let saveT = null;
@@ -1056,11 +1174,11 @@ function locText(p, lang) {
   if (p.side) parts.push(lang === "bm" ? (SIDE_BM[p.side] || p.side) : p.side);
   return parts.join(" ");
 }
-function structText(p) {
+function structText(p, lang = "en") {
   const s = STRUCT.get(p.struct);
   const parts = [];
   if (s) parts.push(s.name);
-  if (p.el) parts.push(p.el);
+  if (p.el) parts.push(elText(p, lang));
   return parts.join(" · ");
 }
 function zoneOf(chStr) {
@@ -1070,8 +1188,7 @@ function zoneOf(chStr) {
 }
 function reportZone() {
   if (report.zone) return report.zone;
-  const set = new Set(photos.map(p => zoneOf(p.ch)).filter(Boolean));
-  return Array.from(set).join(", ");
+  return zoneSort(photos.map(p => zoneOf(p.ch))).join(", ");
 }
 
 /* ---------- report form ---------- */
@@ -1110,7 +1227,7 @@ $("#r-team").addEventListener("click", e => {
   const b = e.target.closest("[data-team]"); if (!b) return;
   report.team = settings.team = b.dataset.team;
   $$("#r-team button").forEach(x => x.setAttribute("aria-pressed", x === b));
-  renderReportSummary(); saveDraft();
+  renderReportSummary(); saveDraft(); renderRflStrip();
 });
 $("#btn-collapse").addEventListener("click", () => { settings.collapsed = !settings.collapsed; renderReportSummary(); saveDraft(); });
 
@@ -1200,7 +1317,7 @@ function refreshCard(id) {
   const p = photos.find(x => x.id === id), li = $(`#list li[data-id="${id}"]`); if (!p || !li) return;
   const ab = $("[data-a=pick]", li); ab.className = "actbtn" + (hasAct(p) ? "" : " unset"); ab.innerHTML = actBtnInner(p);
   const ch = $("[data-f=ch]", li); if (document.activeElement !== ch) ch.value = p.ch || ""; ch.classList.toggle("bad", !!(p.ch && !chInRange(p.ch)));
-  const c2 = $("[data-f=ch2]", li); if (document.activeElement !== c2) c2.value = p.ch2 || ""; c2.classList.toggle("bad", !!(p.ch2 && !chInRange(p.ch2)));
+  const c2 = $("[data-f=ch2]", li); if (c2) { if (document.activeElement !== c2) c2.value = p.ch2 || ""; c2.classList.toggle("bad", !!(p.ch2 && !chInRange(p.ch2))); }
   const st = $("[data-f=struct]", li); if (st.value !== p.struct) st.value = p.struct || "";
   $$("[data-side]", li).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === p.side));
   $(".hintslot", li).innerHTML = hintHTML(p);
@@ -1216,26 +1333,30 @@ function cardHTML(p, i) {
   else if (!p.gps) gpsTag = `<span class="tag">No GPS in photo</span>`;
   const chBad = p.ch && !chInRange(p.ch);
   const ch2Bad = p.ch2 && !chInRange(p.ch2);
-  const hasMore = p.el || p.rem || p.rfi || p.ch2;
+  const hasMore = !!p.rem;
   return `<li class="card${selected.has(p.id) ? " sel" : ""}" data-id="${p.id}">
   <div class="media"><img alt="Photo ${i + 1}" src="${blobs.get(p.id)?.url || ""}"><span class="no">${pad(i + 1)}</span>
     <label class="selbox"><input type="checkbox" data-a="sel"${selected.has(p.id) ? " checked" : ""}> Select</label></div>
   <div class="body">
     <div class="meta"><span class="mono">${timeStr(p.time)}</span>${p.timeSrc === "file" ? `<span class="small">(file time)</span>` : ""}${gpsTag}${p.gps && p.gps.src === "device" ? `<span class="small">phone location</span>` : ""}<span class="ztag">${zoneOf(p.ch) ? `<span class="tag">${esc(zoneOf(p.ch))}</span>` : ""}</span></div>
     <button type="button" class="actbtn${a ? "" : " unset"}" data-a="pick">${actBtnInner(p)}</button>
+    <div><label class="lbl" for="st-${p.id}">Structure</label><select id="st-${p.id}" data-f="struct">${structOptions(p.struct)}</select></div>
     <div class="row2">
-      <div><label class="lbl" for="st-${p.id}">Structure</label><select id="st-${p.id}" data-f="struct">${structOptions(p.struct)}</select></div>
       <div class="chin"><label class="lbl" for="ch-${p.id}">Chainage</label><input id="ch-${p.id}" type="text" inputmode="decimal" data-f="ch" value="${esc(p.ch)}" placeholder="71+775"${chBad ? ' class="bad"' : ""}></div>
+      ${p.ch2 || p.showCh2
+        ? `<div class="chin"><label class="lbl lblrow" for="c2-${p.id}"><span>Chainage to</span><button type="button" class="xbtn" data-a="rmch2" aria-label="Remove chainage range">× Remove</button></label><input id="c2-${p.id}" type="text" inputmode="decimal" data-f="ch2" value="${esc(p.ch2)}" placeholder="71+900"${ch2Bad ? ' class="bad"' : ""}></div>`
+        : `<div><span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" data-a="addch2">+ Chainage to</button></div>`}
     </div>
     <div class="seg" data-g="side">${sideButtons(p.side, "data-side")}</div>
     <div class="hintslot">${hintHTML(p)}</div>
-    <details class="more"${hasMore ? " open" : ""}><summary>Element, chainage to, RFI, remarks</summary>
+    <div class="row2">
+      <div><label class="lbl" for="el-${p.id}">Level / element</label><input id="el-${p.id}" type="text" data-f="el" value="${esc(p.el)}" placeholder="e.g. Berm 3, Layer 2, P2"></div>
+      <div><label class="lbl" for="ss-${p.id}">Status</label><select id="ss-${p.id}" data-f="status">${statusOptions(p.status)}</select></div>
+    </div>
+    ${p.status === "other" ? `<div><label class="lbl" for="sx-${p.id}">Your status</label><input id="sx-${p.id}" type="text" data-f="statusText" value="${esc(p.statusText)}" placeholder="e.g. Awaiting test result"></div>` : ""}
+    <div><label class="lbl" for="rf-${p.id}">RFI no. <span class="muted small">(for an inspection)</span></label><div class="rfi"><span>${esc(CFG.rfiPrefix)}</span><input id="rf-${p.id}" type="text" data-f="rfi" value="${esc(p.rfi)}" placeholder="TES-651" autocapitalize="characters" list="rfi-list" autocomplete="off"></div></div>
+    <details class="more"${hasMore ? " open" : ""}><summary>Remarks</summary>
       <div style="display:grid;gap:10px">
-        <div class="row2">
-          <div><label class="lbl" for="el-${p.id}">Element / detail</label><input id="el-${p.id}" type="text" data-f="el" value="${esc(p.el)}" placeholder="e.g. A1, P2, pile 5"></div>
-          <div class="chin"><label class="lbl" for="c2-${p.id}">Chainage to</label><input id="c2-${p.id}" type="text" inputmode="decimal" data-f="ch2" value="${esc(p.ch2)}" placeholder="optional"${ch2Bad ? ' class="bad"' : ""}></div>
-        </div>
-        <div><label class="lbl" for="rf-${p.id}">RFI no.</label><div class="rfi"><span>${esc(CFG.rfiPrefix)}</span><input id="rf-${p.id}" type="text" data-f="rfi" value="${esc(p.rfi)}" placeholder="TES-651" autocapitalize="characters" list="rfi-list" autocomplete="off"></div></div>
         <div><label class="lbl" for="rm-${p.id}">Remarks</label><textarea id="rm-${p.id}" data-f="rem" rows="2">${esc(p.rem)}</textarea></div>
       </div>
     </details>
@@ -1251,7 +1372,7 @@ function renderList() {
   $("#list").innerHTML = photos.map(cardHTML).join("");
   $("#empty").hidden = photos.length > 0;
   $("#count").textContent = photos.length ? `(${photos.length})` : "";
-  ["#btn-selectall", "#btn-sort", "#btn-new"].forEach(s => $(s).hidden = !photos.length);
+  ["#btn-selectall", "#btn-sort", "#btn-sortch", "#btn-new"].forEach(s => $(s).hidden = !photos.length);
   renderStatus(); renderBulkbar();
 }
 function rerenderCard(id) {
@@ -1288,7 +1409,8 @@ $("#list").addEventListener("change", e => {
   const f = e.target.dataset.f;
   if (f === "struct") { setStruct(p, e.target.value); refreshCard(p.id); saveDraft(); }
   else if (f === "ch" || f === "ch2") { p[f] = normCH(e.target.value); e.target.value = p[f]; refreshCard(p.id); saveDraft(); }
-  else if (f === "rfi") { p.rfi = rfiCode(p); e.target.value = p.rfi; saveDraft(); }
+  else if (f === "rfi") { p.rfi = rfiCode(p); e.target.value = p.rfi; if (rflFill(p)) rerenderCard(p.id); saveDraft(); }
+  else if (f === "status") { p.status = e.target.value; rerenderCard(p.id); saveDraft(); if (p.status === "other") $(`#sx-${p.id}`)?.focus(); }
   else if (e.target.dataset.a === "sel") { e.target.checked ? selected.add(p.id) : selected.delete(p.id); li.classList.toggle("sel", e.target.checked); renderBulkbar(); }
 });
 function setStruct(p, sid) {
@@ -1310,11 +1432,16 @@ $("#list").addEventListener("click", e => {
   if (a === "pick") openPicker(list => { setActs(p, list); refreshCard(p.id); saveDraft(); }, actsOf(p));
   else if (a === "copy" && i > 0) {
     const q = photos[i - 1];
-    ["act", "actText", "struct", "el", "ch", "ch2", "side", "rfi"].forEach(k => p[k] = q[k]);
+    // a photo with its own GPS chainage keeps it (same work, different chainage)
+    const keepGps = p.chSrc === "gps" && p.auto && !p.auto.far && !!p.ch;
+    ["act", "actText", "struct", "el", "ch2", "rfi", "rem", "status", "statusText"].forEach(k => p[k] = q[k]);
+    if (!keepGps) { p.ch = q.ch; p.side = q.side; p.chSrc = q.chSrc === "gps" ? "manual" : q.chSrc; }
     p.acts = actsOf(q).map(e => ({ ...e }));
-    p.chSrc = q.chSrc === "gps" ? "manual" : q.chSrc;
-    rerenderCard(p.id); saveDraft(); toast(`Copied tags from photo ${pad(i)}`);
+    rerenderCard(p.id); saveDraft();
+    toast(keepGps ? `Copied tags from photo ${pad(i)}. Kept this photo's own GPS chainage.` : `Copied tags from photo ${pad(i)}`, keepGps ? 4000 : 2600);
   }
+  else if (a === "addch2") { p.showCh2 = true; rerenderCard(p.id); $(`#c2-${p.id}`)?.focus(); }
+  else if (a === "rmch2") { p.ch2 = ""; p.showCh2 = false; rerenderCard(p.id); saveDraft(); }
   else if (a === "up" && i > 0) { [photos[i - 1], photos[i]] = [photos[i], photos[i - 1]]; renderList(); saveDraft(); }
   else if (a === "down" && i < photos.length - 1) { [photos[i + 1], photos[i]] = [photos[i], photos[i + 1]]; renderList(); saveDraft(); }
   else if (a === "del") removePhoto(i);
@@ -1342,6 +1469,10 @@ $("#btn-selectall").addEventListener("click", () => {
   renderList();
 });
 $("#btn-clearsel").addEventListener("click", () => { selected.clear(); renderList(); });
+$("#btn-sortch").addEventListener("click", () => {
+  const key = p => { const v = parseCH(p.ch); return isNaN(v) ? Infinity : v; };
+  photos.sort((a, b) => key(a) - key(b) || a.time - b.time); renderList(); saveDraft(); toast("Sorted by chainage; photos with no chainage are at the end");
+});
 $("#btn-sort").addEventListener("click", () => { photos.sort((a, b) => a.time - b.time); renderList(); saveDraft(); toast("Sorted by time taken"); });
 let newArmed = 0;
 $("#btn-new").addEventListener("click", async () => {
@@ -1407,7 +1538,8 @@ $("#btn-bulk").addEventListener("click", () => {
   bulkActs = []; bulkSide = "";
   $("#bk-title").textContent = `Tag ${selected.size} selected photo${selected.size > 1 ? "s" : ""}`;
   $("#bk-struct").innerHTML = structOptions("");
-  ["#bk-el", "#bk-ch", "#bk-ch2", "#bk-rfi", "#bk-rem"].forEach(s => $(s).value = "");
+  ["#bk-el", "#bk-ch", "#bk-ch2", "#bk-rfi", "#bk-rem", "#bk-stext"].forEach(s => $(s).value = "");
+  $("#bk-status").innerHTML = statusOptions("", "Keep as is"); $("#bk-stext-w").hidden = true;
   $("#bk-side").innerHTML = sideButtons("", "data-bside");
   renderBulkAct(); openSheet("#bulk");
 });
@@ -1420,10 +1552,12 @@ function renderBulkAct() {
 $("#bk-act").addEventListener("click", () => openPicker(list => { bulkActs = list; renderBulkAct(); }, bulkActs));
 $("#bk-side").addEventListener("click", e => { const b = e.target.closest("[data-bside]"); if (!b) return; bulkSide = bulkSide === b.dataset.bside ? "" : b.dataset.bside; $$("#bk-side button").forEach(x => x.setAttribute("aria-pressed", x.dataset.bside === bulkSide)); });
 $("#bk-ch").addEventListener("change", e => e.target.value = normCH(e.target.value));
+$("#bk-status").addEventListener("change", e => { $("#bk-stext-w").hidden = e.target.value !== "other"; });
 $("#bk-ch2").addEventListener("change", e => e.target.value = normCH(e.target.value));
 $("#bk-apply").addEventListener("click", () => {
   const st = $("#bk-struct").value, el = $("#bk-el").value.trim(), ch = normCH($("#bk-ch").value), ch2 = normCH($("#bk-ch2").value);
   const rfi = rfiCode({ rfi: $("#bk-rfi").value }), rem = $("#bk-rem").value.trim();
+  const bst = $("#bk-status").value, bstx = $("#bk-stext").value.trim();
   let n = 0;
   for (const p of photos) {
     if (!selected.has(p.id)) continue; n++;
@@ -1435,6 +1569,7 @@ $("#bk-apply").addEventListener("click", () => {
     if (bulkSide) p.side = bulkSide;
     if (rfi) p.rfi = rfi;
     if (rem) p.rem = rem;
+    if (bst) { p.status = bst; p.statusText = bst === "other" ? bstx : ""; }
   }
   closeSheet("#bulk"); selected.clear(); renderList(); saveDraft();
   toast(`Tags applied to ${n} photo${n > 1 ? "s" : ""}`);
@@ -1466,10 +1601,31 @@ const L = {
   en: { title: "SITE DAILY PHOTO REPORT", date: "Date", team: "Team", by: "Reported by", zone: "Zone", wx: "Weather", no: "No.", act: "Activity", bq: "BQ ref.", loc: "Location", st: "Structure", rfi: "RFI", rem: "Remarks", time: "Time", sum: "SUMMARY OF WORKS PHOTOGRAPHED", page: "Page", of: "of", prep: "Prepared by", am: "AM", pm: "PM", photos: "Photos", none: "Not tagged" },
   bm: { title: "LAPORAN HARIAN FOTO TAPAK", date: "Tarikh", team: "Pasukan", by: "Disediakan oleh", zone: "Zon", wx: "Cuaca", no: "Bil.", act: "Aktiviti", bq: "Ruj. BQ", loc: "Lokasi", st: "Struktur", rfi: "RFI", rem: "Catatan", time: "Masa", sum: "RINGKASAN KERJA YANG DIRAKAM", page: "Muka surat", of: "daripada", prep: "Disediakan oleh", am: "Pagi", pm: "Petang", photos: "Foto", none: "Belum ditanda" },
 };
-Object.assign(L.en, { ref: "Ref.", bqqc: "BQ / QC ref." });
-Object.assign(L.bm, { ref: "Ruj.", bqqc: "Ruj. BQ / QC" });
+Object.assign(L.en, { ref: "Ref.", bqqc: "BQ / QC ref.", status: "Status", lvl: "Level" });
+Object.assign(L.en, { racts: "Activities (BQ / QC ref.)", rstl: "Structure / level", pidx: "Photo index", rtime: "Time", rnote2: "This record is an attachment to RFI {ref}. The signed RFI form remains the record of inspection. Photos follow on the next page(s).", drng: "Photos from CH {a} to {b}", drng1: "Photo at CH {a}" });
+Object.assign(L.bm, { racts: "Aktiviti (Ruj. BQ / QC)", rstl: "Struktur / aras", pidx: "Senarai foto", rtime: "Masa", rnote2: "Rekod ini ialah lampiran kepada RFI {ref}. Borang RFI yang ditandatangani kekal sebagai rekod pemeriksaan. Foto di muka surat berikutnya.", drng: "Foto dari CH {a} hingga {b}", drng1: "Foto di CH {a}" });
+Object.assign(L.en, { lyB: "Bridges", lyP: "Pipe culverts", lyX: "Box culverts", lyJ: "Junction culverts", lyR: "RS walls", lsB: "Bridges", lsP: "Pipe culv.", lsX: "Box culv.", lsJ: "Junction", lsR: "RS walls", dstr: "Structure positions are indicative (drawing chainages)." });
+Object.assign(L.bm, { lyB: "Jambatan", lyP: "Pembetung paip", lyX: "Pembetung kotak", lyJ: "Pembetung simpang", lyR: "Dinding RS", lsB: "Jambatan", lsP: "Pemb. paip", lsX: "Pemb. kotak", lsJ: "Simpang", lsR: "Dinding RS", dstr: "Kedudukan struktur adalah anggaran (rantaian lukisan)." });
+Object.assign(L.en, { diag: "Photo locations along the alignment", dleg: "Above the line: LHS · On the line: CL · Below the line: RHS · Both sides: above and below. Photos close together share one marker; the numbers are the photo numbers.", dnot: "{n} photo{s} not shown: no chainage, or outside the alignment." });
+Object.assign(L.bm, { diag: "Lokasi foto di sepanjang jajaran", dleg: "Atas garisan: Kiri (LHS) · Pada garisan: CL · Bawah garisan: Kanan (RHS) · Kedua-dua belah: atas dan bawah. Foto yang berdekatan berkongsi satu penanda; nombor ialah nombor foto.", dnot: "{n} foto tidak ditunjukkan: tiada rantaian, atau di luar jajaran." });
+Object.assign(L.bm, { ref: "Ruj.", bqqc: "Ruj. BQ / QC", status: "Status", lvl: "Aras" });
 Object.assign(L.en, { rtitle: "RFI PHOTO RECORD", rsub: "Attachment to Request For Inspection (RFI) form, JKR Sabah", rref: "RFI ref. no.", idate: "Inspection date", itime: "Time", locw: "Location of work", desc: "Description of works", dref: "Reference (Drawing No. / Sketch No. / Others)", nph: "Photos attached", stage: "Stage", st1: "Inspection", st2: "Further inspection follow-up / verification", insp: "Inspection (by CST)", fu: "Further inspection follow-up / verification (by CST)", ra: "a. Approved. The contractor is allowed to proceed with the next stage.", rb: "b. Not approved as per comments. Rectification and re-inspection is required before proceeding with the next activity.", rc: "c. Not approved, work rejected as per comments.", fa: "a. Approved. Remedial work is accepted.", fb: "b. Remedial work rejected. New inspection required.", com: "Comments", s1: "Prepared by (WPC)", s2: "Checked by (CST)", s3: "Acknowledged by (SOR)", sig: "Signature", nm: "Name", stp: "Stamp", dsg: "Designation", dt: "Date", contract: "Contract no.", gen: "Generated by", rnote: "Photos follow on the next page(s). This record is an attachment; the signed RFI form remains the record of inspection." });
 Object.assign(L.bm, { rtitle: "REKOD FOTO RFI", rsub: "Lampiran kepada borang Request For Inspection (RFI), JKR Sabah", rref: "No. ruj. RFI", idate: "Tarikh pemeriksaan", itime: "Masa", locw: "Lokasi kerja", desc: "Keterangan kerja", dref: "Rujukan (No. Lukisan / Lakaran / Lain-lain)", nph: "Foto dilampirkan", stage: "Peringkat", st1: "Pemeriksaan", st2: "Pemeriksaan susulan / pengesahan", insp: "Pemeriksaan (oleh CST)", fu: "Pemeriksaan susulan / pengesahan (oleh CST)", ra: "a. Diluluskan. Kontraktor dibenarkan meneruskan ke peringkat seterusnya.", rb: "b. Tidak diluluskan seperti komen. Pembaikan dan pemeriksaan semula diperlukan sebelum aktiviti seterusnya.", rc: "c. Tidak diluluskan, kerja ditolak seperti komen.", fa: "a. Diluluskan. Kerja pembaikan diterima.", fb: "b. Kerja pembaikan ditolak. Pemeriksaan baharu diperlukan.", com: "Komen", s1: "Disediakan oleh (WPC)", s2: "Disemak oleh (CST)", s3: "Diperakui oleh (SOR)", sig: "Tandatangan", nm: "Nama", stp: "Cop", dsg: "Jawatan", dt: "Tarikh", contract: "No. kontrak", gen: "Dijana oleh", rnote: "Foto di muka surat berikutnya. Rekod ini ialah lampiran; borang RFI yang ditandatangani kekal sebagai rekod pemeriksaan." });
+Object.assign(L.en, { rltitle: "DAILY RFI SUMMARY LIST", rlinsp: "Inspection date", rlissued: "Issued date", rlby: "Prepared by", rln: "No. of RFIs", rlpic: "PIC", rltime: "Time of inspection", rlref: "RFI reference no.", rldesc: "Description", rlnone: "No RFIs in this list.", rlhiss: "Issued date", rlhinsp: "Inspection date", rlhtime: "Time of inspection" });
+Object.assign(L.bm, { rltitle: "SENARAI RINGKASAN RFI HARIAN", rlinsp: "Tarikh pemeriksaan", rlissued: "Tarikh dikeluarkan", rlby: "Disediakan oleh", rln: "Bil. RFI", rlpic: "PIC", rltime: "Masa pemeriksaan", rlref: "No. rujukan RFI", rldesc: "Keterangan", rlnone: "Tiada RFI dalam senarai ini.", rlhiss: "Tarikh keluaran", rlhinsp: "Tarikh periksa", rlhtime: "Masa periksa" });
+const STATUS = [["prog", "In progress", "Sedang dijalankan"], ["done", "Completed", "Siap"], ["ready", "Ready for inspection", "Sedia untuk pemeriksaan"], ["insp", "Inspected", "Telah diperiksa"], ["reinsp", "Re-inspection required", "Pemeriksaan semula diperlukan"], ["rect", "Rectification required", "Pembaikan diperlukan"], ["obs", "Observation", "Pemerhatian"]];
+const STATUS_MAP = new Map(STATUS.map(s => [s[0], s]));
+function statusText(p, lang) {
+  if (!p.status) return "";
+  if (p.status === "other") return (p.statusText || "").trim();
+  const s = STATUS_MAP.get(p.status); if (!s) return "";
+  return lang === "bm" ? s[2] : lang === "both" ? s[1] + " / " + s[2] : s[1];
+}
+function statusOptions(v, first = "No status") {
+  return `<option value="">${first}</option>` + STATUS.map(s => `<option value="${s[0]}"${v === s[0] ? " selected" : ""}>${s[1]}</option>`).join("") + `<option value="other"${v === "other" ? " selected" : ""}>Other…</option>`;
+}
+// Level / element is typed by the user; BM captions read "Layer 2" as "Lapisan 2"
+function elText(p, lang) { const e = (p.el || "").trim(); return lang === "bm" ? e.replace(/\bLayer (\d+)/g, "Lapisan $1") : e; }
 function lab(k, lang) { return lang === "both" ? (L.en[k] === L.bm[k] ? L.en[k] : L.en[k] + " / " + L.bm[k]) : L[lang][k]; }
 function actLines(p, lang) {
   if (!hasAct(p)) return [lab("none", lang)];
@@ -1499,7 +1655,7 @@ function pdfSafe(s) {
 function summaryGroups() {
   const groups = [];
   photos.forEach((p, i) => {
-    const key = [JSON.stringify(actsOf(p)), normCH(p.ch), normCH(p.ch2), p.side, p.struct, p.el, p.rfi].join("|");
+    const key = [JSON.stringify(actsOf(p)), normCH(p.ch), normCH(p.ch2), p.side, p.struct, p.el, p.rfi, p.status, p.statusText].join("|");
     const g = groups[groups.length - 1];
     if (g && g.key === key) g.to = i; else groups.push({ key, from: i, to: i, p });
   });
@@ -1516,9 +1672,10 @@ function whatsappText(lang) {
     const p = g.p, ref = refFor(p);
     let t = `${n}. ${hasAct(p) ? actName(p, lg) : lab("none", lg)}`;
     if (ref && !/n\/a/.test(ref)) t += ` (${ref})`;
-    const loc = [locText(p, lg), structText(p)].filter(Boolean).join(", ");
+    const loc = [locText(p, lg), structText(p, lg)].filter(Boolean).join(", ");
     if (loc) t += ` – ${loc}`;
     if (p.rfi) t += ` – RFI ${CFG.rfiPrefix}${p.rfi}`;
+    const sv = statusText(p, lg); if (sv) t += ` [${sv}]`;
     lines.push(t);
   }
   return lines.join("\n");
@@ -1541,11 +1698,12 @@ async function stampedBlob(p, i, lang) {
     const fB = `700 ${fs}px Barlow, Arial, sans-serif`, fN = `500 ${fs}px Barlow, Arial, sans-serif`;
     const rows = [];
     rows.push({ t: `WP12 · ${dateText()} ${timeStr(p.time)} · ${report.team || ""} · No. ${pad(i + 1)}`, f: fB, c: "#FF8A3D" });
-    const loc = [locText(p, lg), structText(p)].filter(Boolean).join(" · ");
+    const loc = [locText(p, lg), structText(p, lg)].filter(Boolean).join(" · ");
     if (loc) wrap(loc, fB).forEach(t => rows.push({ t, f: fB, c: "#FFFFFF" }));
     const ref = refFor(p);
     actLines(p, lang).forEach((a, k) => wrap(a + (k === 0 && ref && !/n\/a/.test(ref) ? `  [${ref}]` : ""), fN).forEach(t => rows.push({ t, f: fN, c: "#FFFFFF" })));
     if (p.rfi) rows.push({ t: `RFI ${CFG.rfiPrefix}${p.rfi}`, f: fN, c: "#FFFFFF" });
+    const sv = statusText(p, lang); if (sv) wrap(`${lab("status", lg)}: ${sv}`, fB).forEach(t => rows.push({ t, f: fB, c: "#FFD9A8" }));
     if (p.rem) wrap(p.rem, fN).slice(0, 2).forEach(t => rows.push({ t, f: fN, c: "#DDE3E8" }));
     const band = rows.length * lh + Math.round(fs * 0.9);
     const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
@@ -1568,7 +1726,7 @@ async function pdfKit(lang) {
   const { jsPDF } = window.jspdf;
   return {
     doc: new jsPDF({ unit: "mm", format: "a4", compress: true }), lang, fl: lang === "both" ? "en" : lang,
-    W: 210, H: 297, M: 10, CW: 190, first: true, lgL: await logoData(settings.logoL), lgR: await logoData(settings.logoR),
+    W: 210, H: 297, M: 10, CW: 190, first: true, ppp: settings.ppp === 2 ? 2 : 4, lgL: await logoData(settings.logoL), lgR: await logoData(settings.logoR),
   };
 }
 function pdfHeader(k, title, cells) {
@@ -1593,12 +1751,23 @@ function pdfHeader(k, title, cells) {
     doc.setFillColor(...PC.fill); doc.rect(x, y, wdt, h, "FD");
     doc.setFontSize(6); doc.setTextColor(...PC.muted); doc.setFont("helvetica", "normal");
     doc.text(doc.splitTextToSize(T(kk).toUpperCase(), wdt - 2)[0] || "", x + 1.6, y + 3.1);
-    doc.setFontSize(8); doc.setTextColor(...PC.ink); doc.setFont("helvetica", "bold");
-    doc.text(doc.splitTextToSize(T(v), wdt - 3)[0] || "", x + 1.6, y + 7.6);
+    doc.setTextColor(...PC.ink); doc.setFont("helvetica", "bold");
+    let fs = 8, tv = T(v); doc.setFontSize(fs);
+    if (/^Zone \d/.test(tv) && doc.getTextWidth(tv) > wdt - 3) tv = tv.replace(/Zone\s*/g, "Z");
+    if (doc.getTextWidth(tv) > wdt - 3) tv = shortList(tv);
+    while (fs > 6 && doc.getTextWidth(tv) > wdt - 3) { fs -= 0.5; doc.setFontSize(fs); }
+    doc.text(doc.splitTextToSize(tv, wdt - 3)[0] || "", x + 1.6, y + 7.6);
     x += wdt;
   });
   doc.setDrawColor(...PC.acc); doc.setLineWidth(0.6); doc.line(M, y + h + 2, W - M, y + h + 2);
   return y + h + 5;
+}
+// "CST Z1, CST Z3, CST Z4" -> "CST Z1, Z3, Z4": drop the words every item starts with, after the first item
+function shortList(t) {
+  const it = t.split(", "); if (it.length < 2) return t;
+  const w = it.map(x => x.split(" ")); let n = 0;
+  while (w.every(x => x.length > n + 1 && x[n] === w[0][n])) n++;
+  return n ? [it[0], ...w.slice(1).map(x => x.slice(n).join(" "))].join(", ") : t;
 }
 function pdfPage(k, title, cells) { if (!k.first) k.doc.addPage(); k.first = false; return pdfHeader(k, title, cells); }
 function pdfFooters(k, tag, whoKey = "prep") {
@@ -1616,17 +1785,144 @@ function pdfFooters(k, tag, whoKey = "prep") {
 function dailyCells(k) {
   return [[lab("date", k.lang), dateText(), 30], [lab("team", k.lang), report.team || "", 20], [lab("by", k.lang), [report.name, report.designation].filter(Boolean).join(", "), 52], [lab("zone", k.lang), reportZone() || "-", 34], [lab("wx", k.fl), wxText(k.fl) || "-", 54]];
 }
-async function pdfPhotos(k, items, title, cells, onProg) {
+/* alignment diagram (experimental): one strip from the start to the end chainage, zones shaded,
+   photo markers above (LHS), on (CL / no side) or below (RHS) the line; close photos share a marker */
+function diagLabel(nos) {
+  const n = [...new Set(nos)].sort((a, b) => a - b), runs = [];
+  for (const v of n) { const r = runs[runs.length - 1]; if (r && v === r[1] + 1) r[1] = v; else runs.push([v, v]); }
+  const t = runs.map(([a, b]) => a === b ? String(a) : a + (b === a + 1 ? "," : "–") + b).join(",");
+  return t.length > 11 ? `${n.length} photos` : t;
+}
+const DIAG_LAYERS = ["B", "P", "X", "J", "R"];
+function structLayer(s) {
+  const g = (s.grp || "").toLowerCase();
+  if (g.startsWith("bridge")) return "B"; if (g.startsWith("junction")) return "J"; if (g.startsWith("reinforced")) return "R";
+  if (g.startsWith("culvert")) return /box/i.test(s.name || "") ? "X" : "P";
+  return "";
+}
+function diagLayersOn() { return DIAG_LAYERS.filter(key => settings.diagLayers && settings.diagLayers[key] && CFG.structures.some(s => structLayer(s) === key)); }
+function pdfAlignment(k, y0, items) {
+  const { doc, M, CW } = k, T = pdfSafe, lang = k.lang;
+  const a = CFG.chFrom, b = CFG.chTo; if (!(b > a)) return y0;
+  const on = diagLayersOn(), lyH = 6.2;
+  const x0 = M + (on.length ? 17 : 9), x1 = M + CW - 3, X = c => x0 + (Math.min(Math.max(c, a), b) - a) / (b - a) * (x1 - x0);
+  const lines = key => lang === "both" ? [L.en[key], L.bm[key]].filter((v, i, s) => s.indexOf(v) === i) : [L[lang][key]];
+  let y = y0 + 3;
+  doc.setFont("helvetica", "bold"); doc.setFontSize(8.6); doc.setTextColor(...PC.ink);
+  doc.text(T(lines("diag").join(" / ")), M, y);
+  const yL = y + 7, yb = y + 11.5, bh = 6, yR = yb + bh + 4.5, yAx = yR + 4.5;
+  // zone bands
+  const zs = zones().filter(z => z.from != null && z.to != null && z.to > z.from).sort((p, q) => p.from - q.from);
+  const bands = zs.length ? zs : [{ name: "", from: a, to: b }];
+  bands.forEach((z, i) => {
+    const xa = X(z.from), xb = X(z.to);
+    doc.setFillColor(...(i % 2 ? [253, 236, 226] : [232, 236, 239])); doc.rect(xa, yb, Math.max(0.2, xb - xa), bh, "F");
+  });
+  doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.rect(x0, yb, x1 - x0, bh, "S");
+  doc.setDrawColor(...PC.ink); doc.setLineWidth(0.35); doc.setLineDashPattern([1.6, 1], 0); doc.line(x0, yb + bh / 2, x1, yb + bh / 2); doc.setLineDashPattern([], 0);
+  doc.setFont("helvetica", "bold"); doc.setFontSize(6.4); doc.setTextColor(...PC.muted);
+  doc.text("L", M + 1, yL + 1); doc.text("CL", M + 1, yb + bh / 2 + 1.1); doc.text("R", M + 1, yR + 1);
+  const ly0 = yAx + 6.5, lyY = li => ly0 + li * lyH;
+  const lyStructs = key => CFG.structures.filter(s => structLayer(s) === key && s.ch >= a && s.ch <= b).sort((p, q) => p.ch - q.ch);
+  if (on.length) {
+    // faint guides from each structure up to the main alignment
+    doc.setDrawColor(200, 207, 212); doc.setLineWidth(0.15); doc.setLineDashPattern([0.5, 0.7], 0);
+    on.forEach((key, li) => lyStructs(key).forEach(s => doc.line(X(s.ch), yb + bh, X(s.ch), lyY(li) - 1.4)));
+    doc.setLineDashPattern([], 0);
+  }
+  // chainage ticks at the ends and zone boundaries
+  const marks = [...new Set([a, ...bands.flatMap(z => [z.from, z.to]), b])].filter(c => c >= a && c <= b).sort((p, q) => p - q);
+  doc.setFont("helvetica", "normal"); doc.setFontSize(5.8); doc.setTextColor(...PC.muted); doc.setDrawColor(...PC.line); doc.setLineWidth(0.2);
+  let lastX = -99;
+  marks.forEach((c, i) => {
+    const x = X(c); doc.line(x, yb + bh, x, yAx - 2.2);
+    if (x - lastX < 13 && i !== marks.length - 1) return;
+    const al = i === 0 ? "left" : i === marks.length - 1 ? "right" : "center";
+    if (on.length) { const tw = doc.getTextWidth(fmtCH(c)), tx = al === "left" ? x : al === "right" ? x - tw : x - tw / 2; doc.setFillColor(255, 255, 255); doc.rect(tx - 0.4, yAx - 1.8, tw + 0.8, 2.4, "F"); }
+    doc.text(fmtCH(c), x, yAx, { align: al }); lastX = x;
+  });
+  // zone names on the chainage row, between the boundary labels
+  doc.setFont("helvetica", "bold"); doc.setFontSize(6.2); doc.setTextColor(...PC.ink);
+  bands.forEach(z => {
+    if (!z.name) return;
+    const xa = X(z.from), xb = X(z.to), room = xb - xa - 15;
+    let nm = z.name; if (doc.getTextWidth(nm) > room) nm = nm.replace(/^zone\s*/i, "Z"); if (doc.getTextWidth(nm) > room) return;
+    if (on.length) { const tw = doc.getTextWidth(T(nm)); doc.setFillColor(255, 255, 255); doc.rect((xa + xb) / 2 - tw / 2 - 0.5, yAx - 2, tw + 1, 2.6, "F"); }
+    doc.text(T(nm), (xa + xb) / 2, yAx, { align: "center" });
+  });
+  // markers
+  const lanes = { L: [], C: [], R: [] }; let off = 0;
+  for (const { p, no } of items) {
+    const c = parseCH(p.ch);
+    if (!p.ch || isNaN(c) || !chInRange(p.ch) || (p.chSrc === "gps" && p.auto && p.auto.far)) { off++; continue; }
+    const c2 = p.ch2 && chInRange(p.ch2) ? parseCH(p.ch2) : NaN;
+    const e = { x: X(c), x2: isNaN(c2) ? null : X(c2), no };
+    const s = p.side; if (s === "LHS") lanes.L.push(e); else if (s === "RHS") lanes.R.push(e); else if (s === "Both") { lanes.L.push(e); lanes.R.push({ ...e }); } else lanes.C.push(e);
+  }
+  const pillH = 4.6;
+  const drawLane = (list, cy, edge) => {
+    list.sort((p, q) => p.x - q.x);
+    const cl = [];
+    for (const e of list) { const g = cl[cl.length - 1]; if (g && e.x - g.xs[g.xs.length - 1] < 6 && e.x - g.xs[0] < 14) { g.xs.push(e.x); g.nos.push(e.no); g.e.push(e); } else cl.push({ xs: [e.x], nos: [e.no], e: [e] }); }
+    doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
+    cl.forEach(g => { g.t = diagLabel(g.nos); g.w = Math.max(pillH, doc.getTextWidth(g.t) + 2.6); g.mx = g.xs.reduce((s, v) => s + v, 0) / g.xs.length; g.cx = g.mx; });
+    for (let i = 0; i < cl.length; i++) { const g = cl[i], pr = cl[i - 1]; if (pr && g.cx - g.w / 2 < pr.cx + pr.w / 2 + 0.8) g.cx = pr.cx + pr.w / 2 + 0.8 + g.w / 2; }
+    for (let i = cl.length - 1; i >= 0; i--) { const g = cl[i], nx = cl[i + 1]; const lim = nx ? nx.cx - nx.w / 2 - 0.8 : x1 + 2; if (g.cx + g.w / 2 > lim) g.cx = lim - g.w / 2; }
+    cl.forEach(g => { if (g.cx - g.w / 2 < x0 - 2) g.cx = x0 - 2 + g.w / 2; });
+    cl.forEach(g => {
+      doc.setDrawColor(...PC.acc); doc.setLineWidth(0.5);
+      g.e.forEach(e => { if (e.x2 != null && edge != null) doc.line(Math.min(e.x, e.x2), edge, Math.max(e.x, e.x2), edge); });
+      if (edge != null) { doc.setLineWidth(0.3); g.xs.forEach(x => doc.line(x, edge, x, edge + (cy < edge ? -1.2 : 1.2))); if (Math.abs(g.cx - g.mx) > 0.3 || g.xs.length > 1) doc.line(g.mx, edge + (cy < edge ? -1.2 : 1.2), g.cx, cy + (cy < edge ? pillH / 2 : -pillH / 2)); }
+      doc.setFillColor(...PC.acc); doc.roundedRect(g.cx - g.w / 2, cy - pillH / 2, g.w, pillH, pillH / 2, pillH / 2, "F");
+      doc.setTextColor(255, 255, 255); doc.text(g.t, g.cx, cy + 0.85, { align: "center" });
+    });
+  };
+  drawLane(lanes.L, yL, yb); drawLane(lanes.R, yR, yb + bh); drawLane(lanes.C, yb + bh / 2, null);
+  on.forEach((key, li) => {
+    const yy = lyY(li);
+    doc.setFont("helvetica", "bold"); doc.setFontSize(5.8); doc.setTextColor(...PC.muted);
+    doc.text(T(lang === "bm" ? L.bm["ls" + key] : L.en["ls" + key]), M + 0.5, yy + 0.9);
+    doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.line(x0, yy, x1, yy);
+    let lastR = -99;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(5.4); doc.setTextColor(...PC.ink);
+    lyStructs(key).forEach(s => {
+      const x = X(s.ch); doc.setDrawColor(15, 110, 86); doc.setLineWidth(0.6); doc.line(x, yy - 1.3, x, yy + 1.3);
+      const t = s.id || "", w = doc.getTextWidth(t), lx = x - w / 2;
+      if (lx > lastR + 0.8 && lx + w <= x1 + 3) { doc.text(T(t), x, yy - 1.9, { align: "center" }); lastR = lx + w; }
+    });
+  });
+  // chainage range of the photos shown
+  let ly = on.length ? lyY(on.length - 1) + 5 : yAx + 4;
+  const shown = items.map(({ p }) => p).filter(p => p.ch && chInRange(p.ch) && !(p.chSrc === "gps" && p.auto && p.auto.far));
+  const vs = shown.flatMap(p => [parseCH(p.ch), p.ch2 && chInRange(p.ch2) ? parseCH(p.ch2) : NaN]).filter(v => !isNaN(v));
+  if (vs.length) {
+    const lo = Math.min(...vs), hi = Math.max(...vs), zn = zoneSort(shown.map(p => zoneOf(p.ch))).join(", ");
+    const one = hi - lo < 1;
+    const rl = (lang === "both" ? ["en", "bm"] : [lang]).map(l => L[l][one ? "drng1" : "drng"].replace("{a}", fmtCH(lo)).replace("{b}", fmtCH(hi)));
+    const rt = [...new Set(rl)].join(" / ") + (zn ? ` (${zn})` : "");
+    doc.setFont("helvetica", "bold"); doc.setFontSize(7.2); doc.setTextColor(...PC.ink); doc.text(T(rt), M, ly); ly += 3.4;
+  }
+  // legend and note
+  doc.setFont("helvetica", "normal"); doc.setFontSize(6.4); doc.setTextColor(...PC.muted);
+  const leg = lines("dleg");
+  if (on.length) leg.push(...lines("dstr"));
+  if (off) { const nl = lines("dnot").map((t, i) => t.replace("{n}", off).replace("{s}", off > 1 ? "s" : "")); leg.push(...nl); }
+  leg.forEach((t, i) => { const w = doc.splitTextToSize(T(t), CW); doc.setFont("helvetica", lang === "both" && i % 2 ? "italic" : "normal"); doc.text(w, M, ly, { lineHeightFactor: 1.2 }); ly += w.length * 2.7; });
+  doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.line(M, ly, M + CW, ly);
+  return ly + 3;
+}
+async function pdfPhotos(k, items, title, cells, onProg, intro) {
   const { doc, M, CW, H } = k, T = pdfSafe, lang = k.lang, fl = k.fl;
-  const gap = 5, colW = (CW - gap) / 2;
+  const per = k.ppp === 2 ? 2 : 4, two = per === 2, z = two ? 1.14 : 1;
+  const gap = 5, colW = two ? CW : (CW - gap) / 2;
   let top = 0;
   for (let j = 0; j < items.length; j++) {
-    const { p, no } = items[j], slot = j % 4;
-    if (slot === 0) top = pdfPage(k, title, cells);
-    const rowH = (H - 14 - top - gap) / 2, imgH = rowH * 0.72, capH = rowH - imgH;
-    const x = M + (slot % 2) * (colW + gap), y = top + Math.floor(slot / 2) * (rowH + gap);
+    const { p, no } = items[j], slot = j % per;
+    if (slot === 0) { top = pdfPage(k, title, cells); if (j === 0 && intro) top = intro(top); }
+    const rowH = (H - 14 - top - gap) / 2, capH = two ? Math.min(34, rowH * 0.29) : rowH * 0.28, imgH = rowH - capH;
+    const x = two ? M : M + (slot % 2) * (colW + gap), y = top + (two ? slot : Math.floor(slot / 2)) * (rowH + gap);
     onProg && onProg(j + 1, items.length);
-    const r = await resizeTo(blobs.get(p.id).full, 1300, 0.76);
+    const r = await resizeTo(blobs.get(p.id).full, two ? 1600 : 1300, two ? 0.8 : 0.76);
     const buf = new Uint8Array(await r.blob.arrayBuffer());
     doc.setFillColor(236, 239, 241); doc.rect(x, y, colW, imgH, "F");
     const s = Math.min(colW / r.w, imgH / r.h), iw = r.w * s, ih = r.h * s;
@@ -1635,54 +1931,61 @@ async function pdfPhotos(k, items, title, cells, onProg) {
     doc.setFont("helvetica", "bold"); doc.setFontSize(8); doc.setTextColor(255, 255, 255); doc.text(pad(no), x + 4.5, y + 3.7, { align: "center" });
     const cy = y + imgH;
     doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.rect(x, y, colW, rowH, "S");
-    let ty = cy + 4.2; const tx = x + 2, tw = colW - 4;
-    doc.setFont("helvetica", "bold"); doc.setFontSize(8.4); doc.setTextColor(...PC.ink);
+    let ty = cy + 4.2 * z; const tx = x + 2, tw = colW - 4;
+    doc.setFont("helvetica", "bold"); doc.setFontSize(8.4 * z); doc.setTextColor(...PC.ink);
     const al = actLines(p, lang);
     const head = doc.splitTextToSize(T(al[0]), tw - 14);
     doc.text(head, tx, ty, { lineHeightFactor: 1.2 });
-    doc.setFont("helvetica", "normal"); doc.setFontSize(7.2); doc.setTextColor(...PC.muted);
+    doc.setFont("helvetica", "normal"); doc.setFontSize(7.2 * z); doc.setTextColor(...PC.muted);
     doc.text(T(timeStr(p.time)), x + colW - 2, ty, { align: "right" });
-    ty += head.length * 3.6;
-    if (al[1]) { doc.setFont("helvetica", "italic"); doc.setFontSize(7.6); doc.setTextColor(...PC.ink); const b2 = doc.splitTextToSize(T(al[1]), tw); doc.text(b2, tx, ty - 0.4, { lineHeightFactor: 1.2 }); ty += b2.length * 3.3; }
+    ty += head.length * 3.6 * z;
+    if (al[1]) { doc.setFont("helvetica", "italic"); doc.setFontSize(7.6 * z); doc.setTextColor(...PC.ink); const b2 = doc.splitTextToSize(T(al[1]), tw); doc.text(b2, tx, ty - 0.4, { lineHeightFactor: 1.2 }); ty += b2.length * 3.3 * z; }
     const kv = [], ref = refFor(p), locL = lab("loc", fl);
     if (ref) kv.push([lab("ref", fl), ref]);
     kv.push([locL, locText(p, fl) || "-"]);
-    const st = structText(p); if (st) kv.push([lab("st", fl), st]);
+    const st = structText(p, fl); if (st) kv.push([lab(p.struct ? "st" : "lvl", fl), st]);
     if (p.rfi) kv.push(["RFI", CFG.rfiPrefix + rfiCode(p)]);
+    const sv = statusText(p, lang); if (sv) kv.push([lab("status", fl), sv]);
     if (p.rem) kv.push([lab("rem", fl), p.rem]);
-    const kw = 17;
+    const kw = 17 * z, lh = 3.3 * z;
     for (const [kk, v] of kv) {
-      doc.setFontSize(7.6); const vl = doc.splitTextToSize(T(v), tw - kw);
-      const room = Math.floor((cy + capH - 1.5 - ty) / 3.3) + 1;
+      doc.setFontSize(7.6 * z); const vl = doc.splitTextToSize(T(v), tw - kw);
+      const room = Math.floor((cy + capH - 1.5 - ty) / lh) + 1;
       if (room <= 0) break;
       const shown = vl.slice(0, room);
       if (vl.length > room && shown.length) shown[shown.length - 1] = shown[shown.length - 1].replace(/.{0,3}$/, "...");
-      doc.setFont("helvetica", "normal"); doc.setFontSize(6.8); doc.setTextColor(...PC.muted); doc.text(T(kk), tx, ty);
-      doc.setFontSize(7.6); doc.setTextColor(...PC.ink); doc.setFont("helvetica", kk === locL ? "bold" : "normal");
+      doc.setFont("helvetica", "normal"); doc.setFontSize(6.8 * z); doc.setTextColor(...PC.muted); doc.text(T(kk), tx, ty);
+      doc.setFontSize(7.6 * z); doc.setTextColor(...PC.ink); doc.setFont("helvetica", kk === locL || kk === lab("status", fl) ? "bold" : "normal");
       doc.text(shown, tx + kw, ty, { lineHeightFactor: 1.15 });
-      ty += shown.length * 3.3 + 0.5;
+      ty += shown.length * lh + 0.5;
     }
   }
 }
 async function buildPDF(lang, withSummary, onProg) {
   const k = await pdfKit(lang), { doc, M, CW, W, H } = k, T = pdfSafe, lg = lang;
   const title = lab("title", lang), cells = dailyCells(k);
+  const allItems = photos.map((p, i) => ({ p, no: i + 1 }));
+  const diag = settings.diagram && photos.length;
   if (withSummary && photos.length) {
     let y = pdfPage(k, title, cells);
+    if (diag) y = pdfAlignment(k, y, allItems);
     doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(...PC.ink);
     doc.text(T(lab("sum", lg)), M, y + 3); y += 6;
     const cols = [[lab("no", lg), 11], [lab("act", lg), 58], [lab("bqqc", lg), 27], [lab("loc", lg), 30], [lab("st", lg), 27], [lab("rfi", lg), 33]];
     const tot = cols.reduce((a, c) => a + c[1], 0), cw = cols.map(c => c[1] / tot * CW);
     const drawHead = () => {
-      let x = M; doc.setFillColor(...PC.ink); doc.rect(M, y, CW, 6.5, "F");
-      doc.setFont("helvetica", "bold"); doc.setFontSize(6.6); doc.setTextColor(255, 255, 255);
-      cols.forEach((c, i) => { doc.text(T(c[0]).toUpperCase(), x + 1.5, y + 4.3, { maxWidth: cw[i] - 2 }); x += cw[i]; });
-      y += 6.5;
+      doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
+      const hl = cols.map((c, i) => doc.splitTextToSize(T(c[0]).toUpperCase(), cw[i] - 3));
+      const hh = Math.max(...hl.map(l => l.length)) * 2.8 + 3.7;
+      let x = M; doc.setFillColor(...PC.ink); doc.rect(M, y, CW, hh, "F");
+      doc.setTextColor(255, 255, 255);
+      hl.forEach((l, i) => { doc.text(l, x + 1.5, y + 4.1, { lineHeightFactor: 1.2 }); x += cw[i]; });
+      y += hh;
     };
     drawHead();
     summaryGroups().forEach((g, gi) => {
       const p = g.p, bq = refFor(p);
-      const vals = [g.from === g.to ? pad(g.from + 1) : pad(g.from + 1) + "-" + pad(g.to + 1), actLines(p, lang).join("\n"), bq || "-", locText(p, k.fl) || "-", structText(p) || "-", p.rfi ? CFG.rfiPrefix + rfiCode(p) : "-"];
+      const vals = [g.from === g.to ? pad(g.from + 1) : pad(g.from + 1) + "-" + pad(g.to + 1), actLines(p, lang).join("\n") + (statusText(p, lang) ? "\n[" + statusText(p, lang) + "]" : ""), bq || "-", locText(p, k.fl) || "-", structText(p, k.fl) || "-", p.rfi ? CFG.rfiPrefix + rfiCode(p) : "-"];
       doc.setFontSize(7.4);
       const wrapped = vals.map((v, i) => doc.splitTextToSize(T(v), cw[i] - 3));
       const rh = Math.max(...wrapped.map(w => w.length)) * 3.3 + 2.6;
@@ -1694,7 +1997,7 @@ async function buildPDF(lang, withSummary, onProg) {
       y += rh;
     });
   }
-  await pdfPhotos(k, photos.map((p, i) => ({ p, no: i + 1 })), title, cells, onProg);
+  await pdfPhotos(k, allItems, title, cells, onProg, diag && !withSummary ? top => pdfAlignment(k, top, allItems) : null);
   pdfFooters(k, `WP12 SDR ${ymd()}`);
   return doc.output("blob");
 }
@@ -1710,8 +2013,8 @@ function rfiAuto(items, lg) {
   const descs = [...new Set(items.map(x => actName(x.p, lg)).filter(Boolean))];
   const chs = items.flatMap(x => [parseCH(x.p.ch), parseCH(x.p.ch2)]).filter(v => !isNaN(v));
   const sides = [...new Set(items.map(x => x.p.side).filter(Boolean))];
-  const sts = [...new Set(items.map(x => structText(x.p)).filter(Boolean))];
-  const zs = [...new Set(items.map(x => zoneOf(x.p.ch)).filter(Boolean))];
+  const sts = [...new Set(items.map(x => structText(x.p, lg)).filter(Boolean))];
+  const zs = zoneSort(items.map(x => zoneOf(x.p.ch)));
   let loc = "";
   if (chs.length) { const a = Math.min(...chs), b = Math.max(...chs); loc = "CH " + fmtCH(a) + (b - a >= 1 ? " – " + fmtCH(b) : ""); }
   if (sides.length) loc += (loc ? " " : "") + sides.map(s => lg === "bm" ? (SIDE_BM[s] || s) : s).join(" / ");
@@ -1727,21 +2030,21 @@ function rfiInfo(code) {
 function rfiFileName(code) { return `${ymd()}_${CFG.rfiPrefix}${code}_Photo_Record.pdf`.replace(/[^\w.+\-]/g, "_"); }
 async function buildRfiPDF(code, lang, onProg) {
   const items = rfiGroups().get(code) || [];
-  const k = await pdfKit(lang), { doc, M, CW, H } = k, T = pdfSafe, fl = k.fl;
+  const k = await pdfKit(lang), { doc, M, CW, W, H } = k, T = pdfSafe, fl = k.fl;
   const auto = rfiAuto(items, fl), info = rfiInfo(code), full = CFG.rfiPrefix + code;
   const tt = auto.t1 ? timeStr(auto.t1) + (timeStr(auto.t2) !== timeStr(auto.t1) ? " - " + timeStr(auto.t2) : "") : "-";
   const cells = [[lab("rref", lang), full, 48], [lab("idate", lang), dateText(), 28], [lab("itime", lang), tt, 20], [lab("team", lang), report.team || "", 14], [lab("by", lang), [report.name, report.designation].filter(Boolean).join(", "), 44]];
   const title = lab("rtitle", lang);
   let y = pdfPage(k, title, cells);
   doc.setFont("helvetica", "italic"); doc.setFontSize(8); doc.setTextColor(...PC.muted);
-  const subT = T(lab("rsub", lang)), subW = doc.getTextWidth(subT);
-  doc.text(subT, M, y + 1);
-  doc.setFont("helvetica", "bold"); doc.setTextColor(...PC.ink);
-  const stT = T(lab("stage", fl) + ": " + lab(info.stage === "2" ? "st2" : "st1", fl));
-  if (subW + doc.getTextWidth(stT) + 6 > CW) { y += 4; doc.text(stT, M, y + 1); }
-  else doc.text(stT, M + CW, y + 1, { align: "right" });
-  y += 4.5;
-  const rows = [[lab("locw", lang), auto.loc || "-"], [lab("desc", lang), info.desc || auto.desc || "-"], [lab("dref", lang), info.dref || "-"], [lab("nph", lang), String(items.length)]];
+  doc.text(doc.splitTextToSize(T(lab("rsub", lang)), CW), M, y + 1); y += 4.5;
+  // details: location, description, activities with refs, structure / level, number of photos
+  const actRefs = [], seenA = new Set();
+  items.forEach(({ p }) => actsOf(p).forEach(e => { const n = entryName(e, fl), r = entryRef(p, e), key = n + "|" + r; if (n && !seenA.has(key)) { seenA.add(key); actRefs.push(r && !/n\/a/.test(r) ? `${n} (${r})` : n); } }));
+  const stl = [...new Set(items.map(({ p }) => structText(p, fl)).filter(Boolean))];
+  const rows = [[lab("locw", lang), auto.loc || "-"], [lab("desc", lang), info.desc || rflDescFor(code) || auto.desc || "-"], [lab("racts", lang), actRefs.join("; ") || "-"]];
+  if (stl.length) rows.push([lab("rstl", lang), stl.join("; ")]);
+  rows.push([lab("nph", lang), String(items.length)]);
   const kw = 46;
   rows.forEach(([kk, v]) => {
     doc.setFontSize(8.6); const vl = doc.splitTextToSize(T(v), CW - kw - 4);
@@ -1753,48 +2056,69 @@ async function buildRfiPDF(code, lang, onProg) {
     doc.setFont("helvetica", "bold"); doc.setFontSize(8.6); doc.setTextColor(...PC.ink); doc.text(vl, M + kw + 2, y + 4, { lineHeightFactor: 1.25 });
     y += h;
   });
-  y += 6;
-  doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...PC.ink);
-  doc.text(T(lab(info.stage === "2" ? "fu" : "insp", lang)), M, y); y += 2.5;
-  const opts = info.stage === "2" ? [["a", "fa"], ["b", "fb"]] : [["a", "ra"], ["b", "rb"], ["c", "rc"]];
-  opts.forEach(([v, key]) => {
-    const lines = lang === "both" ? [L.en[key], L.bm[key]] : [lab(key, lang)];
-    doc.setFontSize(8.2);
-    const wl = lines.map(t => doc.splitTextToSize(T(t), CW - 10));
-    const h = wl.reduce((a, w) => a + w.length, 0) * 3.7 + 2.6;
-    doc.setDrawColor(...PC.ink); doc.setLineWidth(0.3); doc.rect(M + 1, y + 1.2, 3.6, 3.6, "S");
-    if (info.result === v) { doc.setLineWidth(0.7); doc.line(M + 1.6, y + 3.1, M + 2.6, y + 4.2); doc.line(M + 2.6, y + 4.2, M + 4.2, y + 1.7); }
-    let yy = y + 4;
-    wl.forEach((w, ix) => { doc.setFont("helvetica", ix ? "italic" : "normal"); doc.setTextColor(...(ix ? PC.muted : PC.ink)); doc.text(w, M + 7, yy, { lineHeightFactor: 1.2 }); yy += w.length * 3.7; });
-    y += h;
+  y += 5;
+  // photo index: one line per photo
+  doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...PC.ink); doc.text(T(lab("pidx", lang)), M, y); y += 2;
+  const cols = [[lab("no", lang), 10], [lab("rtime", lang), 13], [lab("act", lang), 60], [lab("loc", lang), 34], [lab("lvl", lang), 28], [lab("status", lang), 45]];
+  const tot = cols.reduce((s, c) => s + c[1], 0), cw = cols.map(c => c[1] / tot * CW);
+  const head = () => {
+    doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
+    const hl = cols.map((c, i) => doc.splitTextToSize(T(c[0]).toUpperCase(), cw[i] - 3)), hh = Math.max(...hl.map(l => l.length)) * 2.8 + 3.7;
+    doc.setFillColor(...PC.ink); doc.rect(M, y, CW, hh, "F"); doc.setTextColor(255, 255, 255);
+    let x = M; hl.forEach((l, i) => { doc.text(l, x + 1.5, y + 4.1, { lineHeightFactor: 1.2 }); x += cw[i]; }); y += hh;
+  };
+  head();
+  items.forEach(({ p }, j) => {
+    const vals = [pad(j + 1), timeStr(p.time), actLines(p, lang).join("\n"), locText(p, fl) || "-", elText(p, fl) || "-", statusText(p, lang) || "-"];
+    doc.setFontSize(7.4); const wr = vals.map((v, i) => doc.splitTextToSize(T(v), cw[i] - 3));
+    const rh = Math.max(...wr.map(w => w.length)) * 3.3 + 2.6;
+    if (y + rh > H - 14) { y = pdfPage(k, title, cells) + 1; head(); }
+    if (j % 2) { doc.setFillColor(...PC.fill); doc.rect(M, y, CW, rh, "F"); }
+    let x = M; wr.forEach((w, i) => { doc.setFont("helvetica", i === 0 || i === 5 ? "bold" : "normal"); doc.setTextColor(...PC.ink); doc.text(w, x + 1.5, y + 3.6, { lineHeightFactor: 1.25 }); x += cw[i]; });
+    doc.setDrawColor(...PC.line); doc.setLineWidth(0.2); doc.line(M, y + rh, M + CW, y + rh); y += rh;
   });
-  y += 3;
-  doc.setFont("helvetica", "bold"); doc.setFontSize(8.4); doc.setTextColor(...PC.ink); doc.text(T(lab("com", lang)), M, y + 2); y += 3.5;
+  y += 4;
+  // comments box size
   doc.setFont("helvetica", "normal"); doc.setFontSize(8.4);
   const cl = info.com ? doc.splitTextToSize(T(info.com), CW - 4) : [];
-  const ch = Math.max(22, cl.length * 3.9 + 5);
+  const ch = Math.max(18, cl.length * 3.9 + 5), need = ch + 76;
+  // diagram: here if it fits with the comments and sign-off, otherwise at the top of the first photo page,
+  // so the sign-off stays on page 1
+  const dItems = items.map((x, j) => ({ p: x.p, no: j + 1 }));
+  let diagLater = false;
+  if (settings.diagram && items.length) {
+    const dh = pdfAlignment({ ...k, doc: new window.jspdf.jsPDF({ unit: "mm", format: "a4" }) }, 0, dItems) + 1;
+    if (y + dh + need <= H - 14) y = pdfAlignment(k, y, dItems) + 1;
+    else if (y + need <= H - 14) diagLater = true;
+    else { if (y + dh > H - 14) y = pdfPage(k, title, cells); y = pdfAlignment(k, y, dItems) + 1; }
+  }
+  doc.setFont("helvetica", "normal"); doc.setFontSize(8.4);
+  if (y + 6 + ch + 60 > H - 14) y = pdfPage(k, title, cells);
+  doc.setFont("helvetica", "bold"); doc.setFontSize(8.4); doc.setTextColor(...PC.ink); doc.text(T(lab("com", lang)), M, y + 2); y += 3.5;
   doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.rect(M, y, CW, ch, "S");
-  if (cl.length) doc.text(cl, M + 2, y + 4.5, { lineHeightFactor: 1.25 });
+  doc.setFont("helvetica", "normal"); if (cl.length) doc.text(cl, M + 2, y + 4.5, { lineHeightFactor: 1.25 });
   y += ch + 6;
-  if (y > H - 14 - 54) { y = pdfPage(k, title, cells); }
-  const sw = (CW - 8) / 3, flds = [["sig", 15], ["nm", 23], ["stp", 31], ["dsg", 39], ["dt", 46]];
-  ["s1", "s2", "s3"].forEach((key, ix) => {
-    const x = M + ix * (sw + 4);
+  // sign-off: Prepared by (WPC), Checked by (CST)
+  const sw = (CW - 6) / 2, flds = [["sig", 14], ["nm", 21], ["dsg", 28], ["dt", 35]];
+  ["s1", "s2"].forEach((key, ix) => {
+    const x = M + ix * (sw + 6);
     doc.setFillColor(...PC.fill); doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.rect(x, y, sw, 6.5, "FD");
-    doc.setFont("helvetica", "bold"); doc.setFontSize(7.4); doc.setTextColor(...PC.ink);
-    doc.text(doc.splitTextToSize(T(lab(key, fl)), sw - 3)[0], x + 1.6, y + 4.3);
+    doc.setFont("helvetica", "bold"); doc.setFontSize(7.6); doc.setTextColor(...PC.ink);
+    doc.text(doc.splitTextToSize(T(lab(key, lang)), sw - 3)[0], x + 1.6, y + 4.3);
     doc.rect(x, y + 6.5, sw, 44, "S");
     flds.forEach(([f, off]) => {
       const fy = y + 6.5 + off - 6;
       doc.setFont("helvetica", "normal"); doc.setFontSize(6.8); doc.setTextColor(...PC.muted);
       doc.text(T(lab(f, fl)), x + 1.6, fy);
-      doc.setDrawColor(...PC.line); doc.line(x + 18, fy + 0.6, x + sw - 2, fy + 0.6);
+      doc.setDrawColor(...PC.line); doc.line(x + 20, fy + 0.6, x + sw - 2, fy + 0.6);
     });
+    doc.setFont("helvetica", "normal"); doc.setFontSize(6.8); doc.setTextColor(...PC.muted); doc.text(T(lab("stp", fl)), x + 1.6, y + 6.5 + 36);
   });
-  y += 54;
+  y += 55;
   doc.setFont("helvetica", "italic"); doc.setFontSize(7); doc.setTextColor(...PC.muted);
-  doc.text(T(lab("rnote", fl)), M, Math.min(y, H - 14));
-  await pdfPhotos(k, items.map((x, j) => ({ p: x.p, no: j + 1 })), title, cells, onProg);
+  const nl = (lang === "both" ? [L.en.rnote2, L.bm.rnote2] : [lab("rnote2", lang)]).map(t => t.replace("{ref}", full));
+  nl.forEach(t => { const w = doc.splitTextToSize(T(t), CW); doc.text(w, M, Math.min(y, H - 16)); y += w.length * 3; });
+  await pdfPhotos(k, dItems, title, cells, onProg, diagLater ? top => pdfAlignment(k, top, dItems) : null);
   pdfFooters(k, full, "gen");
   return doc.output("blob");
 }
@@ -1834,28 +2158,64 @@ function saveErr(e) {
 
 /* ---------- output sheet ---------- */
 const cache = { pdf: null, stamped: null, pdfSig: "", stSig: "", rfi: {} };
-function sig(lang, sum) { return JSON.stringify([report, photos, lang, sum, settings.logoL && settings.logoL.length, settings.logoR && settings.logoR.length, settings.projectTitle, settings.contractNo]); }
+function sig(lang, sum) { return JSON.stringify([report, photos, lang, sum, settings.ppp, settings.diagram, settings.diagLayers, zones(), settings.logoL && settings.logoL.length, settings.logoR && settings.logoR.length, settings.projectTitle, settings.contractNo]); }
 $("#btn-generate").addEventListener("click", openOutput);
-function openOutput() {
-  const lang = report.lang || "en";
-  const n = photos.length, pages = Math.ceil(n / 4) + ($("#out-sumpage").checked ? 1 : 0);
+function outPages() { const n = photos.length, per = settings.ppp === 2 ? 2 : 4; return Math.ceil(n / per) + ($("#out-sumpage").checked ? 1 : 0); }
+function renderOutSummary() {
+  const lang = report.lang || "en", n = photos.length, pages = outPages();
   $("#out-summary").innerHTML = `<b>${esc(dateText())}</b> · ${esc(report.team || "")} · ${esc(report.name || "name not set")}<br>${n} photo${n > 1 ? "s" : ""} · about ${pages} A4 page${pages > 1 ? "s" : ""} · captions in ${lang === "en" ? "English" : lang === "bm" ? "Bahasa Malaysia" : "English + BM"}`;
-  const noAct = photos.map((p, i) => !hasAct(p) ? pad(i + 1) : null).filter(Boolean);
-  const noCh = photos.map((p, i) => !p.ch ? pad(i + 1) : null).filter(Boolean);
+  $$("#out-ppp [data-ppp]").forEach(b => b.setAttribute("aria-pressed", +b.dataset.ppp === (settings.ppp === 2 ? 2 : 4)));
+  $("#out-diag").checked = !!settings.diagram;
+  $("#out-layers").hidden = !settings.diagram;
+  $("#out-layers").innerHTML = `<span class="small muted" style="width:100%">Structure lines under the diagram (optional):</span>` + DIAG_LAYERS.filter(key => CFG.structures.some(s => structLayer(s) === key)).map(key => `<label class="lychk"><input type="checkbox" data-ly="${key}"${settings.diagLayers && settings.diagLayers[key] ? " checked" : ""}> ${esc(L.en["ly" + key])}</label>`).join("");
+}
+function openOutput() {
+  renderOutSummary();
+  const goBtns = list => list.slice(0, 20).map(([i, p]) => `<button type="button" class="gobtn" data-goto="${p.id}">${pad(i + 1)}</button>`).join("") + (list.length > 20 ? " …" : "");
+  const noAct = photos.map((p, i) => [i, p]).filter(([i, p]) => !hasAct(p));
+  const noCh = photos.map((p, i) => [i, p]).filter(([i, p]) => !p.ch);
+  const parts = [];
+  if (noAct.length) parts.push(`<div><b>No activity:</b> photo ${goBtns(noAct)}</div>`);
+  if (noCh.length) parts.push(`<div><b>No chainage:</b> photo ${goBtns(noCh)}</div>`);
   const warns = [];
-  if (noAct.length) warns.push(`No activity: photo ${noAct.slice(0, 12).join(", ")}${noAct.length > 12 ? "…" : ""}`);
-  if (noCh.length) warns.push(`No chainage: photo ${noCh.slice(0, 12).join(", ")}${noCh.length > 12 ? "…" : ""}`);
   if (report.zone && report.zone !== "All zones") {
     const off = photos.map((p, i) => { const z = zoneOf(p.ch); return z && z !== report.zone ? `${pad(i + 1)} (CH ${normCH(p.ch)}, ${z})` : null; }).filter(Boolean);
     if (off.length) warns.push(`Header zone is ${report.zone}, but photo ${off.slice(0, 6).join(", ")}${off.length > 6 ? "…" : ""} ${off.length > 1 ? "are" : "is"} outside it. Change the zone in Report details or leave it as Not set to list zones automatically.`);
   }
   if (!report.name) warns.push("Reported by is empty (Report details).");
   if (!settings.logoL && !settings.logoR) warns.push("No logos set. Add the JKR and WPC logos under Setup.");
-  $("#out-warn").innerHTML = warns.length ? `<div class="warnbox">${warns.map(esc).join("<br>")}<br>You can still generate the report.</div>` : `<div class="okbox">All photos have an activity and chainage.</div>`;
+  const all = parts.concat(warns.map(w => `<div>${esc(w)}</div>`));
+  $("#out-warn").innerHTML = all.length
+    ? `<div class="warnbox"><div style="font-weight:700;margin-bottom:4px">Check before you share</div>${all.join("")}${parts.length ? `<div class="small" style="margin-top:4px">Tap a photo number to go to it. You can still generate the report.</div>` : `<div class="small" style="margin-top:4px">You can still generate the report.</div>`}</div>`
+    : `<div class="okbox">All photos have an activity and chainage.</div>`;
+  const g = rfiGroups();
+  $("#out-rfibar").innerHTML = g.size ? `<div class="rfibar"><div><b>RFI photo records</b><br><span class="small">${g.size} RFI${g.size > 1 ? "s" : ""} in this report: ${[...g.keys()].slice(0, 4).map(c => esc(c)).join(", ")}${g.size > 4 ? "…" : ""}</span></div><button class="btn acc" type="button" id="go-rfi">Make RFI photo records</button></div>` : "";
   $("#out-status").textContent = ""; $("#out-prog").hidden = true;
   renderOutActions(); renderRfiSection();
   openSheet("#output");
 }
+$("#out-warn").addEventListener("click", e => {
+  const b = e.target.closest("[data-goto]"); if (!b) return;
+  closeSheet("#output");
+  const li = $(`#list li[data-id="${b.dataset.goto}"]`); if (!li) return;
+  li.scrollIntoView({ behavior: "smooth", block: "center" });
+  li.classList.remove("flash"); void li.offsetWidth; li.classList.add("flash");
+  setTimeout(() => li.classList.remove("flash"), 2200);
+});
+$("#out-rfibar").addEventListener("click", e => {
+  if (!e.target.closest("#go-rfi")) return;
+  const first = $("#out-rfi details"); if (first) first.open = true;
+  $("#out-rfi").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+$("#out-diag").addEventListener("change", e => { settings.diagram = e.target.checked; saveDraft(); renderOutSummary(); renderOutActions(); });
+$("#out-layers").addEventListener("change", e => {
+  const key = e.target.dataset.ly; if (!key) return;
+  settings.diagLayers = Object.assign({}, settings.diagLayers, { [key]: e.target.checked }); saveDraft(); renderOutActions();
+});
+$("#out-ppp").addEventListener("click", e => {
+  const b = e.target.closest("[data-ppp]"); if (!b) return;
+  settings.ppp = +b.dataset.ppp; saveDraft(); renderOutSummary(); renderOutActions();
+});
 function shareSupported() {
   if (IN_CLAUDE || !navigator.canShare) return false;
   try { return navigator.canShare({ files: [new File(["x"], "x.pdf", { type: "application/pdf" })] }); } catch (e) { return false; }
@@ -1863,7 +2223,7 @@ function shareSupported() {
 function renderOutActions() {
   const share = shareSupported();
   const acts = [];
-  acts.push(["pdf", "PDF report", `4 photos per A4 page with captions${$("#out-sumpage").checked ? ", summary table first" : ""}.`, share ? "Share PDF" : "Save PDF"]);
+  acts.push(["pdf", "PDF report", `${settings.ppp === 2 ? 2 : 4} photos per A4 page with captions${$("#out-sumpage").checked ? ", summary table first" : ""}${settings.diagram ? ", alignment diagram on page 1" + (diagLayersOn().length ? " with structure lines" : "") : ""}.`, share ? "Share PDF" : "Save PDF"]);
   acts.push(["stamped", "Captioned photos", "Each photo with date, chainage, activity, BQ and RFI printed on it, renamed in order.", share ? "Share photos" : "Save photos (ZIP)"]);
   acts.push(["text", "WhatsApp message", "Short list of activities and chainages to paste with the PDF.", "Copy text"]);
   acts.push(["zip", "Everything (archive)", "PDF, captioned photos, RFI photo records and a CSV photo log in one ZIP for your own records.", "Save ZIP"]);
@@ -1876,23 +2236,17 @@ function renderOutActions() {
 function renderRfiSection() {
   const g = rfiGroups(), share = shareSupported();
   if (!g.size) {
-    $("#out-rfi").innerHTML = `<div class="oa"><b>RFI photo records</b><span></span><p style="grid-column:1/-1">Type an RFI no. on the photos taken for an inspection (under “Element, chainage to, RFI, remarks”). Each RFI then gets its own photo record PDF to attach to the JKR Sabah RFI form.</p></div>`;
+    $("#out-rfi").innerHTML = `<div class="oa"><b>RFI photo records</b><span></span><p style="grid-column:1/-1">Type an RFI no. on the photos taken for an inspection (on each photo card). Each RFI then gets its own photo record PDF to attach to the JKR Sabah RFI form.</p></div>`;
     return;
   }
   const lg = (report.lang || "en") === "bm" ? "bm" : "en";
-  let html = `<h3 style="font-size:18px;margin-top:6px">RFI photo records</h3><p class="muted small" style="margin:0">One PDF per RFI: the inspection details from the JKR Sabah RFI form, tick boxes, sign-off blocks (Prepared by WPC, Checked by CST, Acknowledged by SOR) and the photos tagged with that RFI. Use it to support closing the RFI as inspected.</p>`;
+  let html = `<h3 style="font-size:18px;margin-top:6px">RFI photo records</h3><p class="muted small" style="margin:0">One PDF per RFI no., to attach to the JKR Sabah RFI form: location, description, activities with BQ / QC refs, a photo index with each photo's status, comments, sign-off by the preparer (WPC) and the checker (CST), and the photos.</p>`;
   for (const [code, items] of g) {
     const a = rfiAuto(items, lg), inf = rfiInfo(code);
-    const resOpts = inf.stage === "2" ? [["", "Leave blank (tick on paper)"], ["a", "a. Approved – remedial work accepted"], ["b", "b. Remedial work rejected – new inspection"]] : [["", "Leave blank (tick on paper)"], ["a", "a. Approved – proceed to next stage"], ["b", "b. Not approved – rectify and re-inspect"], ["c", "c. Not approved – work rejected"]];
     html += `<details class="rfi-card" data-code="${esc(code)}"><summary><b class="mono">${esc(CFG.rfiPrefix + code)}</b> · ${items.length} photo${items.length > 1 ? "s" : ""} · <span class="muted">${esc(a.desc || "no activity")}</span></summary>
       <div style="display:grid;gap:10px">
         <div class="small muted">Location from the photos: ${esc(a.loc || "–")}</div>
-        <div><label class="lbl">Description of works</label><textarea data-rf="desc" rows="2" placeholder="${esc(a.desc)}">${esc(inf.desc)}</textarea></div>
-        <div><label class="lbl">Reference (drawing no. / sketch no. / others)</label><input type="text" data-rf="dref" value="${esc(inf.dref)}" placeholder="e.g. WD/JKR/WP12/CS/DR/DET/021"></div>
-        <div class="row2">
-          <div><label class="lbl">Stage</label><select data-rf="stage"><option value="1"${inf.stage !== "2" ? " selected" : ""}>Inspection</option><option value="2"${inf.stage === "2" ? " selected" : ""}>Follow-up / verification</option></select></div>
-          <div><label class="lbl">Result</label><select data-rf="result">${resOpts.map(([v, t]) => `<option value="${v}"${inf.result === v ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></div>
-        </div>
+        <div><label class="lbl">Description of works</label><textarea data-rf="desc" rows="2" placeholder="${esc(rflDescFor(code) || a.desc)}">${esc(inf.desc)}</textarea></div>
         <div><label class="lbl">Comments</label><textarea data-rf="com" rows="2">${esc(inf.com)}</textarea></div>
         <div style="display:flex;justify-content:flex-end"><button class="btn acc" type="button" data-rfiout="${esc(code)}">${share ? "Share" : "Save"} RFI photo record</button></div>
       </div></details>`;
@@ -1904,7 +2258,6 @@ $("#out-rfi").addEventListener("input", e => {
   const f = e.target.dataset.rf; if (!f) return;
   const code = e.target.closest("[data-code]").dataset.code;
   rfiInfo(code)[f] = e.target.value; saveDraft();
-  if (f === "stage") { rfiInfo(code).result = ""; const open = code; renderRfiSection(); const d = $(`#out-rfi [data-code="${CSS.escape(open)}"]`); if (d) d.open = true; }
 });
 $("#out-sumpage").addEventListener("change", renderOutActions);
 function prog(on, done, total, label) {
@@ -2007,6 +2360,431 @@ $("#out-rfi").addEventListener("click", e => {
   });
 });
 
+/* ---------- RFI inspection list ---------- */
+// Experimental (v1.2.3): the next-day RFI summary list that WPC posts each day, made in the app.
+// One working list (kv "rfilist") plus earlier lists by inspection date (kv "rfilists").
+// Row: { ref, acts:[{id,text}], desc, struct, ch, ch2, side, locText, pic, time "HH:MM", timeText, issued, insp }
+let RFL = null, RFL_HIST = {}, rflEd = null, rflParsed = null, rflBusy = false;
+function isoAdd(iso, days) { const t = new Date(iso + "T00:00"); t.setDate(t.getDate() + days); return t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate()); }
+function rflNew() { return { insp: isoAdd(today(), 1), issued: today(), rows: [] }; }
+async function rflLoad() {
+  if (RFL) return RFL;
+  try { RFL = await sget("kv", "rfilist"); } catch (e) {}
+  if (!RFL || !Array.isArray(RFL.rows)) RFL = rflNew();
+  try { RFL_HIST = (await sget("kv", "rfilists")) || {}; } catch (e) { RFL_HIST = {}; }
+  return RFL;
+}
+function rflSave() { RFL.updated = new Date().toISOString(); sput("kv", "rfilist", RFL).catch(() => {}); updateRfiList(); }
+function rflKeep() {
+  if (!RFL || !RFL.rows.length) return;
+  RFL_HIST[RFL.insp] = JSON.parse(JSON.stringify(RFL));
+  const keys = Object.keys(RFL_HIST).sort(); while (keys.length > 60) delete RFL_HIST[keys.shift()];
+  sput("kv", "rfilists", RFL_HIST).catch(() => {});
+}
+function rflShow() { return settings.rfiListShow === true || (settings.rfiListShow == null && report.team === "WPC"); }
+function rflRef(v) { let c = String(v || "").trim().toUpperCase().replace(/\s+/g, ""); const pre = CFG.rfiPrefix.toUpperCase(); if (c.startsWith(pre)) c = c.slice(pre.length); return c; }
+function rflDate(iso) { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ""); return m ? `${m[3]}/${m[2]}/${m[1]}` : "-"; }
+function rflDateLong(iso) { return iso ? new Date(iso + "T00:00").toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }) : "-"; }
+function rflTime(r) {
+  const m = /^(\d{2}):(\d{2})$/.exec(r.time || ""); if (!m) return r.timeText || "";
+  let hh = +m[1]; const ap = hh >= 12 ? "PM" : "AM"; hh = hh % 12 || 12; return `${hh}.${m[2]} ${ap}`;
+}
+function rflActs(r, lang) {
+  return (r.acts || []).map(e => lang === "both" ? [...new Set([entryName(e, "en"), entryName(e, "bm")].filter(Boolean))].join(" / ") : entryName(e, lang)).filter(Boolean).join(" + ");
+}
+function rflRefs(r) { const p = { struct: r.struct }; return [...new Set((r.acts || []).map(e => entryRef(p, e)).filter(Boolean))].join(", "); }
+function rflDescText(r, lang) { return (r.desc || "").trim() || rflActs(r, lang); }
+function rflLoc(r, lang) {
+  const lg = lang === "bm" ? "bm" : "en", parts = [], c1 = normCH(r.ch), c2 = normCH(r.ch2);
+  if (c1) { const z = zoneOf(r.ch); parts.push((z ? z + ": " : "") + "CH " + c1 + (c2 ? " – " + c2 : "") + (r.side ? " " + (lg === "bm" ? (SIDE_BM[r.side] || r.side) : r.side) : "")); }
+  const st = STRUCT.get(r.struct); if (st) parts.push(st.name);
+  if ((r.locText || "").trim()) parts.push(r.locText.trim());
+  return parts.join(", ");
+}
+// "Zone 4: CH76+500 - CH77+075 LHS", "CH 67+770-840", "CH70+750" -> chainage, chainage to and side.
+// Anything else (e.g. "Site Laboratory WP12") stays as the other location. The zone is added again from the app's zones.
+function rflSplitLoc(t) {
+  const m = /^(?:zon(?:e)?\s*[\w]+\s*:\s*)?CH\s*(\d{1,3}\s*\+\s*\d{3}(?:\.\d+)?)\s*(?:(?:-|–|—|to|hingga|sehingga)\s*(?:CH\s*)?(\d{1,3}\s*\+\s*\d{3}(?:\.\d+)?|\d{3}))?\s*(?:\(?\s*(LHS|RHS|CL|BOTH|Both sides|Kiri|Kanan)\s*\)?)?\s*$/i.exec(String(t || "").trim());
+  if (!m) return null;
+  const a = normCH(m[1].replace(/\s+/g, ""));
+  let b = m[2] ? m[2].replace(/\s+/g, "") : "";
+  if (b && !b.includes("+")) b = a.split("+")[0] + "+" + b;
+  b = b ? normCH(b) : "";
+  const sd = (m[3] || "").toUpperCase(), side = { LHS: "LHS", KIRI: "LHS", RHS: "RHS", KANAN: "RHS", CL: "CL", BOTH: "Both", "BOTH SIDES": "Both" }[sd] || "";
+  if (isNaN(parseCH(a))) return null;
+  return { ch: a, ch2: b && b !== a ? b : "", side };
+}
+function rflSplitRow(r) {
+  if (r.ch || !r.locText || r.locText.includes("\n")) return r;
+  const sp = rflSplitLoc(r.locText); if (!sp) return r;
+  return Object.assign(r, sp, { locText: "" });
+}
+function rflFind(code) {
+  if (!code) return null;
+  const hit = list => list && (list.rows || []).find(r => r.ref === code);
+  return hit(RFL) || Object.keys(RFL_HIST).sort().reverse().map(k => hit(RFL_HIST[k])).find(Boolean) || null;
+}
+function rflDescFor(code) { const r = rflFind(code); return r ? rflDescText(r, (report.lang || "en") === "bm" ? "bm" : "en") : ""; }
+// a photo given an RFI no. from the list takes the list's activity, structure and chainage where its own are empty
+function rflFill(p) {
+  const r = rflFind(rfiCode(p)); if (!r) return false;
+  let n = 0;
+  if (!hasAct(p) && (r.acts || []).length) { setActs(p, r.acts.map(e => ({ ...e }))); n++; }
+  if (!p.struct && r.struct) { p.struct = r.struct; n++; }
+  if (!p.ch && normCH(r.ch) && chInRange(r.ch)) { p.ch = normCH(r.ch); p.ch2 = p.ch2 || normCH(r.ch2); p.chSrc = "manual"; n++; }
+  if (!p.side && r.side) { p.side = r.side; n++; }
+  if (n) toast("Filled in from the RFI list. Check it against the photo.");
+  return n > 0;
+}
+
+/* main-screen button and Setup switch */
+function renderRflStrip() {
+  const b = $("#btn-rfl"); if (!b) return;
+  b.hidden = !rflShow();
+  const n = RFL ? RFL.rows.length : 0;
+  $("#rfl-sum").textContent = n ? `${n} RFI${n > 1 ? "s" : ""} for ${rflDateLong(RFL.insp)}` : "Make the next-day RFI summary list";
+}
+$("#btn-rfl").addEventListener("click", async () => { await rflLoad(); renderRfl(); openSheet("#rfl"); $("#rfl .sheet-b").scrollTop = 0; });
+$("#st-rfl").addEventListener("change", e => { settings.rfiListShow = e.target.checked; saveDraft(); renderRflStrip(); });
+
+/* the list sheet */
+function renderRfl() {
+  const lg = (report.lang || "en") === "bm" ? "bm" : "en", rows = RFL.rows;
+  $("#rl-insp").value = RFL.insp || ""; $("#rl-issued").value = RFL.issued || "";
+  const who = [report.name, report.designation].filter(Boolean).join(", "), lgn = { en: "English", bm: "Bahasa Malaysia", both: "English + BM" }[report.lang || "en"];
+  $("#rl-by").innerHTML = (who ? `<b>Prepared by:</b> ${esc(who)}${report.team ? " (" + esc(report.team) + ")" : ""} · ${esc(lgn)}` : `<span style="color:var(--warn)"><b>Prepared by is empty.</b> Type your name in Report details.</span> · ${esc(lgn)}`) + ` · <button class="linkbtn" id="rl-chby" type="button">Change in Report details</button>`;
+  $("#rl-list").innerHTML = rows.map((r, i) => {
+    const miss = [!r.ref && "No RFI no.", !rflTime(r) && "No time", !rflDescText(r, lg) && "No description"].filter(Boolean);
+    const other = (r.insp && r.insp !== RFL.insp) ? ` · inspection ${rflDate(r.insp)}` : "";
+    return `<li class="rlrow" data-i="${i}">
+      <div class="rlno mono">${pad(i + 1)}</div>
+      <div class="rlb">
+        <div><b class="mono">${esc(r.ref ? CFG.rfiPrefix + r.ref : "RFI no. not set")}</b>${rflTime(r) ? ` <span class="tag">${esc(rflTime(r))}</span>` : ""}</div>
+        <div class="rld">${esc(rflDescText(r, lg) || "No description")}</div>
+        <div class="small muted">${esc(rflLoc(r, lg) || "No location")}${r.pic ? " · PIC: " + esc(r.pic) : ""}${esc(other)}</div>
+        ${miss.length ? `<div class="small" style="color:var(--warn)">${esc(miss.join(" · "))}</div>` : ""}
+      </div>
+      <div class="rltools"><button class="tbtn" type="button" data-rl="edit">Edit</button><button class="tbtn" type="button" data-rl="up" aria-label="Move up">↑</button><button class="tbtn" type="button" data-rl="down" aria-label="Move down">↓</button><button class="tbtn danger" type="button" data-rl="rm" aria-label="Remove">×</button></div>
+    </li>`;
+  }).join("");
+  $("#rl-empty").hidden = rows.length > 0;
+  $("#rl-out").hidden = !rows.length; $("#rl-sorts").hidden = rows.length < 2;
+  $("#rl-count").textContent = rows.length ? `${rows.length} RFI${rows.length > 1 ? "s" : ""} for inspection on ${rflDateLong(RFL.insp)}` : "No RFIs yet";
+  const share = shareSupported();
+  $("#rl-pdf").textContent = share ? "Share PDF" : "Save PDF";
+  const ks = Object.keys(RFL_HIST).sort().reverse();
+  $("#rl-hist").hidden = !ks.length; $("#rl-histsum").textContent = `Earlier lists (${ks.length})`;
+  $("#rl-histlist").innerHTML = ks.map(k => `<div class="rlhist" data-k="${esc(k)}"><span>${esc(rflDateLong(k))} · ${RFL_HIST[k].rows.length} RFI${RFL_HIST[k].rows.length > 1 ? "s" : ""}</span><span style="display:flex;gap:6px"><button class="tbtn" type="button" data-rh="open">Open</button><button class="tbtn danger" type="button" data-rh="del">Delete</button></span></div>`).join("");
+  $("#rl-clear").hidden = !rows.length; $("#rl-clear").textContent = "Clear list"; rflClearArmed = 0;
+  $("#rl-status").textContent = ""; $("#rl-text").hidden = true;
+}
+$("#rl-by").addEventListener("click", e => {
+  if (!e.target.closest("#rl-chby")) return;
+  closeSheet("#rfl"); settings.collapsed = false; renderReportSummary(); saveDraft();
+  const n = $("#r-name"); n.scrollIntoView({ behavior: "smooth", block: "center" }); setTimeout(() => n.focus({ preventScroll: true }), 350);
+});
+$("#rl-insp").addEventListener("change", e => { RFL.insp = e.target.value || RFL.insp; rflSave(); renderRfl(); });
+$("#rl-issued").addEventListener("change", e => { RFL.issued = e.target.value || RFL.issued; rflSave(); });
+$("#rl-list").addEventListener("click", e => {
+  const b = e.target.closest("[data-rl]"); if (!b) return;
+  const i = +b.closest("[data-i]").dataset.i, a = b.dataset.rl, rows = RFL.rows;
+  if (a === "edit") rflOpenEdit(i);
+  else if (a === "up" && i > 0) { [rows[i - 1], rows[i]] = [rows[i], rows[i - 1]]; rflSave(); renderRfl(); }
+  else if (a === "down" && i < rows.length - 1) { [rows[i + 1], rows[i]] = [rows[i], rows[i + 1]]; rflSave(); renderRfl(); }
+  else if (a === "rm") {
+    const [gone] = rows.splice(i, 1); rflSave(); renderRfl();
+    toast(`Removed ${gone.ref ? CFG.rfiPrefix + gone.ref : "the RFI"}`, 5000, "Undo", () => { RFL.rows.splice(i, 0, gone); rflSave(); renderRfl(); });
+  }
+});
+$("#rl-sort").addEventListener("click", () => {
+  RFL.rows.sort((a, b) => (a.time || "99") .localeCompare(b.time || "99")); rflSave(); renderRfl(); toast("Sorted by time of inspection");
+});
+function rflRefKey(r) {
+  const m = /^([A-Z]+)-?(\d+)/.exec(r.ref || "");
+  return m ? [0, m[1], +m[2], r.ref] : [r.ref ? 0 : 1, r.ref || "~", 0, ""];
+}
+$("#rl-sortref").addEventListener("click", () => {
+  RFL.rows.sort((a, b) => { const x = rflRefKey(a), y = rflRefKey(b); return x[0] - y[0] || x[1].localeCompare(y[1]) || x[2] - y[2] || x[3].localeCompare(y[3]) || (a.time || "99").localeCompare(b.time || "99"); });
+  rflSave(); renderRfl(); toast("Sorted by RFI no.: trade, then number");
+});
+$("#rl-new").addEventListener("click", () => {
+  if (RFL.rows.length) rflKeep();
+  RFL = rflNew(); rflSave(); renderRfl();
+  toast(`New list for ${rflDateLong(RFL.insp)}${Object.keys(RFL_HIST).length ? ". The last list is under Earlier lists." : ""}`, 4000);
+});
+let rflClearArmed = 0, rflDelArmed = { k: "", t: 0 };
+$("#rl-clear").addEventListener("click", e => {
+  const n = RFL.rows.length; if (!n) return;
+  if (Date.now() - rflClearArmed > 4000) { rflClearArmed = Date.now(); e.target.textContent = `Tap again to clear ${n} RFI${n > 1 ? "s" : ""}`; return; }
+  const gone = RFL.rows.slice(); RFL.rows = []; rflSave(); renderRfl();
+  toast(`Cleared ${n} RFI${n > 1 ? "s" : ""}`, 5000, "Undo", () => { RFL.rows = gone; rflSave(); renderRfl(); });
+});
+$("#rl-histlist").addEventListener("click", e => {
+  const b = e.target.closest("[data-rh]"); if (!b) return;
+  const k = b.closest("[data-k]").dataset.k; if (!RFL_HIST[k]) return;
+  if (b.dataset.rh === "open") {
+    if (RFL.rows.length && RFL.insp !== k) rflKeep();
+    RFL = JSON.parse(JSON.stringify(RFL_HIST[k])); rflSave(); renderRfl(); $("#rfl .sheet-b").scrollTop = 0; toast(`Opened the list for ${rflDateLong(k)}`);
+  } else {
+    if (rflDelArmed.k !== k || Date.now() - rflDelArmed.t > 4000) { rflDelArmed = { k, t: Date.now() }; b.textContent = "Tap again"; return; }
+    const gone = RFL_HIST[k]; delete RFL_HIST[k]; sput("kv", "rfilists", RFL_HIST).catch(() => {}); renderRfl(); $("#rl-hist").open = true;
+    toast(`Deleted the list for ${rflDateLong(k)}`, 5000, "Undo", () => { RFL_HIST[k] = gone; sput("kv", "rfilists", RFL_HIST).catch(() => {}); renderRfl(); });
+  }
+});
+
+/* add / edit one RFI */
+function rflOpenEdit(i) {
+  const last = RFL.rows[RFL.rows.length - 1] || {};
+  const r = i == null ? { ref: "", acts: [], desc: "", struct: "", ch: "", ch2: "", side: "", locText: "", pic: last.pic || "", time: "", issued: "", insp: "" } : rflSplitRow(JSON.parse(JSON.stringify(RFL.rows[i])));
+  rflEd = { i, r, auto: "" };
+  $("#re-title").textContent = i == null ? "Add an RFI" : `Edit RFI ${pad(i + 1)}`;
+  $("#re-ref").value = r.ref; $("#re-desc").value = r.desc || ""; $("#re-struct").innerHTML = structOptions(r.struct);
+  $("#re-ch").value = r.ch || ""; $("#re-ch2").value = r.ch2 || ""; $("#re-loc").value = r.locText || "";
+  $("#re-pic").value = r.pic || ""; $("#re-time").value = r.time || ""; $("#re-timetext").textContent = !r.time && r.timeText ? `Pasted as "${r.timeText}". Pick the time to replace it.` : "";
+  $("#re-issued").value = r.issued || ""; $("#re-insp").value = r.insp || "";
+  $("#re-dates").open = !!(r.issued || r.insp);
+  $("#re-more").hidden = i != null;
+  $("#re-msg").textContent = "";
+  const pics = [...new Set([...RFL.rows, ...Object.values(RFL_HIST).flatMap(l => l.rows)].map(x => (x.pic || "").trim()).filter(Boolean))].slice(0, 40);
+  $("#rfl-pics").innerHTML = pics.map(v => `<option value="${esc(v)}"></option>`).join("");
+  const locs = [...new Set([...RFL.rows, ...Object.values(RFL_HIST).flatMap(l => l.rows)].map(x => (x.locText || "").trim()).filter(v => v && v.length < 60))].slice(0, 40);
+  $("#rfl-locs").innerHTML = locs.map(v => `<option value="${esc(v)}"></option>`).join("");
+  rflEdRender(); openSheet("#rfl-ed"); $("#rfl-ed .sheet-b").scrollTop = 0;
+  setTimeout(() => { if (i == null) $("#re-ref").focus(); }, 60);
+}
+function rflEdRender() {
+  const r = rflEd.r, lg = (report.lang || "en") === "bm" ? "bm" : "en", b = $("#re-act"), acts = r.acts || [];
+  b.classList.toggle("unset", !acts.length);
+  b.innerHTML = acts.length ? acts.map(e => { const a = entryAct(e); return `<span class="aent"><span class="an">${esc(entryName(e, lg))}</span>${a ? `<span class="bq">${esc(refChip(a))}</span>` : ""}</span>`; }).join("") + `<span class="small muted">Tap to add or change</span>` : "Choose activity (optional)";
+  $("#re-side").innerHTML = sideButtons(r.side, "data-side");
+  rflEdPreview();
+}
+function rflEdRead() {
+  const r = rflEd.r;
+  r.ref = rflRef($("#re-ref").value); r.desc = $("#re-desc").value.trim(); r.struct = $("#re-struct").value;
+  r.ch = normCH($("#re-ch").value); r.ch2 = normCH($("#re-ch2").value); r.locText = $("#re-loc").value.trim();
+  r.pic = $("#re-pic").value.trim(); const t = $("#re-time").value; if (t) { r.time = t; r.timeText = ""; }
+  r.issued = $("#re-issued").value; r.insp = $("#re-insp").value;
+  return r;
+}
+function rflEdPreview() {
+  const r = rflEdRead(), lg = (report.lang || "en") === "bm" ? "bm" : "en";
+  $("#re-locprev").textContent = rflLoc(r, lg) ? "Prints as: " + rflLoc(r, lg) : "Type a chainage, pick a structure, or type the place.";
+}
+$("#rfl-ed").addEventListener("input", e => { if (e.target.closest("#re-ch, #re-ch2, #re-loc")) rflEdPreview(); });
+$("#re-struct").addEventListener("change", () => {
+  const st = STRUCT.get($("#re-struct").value);
+  if (st && !$("#re-ch").value.trim()) $("#re-ch").value = fmtCH(st.ch);
+  if (st && st.side && !rflEd.r.side) rflEd.r.side = st.side;
+  rflEdRender();
+});
+$("#re-side").addEventListener("click", e => {
+  const b = e.target.closest("[data-side]"); if (!b) return;
+  rflEd.r.side = rflEd.r.side === b.dataset.side ? "" : b.dataset.side; rflEdRender();
+});
+$("#re-act").addEventListener("click", () => {
+  const lg = (report.lang || "en") === "bm" ? "bm" : "en";
+  openPicker(sel => {
+    const d = $("#re-desc"), was = d.value.trim();
+    rflEd.r.acts = sel;
+    if (!was || was === rflEd.auto) { rflEd.auto = rflActs({ acts: sel }, lg); d.value = rflEd.auto; }
+    rflEdRender();
+  }, rflEd.r.acts || []);
+});
+function rflEdSave() {
+  const r = rflEdRead();
+  if (!r.ref && !r.desc && !(r.acts || []).length) { $("#re-msg").textContent = "Type the RFI no. or a description first."; return false; }
+  const dup = r.ref ? RFL.rows.findIndex((x, j) => x.ref === r.ref && j !== rflEd.i) : -1;
+  if (dup >= 0) { $("#re-msg").textContent = `${CFG.rfiPrefix + r.ref} is already in the list (no. ${pad(dup + 1)}).`; return false; }
+  if (rflEd.i == null) RFL.rows.push(r); else RFL.rows[rflEd.i] = r;
+  rflSave(); renderRfl(); return true;
+}
+$("#re-save").addEventListener("click", () => { if (rflEdSave()) closeSheet("#rfl-ed"); });
+$("#re-more").addEventListener("click", () => { if (rflEdSave()) { toast("Added. Type the next RFI."); rflOpenEdit(null); } });
+$("#rl-add").addEventListener("click", () => rflOpenEdit(null));
+
+/* paste rows from Excel */
+function parseTSV(t) {
+  const rows = []; let row = [], cell = "", q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i + 1] === '"') { cell += '"'; i++; } else q = false; } else cell += c; continue; }
+    if (c === '"' && cell === "") q = true;
+    else if (c === "\t") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") { if (c === "\r" && t[i + 1] === "\n") i++; row.push(cell); rows.push(row); row = []; cell = ""; }
+    else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); rows.push(row); }
+  return rows.map(r => r.map(c => c.replace(/\s+\n/g, "\n").trim())).filter(r => r.some(Boolean));
+}
+function rflParseDate(v) {
+  const s = String(v || "").trim(); let m;
+  if ((m = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(s))) return `${m[1]}-${pad(+m[2])}-${pad(+m[3])}`;
+  if ((m = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})$/.exec(s))) { let y = +m[3]; if (y < 100) y += 2000; if (+m[2] > 12) return ""; return `${y}-${pad(+m[2])}-${pad(+m[1])}`; }
+  return "";
+}
+function rflParseTime(v) {
+  const s = String(v || "").trim().toLowerCase().replace(/\./g, (x, i, str) => /\d\.\d/.test(str.slice(i - 1, i + 2)) ? ":" : "").replace(/\s+/g, " ");
+  let m = /^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/.exec(s);
+  if (!m) { m = /^(\d{2})(\d{2})$/.exec(s); return m && +m[1] < 24 && +m[2] < 60 ? `${m[1]}:${m[2]}` : ""; }
+  let hh = +m[1]; const mi = m[2] || "00", ap = m[3] || "";
+  if (!m[2] && !ap) return "";
+  if (ap === "pm" && hh < 12) hh += 12; if (ap === "am" && hh === 12) hh = 0;
+  return hh < 24 && +mi < 60 ? `${pad(hh)}:${mi}` : "";
+}
+const RFL_HEAD = [["time", /time|masa|jam/i], ["issued", /issu|dikeluar/i], ["insp", /insp|periksa|date|tarikh/i], ["ref", /rfi|ref|rujukan/i], ["pic", /\bpic\b|person|in.?charge|pegawai/i], ["loc", /loc|lokasi|chainage|rantaian/i], ["desc", /desc|keterangan|activit|aktiviti|work|kerja|item/i], ["no", /^(no\.?|bil\.?|#)$/i]];
+function rflHeaderMap(row) {
+  const map = {};
+  row.forEach((c, i) => { const k = (RFL_HEAD.find(([, re]) => re.test(c)) || [])[0]; if (k && map[k] == null) map[k] = i; });
+  return map;
+}
+function rflGuessMap(rows) {
+  const n = Math.max(...rows.map(r => r.length)), map = {}, used = new Set();
+  const share = (i, test) => { const v = rows.map(r => r[i] || "").filter(Boolean); return v.length ? v.filter(test).length / v.length : 0; };
+  const pick = (k, test, min = 0.6) => { let best = -1, bs = min; for (let i = 0; i < n; i++) { if (used.has(i)) continue; const sc = share(i, test); if (sc >= bs) { bs = sc; best = i; } } if (best >= 0) { map[k] = best; used.add(best); } };
+  pick("ref", v => /^(JKR-RFI-WP12-)?[A-Z]{2,4}-?\d{1,5}$/i.test(v.replace(/\s+/g, "")));
+  const dates = []; for (let i = 0; i < n; i++) if (share(i, v => !!rflParseDate(v)) >= 0.6) dates.push(i);
+  if (dates.length >= 2) { map.issued = dates[0]; map.insp = dates[1]; } else if (dates.length) map.insp = dates[0];
+  dates.forEach(i => used.add(i));
+  pick("time", v => !!rflParseTime(v));
+  pick("no", v => /^\d{1,3}\.?$/.test(v), 0.9);
+  pick("loc", v => /\bCH\s*\d|zone|zon\b|lab/i.test(v), 0.5);
+  const rest = []; for (let i = 0; i < n; i++) if (!used.has(i)) rest.push(i);
+  const avg = i => { const v = rows.map(r => r[i] || "").filter(Boolean); return v.length ? v.reduce((s, x) => s + x.length, 0) / v.length : 0; };
+  rest.sort((a, b) => avg(b) - avg(a));
+  if (rest.length) map.desc = rest.shift();
+  if (rest.length) { rest.sort((a, b) => avg(a) - avg(b)); map.pic = rest.find(i => avg(i) > 0); }
+  return map;
+}
+function rflParse(text) {
+  const all = parseTSV(text || "");
+  if (!all.length) return { rows: [], cols: [], note: "" };
+  if (all.every(r => r.length < 2)) return { rows: [], cols: [], note: "No columns found. Copy the cells from Excel (not from a PDF or a WhatsApp message), then paste here." };
+  let hi = -1, map = {};
+  all.slice(0, 6).forEach((r, i) => { const m = rflHeaderMap(r); if (Object.keys(m).length >= 3 && Object.keys(m).length > Object.keys(map).length) { hi = i; map = m; } });
+  const body = hi >= 0 ? all.slice(hi + 1) : all.filter(r => !/summary list|senarai/i.test(r.join(" ")) || r.filter(Boolean).length > 2);
+  if (hi < 0) map = rflGuessMap(body);
+  const get = (r, k) => map[k] != null ? (r[map[k]] || "").trim() : "";
+  const out = [];
+  for (const c of body) {
+    const ref = rflRef(get(c, "ref")), desc = get(c, "desc"), loc = get(c, "loc"), tRaw = get(c, "time");
+    const iss = rflParseDate(get(c, "issued")), insp = rflParseDate(get(c, "insp"));
+    if (!ref && !iss && !insp && !tRaw && out.length && (desc || loc)) {   // a second line of the row above (e.g. "Casting location: ...")
+      const p = out[out.length - 1]; if (desc) p.desc += "\n" + desc; if (loc) p.locText += (p.locText ? "\n" : "") + loc; continue;
+    }
+    if (!ref && !desc) continue;
+    const time = rflParseTime(tRaw);
+    out.push({ ref, acts: [], desc, struct: "", ch: "", ch2: "", side: "", locText: loc, pic: get(c, "pic"), time, timeText: time ? "" : tRaw, issued: iss, insp });
+  }
+  out.forEach(rflSplitRow);
+  const names = { ref: "RFI no.", issued: "Issued date", insp: "Inspection date", desc: "Description", loc: "Location", pic: "PIC", time: "Time" };
+  return { rows: out, cols: Object.keys(names).filter(k => map[k] != null).map(k => names[k]), missing: Object.keys(names).filter(k => map[k] == null).map(k => names[k]), header: hi >= 0 };
+}
+function renderRflPaste() {
+  const res = rflParsed = rflParse($("#rp-text").value);
+  const p = $("#rp-prev");
+  if (!$("#rp-text").value.trim()) { p.innerHTML = ""; $("#rp-add").disabled = true; $("#rp-add").textContent = "Add to the list"; return; }
+  if (!res.rows.length) { p.innerHTML = `<div class="warnbox">${esc(res.note || "No RFIs found. Copy the rows with the RFI no. and description, with the heading row if you can.")}</div>`; $("#rp-add").disabled = true; return; }
+  const upd = res.rows.filter(r => r.ref && RFL.rows.some(x => x.ref === r.ref)).length;
+  p.innerHTML = `<div class="okbox small"><b>${res.rows.length} RFI${res.rows.length > 1 ? "s" : ""} found.</b> Columns: ${esc(res.cols.join(", "))}${res.missing.length ? `. Not found: ${esc(res.missing.join(", "))} (you can add them after)` : ""}.${upd ? ` ${upd} already in the list will be updated.` : ""}${res.header ? "" : " No heading row, so the columns were worked out from their contents: check them below."}</div>
+    <div class="rptable"><table><thead><tr><th>No.</th><th>RFI no.</th><th>Insp. date</th><th>Description</th><th>Location</th><th>PIC</th><th>Time</th></tr></thead><tbody>${res.rows.map((r, i) => `<tr><td>${pad(i + 1)}</td><td class="mono">${esc(r.ref || "–")}</td><td>${esc(r.insp ? rflDate(r.insp) : "–")}</td><td>${esc(r.desc).replace(/\n/g, "<br>")}</td><td>${esc(rflLoc(r, "en") || "–").replace(/\n/g, "<br>")}</td><td>${esc(r.pic || "–")}</td><td>${esc(rflTime(r) || "–")}</td></tr>`).join("")}</tbody></table></div>`;
+  $("#rp-add").disabled = false; $("#rp-add").textContent = `Add ${res.rows.length} RFI${res.rows.length > 1 ? "s" : ""} to the list`;
+}
+$("#rl-paste").addEventListener("click", () => { $("#rp-text").value = ""; renderRflPaste(); openSheet("#rfl-paste"); setTimeout(() => $("#rp-text").focus(), 60); });
+$("#rp-text").addEventListener("input", renderRflPaste);
+$("#rp-add").addEventListener("click", () => {
+  const res = rflParsed; if (!res || !res.rows.length) return;
+  let added = 0, upd = 0;
+  const insps = [...new Set(res.rows.map(r => r.insp).filter(Boolean))], isss = [...new Set(res.rows.map(r => r.issued).filter(Boolean))];
+  const fresh = !RFL.rows.length;
+  if (insps.length === 1) { if (fresh || insps[0] === RFL.insp) { RFL.insp = insps[0]; res.rows.forEach(r => { if (r.insp === RFL.insp) r.insp = ""; }); } }
+  if (isss.length === 1 && fresh) { RFL.issued = isss[0]; res.rows.forEach(r => { if (r.issued === RFL.issued) r.issued = ""; }); }
+  for (const r of res.rows) {
+    const j = r.ref ? RFL.rows.findIndex(x => x.ref === r.ref) : -1;
+    if (j >= 0) { RFL.rows[j] = Object.assign({}, RFL.rows[j], Object.fromEntries(Object.entries(r).filter(([k, v]) => v && !(Array.isArray(v) && !v.length)))); upd++; }
+    else { RFL.rows.push(r); added++; }
+  }
+  rflSave(); closeSheet("#rfl-paste"); renderRfl();
+  toast(`${added ? `Added ${added}` : ""}${added && upd ? ", " : ""}${upd ? `updated ${upd}` : ""} RFI${added + upd > 1 ? "s" : ""}. Tap Edit on a row to add its activity or chainage.`, 4500);
+});
+
+/* outputs: PDF (A4 landscape), WhatsApp text, CSV */
+async function buildRflPDF(lang) {
+  const k = await pdfKit(lang);
+  k.doc = new window.jspdf.jsPDF({ unit: "mm", format: "a4", orientation: "landscape", compress: true });
+  k.W = 297; k.H = 210; k.CW = 277;
+  const { doc, M, CW, H } = k, T = pdfSafe, fl = k.fl, rows = RFL.rows;
+  const who = [report.name, report.designation].filter(Boolean).join(", ");
+  const cells = [[lab("rlinsp", lang), rflDateLong(RFL.insp), 34], [lab("rlissued", lang), rflDateLong(RFL.issued), 34], [lab("team", lang), report.team || "", 16], [lab("rlby", lang), who || "-", 56], [lab("rln", lang), String(rows.length), 16]];
+  const title = lab("rltitle", lang);
+  let y = pdfPage(k, title, cells) + 1;
+  const cols = [[lab("no", lang), 9], [lab("rlref", lang), 37], [lab("rlhiss", lang), 21], [lab("rlhinsp", lang), 21], [lab("rldesc", lang), 82], [lab("loc", lang), 52], [lab("rlpic", lang), 25], [lab("rlhtime", lang), 21]];
+  const tot = cols.reduce((a, c) => a + c[1], 0), cw = cols.map(c => c[1] / tot * CW);
+  const head = () => {
+    doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
+    // EN / BM headings: one language per line, so words are not cut
+    const hl = cols.map((c, i) => T(c[0]).toUpperCase().split(" / ").flatMap((t, j, a) => doc.splitTextToSize(t + (j < a.length - 1 ? " /" : ""), cw[i] - 3))), hh = Math.max(...hl.map(l => l.length)) * 2.8 + 4;
+    doc.setFillColor(...PC.ink); doc.rect(M, y, CW, hh, "F"); doc.setTextColor(255, 255, 255);
+    let x = M; hl.forEach((l, i) => { doc.text(l, x + 1.6, y + 4.3, { lineHeightFactor: 1.2 }); x += cw[i]; }); y += hh;
+  };
+  head();
+  if (!rows.length) { doc.setFont("helvetica", "italic"); doc.setFontSize(9); doc.setTextColor(...PC.muted); doc.text(T(lab("rlnone", lang)), M + 2, y + 6); }
+  rows.forEach((r, j) => {
+    const desc = rflDescText(r, lang) || "-", refs = rflRefs(r);
+    const vals = [pad(j + 1), r.ref ? CFG.rfiPrefix + r.ref : "-", rflDate(r.issued || RFL.issued), rflDate(r.insp || RFL.insp), desc, rflLoc(r, fl) || "-", r.pic || "-", rflTime(r) || "-"];
+    doc.setFontSize(8.2);
+    const wr = vals.map((v, i) => { doc.setFont("helvetica", i === 1 || i === 7 ? "bold" : "normal"); return doc.splitTextToSize(T(v), cw[i] - 3.2); });
+    doc.setFontSize(7); const rl = refs ? doc.splitTextToSize(T(refs), cw[4] - 3.2) : [];
+    const rh = Math.max(...wr.map(w => w.length), wr[4].length + rl.length * 0.85) * 3.7 + 4;
+    if (y + rh > H - 14) { y = pdfPage(k, title, cells) + 1; head(); }
+    if (j % 2) { doc.setFillColor(...PC.fill); doc.rect(M, y, CW, rh, "F"); }
+    let x = M;
+    wr.forEach((w, i) => { doc.setFont("helvetica", i === 1 || i === 7 ? "bold" : "normal"); doc.setFontSize(8.2); doc.setTextColor(...PC.ink); doc.text(w, x + 1.6, y + 4.4, { lineHeightFactor: 1.3 }); x += cw[i]; });
+    if (rl.length) { doc.setFont("helvetica", "normal"); doc.setFontSize(7); doc.setTextColor(...PC.muted); doc.text(rl, M + cw[0] + cw[1] + cw[2] + cw[3] + 1.6, y + 4.4 + wr[4].length * 3.7 + 0.4); }
+    doc.setDrawColor(...PC.line); doc.setLineWidth(0.2); doc.line(M, y + rh, M + CW, y + rh); y += rh;
+  });
+  pdfFooters(k, `WP12 RFI list ${(RFL.insp || "").replace(/-/g, "")}`, "prep");
+  return doc.output("blob");
+}
+function rflFileBase() { return `${(RFL.insp || today()).replace(/-/g, "")}_WP12_Daily_RFI_Summary_List`; }
+function rflText(lang) {
+  const lg = lang === "bm" ? "bm" : "en";
+  const out = [lg === "bm" ? "*WP12 Senarai Ringkasan RFI Harian*" : "*WP12 Daily RFI Summary List*",
+    `${lg === "bm" ? "Pemeriksaan" : "Inspection"}: ${rflDateLong(RFL.insp)}${report.team ? " · " + report.team : ""}${report.name ? " · " + report.name : ""}`, ""];
+  RFL.rows.forEach((r, i) => {
+    out.push(`${i + 1}. ${r.ref ? CFG.rfiPrefix + r.ref : "(no RFI no.)"}${rflTime(r) ? " – " + rflTime(r) : ""}`);
+    const d = rflDescText(r, lg); if (d) out.push(d);
+    const l = rflLoc(r, lg); out.push([l, r.pic ? "PIC: " + r.pic : ""].filter(Boolean).join(" · "));
+    out.push("");
+  });
+  return out.join("\n").trim();
+}
+function rflCSV() {
+  return csvOut([["No", "RFI Reference No.", "Issued Date", "Inspection Date", "Description", "BQ / QC ref", "Location", "PIC", "Time of Inspection"],
+    ...RFL.rows.map((r, i) => [i + 1, r.ref ? CFG.rfiPrefix + r.ref : "", rflDate(r.issued || RFL.issued), rflDate(r.insp || RFL.insp), rflDescText(r, "en"), rflRefs(r), rflLoc(r, "en"), r.pic || "", rflTime(r)])]);
+}
+async function rflRun(fn) {
+  if (rflBusy) return; rflBusy = true; $$("#rl-out button").forEach(x => x.disabled = true);
+  try { await fn(); } catch (err) { $("#rl-status").textContent = err && err.name === "NotAllowedError" ? "Ready. Tap the same button again to share." : saveErr(err); console.warn(err); }
+  finally { rflBusy = false; $$("#rl-out button").forEach(x => x.disabled = false); }
+}
+$("#rl-pdf").addEventListener("click", () => rflRun(async () => {
+  $("#rl-status").textContent = "Making the PDF…";
+  const blob = await buildRflPDF(report.lang || "en"), name = rflFileBase() + ".pdf";
+  const file = new File([blob], name, { type: "application/pdf" });
+  rflKeep();
+  if (canShareFiles([file])) { await navigator.share({ files: [file], title: name, text: `WP12 RFI summary list ${rflDateLong(RFL.insp)}` }); $("#rl-status").textContent = "Shared."; }
+  else { await saveFile(blob, name); $("#rl-status").textContent = `Saved ${name}.`; }
+}));
+$("#rl-copy").addEventListener("click", async () => {
+  const t = rflText(report.lang || "en"), ta = $("#rl-text"); ta.value = t; ta.hidden = false;
+  try { await navigator.clipboard.writeText(t); $("#rl-status").textContent = "Copied. Paste it in the WhatsApp group with the PDF."; }
+  catch (err) { ta.focus(); ta.select(); $("#rl-status").textContent = "Select the text below and copy it."; }
+});
+$("#rl-csv").addEventListener("click", () => rflRun(async () => {
+  const name = rflFileBase() + ".csv"; await saveFile(new Blob([rflCSV()], { type: "text/csv" }), name); $("#rl-status").textContent = `Saved ${name} (opens in Excel).`;
+}));
+
 /* ---------- register log ---------- */
 let REG = null, regTab = "reports";
 async function regLoad() {
@@ -2017,27 +2795,28 @@ async function regLoad() {
 }
 async function regSave() { await sput("kv", "register", REG); }
 function photoRow(p, i) {
-  return { no: i + 1, time: timeStr(p.time), actEN: actName(p, "en"), actBM: actName(p, "bm"), bq: refFor(p), struct: STRUCT.get(p.struct)?.name || "", el: p.el || "", ch: normCH(p.ch), ch2: normCH(p.ch2), side: p.side || "", rfi: rfiCode(p), rem: p.rem || "", lat: p.gps ? +p.gps.lat.toFixed(6) : "", lon: p.gps ? +p.gps.lon.toFixed(6) : "", gch: p.auto ? fmtCH(p.auto.ch) : "", file: photoFileName(p, i) };
+  return { no: i + 1, time: timeStr(p.time), actEN: actName(p, "en"), actBM: actName(p, "bm"), bq: refFor(p), struct: STRUCT.get(p.struct)?.name || "", el: p.el || "", ch: normCH(p.ch), ch2: normCH(p.ch2), side: p.side || "", rfi: rfiCode(p), rem: p.rem || "", status: statusText(p, "en"), lat: p.gps ? +p.gps.lat.toFixed(6) : "", lon: p.gps ? +p.gps.lon.toFixed(6) : "", gch: p.auto ? fmtCH(p.auto.ch) : "", file: photoFileName(p, i) };
 }
 function rfisFromRows(rows) {
   const out = {};
   for (const r of rows) {
     if (!r.rfi) continue;
-    const o = out[r.rfi] = out[r.rfi] || { acts: new Set(), chs: [], sides: new Set(), times: [], n: 0 };
+    const o = out[r.rfi] = out[r.rfi] || { acts: new Set(), chs: [], sides: new Set(), times: [], n: 0, sts: new Set() };
+    if (r.status) o.sts.add(r.status);
     if (r.actEN) o.acts.add(r.actEN); [parseCH(r.ch), parseCH(r.ch2)].forEach(v => { if (!isNaN(v)) o.chs.push(v); });
     if (r.side) o.sides.add(r.side); if (r.time) o.times.push(r.time); o.n++;
     const z = zoneOf(r.ch); if (z) (o.zones = o.zones || new Set()).add(z);
   }
   for (const [c, o] of Object.entries(out)) {
     const a = o.chs.length ? Math.min(...o.chs) : NaN, b = o.chs.length ? Math.max(...o.chs) : NaN, t = o.times.sort();
-    const z = o.zones && o.zones.size ? [...o.zones].join(", ") : null;
-    out[c] = { desc: [...o.acts].join("; "), loc: (z ? z + ": " : "") + (isNaN(a) ? "" : "CH " + fmtCH(a) + (b - a >= 1 ? " – " + fmtCH(b) : "")) + (o.sides.size ? " " + [...o.sides].join(" / ") : ""), t1: t[0] || "", t2: t[t.length - 1] || "", n: o.n, result: "", stage: "1" };
+    const z = o.zones && o.zones.size ? zoneSort([...o.zones]).join(", ") : null;
+    out[c] = { desc: [...o.acts].join("; "), loc: (z ? z + ": " : "") + (isNaN(a) ? "" : "CH " + fmtCH(a) + (b - a >= 1 ? " – " + fmtCH(b) : "")) + (o.sides.size ? " " + [...o.sides].join(" / ") : ""), t1: t[0] || "", t2: t[t.length - 1] || "", n: o.n, status: [...o.sts].join("; ") };
   }
   return out;
 }
 function reportEntry() {
   const rows = photos.map(photoRow), rf = rfisFromRows(rows);
-  for (const [code, r] of Object.entries(rf)) { const inf = (report.rfi || {})[code] || {}; if (inf.desc) r.desc = inf.desc; r.result = inf.result || ""; r.stage = inf.stage || "1"; }
+  for (const [code, r] of Object.entries(rf)) { const inf = (report.rfi || {})[code] || {}; if (inf.desc) r.desc = inf.desc; }
   return { rid: report.rid, date: report.date, team: report.team, name: report.name, desig: report.designation, zone: reportZone(), wxAM: report.wxAM, wxPM: report.wxPM, photos: rows, rfis: rf, logged: new Date().toISOString(), source: "this device" };
 }
 async function logReport() {
@@ -2090,14 +2869,14 @@ function renderRegister() {
   } else if (regTab === "rfis") {
     const rows = rfiRows(es);
     count = `${rows.length} RFI record${rows.length !== 1 ? "s" : ""}`;
-    html = rows.map(({ code, e, r }) => `<div class="rgrow"><div class="t"><span class="mono">${esc(CFG.rfiPrefix + code)}</span>${r.result ? `<span class="tag">${esc(RES[r.result] || r.result)}</span>` : ""}</div>
+    html = rows.map(({ code, e, r }) => `<div class="rgrow"><div class="t"><span class="mono">${esc(CFG.rfiPrefix + code)}</span>${r.result ? `<span class="tag">${esc(RES[r.result] || r.result)}</span>` : r.status ? `<span class="tag">${esc(r.status)}</span>` : ""}</div>
       <div class="s">${esc(dShort(e.date))}${r.t1 ? " · " + esc(r.t1) + (r.t2 && r.t2 !== r.t1 ? "–" + esc(r.t2) : "") : ""} · ${r.n} photo${r.n !== 1 ? "s" : ""} · ${esc(e.team || "")} ${esc(e.name || "")}${r.stage === "2" ? " · follow-up" : ""}</div>
       <div class="s">${esc(r.desc || "")}${r.loc ? " · " + esc(r.loc) : ""}</div></div>`).join("");
   } else {
     const rows = photoRows(es);
     count = `${rows.length} photo${rows.length !== 1 ? "s" : ""}${rows.length > 300 ? " (showing the latest 300; export for all)" : ""}`;
     html = rows.slice(0, 300).map(({ e, p }) => `<div class="rgrow"><div class="t"><span class="mono">${esc(p.ch ? "CH " + p.ch : "no CH")}${p.side ? " " + esc(p.side) : ""}</span><span class="small muted">${esc(dShort(e.date))} ${esc(p.time || "")} · ${esc(e.team || "")}</span></div>
-      <div class="s">${esc(p.actEN || "Not tagged")}${p.bq ? " · BQ " + esc(p.bq) : ""}${p.struct ? " · " + esc(p.struct) : ""}${p.rfi ? " · RFI " + esc(p.rfi) : ""}</div>${p.rem ? `<div class="s">${esc(p.rem)}</div>` : ""}</div>`).join("");
+      <div class="s">${esc(p.actEN || "Not tagged")}${p.bq ? " · " + (/^(BQ|QC)\b/.test(p.bq) ? "" : "BQ ") + esc(p.bq) : ""}${p.struct ? " · " + esc(p.struct) : ""}${p.el ? " · " + esc(p.el) : ""}${p.rfi ? " · RFI " + esc(p.rfi) : ""}${p.status ? " · " + esc(p.status) : ""}</div>${p.rem ? `<div class="s">${esc(p.rem)}</div>` : ""}</div>`).join("");
   }
   if (!Object.keys(REG.reports).length) html = `<div class="empty"><b>No reports logged yet</b><span class="small muted">Each report you save or share from Generate report is logged here. You can also import the photo_log.csv from other people's ZIP archives with Import log.</span></div>`;
   else if (!html) html = `<p class="muted">Nothing matches the filters.</p>`;
@@ -2116,23 +2895,23 @@ $("#rg-list").addEventListener("click", async e => {
 });
 const csvq = v => { const s = String(v ?? ""); return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
 const csvOut = rows => "﻿" + rows.map(r => r.map(csvq).join(",")).join("\r\n");
-const PHOTO_HEAD = ["Report ID", "Date", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "No", "Time", "Activity (EN)", "Activity (BM)", "BQ ref", "Structure", "Element", "CH from", "CH to", "Side", "RFI", "Remarks", "GPS lat", "GPS lon", "GPS CH", "File"];
+const PHOTO_HEAD = ["Report ID", "Date", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "No", "Time", "Activity (EN)", "Activity (BM)", "BQ ref", "Structure", "Element", "CH from", "CH to", "Side", "RFI", "Remarks", "GPS lat", "GPS lon", "GPS CH", "File", "Status"];
 function csvPhotos(entries) {
-  return csvOut([PHOTO_HEAD, ...entries.flatMap(e => (e.photos || []).map(p => [e.rid, e.date, e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, pad(p.no), p.time, p.actEN, p.actBM, p.bq, p.struct, p.el, p.ch, p.ch2, p.side, p.rfi ? CFG.rfiPrefix + p.rfi : "", p.rem, p.lat, p.lon, p.gch, p.file]))]);
+  return csvOut([PHOTO_HEAD, ...entries.flatMap(e => (e.photos || []).map(p => [e.rid, e.date, e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, pad(p.no), p.time, p.actEN, p.actBM, p.bq, p.struct, p.el, p.ch, p.ch2, p.side, p.rfi ? CFG.rfiPrefix + p.rfi : "", p.rem, p.lat, p.lon, p.gch, p.file, p.status || ""]))]);
 }
 function csvReports(entries) {
   return csvOut([["Report ID", "Date", "Day", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "Photos", "Activities", "CH from", "CH to", "RFIs", "Logged", "Source"],
     ...entries.map(e => { const [a, b] = chRange(e); return [e.rid, e.date, dShort(e.date).slice(0, 3), e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, (e.photos || []).length, [...new Set((e.photos || []).map(p => p.actEN).filter(Boolean))].join("; "), a, b, Object.keys(e.rfis || {}).map(c => CFG.rfiPrefix + c).join("; "), e.logged, e.source]; })]);
 }
 function csvRfis(entries) {
-  return csvOut([["No", "RFI Reference No.", "Inspection Date", "Time of Inspection", "Description", "Location", "PIC", "Team", "Photos", "Stage", "Result", "Report ID"],
-    ...rfiRows(entries).map(({ code, e, r }, i) => [i + 1, CFG.rfiPrefix + code, e.date, r.t1 + (r.t2 && r.t2 !== r.t1 ? " - " + r.t2 : ""), r.desc, r.loc, e.name, e.team, r.n, r.stage === "2" ? "Follow-up" : "Inspection", RES[r.result] || "", e.rid])]);
+  return csvOut([["No", "RFI Reference No.", "Inspection Date", "Time of Inspection", "Description", "Location", "PIC", "Team", "Photos", "Photo status", "Report ID"],
+    ...rfiRows(entries).map(({ code, e, r }, i) => [i + 1, CFG.rfiPrefix + code, e.date, r.t1 + (r.t2 && r.t2 !== r.t1 ? " - " + r.t2 : ""), r.desc, r.loc, e.name, e.team, r.n, r.status || (r.result ? RES[r.result] || "" : ""), e.rid])]);
 }
 $("#rg-export").addEventListener("click", async () => {
   const es = regEntries(); if (!es.length) { toast("Nothing to export with these filters."); return; }
   const csv = regTab === "reports" ? csvReports(es) : regTab === "rfis" ? csvRfis(es) : csvPhotos(es);
   const name = `WP12_SDR_Register_${regTab}_${today().replace(/-/g, "")}.csv`;
-  try { await saveFile(new Blob([csv], { type: "text/csv" }), name); toast(`Saved ${name}`); } catch (err) { toast(saveErr(err), 5000); }
+  try { await saveFile(new Blob([csv], { type: "text/csv" }), name); settings.lastExport = new Date().toISOString(); saveDraft(); toast(`Saved ${name}`); } catch (err) { toast(saveErr(err), 5000); }
 });
 $("#rg-sync").addEventListener("click", async () => {
   const list = Object.values(REG.reports).filter(e => !e.synced); let n = 0;
@@ -2165,7 +2944,7 @@ $("#in-reglog").addEventListener("change", async e => {
       const rid = v("Report ID") || `imp-${v("Date")}-${v("Team")}-${slug(v("Reported by"), 20)}`;
       const en = g[rid] = g[rid] || { rid, date: v("Date"), team: v("Team"), name: v("Reported by"), desig: v("Designation"), zone: v("Zone"), wxAM: v("Weather AM"), wxPM: v("Weather PM"), photos: [], logged: new Date().toISOString(), source: "imported: " + f.name };
       let rfi = v("RFI").toUpperCase(); if (rfi.startsWith(CFG.rfiPrefix)) rfi = rfi.slice(CFG.rfiPrefix.length);
-      en.photos.push({ no: +v("No") || en.photos.length + 1, time: v("Time"), actEN: v("Activity (EN)"), actBM: v("Activity (BM)"), bq: v("BQ ref"), struct: v("Structure"), el: v("Element"), ch: v("CH from"), ch2: v("CH to"), side: v("Side"), rfi, rem: v("Remarks"), lat: v("GPS lat"), lon: v("GPS lon"), gch: v("GPS CH"), file: v("File") });
+      en.photos.push({ no: +v("No") || en.photos.length + 1, time: v("Time"), actEN: v("Activity (EN)"), actBM: v("Activity (BM)"), bq: v("BQ ref"), struct: v("Structure"), el: v("Element"), ch: v("CH from"), ch2: v("CH to"), side: v("Side"), rfi, rem: v("Remarks"), status: v("Status"), lat: v("GPS lat"), lon: v("GPS lon"), gch: v("GPS CH"), file: v("File") });
     }
     for (const en of Object.values(g)) {
       const ex = REG.reports[en.rid];
@@ -2177,21 +2956,48 @@ $("#in-reglog").addEventListener("change", async e => {
   toast(`Imported ${added} report${added !== 1 ? "s" : ""}${skipped ? `, kept ${skipped} of your own unchanged` : ""}`, 4000);
 });
 async function updateRfiList() {
-  await regLoad();
-  const set = new Set(photos.map(rfiCode).filter(Boolean));
-  Object.values(REG.reports).sort((a, b) => (b.date || "").localeCompare(a.date || "")).forEach(e => Object.keys(e.rfis || {}).forEach(c => set.size < 60 && set.add(c)));
-  $("#rfi-list").innerHTML = [...set].map(c => `<option value="${esc(c)}"></option>`).join("");
+  await regLoad(); await rflLoad();
+  const tips = new Map();
+  RFL.rows.forEach(r => { if (r.ref && !tips.has(r.ref)) tips.set(r.ref, rflDescText(r, "en")); });
+  const set = new Set([...tips.keys(), ...photos.map(rfiCode).filter(Boolean)]);
+  Object.values(REG.reports).sort((a, b) => (b.date || "").localeCompare(a.date || "")).forEach(e => Object.keys(e.rfis || {}).forEach(c => set.size < 80 && set.add(c)));
+  $("#rfi-list").innerHTML = [...set].map(c => `<option value="${esc(c)}"${tips.get(c) ? ` label="${esc(tips.get(c).slice(0, 70))}"` : ""}></option>`).join("");
+  renderRflStrip();
 }
 
 /* ---------- settings ---------- */
 $("#btn-settings").addEventListener("click", () => { renderSettings(); openSheet("#settings"); });
+function deviceText() {
+  const u = navigator.userAgent;
+  const os = /iPhone/.test(u) ? "iPhone" : /iPad/.test(u) ? "iPad" : /Android/.test(u) ? "Android" : /Windows/.test(u) ? "Windows" : /Mac OS X/.test(u) ? "Mac" : "other device";
+  const br = /EdgA?\//.test(u) ? "Edge" : /SamsungBrowser/.test(u) ? "Samsung Internet" : /CriOS|Chrome\//.test(u) ? "Chrome" : /FxiOS|Firefox\//.test(u) ? "Firefox" : /Safari\//.test(u) ? "Safari" : "browser";
+  let inst = false; try { inst = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true; } catch (e) {}
+  return `${os}, ${br}${inst ? ", home-screen app" : ""}`;
+}
+function feedbackUrl() {
+  const t = `WP12 SDR feedback – App ${APP_VERSION.split(" ")[0]} – ${deviceText()}\n\nWhat I tried to do:\n\nWhat happened:\n\n(Add a screenshot if you can.)`;
+  return "https://wa.me/?text=" + encodeURIComponent(t);
+}
+// this app's GitHub repository: worked out from the GitHub Pages address, or the WP12 repository
+const REPO_URL = "https://github.com/cstwp12-admin/wp12-sdr";
+function repoUrl() {
+  const m = location.hostname.match(/^([\w-]+)\.github\.io$/);
+  const repo = location.pathname.split("/").filter(Boolean)[0];
+  return m && repo && !/\.html?$/.test(repo) ? `https://github.com/${m[1]}/${repo}` : REPO_URL;
+}
+function guideUrl() { return repoUrl() + "/blob/main/GUIDE.md"; }
+function changesUrl() { return repoUrl() + "/blob/main/CHANGELOG.md"; }
 function renderSettings() {
+  $("#st-feedback").href = feedbackUrl();
+  $("#st-help").href = guideUrl(); $("#st-help").hidden = false; $("#st-changes").href = changesUrl();
+  $("#st-rfl").checked = rflShow();
   const prev = (id, d, label) => { $(id).innerHTML = d ? `<img alt="${label}" src="${d}">` : label; };
   prev("#lg-l-prev", settings.logoL, "Left"); prev("#lg-r-prev", settings.logoR, "Right");
   $("#st-title-in").value = projectTitle();
   $("#st-contract").value = settings.contractNo || "";
-  $("#st-zones").innerHTML = `<span class="h">Zone</span><span class="h">From CH</span><span class="h">To CH</span>` + zones().map((z, i) =>
-    `<input type="text" data-z="${i}" data-k="name" value="${esc(z.name)}" aria-label="Zone ${i + 1} name"><input type="text" inputmode="decimal" class="mono" data-z="${i}" data-k="from" value="${z.from != null ? fmtCH(z.from) : ""}" placeholder="62+700" aria-label="Zone ${i + 1} from"><input type="text" inputmode="decimal" class="mono" data-z="${i}" data-k="to" value="${z.to != null ? fmtCH(z.to) : ""}" placeholder="66+000" aria-label="Zone ${i + 1} to">`).join("");
+  $("#st-zteam").hidden = !settings.zonesCustom;
+  $("#st-zones").innerHTML = `<span class="h">Zone</span><span class="h">From CH</span><span class="h">To CH</span><span></span>` + zones().map((z, i) =>
+    `<input type="text" data-z="${i}" data-k="name" value="${esc(z.name)}" aria-label="Zone ${i + 1} name"><input type="text" inputmode="decimal" class="mono" data-z="${i}" data-k="from" value="${z.from != null ? fmtCH(z.from) : ""}" placeholder="62+700" aria-label="Zone ${i + 1} from"><input type="text" inputmode="decimal" class="mono" data-z="${i}" data-k="to" value="${z.to != null ? fmtCH(z.to) : ""}" placeholder="66+000" aria-label="Zone ${i + 1} to"><button type="button" class="tbtn danger" data-zrm="${i}" aria-label="Remove zone ${i + 1}">×</button>`).join("");
   $("#st-acat").innerHTML = CFG.cats.map(c => `<option value="${c.id}">${esc(c.en)}</option>`).join("");
   const ex = settings.extraActs || [];
   $("#st-alist").innerHTML = ex.length ? ex.map(a => `<div class="rgrow"><div class="r"><span><b>${esc(a.en)}</b>${a.bm ? ` <span class="muted small">${esc(a.bm)}</span>` : ""} <span class="small muted">· ${esc(CAT.get(a.cat)?.en || a.cat)}${a.bq ? " · BQ " + esc(a.bq) : ""}</span></span><button class="tbtn danger" type="button" data-arm="${esc(a.id)}">Remove</button></div></div>`).join("") : `<span class="small muted">No activities added on this device yet.</span>`;
@@ -2215,7 +3021,22 @@ $("#st-zones").addEventListener("change", e => {
   const z = zones().map(x => Object.assign({}, x));
   if (k === "name") z[i].name = e.target.value.trim() || `Zone ${i + 1}`;
   else { const v = parseCH(e.target.value); z[i][k] = isNaN(v) ? null : v; e.target.value = isNaN(v) ? "" : fmtCH(v); }
-  settings.zones = z; saveDraft(); renderReportForm();
+  settings.zones = z; settings.zonesCustom = true; $("#st-zteam").hidden = false; saveDraft(); renderReportForm();
+});
+$("#st-zones").addEventListener("click", e => {
+  const b = e.target.closest("[data-zrm]"); if (!b) return;
+  const z = zones().map(x => Object.assign({}, x)); z.splice(+b.dataset.zrm, 1);
+  settings.zones = z; settings.zonesCustom = true; saveDraft(); renderSettings(); renderReportForm();
+});
+$("#st-zadd").addEventListener("click", () => {
+  const z = zones().map(x => Object.assign({}, x)), last = z[z.length - 1];
+  z.push({ name: `Zone ${z.length + 1}`, from: last && last.to != null ? last.to : null, to: null });
+  settings.zones = z; settings.zonesCustom = true; saveDraft(); renderSettings(); renderReportForm();
+  const ins = $$("#st-zones [data-k=to]"); if (ins.length) ins[ins.length - 1].focus();
+});
+$("#st-zteam").addEventListener("click", () => {
+  settings.zones = settings.teamZones || null; settings.zonesCustom = false; saveDraft(); renderSettings(); renderReportForm();
+  toast("Team zones restored");
 });
 $("#st-aadd").addEventListener("click", () => {
   const en = $("#st-aen").value.trim(); if (!en) { $("#st-aen").focus(); return; }
@@ -2266,7 +3087,7 @@ async function applySetup(j) {
   CFG = mergeCfg(j);
   await sput("kv", "config", CFG);
   if (j.logos) { if (j.logos.L) settings.logoL = j.logos.L; if (j.logos.R) settings.logoR = j.logos.R; }
-  if (j.zones) settings.zones = j.zones;
+  if (j.zones) { settings.teamZones = j.zones; if (!settings.zonesCustom) settings.zones = j.zones; }
   if (j.projectTitle) settings.projectTitle = j.projectTitle;
   if (j.contractNo != null) settings.contractNo = j.contractNo;
   const ids = new Set(CFG.activities.map(a => a.id));
@@ -2334,6 +3155,45 @@ $("#btn-sample").addEventListener("click", async () => {
   renderList(); saveDraft(); toast("4 sample photos added. Remove them with New report.", 4000);
 });
 
+/* ---------- notices ---------- */
+const WHATS_NEW = "Choose 2 or 4 photos per page, give each photo a status, and type the level (e.g. Berm 3) and RFI no. on the photo card. Same as previous now copies remarks too. Add a chainage range with + Chainage to, and set your own zones in Setup. New to try: an alignment diagram with optional structure lines (tick it on the report screen), and for WPC an RFI inspection list for the next day.";
+async function showNotices() {
+  const ver = APP_VERSION.split(" ")[0], out = [];
+  const existing = settings.seenVersion || settings.setupStamp || settings.name || photos.length;
+  if (settings.seenVersion !== ver) {
+    if (existing) out.push(["upd", `<b>Updated to ${esc(ver)}.</b> ${esc(WHATS_NEW)} <a href="${esc(changesUrl())}" target="_blank" rel="noopener">See what changed</a>`, [["ok", "OK"]]]);
+    else { settings.seenVersion = ver; saveDraft(); }
+  }
+  try {
+    await regLoad();
+    const own = Object.values(REG.reports).filter(e => e.source === "this device");
+    if (own.length) {
+      const first = Math.min(...own.map(e => Date.parse(e.logged) || Date.now()));
+      const since = settings.lastExport ? Date.parse(settings.lastExport) : first;
+      const days = Math.floor((Date.now() - since) / 864e5);
+      const snoozed = settings.snoozeExport && Date.now() < Date.parse(settings.snoozeExport);
+      if (days >= 7 && !snoozed) out.push(["exp", `<b>Back up your register.</b> ${settings.lastExport ? `Last exported ${days} days ago.` : `Not exported yet (${own.length} report${own.length > 1 ? "s" : ""} logged).`} Save it as a CSV and keep it with your project files, in case this phone's browser data is cleared.`, [["export", "Export now"], ["later", "Later"]]]);
+    }
+  } catch (e) {}
+  $("#notices").innerHTML = out.map(([k, h, bs]) => `<div class="notice" data-n="${k}"><div>${h}</div><div class="nbtns">${bs.map(([a, t], ix) => `<button type="button" class="btn${ix === 0 ? " pri" : ""}" data-nact="${a}">${t}</button>`).join("")}</div></div>`).join("");
+}
+$("#notices").addEventListener("click", async e => {
+  const b = e.target.closest("[data-nact]"); if (!b) return;
+  const box = b.closest(".notice"), a = b.dataset.nact;
+  if (a === "ok") { settings.seenVersion = APP_VERSION.split(" ")[0]; saveDraft(); box.remove(); }
+  else if (a === "later") { settings.snoozeExport = new Date(Date.now() + 864e5).toISOString(); saveDraft(); box.remove(); }
+  else if (a === "export") {
+    await regLoad();
+    const csv = csvPhotos(Object.values(REG.reports)), name = `WP12_SDR_Register_photos_${today().replace(/-/g, "")}.csv`;
+    try { await saveFile(new Blob([csv], { type: "text/csv" }), name); settings.lastExport = new Date().toISOString(); saveDraft(); box.remove(); toast(`Saved ${name}`); }
+    catch (err) { toast(saveErr(err), 5000); }
+  }
+});
+async function keepStorage() {
+  // ask the browser to keep this app's data (photos, drafts, register) instead of clearing it when space is low
+  try { if (navigator.storage && navigator.storage.persist && !(await navigator.storage.persisted())) await navigator.storage.persist(); } catch (e) {}
+}
+
 /* ---------- boot ---------- */
 (async function boot() {
   try { const s = await sget("kv", "settings"); if (s) settings = Object.assign(settings, s); } catch (e) {}
@@ -2354,6 +3214,7 @@ $("#btn-sample").addEventListener("click", async () => {
   $$(".rfipre").forEach(x => x.textContent = CFG.rfiPrefix);
   renderReportForm(); renderList(); updateRfiList();
   if (photos.length) toast(`Draft restored: ${photos.length} photo${photos.length > 1 ? "s" : ""}`);
+  showNotices(); keepStorage();
   autoSetup();
 })();
 

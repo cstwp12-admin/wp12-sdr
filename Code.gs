@@ -10,8 +10,8 @@ const TEAM_KEY = 'CHANGE-ME';
 const PREFIX = 'JKR-RFI-WP12-';
 const HEAD = {
   Reports: ['Report ID', 'Date', 'Team', 'Reported by', 'Designation', 'Zone', 'Weather AM', 'Weather PM', 'Photos', 'Activities', 'CH from', 'CH to', 'RFIs', 'Logged (app)', 'Received'],
-  Photos: ['Report ID', 'Date', 'Team', 'Reported by', 'No', 'Time', 'Activity (EN)', 'Activity (BM)', 'BQ ref', 'Structure', 'Element', 'CH from', 'CH to', 'Side', 'RFI', 'Remarks', 'GPS lat', 'GPS lon', 'GPS CH', 'File'],
-  RFIs: ['RFI Reference No.', 'Inspection Date', 'Time of Inspection', 'Description', 'Location', 'PIC', 'Team', 'Photos', 'Stage', 'Result', 'Report ID'],
+  Photos: ['Report ID', 'Date', 'Team', 'Reported by', 'No', 'Time', 'Activity (EN)', 'Activity (BM)', 'BQ ref', 'Structure', 'Element', 'CH from', 'CH to', 'Side', 'RFI', 'Remarks', 'GPS lat', 'GPS lon', 'GPS CH', 'File', 'Status'],
+  RFIs: ['RFI Reference No.', 'Inspection Date', 'Time of Inspection', 'Description', 'Location', 'PIC', 'Team', 'Photos', 'Photo status', 'Report ID'],
   Log: ['Received', 'Type', 'From', 'Note']
 };
 const RESULT = { a: 'Approved', b: 'Not approved - rectify', c: 'Rejected' };
@@ -31,10 +31,10 @@ function doPost(e) {
     append_(sheet_(ss, 'Reports'), [[rid, r.date, r.team, r.name, r.desig, r.zone, r.wxAM, r.wxPM, ps.length,
       unique_(ps.map(p => p.actEN)).join('; '), ch[0], ch[1], Object.keys(r.rfis || {}).map(c => PREFIX + c).join('; '), r.logged, new Date()]]);
     append_(sheet_(ss, 'Photos'), ps.map(p => [rid, r.date, r.team, r.name, p.no, p.time, p.actEN, p.actBM, p.bq, p.struct, p.el, p.ch, p.ch2, p.side,
-      p.rfi ? PREFIX + p.rfi : '', p.rem, p.lat, p.lon, p.gch, p.file]));
+      p.rfi ? PREFIX + p.rfi : '', p.rem, p.lat, p.lon, p.gch, p.file, p.status || '']));
     append_(sheet_(ss, 'RFIs'), Object.keys(r.rfis || {}).map(c => {
       const x = r.rfis[c];
-      return [PREFIX + c, r.date, x.t1 + (x.t2 && x.t2 !== x.t1 ? ' - ' + x.t2 : ''), x.desc, x.loc, r.name, r.team, x.n, x.stage === '2' ? 'Follow-up' : 'Inspection', RESULT[x.result] || '', rid];
+      return [PREFIX + c, r.date, x.t1 + (x.t2 && x.t2 !== x.t1 ? ' - ' + x.t2 : ''), x.desc, x.loc, r.name, r.team, x.n, x.status || RESULT[x.result] || '', rid];
     }));
     sheet_(ss, 'Log').appendRow([new Date(), 'report', safe_(who), rid]);
     return out_({ ok: true });

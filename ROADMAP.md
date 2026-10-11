@@ -6,7 +6,7 @@ Plan for the WP12 Site Photo Report, from pilot test to use by all CST, WPC and 
 
 | Phase | Dates | What happens | Moves on when |
 |---|---|---|---|
-| 1. Preparation | Fri 9 – Mon 12 Oct | v1.2 published and checked on iPhone, Android and laptop. Pilot users picked from CST and WPC. Hands-on briefing on Mon 12 Oct; everyone installs the app and makes a test report. | All pilot users have the app and have made a test report |
+| 1. Preparation | Fri 9 – Mon 12 Oct | v1.2.3 published and checked on iPhone, Android and laptop. Pilot users picked from CST and WPC. Hands-on briefing on Mon 12 Oct; everyone installs the app and makes a test report. | All pilot users have the app and have made a test report |
 | 2. Pilot | Tue 13 – Mon 26 Oct (2 weeks) | Pilot users make their daily report in the app and post its PDF in the WhatsApp group, in place of loose photos. RFI photo records from the first day. Mid-pilot check on Mon 19 Oct. Feedback and bugs posted in the existing WP12 RFI coordination WhatsApp group. | Reports on at least 8 of 10 working days per user, no data lost, no bug that stops a report being made |
 | 3. Pilot review discussion | Tue 27 Oct (one session) | CST and WPC pilot users go through the feedback and agree what is fixed now and what waits. | List of fixes for v1.3 agreed |
 | 4. Fix and improve | Wed 28 Oct – Tue 3 Nov | Fixes made and released as **v1.3**. Activity list and quick guide updated. | v1.3 published |
@@ -30,9 +30,16 @@ Features are added only when users ask for them.
 | Report type (daily progress, inspection, site observation, site visit) | The PDF title and file name show what the report is for | Soon after go-live |
 | Mark-up on photos (arrow, circle, short note) | Points to the defect or item in the photo itself | Soon after go-live |
 | Favourite activities per user | The activities a person uses most sit at the top of the list | Soon after go-live |
-| Next-day RFI inspection list | WPC prepares the daily RFI summary list in the app and shares it as a PDF | Soon after go-live |
+| Next-day RFI inspection list (experimental in v1.2.3) | WPC prepares the daily RFI summary list in the app (paste from Excel or add one by one) and shares it as a PDF in the Excel list's layout | Feedback from WPC at the pilot review: keep, adjust the format, or remove |
 | Shared team register (Google Sheet) | One register for all reports, without collecting CSVs by hand | When a team asks for it |
 | Site observation memo | Turns selected photos into a site memo draft with photo attachments | Later |
 | Photo map by chainage | Photos for a period on a strip map or map view | Later |
 | Weekly / monthly photo summary | Photos grouped by activity and zone for the monthly progress report | Later |
+| Alignment diagram (experimental in v1.2.3) | A line from the start to the end chainage with the zones, showing where each photo was taken, on the daily report and RFI photo record. Optional structure lines under it (bridges, pipe culverts, box culverts, junction culverts, RS walls), each ticked on its own | Feedback at the pilot review: which structure lines are used |
+| Alignment diagram: zoomed detail | A zoomed strip of the day's chainage range so photos close together are shown separately, with the structures in that range named in full | v1.3, if the pilot finds the diagram useful |
+| Alignment diagram preview | A small version of the diagram on the report screen, to check markers before sharing | v1.3 |
+| Diagram markers coloured by status | e.g. *Rectification required* in red, *Inspected* in green, with a one-line legend | v1.3 |
+| Register filter by chainage range or zone | e.g. every photo between CH 70+000 and 71+000 over the pilot weeks | v1.3 |
+| Weather by period | Optional time periods beside AM / PM, e.g. *08–10 Fine · 11–14 Heavy rain* | To be discussed at the pilot review |
+| Level / layer as its own field | Filter the register by berm level or layer, e.g. every *Berm 3* inspection over a chainage range | After the pilot, if needed |
 | Other work packages | A choice of project setups (WP12, WP13, …) from one app | When another package adopts it |

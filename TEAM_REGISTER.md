@@ -12,7 +12,7 @@ Four tabs, created by the script:
 |---|---|
 | Reports | Report: date, team, reporter, zone, weather, number of photos, activities, chainage range, RFI numbers |
 | Photos | Photo: activity, BQ or QC ref, structure, chainage, side, RFI no., remarks, GPS |
-| RFIs | RFI in a report: inspection date and time, description, location, PIC, result |
+| RFIs | RFI in a report: inspection date and time, description, location, PIC, status of its photos |
 | Log | Each message received, including test rows and rejected ones |
 
 Sending the same report again replaces its earlier rows, so the sheet does not fill with duplicates.
