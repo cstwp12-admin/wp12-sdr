@@ -35,18 +35,23 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
 | **QC tests required by the contract** | 50 quality control tests that are not BQ items: joint sampling, laboratory tests, FDT, coring, plate load, CBR, DCP, spray rate, gradation, cube tests (G20–G50, grout), rebound hammer, RC pipe, geotextile and PVD tests. They are marked **QC** in the list and in the report, e.g. *Cube test – G40 · QC*. |
 | **More than one activity per photo** | A photo can be tagged with several activities, e.g. *Box culvert – concreting* + *Cube test – G30*. Tap each one in the list, then **Done**. |
 | **Chainage from GPS** | Photos with a GPS position get their chainage and side (LHS/RHS) from the WP12 centreline, e.g. *CH 70+000, 20 m RHS*. Chainage can always be typed or adjusted by hand. For a stretch of work, tap **+ Chainage to** beside it, e.g. *CH 70+120 – 70+300*. |
-| **Level / element** | Type the berm level, fill layer or structure element on the photo card, e.g. *Berm 3*, *Layer 2*, *P2*. The caption then reads e.g. *Berm drain – concreting · CH 70+120 RHS, Berm 3*. |
+| **Element / point** | The box on the photo card is named for the activity: *Sampling point* for monitoring and sampling (e.g. *W1*, printed as *Sampling point W1*), *Element* for bridges and culverts (e.g. *Abutment A*, *Pier 2*), *Layer / level* for earthworks and pavement (e.g. *Layer 3*, *Berm 2*). |
+| **Elsewhere** | For photos taken away from the alignment, e.g. at the site laboratory, a third-party laboratory, a factory or precast yard: tap **Elsewhere** and type the place instead of a chainage. Places are remembered on the phone. |
+| **Test result** | For testing and sampling activities: Passed, Failed, Retest required, Pending test result, Pending official test result, or your own wording. Prints with the status and goes into the register. |
+| **Progress %** | An optional estimate on each photo, e.g. *Reinforcement installation, 20% complete*, for work followed over several days. |
 | **Status** | Each photo can have a status: In progress, Completed, Ready for inspection, Inspected, Re-inspection required, Rectification required, Observation, or your own wording. It prints in English and BM. |
 | **Structure list** | Bridges B1–B4, culverts C1–C32, junction culverts JC1–JC13 and the reinforced soil walls. Picking one fills in its drawing chainage, which you then adjust to the actual site position. |
 | **Zones** | The team's zones load with the setup. A team that reports by other zones, e.g. 5 zones for CST, can set its own in **Setup → Zones**; a team setup update keeps them. |
 | **Sort by time or chainage** | Photos are in the order taken; **Sort by chainage** puts them in order along the alignment instead, matching the diagram. |
 | **Tag many photos at once** | Select several photos and apply the same activity, chainage, side, status, RFI no. or remarks in one step. **Same as previous** copies the tags and remarks from the photo above, but keeps a photo's own GPS chainage. |
-| **PDF report** | A4, 4 photos per page or 2 larger photos per page, with the JKR and contractor logos, report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
+| **PDF report** | A4, 4 photos per page or 2 larger photos per page, with logos for each team (an image or a text, e.g. JKR + WPC, or JKR + CST for internal reports), report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
 | **Captioned photos** | Each photo with the date, time, chainage, activity, BQ ref and RFI printed on it, renamed in order (e.g. `20261009_CST_03_CH71+770_Box-culvert-concreting.jpg`). The caption stays with the photo when it is forwarded. |
 | **RFI photo record** | One PDF per RFI no., set out to accompany the JKR Sabah *Request For Inspection* form (Arahan Jabatan Bil. 11/2026). It is an attachment, so it carries what the photos show: location, description, activities with their BQ / QC refs, structure and level, a photo index with each photo's status, comments, sign-off blocks for **Prepared by (WPC)** and **Checked by (CST)**, and the photos. The drawing reference, stage and result stay on the signed RFI form. |
 | **Alignment diagram (experimental)** | An optional line from CH 62+700 to 77+508 with the zones, showing where each photo was taken: above the line for LHS, on it for CL, below it for RHS. Photos close together share one marker, and a line under it gives the chainage range covered. Optional structure lines under it show the bridges, pipe culverts, box culverts, junction culverts and RS walls, each ticked on its own. Tick it on the report screen; it is added to page 1 of the daily report and of each RFI photo record. |
-| **Check before you share** | Before you share, the app lists photos with no activity or no chainage. Tap a photo number to go straight to it. |
+| **Report ref. no.** | Every report gets a reference, e.g. *WP12-WPC-SYA-20261012-1*: package, team, the reporter's initials, date and the report no. of the day on that phone. It prints on the PDF, the WhatsApp text, the RFI photo record, the file names and the register, so a report is easy to find and cross-reference. |
+| **Check before you share** | Before you share, the app lists photos with no activity or no location. Tap a photo number to go straight to it. |
 | **WhatsApp message** | A short list of activities and chainages to paste with the PDF. |
+| **Period report (experimental)** | Report type *Period* keeps collecting photos over several days, then makes one report for the week or month: a progress table (latest status and progress for each activity and place), then the photos day by day. |
 | **RFI inspection list (experimental, for WPC)** | The daily RFI summary list for the next day's inspections: paste the rows from Excel or add RFIs one by one (with the activity list, chainage, structure, PIC and time), then share it as an A4 PDF in the same layout as the Excel list, as WhatsApp text or as a CSV. On the inspection day, RFI nos. typed on photo cards are suggested from the list, and the RFI photo record takes its description. |
 | **Register log** | Every report saved or shared is logged on the device, with Reports, RFIs and Photos views, filters and CSV export (opens in Excel). Logs from other users can be imported. |
 | **Works offline** | Once opened, it works without signal on site. Drafts are kept if the phone closes the browser. The app asks the browser to keep its data, and reminds you to export the register if it has not been exported for 7 days. |
@@ -74,7 +79,7 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
    - **Copy text**: the WhatsApp summary;
    - **Make RFI photo records**: one per RFI, to attach to the RFI form (shown at the top when any photo has an RFI no.);
    - **Save ZIP**: everything, plus a CSV photo log, for your own files.
-4. Start the next day with **New report**.
+4. Start the next day with **New report** (below the last photo).
 
 RFI numbers use the fixed prefix `JKR-RFI-WP12-`, so only the trade code and number are typed, e.g. `TES-651`.
 
@@ -124,6 +129,7 @@ Step-by-step instructions with screenshots are in [GUIDE.md](GUIDE.md); in the a
 | `index.html` | The app |
 | `setup.json` | Project setup: logos, zones, activities, structures, centreline |
 | `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png` | Let the app install on a phone and work offline |
+| `heic2any.min.js` | Converts HEIC / HEIF photos (loaded only when one is added) |
 | `GUIDE.md`, `guide/` | User guide and its screenshots |
 | `posts/` | News posts, e.g. the pilot announcement |
 | `CHANGELOG.md` | Revision history |

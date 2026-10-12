@@ -56,7 +56,7 @@ main{padding-block:14px 120px;display:grid;gap:14px}
 .grid .span2{grid-column:1/-1}
 @media (min-width:640px){.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:639px){.span2-sm{grid-column:1/-1}}
-input[type=text],input[type=date],input:not([type]),select,textarea{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:42px}
+input[type=text],input[type=date],input[type=time],input:not([type]),select,textarea{width:100%;background:var(--sunk);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-height:42px}
 textarea{min-height:60px;resize:vertical}
 select{appearance:auto}
 .seg{display:flex;flex-wrap:wrap;gap:6px}
@@ -86,7 +86,7 @@ select{appearance:auto}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:grid;grid-template-columns:1fr;overflow:hidden}
 .card.sel{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
 @media (min-width:640px){.card{grid-template-columns:220px minmax(0,1fr)}}
-.media{position:relative;background:var(--sunk);aspect-ratio:4/3;max-height:260px;width:100%}
+.media{position:relative;background:var(--sunk);aspect-ratio:4/3;max-height:190px;width:100%}
 @media (min-width:640px){.media{max-height:none;height:100%;aspect-ratio:auto;min-height:200px}}
 .media img{width:100%;height:100%;object-fit:contain;display:block}
 .no{position:absolute;left:8px;top:8px;font-family:var(--f-mono);font-weight:600;background:var(--ink);color:var(--bg);border-radius:4px;padding:2px 7px;font-size:14px}
@@ -104,6 +104,11 @@ select{appearance:auto}
 .actbtn .ab{font-size:13px;color:var(--muted)}
 .bq{font-family:var(--f-mono);font-size:12.5px;background:var(--chip);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
 .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.locseg button{flex:1 1 auto}
+.btn.danger{color:var(--accent);border-color:var(--accent)}.btn.sm{min-height:34px;padding:5px 12px;font-size:14px}
+.collapsed-summary .old{color:var(--warn);font-weight:600}
+.dateline{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.dateline .lbl{width:100%;margin:0}.dateline input{width:auto;flex:0 1 160px}.dateline .small{width:100%;color:var(--muted)}.dateline.unsure .small{color:var(--warn)}
+.progin{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.progin input{width:64px;text-align:right}.progin .tbtn{min-width:44px}.progin .tbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .chrow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:6px;align-items:end}
 .chrow .to{padding-bottom:11px;color:var(--muted);font-size:14px}
 .chin{position:relative}
@@ -230,9 +235,12 @@ a.btn.acc{color:var(--accent-ink)}
     <div id="report-summary" class="collapsed-summary" hidden></div>
     <div id="report-form" class="grid g3">
       <div class="span2-sm"><span class="lbl">Team</span><div class="seg" id="r-team" role="group" aria-label="Team"></div></div>
-      <div><label class="lbl" for="r-date">Date</label><input type="date" id="r-date" data-r="date"></div>
+      <div><label class="lbl" for="r-kind">Report type</label><select id="r-kind" data-r="kind"><option value="day">Daily</option><option value="period">Period (experimental)</option></select></div>
+      <div><label class="lbl" for="r-date" id="r-date-l">Date</label><input type="date" id="r-date" data-r="date"></div>
+      <div id="r-dateto-w" hidden><label class="lbl" for="r-dateto">To</label><input type="date" id="r-dateto" data-r="dateTo"></div>
       <div><label class="lbl" for="r-zone">Zone</label><select id="r-zone" data-r="zone"></select></div>
       <div><label class="lbl" for="r-name">Reported by</label><input type="text" id="r-name" data-r="name" placeholder="Name" autocomplete="name"></div>
+      <div><label class="lbl" for="r-init">Initials (ref. no.)</label><input type="text" id="r-init" data-r="init" maxlength="4" placeholder="SYA" autocapitalize="characters" autocomplete="off"></div>
       <div><label class="lbl" for="r-desig">Designation</label><input type="text" id="r-desig" data-r="designation" placeholder="e.g. ARE, IOW, SE"></div>
       <div><label class="lbl" for="r-lang">Caption language</label>
         <select id="r-lang" data-r="lang"><option value="en">English</option><option value="bm">Bahasa Malaysia</option><option value="both">English + BM</option></select></div>
@@ -248,15 +256,15 @@ a.btn.acc{color:var(--accent-ink)}
       <button class="bigbtn primary" id="btn-camera" type="button"><b>Take photo</b><span>Camera, with GPS chainage</span></button>
       <button class="bigbtn" id="btn-gallery" type="button"><b>Add photos</b><span>From gallery or folder</span></button>
     </div>
-    <input type="file" id="in-camera" accept="image/*" capture="environment" hidden>
-    <input type="file" id="in-gallery" accept="image/*" multiple hidden>
+    <input type="file" id="in-camera" accept="image/*,.heic,.heif" capture="environment" hidden>
+    <input type="file" id="in-gallery" accept="image/*,.heic,.heif" multiple hidden>
 
     <div class="listhead">
       <h2 id="h-photos">Photos <span class="mono muted" id="count"></span></h2>
       <div style="display:flex;gap:4px;flex-wrap:wrap">
         <button class="linkbtn" id="btn-selectall" type="button" hidden>Select all</button>
         <button class="linkbtn" id="btn-sort" type="button" hidden>Sort by time</button> <button class="linkbtn" id="btn-sortch" type="button" hidden>Sort by chainage</button>
-        <button class="linkbtn" id="btn-new" type="button" hidden>New report</button>
+        <button class="btn danger sm" id="btn-new" type="button" hidden>New report</button>
       </div>
     </div>
 
@@ -264,6 +272,7 @@ a.btn.acc{color:var(--accent-ink)}
       <b><span id="selcount">0</span> selected</b>
       <button class="btn acc" id="btn-bulk" type="button">Tag selected</button>
       <button class="btn" id="btn-clearsel" type="button">Clear</button>
+      <button class="btn danger" id="btn-delsel" type="button">Remove</button>
     </div>
 
     <div class="empty" id="empty">
@@ -277,6 +286,7 @@ a.btn.acc{color:var(--accent-ink)}
     </div>
 
     <ol id="list"></ol>
+
   </section>
 </main>
 
@@ -315,8 +325,9 @@ a.btn.acc{color:var(--accent-ink)}
       <div><span class="lbl">Activity</span><button class="actbtn unset" id="bk-act" type="button">Choose activity</button></div>
       <div class="row2">
         <div><label class="lbl" for="bk-struct">Structure</label><select id="bk-struct"></select></div>
-        <div><label class="lbl" for="bk-el">Level / element</label><input type="text" id="bk-el" placeholder="e.g. Berm 3, Layer 2, P2"></div>
+        <div><label class="lbl" for="bk-el">Element / point</label><input type="text" id="bk-el" placeholder="e.g. W1, Pier 2, Layer 3"></div>
       </div>
+      <div><label class="lbl" for="bk-place">Elsewhere: place <span class="muted small">(instead of chainage)</span></label><input type="text" id="bk-place" placeholder="e.g. Site laboratory WP12" list="place-list" autocomplete="off"></div>
       <div class="chrow">
         <div class="chin"><label class="lbl" for="bk-ch">Chainage from</label><input type="text" id="bk-ch" inputmode="decimal" placeholder="71+775"></div>
         <span class="to">to</span>
@@ -326,6 +337,10 @@ a.btn.acc{color:var(--accent-ink)}
       <div><label class="lbl" for="bk-rfi">RFI no.</label><div class="rfi"><span class="rfipre"></span><input type="text" id="bk-rfi" placeholder="TES-651" list="rfi-list" autocomplete="off"></div></div>
       <div><label class="lbl" for="bk-status">Status</label><select id="bk-status"></select></div>
       <div id="bk-stext-w" hidden><label class="lbl" for="bk-stext">Your status</label><input type="text" id="bk-stext" placeholder="e.g. Awaiting test result"></div>
+      <div><label class="lbl" for="bk-date">Date taken <span class="muted small">(for photos with no camera date)</span></label><input type="date" id="bk-date"></div>
+      <div><label class="lbl" for="bk-result">Test result</label><select id="bk-result"></select></div>
+      <div id="bk-rtext-w" hidden><label class="lbl" for="bk-rtext">Your result</label><input type="text" id="bk-rtext" placeholder="e.g. 7-day result 28.5 MPa"></div>
+      <div><label class="lbl" for="bk-prog">Progress % <span class="muted small">(estimate)</span></label><input type="text" id="bk-prog" inputmode="numeric" maxlength="3" placeholder="e.g. 50"></div>
       <div><label class="lbl" for="bk-rem">Remarks</label><textarea id="bk-rem"></textarea></div>
     </div>
     <div class="sheet-f"><button class="btn" data-close type="button">Cancel</button><button class="btn acc" id="bk-apply" type="button">Apply</button></div>
@@ -338,6 +353,8 @@ a.btn.acc{color:var(--accent-ink)}
     <div class="sheet-h"><h3 id="out-title">Report output</h3><button class="btn" data-close type="button">Close</button></div>
     <div class="sheet-b">
       <div id="out-summary" class="small"></div>
+      <div class="refrow"><label class="lbl" for="out-ref">Report ref. no.</label><input type="text" id="out-ref" class="mono" autocomplete="off" autocapitalize="characters"></div>
+      <div id="out-period" class="small" hidden><span class="tag">Experimental</span> <b>Period report:</b> a progress table for the period, then the photos day by day. The photos stay on this phone until you start a New report, so keep the app on your Home Screen and save the ZIP (Everything) at least once a week.</div>
       <div id="out-warn"></div>
       <div id="out-rfibar"></div>
       <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span style="font-size:14.5px">Photos per page</span><div class="seg" id="out-ppp" role="group" aria-label="Photos per page"><button type="button" data-ppp="2" aria-pressed="false">2 (larger)</button><button type="button" data-ppp="4" aria-pressed="true">4</button></div></div>
@@ -368,9 +385,9 @@ a.btn.acc{color:var(--accent-ink)}
       </div>
       <div class="panel" style="display:grid;gap:10px">
         <h3 style="font-size:17px">Report logos</h3>
-        <p class="muted small" style="margin:0">Printed at the top of every PDF page. Saved on this device only; include them in the team setup file to pass them on.</p>
-        <div class="logo-slot"><div class="logo-prev" id="lg-l-prev">Left</div><div style="display:grid;gap:6px"><b>Left logo (JKR)</b><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-logo="L" type="button">Choose image</button><button class="btn" data-logorm="L" type="button">Remove</button></div></div></div>
-        <div class="logo-slot"><div class="logo-prev" id="lg-r-prev">Right</div><div style="display:grid;gap:6px"><b>Right logo (WPC)</b><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-logo="R" type="button">Choose image</button><button class="btn" data-logorm="R" type="button">Remove</button></div></div></div>
+        <p class="muted small" style="margin:0">Printed at the top of every PDF page. Each team can have its own logos, e.g. JKR + WPC for WPC reports, JKR + CST for CST internal reports. A logo can be an image or a short text. Saved on this device only.</p>
+        <div><span class="lbl">Logos for team</span><div class="seg" id="lg-team" role="group" aria-label="Logos for team"></div></div>
+        <div id="lg-slots" style="display:grid;gap:10px"></div>
         <input type="file" id="in-logo" accept="image/*" hidden>
       </div>
       <div class="panel" style="display:grid;gap:10px">
@@ -506,6 +523,7 @@ a.btn.acc{color:var(--accent-ink)}
 
 <datalist id="rfl-pics"></datalist><datalist id="rfl-locs"></datalist>
 <datalist id="rfi-list"></datalist>
+<datalist id="place-list"></datalist>
 
 <div class="toast" id="toast" hidden><span id="toast-msg"></span><button id="toast-btn" type="button" hidden></button></div>
 
@@ -927,7 +945,7 @@ const DEFAULT_CONFIG = {"version":6,"projectCode":"WP12","projectTitle":"PROJEK 
 <script>
 "use strict";
 /* ============ WP12 Site Photo Report ============ */
-const APP_VERSION = "1.2.3 (11 Oct 2026)";
+const APP_VERSION = "1.2.4 (12 Oct 2026)";
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1118,7 +1136,7 @@ async function resizeTo(srcBlob, maxSide, q) {
 const WX = [["", "—", "—"], ["fine", "Fine", "Cerah"], ["cloudy", "Cloudy", "Mendung"], ["light", "Light rain", "Hujan renyai"], ["heavy", "Heavy rain", "Hujan lebat"]];
 const SIDES = ["LHS", "RHS", "CL", "Both"];
 const SIDE_BM = { LHS: "Kiri (LHS)", RHS: "Kanan (RHS)", CL: "Garis tengah", Both: "Kedua-dua belah" };
-let settings = { team: "CST", name: "", designation: "", lang: "en", logoL: null, logoR: null, recent: [], projectTitle: null, zones: null, collapsed: false, extraActs: [], contractNo: "", regUrl: "", regKey: "", setupStamp: "", ppp: 4, diagram: false, diagLayers: {}, zonesCustom: false, teamZones: null, seenVersion: "", lastExport: "", snoozeExport: "", rfiListShow: null };
+let settings = { team: "CST", name: "", designation: "", lang: "en", logoL: null, logoR: null, recent: [], projectTitle: null, zones: null, collapsed: false, extraActs: [], contractNo: "", regUrl: "", regKey: "", setupStamp: "", ppp: 4, diagram: false, diagLayers: {}, zonesCustom: false, teamZones: null, seenVersion: "", lastExport: "", snoozeExport: "", rfiListShow: null, places: [], initials: "", logosByTeam: {} };
 let report = {};
 let photos = [];
 const blobs = new Map();   // id -> {full, thumb, url}
@@ -1128,6 +1146,30 @@ let lastFix = null;
 function today() { const d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
 function newReport() {
   return { rid: uid(), date: today(), team: settings.team || "CST", name: settings.name || "", designation: settings.designation || "", zone: "", wxAM: "", wxPM: "", lang: settings.lang || "en", rfi: {} };
+}
+// v1.2.4 period report (experimental): report.kind "period" collects photos over several days, report.date .. report.dateTo
+function isPeriod() { return report.kind === "period"; }
+function photoDay(p) { const d = new Date(p.time); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+function photoDays(list = photos) { return [...new Set(list.map(photoDay))].sort(); }
+function periodTo() { const d = photoDays(), f = report.date || today(); return report.dateTo && report.dateTo >= f ? report.dateTo : (d.length && d[d.length - 1] > f ? d[d.length - 1] : f); }
+function dayText(iso, wd = true) { const d = new Date(iso + "T00:00"); return isNaN(d) ? iso : d.toLocaleDateString("en-GB", Object.assign(wd ? { weekday: "short" } : {}, { day: "2-digit", month: "short", year: "numeric" })); }
+// report ref. no.: <package>-<team>-<initials>-<yyyymmdd>-<n>, n counted from this phone's register for that day (P<end date> for a period)
+function initials() {
+  const t = String(settings.initials || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4); if (t) return t;
+  const w = String(report.name || "").trim().split(/\s+/).filter(x => !/^(ir|ts|dr|en|pn|cik|tn|br)\.?$/i.test(x));
+  return ((w[0] || "").replace(/[^A-Za-z]/g, "").slice(0, 3) || "XXX").toUpperCase();
+}
+function refStem() { return `${CFG.projectCode || "WP12"}-${report.team || "TEAM"}-${initials()}-${isPeriod() ? "P" + periodTo().replace(/-/g, "") : (report.date || today()).replace(/-/g, "")}`; }
+function reportRef() { return report.refNo && (report.refManual || report.refNo.startsWith(refStem() + "-")) ? report.refNo : refStem() + "-1"; }
+async function assignRef() {
+  if (report.refManual && report.refNo) return report.refNo;
+  const stem = refStem();
+  if (report.refNo && report.refNo.startsWith(stem + "-")) return report.refNo;
+  await regLoad();
+  let max = 0;
+  for (const e of Object.values(REG.reports)) { if (e.rid === report.rid) continue; const m = String(e.ref || "").match(/^(.*)-(\d+)$/); if (m && m[1] === stem) max = Math.max(max, +m[2]); }
+  report.refNo = stem + "-" + (max + 1); report.refManual = false; saveDraft();
+  return report.refNo;
 }
 function zones() { return settings.zones || CFG.zones || []; }
 function zoneSort(list) { const o = zones().map(z => z.name); return [...new Set(list.filter(Boolean))].sort((a, b) => (o.indexOf(a) + 1 || 99) - (o.indexOf(b) + 1 || 99)); }
@@ -1167,7 +1209,10 @@ function bqFor(p) { return actsOf(p).map(e => entryBq(p, e)).filter(b => b && !/
 function refFor(p) { return [...new Set(actsOf(p).map(e => entryRef(p, e)).filter(Boolean))].join(", "); }
 function refChip(a) { return a.qc !== undefined ? "QC" : (a.bq || ""); }
 function actName(p, lang) { return actsOf(p).map(e => entryName(e, lang)).filter(Boolean).join(" + "); }
+// v1.2.4: a photo taken away from the alignment (lab, factory, other site) has p.offsite = true and a place name in p.place
+function placeText(p, lang) { return (p.place || "").trim() || lab("offs", lang === "both" ? "en" : lang); }
 function locText(p, lang) {
+  if (p.offsite) return placeText(p, lang);
   const parts = [];
   const c1 = normCH(p.ch), c2 = normCH(p.ch2);
   if (c1) parts.push("CH " + c1 + (c2 ? " – " + c2 : ""));
@@ -1178,9 +1223,38 @@ function structText(p, lang = "en") {
   const s = STRUCT.get(p.struct);
   const parts = [];
   if (s) parts.push(s.name);
-  if (p.el) parts.push(elText(p, lang));
+  // a sampling point is printed with its label ("Sampling point W1"), other elements as typed ("Layer 2", "Pier 2")
+  if (p.el) parts.push(elKind(p) === "pt" ? lab("elpt", lang === "both" ? "en" : lang) + " " + elText(p, lang) : elText(p, lang));
   return parts.join(" · ");
 }
+// What the "element" box means for this photo's activity: pt sampling point, el structure element, ly layer / level, gen anything
+const EL_PT = /monitor|sampl|reading|noise|air quality|water quality/i;
+function elKind(p) {
+  const es = actsOf(p);
+  for (const e of es) { const a = entryAct(e); const t = a ? a.id + " " + a.en + " " + (a.kw || "") : e.text || ""; if (EL_PT.test(t)) return "pt"; }
+  if (p.struct) return "el";
+  for (const e of es) { const a = entryAct(e); if (!a) continue; if (a.cat === "BR" || a.cat === "DR") return "el"; if (a.cat === "EW" || a.cat === "PV" || a.cat === "GT") return "ly"; }
+  return "gen";
+}
+const EL_HINT = { pt: "e.g. W1, W2", el: "e.g. Abutment A, Pier 2, Base slab", ly: "e.g. Layer 3, Berm 2, Subgrade", gen: "e.g. W1, Pier 2, Layer 3" };
+function elLabel(p, lang = "en") { return lab("el" + elKind(p), lang); }
+function progText(p, lang) {
+  const v = String(p.prog ?? "").trim(); if (v === "") return "";
+  return lang === "bm" ? `${v}% siap` : lang === "both" ? `${v}% complete / siap` : `${v}% complete`;
+}
+// status and progress together, for captions and tables: "In progress, 50% complete"
+function statusLine(p, lang) { const r = resultText(p, lang); return [statusText(p, lang), r ? lab("res", lang === "both" ? "en" : lang) + ": " + r : "", progText(p, lang)].filter(Boolean).join(", "); }
+// test result (v1.2.4), shown on the card for testing and sampling activities
+const RESULT = [["pass", "Passed", "Lulus"], ["fail", "Failed", "Gagal"], ["retest", "Retest required", "Ujian semula diperlukan"], ["pend", "Pending test result", "Menunggu keputusan ujian"], ["pendoff", "Pending official test result", "Menunggu keputusan ujian rasmi"]];
+const RESULT_MAP = new Map(RESULT.map(r => [r[0], r]));
+function resultText(p, lang) {
+  if (!p.result) return "";
+  if (p.result === "other") return (p.resultText || "").trim();
+  const r = RESULT_MAP.get(p.result); if (!r) return "";
+  return lang === "bm" ? r[2] : lang === "both" ? r[1] + " / " + r[2] : r[1];
+}
+function resultOptions(v, first = "No result yet") { return `<option value="">${first}</option>` + RESULT.map(r => `<option value="${r[0]}"${v === r[0] ? " selected" : ""}>${r[1]}</option>`).join("") + `<option value="other"${v === "other" ? " selected" : ""}>Other…</option>`; }
+function isTest(p) { return actsOf(p).some(e => { const a = entryAct(e); return a ? (a.qc !== undefined || a.cat === "QC" || a.cat === "TS" || /\btest|sampl/i.test(a.en)) : /test|ujian|sampl/i.test(e.text || ""); }); }
 function zoneOf(chStr) {
   const v = parseCH(chStr); if (isNaN(v)) return null;
   const z = zones().find(z => z.from != null && z.to != null && v >= z.from && v <= z.to);
@@ -1197,6 +1271,10 @@ function fillSelect(sel, opts, val) {
 }
 function renderReportForm() {
   $("#r-date").value = report.date || today();
+  $("#r-kind").value = isPeriod() ? "period" : "day";
+  $("#r-dateto-w").hidden = !isPeriod(); $("#r-date-l").textContent = isPeriod() ? "From" : "Date";
+  $("#r-dateto").value = isPeriod() ? periodTo() : "";
+  $("#r-init").value = settings.initials || ""; $("#r-init").placeholder = initials();
   $("#r-team").innerHTML = CFG.teams.map(t => `<button type="button" aria-pressed="${report.team === t}" data-team="${t}">${t}</button>`).join("");
   fillSelect($("#r-zone"), [["", "Not set"], ...zones().map(z => [z.name, z.name]), ["All zones", "All zones"]], report.zone || "");
   $("#r-name").value = report.name || "";
@@ -1213,12 +1291,21 @@ function renderReportSummary() {
   $("#report-summary").hidden = !c;
   $("#btn-collapse").textContent = c ? "Edit" : "Hide";
   const d = report.date ? new Date(report.date + "T00:00") : null;
-  $("#report-summary").textContent = [d ? d.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }) : "", report.team, report.name || "name not set", report.zone || ""].filter(Boolean).join(" · ");
+  const old = !isPeriod() && report.date && report.date !== today();
+  $("#report-summary").innerHTML = [isPeriod() ? esc("Period " + dateText()) : d ? (old ? `<span class="old">${esc(d.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }))} (not today)</span>` : esc(d.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }))) : "", esc(report.team), esc(report.name || "name not set"), esc(report.zone || "")].filter(Boolean).join(" · ");
 }
 $("#report-form").addEventListener("input", e => {
   const k = e.target.dataset.r; if (!k) return;
+  if (k === "init") { settings.initials = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 4); if (e.target.value !== settings.initials) e.target.value = settings.initials; saveDraft(); return; }
   report[k] = e.target.value;
-  if (k === "name") settings.name = report.name;
+  if (k === "kind") {
+    if (isPeriod() && photos.length) { const d = photoDays(); if (d[0] < (report.date || today())) report.date = d[0]; report.dateTo = d[d.length - 1] > report.date ? d[d.length - 1] : ""; }
+    if (!isPeriod()) report.dateTo = "";
+    renderReportForm(); saveDraft();
+    if (isPeriod()) { const u = photos.filter(dateUnsure).length; toast(u ? `Period report (experimental). ${u} photo${u > 1 ? "s have" : " has"} no camera date: check the date on ${u > 1 ? "those cards" : "that card"}.` : "Period report (experimental): keep adding photos day by day, then generate one report for the week or month.", 6000); renderList(); }
+    return;
+  }
+  if (k === "name") { settings.name = report.name; $("#r-init").placeholder = initials(); }
   if (k === "designation") settings.designation = report.designation;
   if (k === "lang") settings.lang = report.lang;
   renderReportSummary(); saveDraft();
@@ -1248,19 +1335,79 @@ async function waitFix(ms) {
   return lastFix && Date.now() - lastFix.t < 120000 ? lastFix : null;
 }
 
+/* ---------- HEIC / HEIF photos (v1.2.4) ----------
+   Safari opens HEIC itself; other browsers use the heic2any decoder (heic2any.min.js next to index.html),
+   loaded only when a HEIC photo is added and then kept for offline use by the service worker. */
+async function isHeic(f) {
+  if (/hei[cf]/i.test(f.type || "") || /\.(heic|heif)$/i.test(f.name || "")) return true;
+  try { const h = new Uint8Array(await f.slice(0, 12).arrayBuffer()); const t = String.fromCharCode(...h.slice(4, 12)); return /^ftyp(heic|heix|hevc|heim|heis|mif1|msf1)/.test(t); } catch (e) { return false; }
+}
+let heicP = null;
+function loadHeic() {
+  if (window.heic2any) return Promise.resolve();
+  return heicP = heicP || new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "heic2any.min.js"; sc.onload = () => window.heic2any ? res() : rej(new Error("heic")); sc.onerror = () => { heicP = null; rej(new Error("heic")); }; document.head.appendChild(sc); });
+}
+async function heicToJpeg(f) {
+  await loadHeic();
+  const out = await window.heic2any({ blob: f, toType: "image/jpeg", quality: 0.92 });
+  return Array.isArray(out) ? out[0] : out;
+}
+// date and GPS from a HEIC file: the Exif item found through the meta box (iinf + iloc)
+async function readHeicExif(file) {
+  try {
+    const buf = await file.slice(0, Math.min(file.size, 1024 * 1024)).arrayBuffer(), v = new DataView(buf);
+    const boxes = (s, e) => { const out = []; let o = s; while (o + 8 <= e) { let sz = v.getUint32(o); const ty = String.fromCharCode(v.getUint8(o + 4), v.getUint8(o + 5), v.getUint8(o + 6), v.getUint8(o + 7)); let hd = 8; if (sz === 1) { sz = Number(v.getBigUint64(o + 8)); hd = 16; } else if (sz === 0) sz = e - o; if (sz < hd) break; out.push({ ty, s: o + hd, e: Math.min(o + sz, e) }); o += sz; } return out; };
+    const meta = boxes(0, v.byteLength).find(b => b.ty === "meta"); if (!meta) return {};
+    const kids = boxes(meta.s + 4, meta.e);
+    const iinf = kids.find(b => b.ty === "iinf"), iloc = kids.find(b => b.ty === "iloc"); if (!iinf || !iloc) return {};
+    const iv = v.getUint8(iinf.s), first = iinf.s + 4 + (iv === 0 ? 2 : 4);
+    let exifId = null;
+    for (const b of boxes(first, iinf.e)) {
+      if (b.ty !== "infe") continue;
+      const ver = v.getUint8(b.s); if (ver < 2) continue;
+      const id = ver === 2 ? v.getUint16(b.s + 4) : v.getUint32(b.s + 4), tp = b.s + 4 + (ver === 2 ? 2 : 4) + 2;
+      if (String.fromCharCode(v.getUint8(tp), v.getUint8(tp + 1), v.getUint8(tp + 2), v.getUint8(tp + 3)) === "Exif") { exifId = id; break; }
+    }
+    if (exifId == null) return {};
+    const lv = v.getUint8(iloc.s); let o = iloc.s + 4;
+    const b1 = v.getUint8(o), b2 = v.getUint8(o + 1); o += 2;
+    const offS = b1 >> 4, lenS = b1 & 15, baseS = b2 >> 4, idxS = lv > 0 ? b2 & 15 : 0;
+    const rd = n => { let x = 0; if (n === 4) x = v.getUint32(o); else if (n === 8) x = Number(v.getBigUint64(o)); else if (n === 2) x = v.getUint16(o); o += n; return x; };
+    const cnt = lv < 2 ? rd(2) : rd(4);
+    for (let i = 0; i < cnt; i++) {
+      const id = lv < 2 ? rd(2) : rd(4);
+      if (lv > 0) rd(2);
+      rd(2); const base = rd(baseS), ec = rd(2);
+      let ext = null;
+      for (let k = 0; k < ec; k++) { if (idxS) rd(idxS); const eo = rd(offS), el = rd(lenS); if (!ext) ext = [eo, el]; }
+      if (id === exifId && ext) {
+        const ex = await file.slice(base + ext[0], base + ext[0] + ext[1]).arrayBuffer(), ev = new DataView(ex);
+        const hdr = ev.getUint32(0); return parseTiff(ev, 4 + hdr);
+      }
+    }
+  } catch (e) {}
+  return {};
+}
 async function importFiles(files, fromCamera) {
   if (!files.length) return;
   toast(`Adding ${files.length} photo${files.length > 1 ? "s" : ""}…`);
-  let added = 0, failed = [];
+  let added = 0, failed = [], heicFail = 0;
   for (const f of files) {
     try {
-      const ex = await readExif(f);
-      const big = await resizeTo(f, 1600, 0.86);
-      if (!big.blob) throw new Error("decode");
+      const heic = await isHeic(f);
+      const ex = heic ? await readHeicExif(f) : await readExif(f);
+      let big = null;
+      try { big = await resizeTo(f, 1600, 0.86); } catch (e) { big = null; }
+      if ((!big || !big.blob) && heic) {
+        toast("Converting HEIC photo…", 8000);
+        try { big = await resizeTo(await heicToJpeg(f), 1600, 0.86); } catch (e) { heicFail++; throw e; }
+      }
+      if (!big || !big.blob) throw new Error("decode");
       const th = await resizeTo(big.blob, 480, 0.78);
       const p = blankPhoto();
       p.time = ex.time || f.lastModified || Date.now();
-      p.timeSrc = ex.time ? "exif" : "file";
+      p.timeSrc = ex.time ? "exif" : fromCamera ? "camera" : "file";
+      if (!ex.time && !fromCamera) { const nt = nameTime(f.name); if (nt) { p.time = nt; p.timeSrc = "name"; } }
       p.w = big.w; p.h = big.h; p.file = f.name || "";
       if (ex.gps) p.gps = { lat: ex.gps.lat, lon: ex.gps.lon, src: "photo" };
       else if (fromCamera) { const fx = await waitFix(4000); if (fx) p.gps = { lat: fx.lat, lon: fx.lon, acc: fx.acc, src: "device" }; }
@@ -1272,9 +1419,18 @@ async function importFiles(files, fromCamera) {
     } catch (e) { failed.push(f.name || "photo"); }
   }
   renderList(); saveDraft();
-  if (failed.length) toast(`${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). HEIC files need a phone, or save them as JPG first.`, 7000);
+  if (failed.length) toast(heicFail ? `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). The HEIC converter needs internet the first time; try again with signal, or set the iPhone camera to Most Compatible (Settings → Camera → Formats).` : `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). Use JPG, PNG or HEIC photos.`, 8000);
   else toast(`${added} photo${added > 1 ? "s" : ""} added`);
 }
+// date in a file name, e.g. IMG-20261010-WA0012.jpg (WhatsApp), IMG_20261010_143512.jpg, Screenshot_2026-10-10-14-35-12.png
+function nameTime(name) {
+  const m = String(name || "").match(/(20\d\d)[-_]?([01]\d)[-_]?([0-3]\d)(?:[-_ T]?([0-2]\d)[-_.:]?([0-5]\d)(?:[-_.:]?([0-5]\d))?)?/);
+  if (!m || +m[2] < 1 || +m[2] > 12 || +m[3] < 1 || +m[3] > 31) return null;
+  const t = new Date(+m[1], +m[2] - 1, +m[3], m[4] ? +m[4] : 12, m[5] ? +m[5] : 0, m[6] ? +m[6] : 0).getTime();
+  return isNaN(t) || t > Date.now() + 864e5 ? null : t;
+}
+// the date taken is known from the camera data, the in-app camera or the user; otherwise (file date, file name) it should be checked
+function dateUnsure(p) { return p.timeSrc === "file" || p.timeSrc === "name"; }
 function blankPhoto() { return { id: uid(), time: Date.now(), act: "", actText: "", struct: "", el: "", ch: "", ch2: "", side: "", rfi: "", rem: "", chSrc: "" }; }
 function applyGps(p) {
   if (!p.gps) return;
@@ -1309,6 +1465,8 @@ function actBtnInner(p) {
 }
 function hintHTML(p) {
   const s = STRUCT.get(p.struct);
+  if (p.offsite) return "";
+  if (p.auto && p.auto.far && !p.ch) return `<div class="hint">This photo was taken ${p.auto.off} m from the road. If it was at a lab, factory or another site, tap <button type="button" class="linkbtn" data-a="setoff">Elsewhere</button> and type the place.</div>`;
   if ((p.ch && !chInRange(p.ch)) || (p.ch2 && !chInRange(p.ch2))) return `<div class="hint">Chainage is outside WP12 (CH ${fmtCH(CFG.chFrom)} to ${fmtCH(CFG.chTo)}). Type it as 71775 or 71+775.</div>`;
   if (p.chSrc === "struct" && s) return `<div class="hint">Drawing chainage for ${esc(s.id)} is indicative. Adjust to the actual site position.</div>`;
   return "";
@@ -1316,9 +1474,10 @@ function hintHTML(p) {
 function refreshCard(id) {
   const p = photos.find(x => x.id === id), li = $(`#list li[data-id="${id}"]`); if (!p || !li) return;
   const ab = $("[data-a=pick]", li); ab.className = "actbtn" + (hasAct(p) ? "" : " unset"); ab.innerHTML = actBtnInner(p);
-  const ch = $("[data-f=ch]", li); if (document.activeElement !== ch) ch.value = p.ch || ""; ch.classList.toggle("bad", !!(p.ch && !chInRange(p.ch)));
+  const ch = $("[data-f=ch]", li); if (ch) { if (document.activeElement !== ch) ch.value = p.ch || ""; ch.classList.toggle("bad", !!(p.ch && !chInRange(p.ch))); }
+  const el = $("[data-f=el]", li); if (el) { $(".ellbl", li).textContent = elLabel(p); el.placeholder = EL_HINT[elKind(p)]; }
   const c2 = $("[data-f=ch2]", li); if (c2) { if (document.activeElement !== c2) c2.value = p.ch2 || ""; c2.classList.toggle("bad", !!(p.ch2 && !chInRange(p.ch2))); }
-  const st = $("[data-f=struct]", li); if (st.value !== p.struct) st.value = p.struct || "";
+  const st = $("[data-f=struct]", li); if (st.value !== (p.struct || "")) st.value = p.struct || "";
   $$("[data-side]", li).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === p.side));
   $(".hintslot", li).innerHTML = hintHTML(p);
   const z = zoneOf(p.ch); $(".ztag", li).innerHTML = z ? `<span class="tag">${esc(z)}</span>` : "";
@@ -1338,22 +1497,30 @@ function cardHTML(p, i) {
   <div class="media"><img alt="Photo ${i + 1}" src="${blobs.get(p.id)?.url || ""}"><span class="no">${pad(i + 1)}</span>
     <label class="selbox"><input type="checkbox" data-a="sel"${selected.has(p.id) ? " checked" : ""}> Select</label></div>
   <div class="body">
-    <div class="meta"><span class="mono">${timeStr(p.time)}</span>${p.timeSrc === "file" ? `<span class="small">(file time)</span>` : ""}${gpsTag}${p.gps && p.gps.src === "device" ? `<span class="small">phone location</span>` : ""}<span class="ztag">${zoneOf(p.ch) ? `<span class="tag">${esc(zoneOf(p.ch))}</span>` : ""}</span></div>
+    ${dateUnsure(p) || p.timeSrc === "manual" ? `<div class="dateline${dateUnsure(p) ? " unsure" : ""}"><label class="lbl" for="pd-${p.id}">Date taken</label><input id="pd-${p.id}" type="date" data-f="pdate" value="${photoDay(p)}"><input type="time" data-f="ptime" value="${timeStr(p.time)}" aria-label="Time taken"><span class="small">${p.timeSrc === "file" ? "No camera date: this is the file's date. Check it." : p.timeSrc === "name" ? "Date from the file name. Check it." : "Set by you."}</span></div>` : ""}
+    <div class="meta"><span class="mono">${dateUnsure(p) || p.timeSrc === "manual" ? "" : (isPeriod() ? dayText(photoDay(p), false).replace(/ \d{4}$/, "") + " " : "") + timeStr(p.time)}</span>${gpsTag}${p.gps && p.gps.src === "device" ? `<span class="small">phone location</span>` : ""}<span class="ztag">${zoneOf(p.ch) ? `<span class="tag">${esc(zoneOf(p.ch))}</span>` : ""}</span></div>
     <button type="button" class="actbtn${a ? "" : " unset"}" data-a="pick">${actBtnInner(p)}</button>
-    <div><label class="lbl" for="st-${p.id}">Structure</label><select id="st-${p.id}" data-f="struct">${structOptions(p.struct)}</select></div>
+    <div class="row2">
+      <div><label class="lbl" for="st-${p.id}">Structure</label><select id="st-${p.id}" data-f="struct">${structOptions(p.struct)}</select></div>
+      <div><label class="lbl ellbl" for="el-${p.id}">${esc(elLabel(p))}</label><input id="el-${p.id}" type="text" data-f="el" value="${esc(p.el)}" placeholder="${esc(EL_HINT[elKind(p)])}"></div>
+    </div>
+    <div class="seg locseg" data-g="loc" role="group" aria-label="Location"><button type="button" data-loc="on" aria-pressed="${!p.offsite}">On the alignment</button><button type="button" data-loc="off" aria-pressed="${!!p.offsite}">Elsewhere</button></div>
+    ${p.offsite ? `<div><label class="lbl" for="pl-${p.id}">Place <span class="muted small">(lab, factory, other site)</span></label><input id="pl-${p.id}" type="text" data-f="place" value="${esc(p.place)}" placeholder="e.g. Site laboratory WP12, Precast yard" list="place-list" autocomplete="off"></div>` : `
     <div class="row2">
       <div class="chin"><label class="lbl" for="ch-${p.id}">Chainage</label><input id="ch-${p.id}" type="text" inputmode="decimal" data-f="ch" value="${esc(p.ch)}" placeholder="71+775"${chBad ? ' class="bad"' : ""}></div>
       ${p.ch2 || p.showCh2
         ? `<div class="chin"><label class="lbl lblrow" for="c2-${p.id}"><span>Chainage to</span><button type="button" class="xbtn" data-a="rmch2" aria-label="Remove chainage range">× Remove</button></label><input id="c2-${p.id}" type="text" inputmode="decimal" data-f="ch2" value="${esc(p.ch2)}" placeholder="71+900"${ch2Bad ? ' class="bad"' : ""}></div>`
         : `<div><span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" data-a="addch2">+ Chainage to</button></div>`}
     </div>
-    <div class="seg" data-g="side">${sideButtons(p.side, "data-side")}</div>
+    <div class="seg" data-g="side">${sideButtons(p.side, "data-side")}</div>`}
     <div class="hintslot">${hintHTML(p)}</div>
     <div class="row2">
-      <div><label class="lbl" for="el-${p.id}">Level / element</label><input id="el-${p.id}" type="text" data-f="el" value="${esc(p.el)}" placeholder="e.g. Berm 3, Layer 2, P2"></div>
       <div><label class="lbl" for="ss-${p.id}">Status</label><select id="ss-${p.id}" data-f="status">${statusOptions(p.status)}</select></div>
+      <div><label class="lbl" for="pg-${p.id}">Progress</label><select id="pg-${p.id}" data-f="prog" aria-label="Progress, estimate">${progOptions(p.prog)}</select></div>
     </div>
+    ${isTest(p) || p.result ? `<div class="row2"><div><label class="lbl" for="rs-${p.id}">Test result</label><select id="rs-${p.id}" data-f="result">${resultOptions(p.result)}</select></div>${p.result === "other" ? `<div><label class="lbl" for="rx-${p.id}">Your result</label><input id="rx-${p.id}" type="text" data-f="resultText" value="${esc(p.resultText)}" placeholder="e.g. 7-day 28.5 MPa"></div>` : ""}</div>` : ""}
     ${p.status === "other" ? `<div><label class="lbl" for="sx-${p.id}">Your status</label><input id="sx-${p.id}" type="text" data-f="statusText" value="${esc(p.statusText)}" placeholder="e.g. Awaiting test result"></div>` : ""}
+
     <div><label class="lbl" for="rf-${p.id}">RFI no. <span class="muted small">(for an inspection)</span></label><div class="rfi"><span>${esc(CFG.rfiPrefix)}</span><input id="rf-${p.id}" type="text" data-f="rfi" value="${esc(p.rfi)}" placeholder="TES-651" autocapitalize="characters" list="rfi-list" autocomplete="off"></div></div>
     <details class="more"${hasMore ? " open" : ""}><summary>Remarks</summary>
       <div style="display:grid;gap:10px">
@@ -1384,8 +1551,8 @@ function rerenderCard(id) {
   old.replaceWith(nu); renderStatus();
 }
 function renderStatus() {
-  const n = photos.length, tagged = photos.filter(p => hasAct(p) && p.ch).length;
-  $("#dockstat").innerHTML = n ? `<b>${n}</b> photo${n > 1 ? "s" : ""} · <b>${tagged}</b> tagged${tagged < n ? ` · <span style="color:var(--warn)">${n - tagged} need activity or CH</span>` : ""}` : "No photos yet";
+  const n = photos.length, tagged = photos.filter(p => hasAct(p) && (p.ch || p.offsite)).length;
+  $("#dockstat").innerHTML = n ? `<b>${n}</b> photo${n > 1 ? "s" : ""} · <b>${tagged}</b> tagged${tagged < n ? ` · <span style="color:var(--warn)">${n - tagged} need activity or location</span>` : ""}` : "No photos yet";
   $("#btn-generate").disabled = !n;
 }
 function renderBulkbar() {
@@ -1398,7 +1565,8 @@ function renderBulkbar() {
 $("#list").addEventListener("input", e => {
   const li = e.target.closest("li[data-id]"); const f = e.target.dataset.f; if (!li || !f) return;
   const p = photos.find(x => x.id === li.dataset.id); if (!p) return;
-  if (f === "struct") return;
+  if (f === "struct" || f === "pdate" || f === "ptime" || f === "result") return;
+  if (f === "prog") { p.prog = e.target.value; saveDraft(); return; }
   p[f] = f === "rfi" ? e.target.value.toUpperCase() : e.target.value;
   if (f === "ch") p.chSrc = "manual";
   saveDraft(); renderStatus();
@@ -1410,9 +1578,22 @@ $("#list").addEventListener("change", e => {
   if (f === "struct") { setStruct(p, e.target.value); refreshCard(p.id); saveDraft(); }
   else if (f === "ch" || f === "ch2") { p[f] = normCH(e.target.value); e.target.value = p[f]; refreshCard(p.id); saveDraft(); }
   else if (f === "rfi") { p.rfi = rfiCode(p); e.target.value = p.rfi; if (rflFill(p)) rerenderCard(p.id); saveDraft(); }
+  else if (f === "pdate" || f === "ptime") {
+    const d = f === "pdate" ? e.target.value : photoDay(p), t = f === "ptime" ? e.target.value : timeStr(p.time);
+    const nt = new Date(d + "T" + (t || "12:00") + ":00").getTime();
+    if (d && !isNaN(nt)) { p.time = nt; p.timeSrc = "manual"; rerenderCard(p.id); saveDraft(); }
+  }
+  else if (f === "place") { p.place = e.target.value.trim(); e.target.value = p.place; rememberPlace(p.place); saveDraft(); }
   else if (f === "status") { p.status = e.target.value; rerenderCard(p.id); saveDraft(); if (p.status === "other") $(`#sx-${p.id}`)?.focus(); }
+  else if (f === "result") { p.result = e.target.value; if (p.result !== "other") p.resultText = ""; rerenderCard(p.id); saveDraft(); if (p.result === "other") $(`#rx-${p.id}`)?.focus(); }
   else if (e.target.dataset.a === "sel") { e.target.checked ? selected.add(p.id) : selected.delete(p.id); li.classList.toggle("sel", e.target.checked); renderBulkbar(); }
 });
+// progress is an estimate: a short list (10% steps plus 25 / 75) keeps the card compact; a typed value from bulk tagging is kept
+const PROG_STEPS = ["10", "20", "25", "30", "40", "50", "60", "70", "75", "80", "90", "100"];
+function progOptions(v) {
+  v = String(v ?? ""); const list = v && !PROG_STEPS.includes(v) ? [...PROG_STEPS, v].sort((a, b) => a - b) : PROG_STEPS;
+  return `<option value="">–</option>` + list.map(x => `<option value="${x}"${x === v ? " selected" : ""}>${x}%</option>`).join("");
+}
 function setStruct(p, sid) {
   p.struct = sid;
   const s = STRUCT.get(sid);
@@ -1423,19 +1604,35 @@ function setStruct(p, sid) {
   }
   if (s && s.side && !p.side) p.side = s.side;
 }
+// Elsewhere: the chainage is put aside (kept in p.onAl) and the place name is used instead; back on the alignment restores it
+function setOffsite(p, off) {
+  if (!!p.offsite === off) return;
+  if (off) { p.onAl = { ch: p.ch || "", ch2: p.ch2 || "", side: p.side || "", chSrc: p.chSrc || "" }; p.ch = ""; p.ch2 = ""; p.side = ""; p.showCh2 = false; p.offsite = true; }
+  else { const o = p.onAl || {}; p.ch = o.ch || ""; p.ch2 = o.ch2 || ""; p.side = o.side || ""; p.chSrc = o.chSrc || ""; p.offsite = false; delete p.onAl; }
+}
+function rememberPlace(t) {
+  t = (t || "").trim(); if (!t) return;
+  settings.places = [t, ...(settings.places || []).filter(x => x.toLowerCase() !== t.toLowerCase())].slice(0, 15);
+  renderPlaceList();
+}
+function renderPlaceList() { const d = $("#place-list"); if (d) d.innerHTML = (settings.places || []).map(t => `<option value="${esc(t)}"></option>`).join(""); }
 $("#list").addEventListener("click", e => {
   const li = e.target.closest("li[data-id]"); if (!li) return;
   const i = photos.findIndex(x => x.id === li.dataset.id); const p = photos[i]; if (!p) return;
   const sb = e.target.closest("[data-side]");
   if (sb) { p.side = p.side === sb.dataset.side ? "" : sb.dataset.side; $$("[data-side]", li).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === p.side)); saveDraft(); return; }
+  const lb = e.target.closest("[data-loc]");
+  if (lb) { setOffsite(p, lb.dataset.loc === "off"); rerenderCard(p.id); saveDraft(); if (p.offsite && !p.place) $(`#pl-${p.id}`)?.focus(); return; }
   const a = e.target.closest("[data-a]")?.dataset.a; if (!a || a === "sel") return;
-  if (a === "pick") openPicker(list => { setActs(p, list); refreshCard(p.id); saveDraft(); }, actsOf(p));
+  if (a === "setoff") { setOffsite(p, true); rerenderCard(p.id); saveDraft(); $(`#pl-${p.id}`)?.focus(); return; }
+  if (a === "pick") openPicker(list => { setActs(p, list); rerenderCard(p.id); saveDraft(); }, actsOf(p));
   else if (a === "copy" && i > 0) {
     const q = photos[i - 1];
     // a photo with its own GPS chainage keeps it (same work, different chainage)
     const keepGps = p.chSrc === "gps" && p.auto && !p.auto.far && !!p.ch;
-    ["act", "actText", "struct", "el", "ch2", "rfi", "rem", "status", "statusText"].forEach(k => p[k] = q[k]);
+    ["act", "actText", "struct", "el", "ch2", "rfi", "rem", "status", "statusText", "prog", "result", "resultText"].forEach(k => p[k] = q[k]);
     if (!keepGps) { p.ch = q.ch; p.side = q.side; p.chSrc = q.chSrc === "gps" ? "manual" : q.chSrc; }
+    if (q.offsite) { setOffsite(p, true); p.place = q.place || ""; } else if (p.offsite) setOffsite(p, false);
     p.acts = actsOf(q).map(e => ({ ...e }));
     rerenderCard(p.id); saveDraft();
     toast(keepGps ? `Copied tags from photo ${pad(i)}. Kept this photo's own GPS chainage.` : `Copied tags from photo ${pad(i)}`, keepGps ? 4000 : 2600);
@@ -1469,6 +1666,20 @@ $("#btn-selectall").addEventListener("click", () => {
   renderList();
 });
 $("#btn-clearsel").addEventListener("click", () => { selected.clear(); renderList(); });
+// remove the selected photos, with Undo for a few seconds
+let bulkDel = null;
+$("#btn-delsel").addEventListener("click", () => {
+  if (!selected.size) return;
+  const removed = photos.map((p, i) => ({ p, i })).filter(x => selected.has(x.p.id));
+  if (pendingDel) { finalizeDel(pendingDel); pendingDel = null; }
+  if (bulkDel) { bulkDel.forEach(finalizeDel); bulkDel = null; }
+  photos = photos.filter(p => !selected.has(p.id)); selected.clear(); bulkDel = removed;
+  renderList(); saveDraft();
+  toast(`${removed.length} photo${removed.length > 1 ? "s" : ""} removed`, 8000, "Undo", () => {
+    if (bulkDel !== removed) return;
+    removed.forEach(({ p, i }) => photos.splice(Math.min(i, photos.length), 0, p)); bulkDel = null; renderList(); saveDraft();
+  }, () => { if (bulkDel === removed) { removed.forEach(finalizeDel); bulkDel = null; } });
+});
 $("#btn-sortch").addEventListener("click", () => {
   const key = p => { const v = parseCH(p.ch); return isNaN(v) ? Infinity : v; };
   photos.sort((a, b) => key(a) - key(b) || a.time - b.time); renderList(); saveDraft(); toast("Sorted by chainage; photos with no chainage are at the end");
@@ -1538,8 +1749,9 @@ $("#btn-bulk").addEventListener("click", () => {
   bulkActs = []; bulkSide = "";
   $("#bk-title").textContent = `Tag ${selected.size} selected photo${selected.size > 1 ? "s" : ""}`;
   $("#bk-struct").innerHTML = structOptions("");
-  ["#bk-el", "#bk-ch", "#bk-ch2", "#bk-rfi", "#bk-rem", "#bk-stext"].forEach(s => $(s).value = "");
+  ["#bk-el", "#bk-ch", "#bk-ch2", "#bk-rfi", "#bk-rem", "#bk-stext", "#bk-place", "#bk-prog", "#bk-date"].forEach(s => $(s).value = "");
   $("#bk-status").innerHTML = statusOptions("", "Keep as is"); $("#bk-stext-w").hidden = true;
+  $("#bk-result").innerHTML = resultOptions("", "Keep as is"); $("#bk-rtext-w").hidden = true; $("#bk-rtext").value = "";
   $("#bk-side").innerHTML = sideButtons("", "data-bside");
   renderBulkAct(); openSheet("#bulk");
 });
@@ -1553,23 +1765,31 @@ $("#bk-act").addEventListener("click", () => openPicker(list => { bulkActs = lis
 $("#bk-side").addEventListener("click", e => { const b = e.target.closest("[data-bside]"); if (!b) return; bulkSide = bulkSide === b.dataset.bside ? "" : b.dataset.bside; $$("#bk-side button").forEach(x => x.setAttribute("aria-pressed", x.dataset.bside === bulkSide)); });
 $("#bk-ch").addEventListener("change", e => e.target.value = normCH(e.target.value));
 $("#bk-status").addEventListener("change", e => { $("#bk-stext-w").hidden = e.target.value !== "other"; });
+$("#bk-result").addEventListener("change", e => { $("#bk-rtext-w").hidden = e.target.value !== "other"; });
 $("#bk-ch2").addEventListener("change", e => e.target.value = normCH(e.target.value));
 $("#bk-apply").addEventListener("click", () => {
   const st = $("#bk-struct").value, el = $("#bk-el").value.trim(), ch = normCH($("#bk-ch").value), ch2 = normCH($("#bk-ch2").value);
   const rfi = rfiCode({ rfi: $("#bk-rfi").value }), rem = $("#bk-rem").value.trim();
   const bst = $("#bk-status").value, bstx = $("#bk-stext").value.trim();
+  const place = $("#bk-place").value.trim(), pv = $("#bk-prog").value.replace(/\D/g, "").slice(0, 3), prog = pv === "" ? "" : String(Math.min(100, +pv));
+  if (place) rememberPlace(place);
+  const bdate = $("#bk-date").value;
   let n = 0;
   for (const p of photos) {
     if (!selected.has(p.id)) continue; n++;
     if (bulkActs.length) setActs(p, bulkActs);
     if (st) setStruct(p, st);
     if (el) p.el = el;
-    if (ch) { p.ch = ch; p.chSrc = "manual"; }
+    if (place) { setOffsite(p, true); p.place = place; }
+    if (prog !== "") p.prog = prog;
+    if (bdate) { const nt = new Date(bdate + "T" + timeStr(p.time) + ":00").getTime(); if (!isNaN(nt)) { p.time = nt; p.timeSrc = "manual"; } }
+    if (ch) { if (p.offsite) setOffsite(p, false); p.ch = ch; p.chSrc = "manual"; }
     if (ch2) p.ch2 = ch2;
     if (bulkSide) p.side = bulkSide;
     if (rfi) p.rfi = rfi;
     if (rem) p.rem = rem;
     if (bst) { p.status = bst; p.statusText = bst === "other" ? bstx : ""; }
+    const brs = $("#bk-result").value; if (brs) { p.result = brs; p.resultText = brs === "other" ? $("#bk-rtext").value.trim() : ""; }
   }
   closeSheet("#bulk"); selected.clear(); renderList(); saveDraft();
   toast(`Tags applied to ${n} photo${n > 1 ? "s" : ""}`);
@@ -1609,6 +1829,9 @@ Object.assign(L.bm, { lyB: "Jambatan", lyP: "Pembetung paip", lyX: "Pembetung ko
 Object.assign(L.en, { diag: "Photo locations along the alignment", dleg: "Above the line: LHS · On the line: CL · Below the line: RHS · Both sides: above and below. Photos close together share one marker; the numbers are the photo numbers.", dnot: "{n} photo{s} not shown: no chainage, or outside the alignment." });
 Object.assign(L.bm, { diag: "Lokasi foto di sepanjang jajaran", dleg: "Atas garisan: Kiri (LHS) · Pada garisan: CL · Bawah garisan: Kanan (RHS) · Kedua-dua belah: atas dan bawah. Foto yang berdekatan berkongsi satu penanda; nombor ialah nombor foto.", dnot: "{n} foto tidak ditunjukkan: tiada rantaian, atau di luar jajaran." });
 Object.assign(L.bm, { ref: "Ruj.", bqqc: "Ruj. BQ / QC", status: "Status", lvl: "Aras" });
+// v1.2.4: element / point labels, off-alignment place, progress, report ref. no., period report
+Object.assign(L.en, { lvl: "Element / point", rstl: "Structure / element", stel: "Structure / element", elpt: "Sampling point", elel: "Element", elly: "Layer / level", elgen: "Element / point", offs: "Off the alignment", prog: "Progress", rno: "Report ref. no.", rptref: "From report", ptitle: "SITE PHOTO REPORT FOR THE PERIOD", period: "Period", psum: "PROGRESS OVER THE PERIOD", plocst: "Location / structure", res: "Result", pfirst: "Photos", platest: "Latest status / progress", pday: "{n} photo{s}" });
+Object.assign(L.bm, { lvl: "Elemen / titik", rstl: "Struktur / elemen", stel: "Struktur / elemen", elpt: "Titik persampelan", elel: "Elemen", elly: "Lapisan / aras", elgen: "Elemen / titik", offs: "Di luar jajaran", prog: "Kemajuan", rno: "No. ruj. laporan", rptref: "Daripada laporan", ptitle: "LAPORAN FOTO TAPAK BAGI TEMPOH", period: "Tempoh", psum: "KEMAJUAN SEPANJANG TEMPOH", plocst: "Lokasi / struktur", res: "Keputusan", pfirst: "Foto", platest: "Status / kemajuan terkini", pday: "{n} foto" });
 Object.assign(L.en, { rtitle: "RFI PHOTO RECORD", rsub: "Attachment to Request For Inspection (RFI) form, JKR Sabah", rref: "RFI ref. no.", idate: "Inspection date", itime: "Time", locw: "Location of work", desc: "Description of works", dref: "Reference (Drawing No. / Sketch No. / Others)", nph: "Photos attached", stage: "Stage", st1: "Inspection", st2: "Further inspection follow-up / verification", insp: "Inspection (by CST)", fu: "Further inspection follow-up / verification (by CST)", ra: "a. Approved. The contractor is allowed to proceed with the next stage.", rb: "b. Not approved as per comments. Rectification and re-inspection is required before proceeding with the next activity.", rc: "c. Not approved, work rejected as per comments.", fa: "a. Approved. Remedial work is accepted.", fb: "b. Remedial work rejected. New inspection required.", com: "Comments", s1: "Prepared by (WPC)", s2: "Checked by (CST)", s3: "Acknowledged by (SOR)", sig: "Signature", nm: "Name", stp: "Stamp", dsg: "Designation", dt: "Date", contract: "Contract no.", gen: "Generated by", rnote: "Photos follow on the next page(s). This record is an attachment; the signed RFI form remains the record of inspection." });
 Object.assign(L.bm, { rtitle: "REKOD FOTO RFI", rsub: "Lampiran kepada borang Request For Inspection (RFI), JKR Sabah", rref: "No. ruj. RFI", idate: "Tarikh pemeriksaan", itime: "Masa", locw: "Lokasi kerja", desc: "Keterangan kerja", dref: "Rujukan (No. Lukisan / Lakaran / Lain-lain)", nph: "Foto dilampirkan", stage: "Peringkat", st1: "Pemeriksaan", st2: "Pemeriksaan susulan / pengesahan", insp: "Pemeriksaan (oleh CST)", fu: "Pemeriksaan susulan / pengesahan (oleh CST)", ra: "a. Diluluskan. Kontraktor dibenarkan meneruskan ke peringkat seterusnya.", rb: "b. Tidak diluluskan seperti komen. Pembaikan dan pemeriksaan semula diperlukan sebelum aktiviti seterusnya.", rc: "c. Tidak diluluskan, kerja ditolak seperti komen.", fa: "a. Diluluskan. Kerja pembaikan diterima.", fb: "b. Kerja pembaikan ditolak. Pemeriksaan baharu diperlukan.", com: "Komen", s1: "Disediakan oleh (WPC)", s2: "Disemak oleh (CST)", s3: "Diperakui oleh (SOR)", sig: "Tandatangan", nm: "Nama", stp: "Cop", dsg: "Jawatan", dt: "Tarikh", contract: "No. kontrak", gen: "Dijana oleh", rnote: "Foto di muka surat berikutnya. Rekod ini ialah lampiran; borang RFI yang ditandatangani kekal sebagai rekod pemeriksaan." });
 Object.assign(L.en, { rltitle: "DAILY RFI SUMMARY LIST", rlinsp: "Inspection date", rlissued: "Issued date", rlby: "Prepared by", rln: "No. of RFIs", rlpic: "PIC", rltime: "Time of inspection", rlref: "RFI reference no.", rldesc: "Description", rlnone: "No RFIs in this list.", rlhiss: "Issued date", rlhinsp: "Inspection date", rlhtime: "Time of inspection" });
@@ -1637,12 +1860,15 @@ function wxText(lang) {
   const a = t(report.wxAM), b = t(report.wxPM);
   return [a ? lab("am", lang === "both" ? "en" : lang) + ": " + a : "", b ? lab("pm", lang === "both" ? "en" : lang) + ": " + b : ""].filter(Boolean).join("   ");
 }
-function dateText() { const d = new Date((report.date || today()) + "T00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" }); }
+function dateText() {
+  if (isPeriod()) { const a = report.date || today(), b = periodTo(); return a === b ? dayText(a) : dayText(a, false).replace(/ \d{4}$/, a.slice(0, 4) === b.slice(0, 4) ? "" : " " + a.slice(0, 4)) + " – " + dayText(b, false); }
+  const d = new Date((report.date || today()) + "T00:00"); return d.toLocaleDateString("en-GB", { weekday: "short", day: "2-digit", month: "short", year: "numeric" });
+}
 function ymd() { return (report.date || today()).replace(/-/g, ""); }
 function slug(s, n = 32) { return String(s || "").normalize("NFKD").replace(/[^\w+\-]+/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "").slice(0, n); }
-function baseName() { return `WP12_SDR_${ymd()}_${report.team || "TEAM"}${report.name ? "_" + slug(report.name, 20) : ""}`; }
+function baseName() { return `${reportRef()}_SDR`.replace(/[^\w+\-]/g, "_"); }
 function photoFileName(p, i) {
-  const parts = [ymd(), report.team || "", pad(i + 1)];
+  const parts = [isPeriod() ? photoDay(p).replace(/-/g, "") : ymd(), report.team || "", pad(i + 1)];
   const c = normCH(p.ch); if (c) parts.push("CH" + c);
   const first = actsOf(p)[0], a = first ? entryName(first, "en") : ""; if (a) parts.push(slug(a, 36));
   return parts.filter(Boolean).join("_") + ".jpg";
@@ -1652,22 +1878,29 @@ function pdfSafe(s) {
 }
 
 /* ---------- WhatsApp summary text ---------- */
-function summaryGroups() {
+// consecutive photos with the same tags are listed as one line ("03–05"); items = [{ p, i }] in report order
+function summaryGroups(items = photos.map((p, i) => ({ p, i }))) {
   const groups = [];
-  photos.forEach((p, i) => {
-    const key = [JSON.stringify(actsOf(p)), normCH(p.ch), normCH(p.ch2), p.side, p.struct, p.el, p.rfi, p.status, p.statusText].join("|");
+  items.forEach(({ p, i }) => {
+    const key = [JSON.stringify(actsOf(p)), normCH(p.ch), normCH(p.ch2), p.side, p.struct, p.el, p.rfi, p.status, p.statusText, p.prog, p.result, p.resultText, p.offsite ? "off:" + (p.place || "") : ""].join("|");
     const g = groups[groups.length - 1];
-    if (g && g.key === key) g.to = i; else groups.push({ key, from: i, to: i, p });
+    if (g && g.key === key && g.to === i - 1) g.to = i; else groups.push({ key, from: i, to: i, p });
   });
   return groups;
 }
+// photos of a period report by day, in report order: [{ day, items: [{ p, i }] }]
+function dayGroups() {
+  const m = new Map();
+  photos.forEach((p, i) => { const d = photoDay(p); if (!m.has(d)) m.set(d, []); m.get(d).push({ p, i }); });
+  return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([day, items]) => ({ day, items }));
+}
 function whatsappText(lang) {
   const lg = lang === "both" ? "en" : lang;
-  const lines = [`*WP12 ${lang === "bm" ? "Laporan Harian Foto Tapak" : "Site Daily Photo Report"}*`, `${dateText()} · ${report.team || ""}${report.name ? " · " + report.name : ""}${report.designation ? " (" + report.designation + ")" : ""}`];
+  const ttl = isPeriod() ? (lang === "bm" ? "Laporan Foto Tapak (Tempoh)" : "Site Photo Report (Period)") : (lang === "bm" ? "Laporan Harian Foto Tapak" : "Site Daily Photo Report");
+  const lines = [`*${CFG.projectCode || "WP12"} ${ttl}*`, `${dateText()} · ${report.team || ""}${report.name ? " · " + report.name : ""}${report.designation ? " (" + report.designation + ")" : ""}`, `${lab("rno", lg)}: ${reportRef()}`];
   const z = reportZone(); if (z) lines.push(`${lab("zone", lg)}: ${z}`);
-  const w = wxText(lg); if (w) lines.push(`${lab("wx", lg)}: ${w}`);
-  lines.push("");
-  for (const g of summaryGroups()) {
+  const w = wxText(lg); if (w && !isPeriod()) lines.push(`${lab("wx", lg)}: ${w}`);
+  const line = g => {
     const n = g.from === g.to ? pad(g.from + 1) : pad(g.from + 1) + "–" + pad(g.to + 1);
     const p = g.p, ref = refFor(p);
     let t = `${n}. ${hasAct(p) ? actName(p, lg) : lab("none", lg)}`;
@@ -1675,9 +1908,11 @@ function whatsappText(lang) {
     const loc = [locText(p, lg), structText(p, lg)].filter(Boolean).join(", ");
     if (loc) t += ` – ${loc}`;
     if (p.rfi) t += ` – RFI ${CFG.rfiPrefix}${p.rfi}`;
-    const sv = statusText(p, lg); if (sv) t += ` [${sv}]`;
-    lines.push(t);
-  }
+    const sv = statusLine(p, lg); if (sv) t += ` [${sv}]`;
+    return t;
+  };
+  if (isPeriod()) for (const d of dayGroups()) { lines.push("", `*${dayText(d.day)}*`); summaryGroups(d.items).forEach(g => lines.push(line(g))); }
+  else { lines.push(""); summaryGroups().forEach(g => lines.push(line(g))); }
   return lines.join("\n");
 }
 
@@ -1697,13 +1932,13 @@ async function stampedBlob(p, i, lang) {
     const wrap = (text, font) => { ctx0.font = font; const words = String(text).split(/\s+/); const out = []; let cur = ""; for (const wd of words) { const t = cur ? cur + " " + wd : wd; if (ctx0.measureText(t).width > maxW && cur) { out.push(cur); cur = wd; } else cur = t; } if (cur) out.push(cur); return out; };
     const fB = `700 ${fs}px Barlow, Arial, sans-serif`, fN = `500 ${fs}px Barlow, Arial, sans-serif`;
     const rows = [];
-    rows.push({ t: `WP12 · ${dateText()} ${timeStr(p.time)} · ${report.team || ""} · No. ${pad(i + 1)}`, f: fB, c: "#FF8A3D" });
+    rows.push({ t: `${CFG.projectCode || "WP12"} · ${isPeriod() ? dayText(photoDay(p)) : dateText()} ${timeStr(p.time)} · ${report.team || ""} · No. ${pad(i + 1)}`, f: fB, c: "#FF8A3D" });
     const loc = [locText(p, lg), structText(p, lg)].filter(Boolean).join(" · ");
     if (loc) wrap(loc, fB).forEach(t => rows.push({ t, f: fB, c: "#FFFFFF" }));
     const ref = refFor(p);
     actLines(p, lang).forEach((a, k) => wrap(a + (k === 0 && ref && !/n\/a/.test(ref) ? `  [${ref}]` : ""), fN).forEach(t => rows.push({ t, f: fN, c: "#FFFFFF" })));
     if (p.rfi) rows.push({ t: `RFI ${CFG.rfiPrefix}${p.rfi}`, f: fN, c: "#FFFFFF" });
-    const sv = statusText(p, lang); if (sv) wrap(`${lab("status", lg)}: ${sv}`, fB).forEach(t => rows.push({ t, f: fB, c: "#FFD9A8" }));
+    const sv = statusLine(p, lang); if (sv) wrap(`${lab("status", lg)}: ${sv}`, fB).forEach(t => rows.push({ t, f: fB, c: "#FFD9A8" }));
     if (p.rem) wrap(p.rem, fN).slice(0, 2).forEach(t => rows.push({ t, f: fN, c: "#DDE3E8" }));
     const band = rows.length * lh + Math.round(fs * 0.9);
     const cv = document.createElement("canvas"); cv.width = w; cv.height = h;
@@ -1717,6 +1952,15 @@ async function stampedBlob(p, i, lang) {
 }
 
 /* ---------- PDF ---------- */
+// v1.2.4: logos per team (settings.logosByTeam[team].L / .R = { img } | { text } | "none"); otherwise the setup's logos
+function logoFor(slot, team = report.team) {
+  const t = ((settings.logosByTeam || {})[team] || {})[slot];
+  if (t === "none") return null;
+  if (t && (t.img || t.text)) return t;
+  const d = settings["logo" + slot]; return d ? { img: d } : null;
+}
+function logoSig() { return ["L", "R"].map(s => { const l = logoFor(s); return l ? (l.text || String((l.img || "").length)) : ""; }).join("|"); }
+async function logoObj(l) { if (!l) return null; if (l.text) return { text: l.text }; return logoData(l.img); }
 async function logoData(dataUrl) {
   if (!dataUrl) return null;
   try { const im = await loadImg(dataUrl); return { data: dataUrl, w: im.naturalWidth, h: im.naturalHeight }; } catch (e) { return null; }
@@ -1726,18 +1970,30 @@ async function pdfKit(lang) {
   const { jsPDF } = window.jspdf;
   return {
     doc: new jsPDF({ unit: "mm", format: "a4", compress: true }), lang, fl: lang === "both" ? "en" : lang,
-    W: 210, H: 297, M: 10, CW: 190, first: true, ppp: settings.ppp === 2 ? 2 : 4, lgL: await logoData(settings.logoL), lgR: await logoData(settings.logoR),
+    W: 210, H: 297, M: 10, CW: 190, first: true, ppp: settings.ppp === 2 ? 2 : 4, lgL: await logoObj(logoFor("L")), lgR: await logoObj(logoFor("R")),
   };
 }
 function pdfHeader(k, title, cells) {
   const { doc, W, M, CW } = k, T = pdfSafe, top = M;
   const box = (lgo, x, right) => {
     if (!lgo) return;
+    if (lgo.text) {
+      // a text "logo", e.g. CST or a company name, in the logo box
+      doc.setFont("helvetica", "bold"); doc.setTextColor(...PC.ink);
+      let fs = 13; doc.setFontSize(fs);
+      let ln = doc.splitTextToSize(T(lgo.text), 26);
+      while (fs > 6 && (ln.length > 3 || ln.some(l => doc.getTextWidth(l) > 26) || ln.length * fs * 0.42 > 16)) { fs -= 0.5; doc.setFontSize(fs); ln = doc.splitTextToSize(T(lgo.text), 26); }
+      const lh = fs * 0.42, y0 = top + 8 - (ln.length * lh) / 2 + lh * 0.78;
+      doc.text(ln, right ? x + 26 : x, y0, { align: right ? "right" : "left", lineHeightFactor: 1.18 });
+      return;
+    }
     const bw = 26, bh = 16, s = Math.min(bw / lgo.w, bh / lgo.h), w = lgo.w * s, h = lgo.h * s;
     doc.addImage(lgo.data, /^data:image\/png/.test(lgo.data) ? "PNG" : "JPEG", right ? x + bw - w : x, top + (bh - h) / 2, w, h);
   };
   box(k.lgL, M, false); box(k.lgR, W - M - 26, true);
-  doc.setTextColor(...PC.ink); doc.setFont("helvetica", "bold"); doc.setFontSize(title.length > 30 ? 11.5 : 13);
+  doc.setTextColor(...PC.ink); doc.setFont("helvetica", "bold");
+  let tfs = title.length > 30 ? 11.5 : 13; doc.setFontSize(tfs);
+  while (tfs > 7.5 && doc.getTextWidth(T(title)) > CW - 60) { tfs -= 0.5; doc.setFontSize(tfs); }
   doc.text(T(title), W / 2, top + 5, { align: "center" });
   doc.setFont("helvetica", "normal"); doc.setFontSize(7.2); doc.setTextColor(...PC.muted);
   let pt = doc.splitTextToSize(T(projectTitle()), CW - 64).slice(0, 2);
@@ -1783,7 +2039,8 @@ function pdfFooters(k, tag, whoKey = "prep") {
   }
 }
 function dailyCells(k) {
-  return [[lab("date", k.lang), dateText(), 30], [lab("team", k.lang), report.team || "", 20], [lab("by", k.lang), [report.name, report.designation].filter(Boolean).join(", "), 52], [lab("zone", k.lang), reportZone() || "-", 34], [lab("wx", k.fl), wxText(k.fl) || "-", 54]];
+  if (isPeriod()) return [[lab("period", k.lang), dateText(), 44], [lab("team", k.lang), report.team || "", 14], [lab("by", k.lang), [report.name, report.designation].filter(Boolean).join(", "), 50], [lab("zone", k.lang), reportZone() || "-", 34], [lab("rno", k.lang), reportRef(), 48]];
+  return [[lab("date", k.lang), dateText(), 28], [lab("team", k.lang), report.team || "", 14], [lab("by", k.lang), [report.name, report.designation].filter(Boolean).join(", "), 46], [lab("zone", k.lang), reportZone() || "-", 30], [lab("wx", k.fl), wxText(k.fl) || "-", 44], [lab("rno", k.lang), reportRef(), 42]];
 }
 /* alignment diagram (experimental): one strip from the start to the end chainage, zones shaded,
    photo markers above (LHS), on (CL / no side) or below (RHS) the line; close photos share a marker */
@@ -1943,11 +2200,12 @@ async function pdfPhotos(k, items, title, cells, onProg, intro) {
     const kv = [], ref = refFor(p), locL = lab("loc", fl);
     if (ref) kv.push([lab("ref", fl), ref]);
     kv.push([locL, locText(p, fl) || "-"]);
-    const st = structText(p, fl); if (st) kv.push([lab(p.struct ? "st" : "lvl", fl), st]);
+    if (p.struct) kv.push([lab("st", fl), structText(p, fl)]); else if (p.el) kv.push([lab("el" + elKind(p), fl), elText(p, fl)]);
     if (p.rfi) kv.push(["RFI", CFG.rfiPrefix + rfiCode(p)]);
-    const sv = statusText(p, lang); if (sv) kv.push([lab("status", fl), sv]);
+    const sv = statusLine(p, lang); if (sv) kv.push([lab("status", fl), sv]);
     if (p.rem) kv.push([lab("rem", fl), p.rem]);
-    const kw = 17 * z, lh = 3.3 * z;
+    doc.setFont("helvetica", "normal"); doc.setFontSize(6.8 * z);
+    const kw = Math.min(28 * z, Math.max(17 * z, ...kv.map(([kk]) => doc.getTextWidth(T(kk)) + 2))), lh = 3.3 * z;
     for (const [kk, v] of kv) {
       doc.setFontSize(7.6 * z); const vl = doc.splitTextToSize(T(v), tw - kw);
       const room = Math.floor((cy + capH - 1.5 - ty) / lh) + 1;
@@ -1961,7 +2219,80 @@ async function pdfPhotos(k, items, title, cells, onProg, intro) {
     }
   }
 }
+// Period report (experimental, v1.2.4): progress table over the period, then the photos day by day
+function progressGroups() {
+  const m = new Map();
+  photos.forEach((p, i) => {
+    const where = p.offsite ? "off:" + (p.place || "").toLowerCase() : p.struct || zoneOf(p.ch) || "";
+    const key = [actsOf(p).map(e => e.id === "custom" ? "c:" + (e.text || "").toLowerCase() : e.id).join("+"), where, (p.el || "").toLowerCase()].join("|");
+    if (!m.has(key)) m.set(key, []);
+    m.get(key).push({ p, i });
+  });
+  return [...m.values()].map(list => {
+    const byTime = list.slice().sort((a, b) => a.p.time - b.p.time);
+    const last = byTime.slice().reverse().find(x => statusLine(x.p, "en")) || byTime[byTime.length - 1];
+    return { list, first: byTime[0], last };
+  }).sort((a, b) => a.list[0].i - b.list[0].i);
+}
+function nosText(list) {
+  const n = list.map(x => x.i + 1).sort((a, b) => a - b), runs = [];
+  for (const v of n) { const r = runs[runs.length - 1]; if (r && v === r[1] + 1) r[1] = v; else runs.push([v, v]); }
+  return runs.map(([a, b]) => a === b ? pad(a) : pad(a) + "-" + pad(b)).join(", ");
+}
+async function buildPeriodPDF(lang, withSummary, onProg) {
+  const k = await pdfKit(lang), { doc, M, CW, W, H } = k, T = pdfSafe, fl = k.fl;
+  const title = lab("ptitle", lang), cells = dailyCells(k);
+  const allItems = photos.map((p, i) => ({ p, no: i + 1 }));
+  if (withSummary && photos.length) {
+    let y = pdfPage(k, title, cells);
+    if (settings.diagram) y = pdfAlignment(k, y, allItems);
+    doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(...PC.ink);
+    doc.text(T(lab("psum", lang)), M, y + 3); y += 6;
+    const cols = [[lab("no", lang), 20], [lab("act", lang), 62], [lab("plocst", lang), 46], [lab("pfirst", lang), 26], [lab("platest", lang), 46]];
+    const tot = cols.reduce((a, c) => a + c[1], 0), cw = cols.map(c => c[1] / tot * CW);
+    const drawHead = () => {
+      doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
+      const hl = cols.map((c, i) => doc.splitTextToSize(T(c[0]).toUpperCase(), cw[i] - 3)), hh = Math.max(...hl.map(l => l.length)) * 2.8 + 3.7;
+      let x = M; doc.setFillColor(...PC.ink); doc.rect(M, y, CW, hh, "F"); doc.setTextColor(255, 255, 255);
+      hl.forEach((l, i) => { doc.text(l, x + 1.5, y + 4.1, { lineHeightFactor: 1.2 }); x += cw[i]; }); y += hh;
+    };
+    drawHead();
+    progressGroups().forEach((g, gi) => {
+      const p = g.first.p, d1 = photoDay(g.first.p), d2 = photoDay(g.list.reduce((a, x) => x.p.time > a.p.time ? x : a).p);
+      const where = [locText(p, fl), structText(p, fl)].filter(Boolean).join(", ");
+      const span = d1 === d2 ? dayText(d1, false).replace(/ \d{4}$/, "") : dayText(d1, false).replace(/ \d{4}$/, "") + " - " + dayText(d2, false).replace(/ \d{4}$/, "");
+      const latest = statusLine(g.last.p, lang);
+      const vals = [nosText(g.list), actLines(p, lang).join("\n"), where || "-", span + "\n(" + g.list.length + ")", latest ? latest + "\n" + dayText(photoDay(g.last.p), false).replace(/ \d{4}$/, "") : "-"];
+      doc.setFontSize(7.4);
+      const wr = vals.map((v, i) => doc.splitTextToSize(T(v), cw[i] - 3));
+      const rh = Math.max(...wr.map(w => w.length)) * 3.3 + 2.6;
+      if (y + rh > H - 14) { y = pdfPage(k, title, cells) + 1; drawHead(); }
+      if (gi % 2) { doc.setFillColor(...PC.fill); doc.rect(M, y, CW, rh, "F"); }
+      let x = M;
+      wr.forEach((w, i) => { doc.setFont("helvetica", i === 0 || i === 4 ? "bold" : "normal"); doc.setTextColor(...(i === 3 ? PC.muted : PC.ink)); doc.text(w, x + 1.5, y + 3.6, { lineHeightFactor: 1.25 }); x += cw[i]; });
+      doc.setDrawColor(...PC.line); doc.setLineWidth(0.2); doc.line(M, y + rh, W - M, y + rh);
+      y += rh;
+    });
+  }
+  // photos, one section per day (each day starts on a new page with a heading)
+  let done = 0;
+  for (const d of dayGroups()) {
+    const items = d.items.map(({ p, i }) => ({ p, no: i + 1 })), n = items.length;
+    const head = top => {
+      doc.setFillColor(...PC.fill); doc.setDrawColor(...PC.line); doc.setLineWidth(0.25); doc.rect(M, top, CW, 7, "FD");
+      doc.setFont("helvetica", "bold"); doc.setFontSize(9); doc.setTextColor(...PC.ink);
+      const cnt = (lang === "both" ? [L.en.pday, L.bm.pday] : [lab("pday", lang)]).map(t => t.replace("{n}", n).replace("{s}", n > 1 ? "s" : ""));
+      doc.text(T(dayText(d.day) + "  ·  " + [...new Set(cnt)].join(" / ")), M + 2, top + 4.8);
+      return top + 9;
+    };
+    await pdfPhotos(k, items, title, cells, onProg ? (j) => onProg(done + j, photos.length) : null, head);
+    done += n;
+  }
+  pdfFooters(k, reportRef());
+  return doc.output("blob");
+}
 async function buildPDF(lang, withSummary, onProg) {
+  if (isPeriod()) return buildPeriodPDF(lang, withSummary, onProg);
   const k = await pdfKit(lang), { doc, M, CW, W, H } = k, T = pdfSafe, lg = lang;
   const title = lab("title", lang), cells = dailyCells(k);
   const allItems = photos.map((p, i) => ({ p, no: i + 1 }));
@@ -1971,7 +2302,7 @@ async function buildPDF(lang, withSummary, onProg) {
     if (diag) y = pdfAlignment(k, y, allItems);
     doc.setFont("helvetica", "bold"); doc.setFontSize(9.5); doc.setTextColor(...PC.ink);
     doc.text(T(lab("sum", lg)), M, y + 3); y += 6;
-    const cols = [[lab("no", lg), 11], [lab("act", lg), 58], [lab("bqqc", lg), 27], [lab("loc", lg), 30], [lab("st", lg), 27], [lab("rfi", lg), 33]];
+    const cols = [[lab("no", lg), 11], [lab("act", lg), 58], [lab("bqqc", lg), 27], [lab("loc", lg), 30], [lab("stel", lg), 27], [lab("rfi", lg), 33]];
     const tot = cols.reduce((a, c) => a + c[1], 0), cw = cols.map(c => c[1] / tot * CW);
     const drawHead = () => {
       doc.setFont("helvetica", "bold"); doc.setFontSize(6.6);
@@ -1985,7 +2316,7 @@ async function buildPDF(lang, withSummary, onProg) {
     drawHead();
     summaryGroups().forEach((g, gi) => {
       const p = g.p, bq = refFor(p);
-      const vals = [g.from === g.to ? pad(g.from + 1) : pad(g.from + 1) + "-" + pad(g.to + 1), actLines(p, lang).join("\n") + (statusText(p, lang) ? "\n[" + statusText(p, lang) + "]" : ""), bq || "-", locText(p, k.fl) || "-", structText(p, k.fl) || "-", p.rfi ? CFG.rfiPrefix + rfiCode(p) : "-"];
+      const vals = [g.from === g.to ? pad(g.from + 1) : pad(g.from + 1) + "-" + pad(g.to + 1), actLines(p, lang).join("\n") + (statusLine(p, lang) ? "\n[" + statusLine(p, lang) + "]" : ""), bq || "-", locText(p, k.fl) || "-", structText(p, k.fl) || "-", p.rfi ? CFG.rfiPrefix + rfiCode(p) : "-"];
       doc.setFontSize(7.4);
       const wrapped = vals.map((v, i) => doc.splitTextToSize(T(v), cw[i] - 3));
       const rh = Math.max(...wrapped.map(w => w.length)) * 3.3 + 2.6;
@@ -1998,7 +2329,7 @@ async function buildPDF(lang, withSummary, onProg) {
     });
   }
   await pdfPhotos(k, allItems, title, cells, onProg, diag && !withSummary ? top => pdfAlignment(k, top, allItems) : null);
-  pdfFooters(k, `WP12 SDR ${ymd()}`);
+  pdfFooters(k, reportRef());
   return doc.output("blob");
 }
 
@@ -2020,6 +2351,8 @@ function rfiAuto(items, lg) {
   if (sides.length) loc += (loc ? " " : "") + sides.map(s => lg === "bm" ? (SIDE_BM[s] || s) : s).join(" / ");
   if (sts.length) loc += (loc ? ", " : "") + sts.join("; ");
   if (zs.length) loc = zs.join(", ") + (loc ? ": " + loc : "");
+  const pls = [...new Set(items.filter(x => x.p.offsite).map(x => placeText(x.p, lg)))];
+  if (pls.length) loc = [loc, pls.join("; ")].filter(Boolean).join("; ");
   const times = items.map(x => x.p.time).sort((a, b) => a - b);
   return { desc: descs.join("; "), loc, t1: times[0], t2: times[times.length - 1] };
 }
@@ -2027,13 +2360,15 @@ function rfiInfo(code) {
   report.rfi = report.rfi || {};
   return report.rfi[code] = report.rfi[code] || { desc: "", dref: "", stage: "1", result: "", com: "" };
 }
-function rfiFileName(code) { return `${ymd()}_${CFG.rfiPrefix}${code}_Photo_Record.pdf`.replace(/[^\w.+\-]/g, "_"); }
+// in a period report an RFI's date is the day of its first photo
+function rfiDay(code) { const it = (rfiGroups().get(code) || [])[0]; return isPeriod() && it ? photoDay(it.p) : (report.date || today()); }
+function rfiFileName(code) { return `${rfiDay(code).replace(/-/g, "")}_${CFG.rfiPrefix}${code}_Photo_Record.pdf`.replace(/[^\w.+\-]/g, "_"); }
 async function buildRfiPDF(code, lang, onProg) {
   const items = rfiGroups().get(code) || [];
   const k = await pdfKit(lang), { doc, M, CW, W, H } = k, T = pdfSafe, fl = k.fl;
   const auto = rfiAuto(items, fl), info = rfiInfo(code), full = CFG.rfiPrefix + code;
   const tt = auto.t1 ? timeStr(auto.t1) + (timeStr(auto.t2) !== timeStr(auto.t1) ? " - " + timeStr(auto.t2) : "") : "-";
-  const cells = [[lab("rref", lang), full, 48], [lab("idate", lang), dateText(), 28], [lab("itime", lang), tt, 20], [lab("team", lang), report.team || "", 14], [lab("by", lang), [report.name, report.designation].filter(Boolean).join(", "), 44]];
+  const cells = [[lab("rref", lang), full, 48], [lab("idate", lang), isPeriod() ? dayText(rfiDay(code)) : dateText(), 28], [lab("itime", lang), tt, 20], [lab("team", lang), report.team || "", 14], [lab("by", lang), [report.name, report.designation].filter(Boolean).join(", "), 44]];
   const title = lab("rtitle", lang);
   let y = pdfPage(k, title, cells);
   doc.setFont("helvetica", "italic"); doc.setFontSize(8); doc.setTextColor(...PC.muted);
@@ -2045,6 +2380,7 @@ async function buildRfiPDF(code, lang, onProg) {
   const rows = [[lab("locw", lang), auto.loc || "-"], [lab("desc", lang), info.desc || rflDescFor(code) || auto.desc || "-"], [lab("racts", lang), actRefs.join("; ") || "-"]];
   if (stl.length) rows.push([lab("rstl", lang), stl.join("; ")]);
   rows.push([lab("nph", lang), String(items.length)]);
+  rows.push([lab("rptref", lang), reportRef()]);
   const kw = 46;
   rows.forEach(([kk, v]) => {
     doc.setFontSize(8.6); const vl = doc.splitTextToSize(T(v), CW - kw - 4);
@@ -2069,7 +2405,7 @@ async function buildRfiPDF(code, lang, onProg) {
   };
   head();
   items.forEach(({ p }, j) => {
-    const vals = [pad(j + 1), timeStr(p.time), actLines(p, lang).join("\n"), locText(p, fl) || "-", elText(p, fl) || "-", statusText(p, lang) || "-"];
+    const vals = [pad(j + 1), timeStr(p.time), actLines(p, lang).join("\n"), locText(p, fl) || "-", elText(p, fl) || "-", statusLine(p, lang) || "-"];
     doc.setFontSize(7.4); const wr = vals.map((v, i) => doc.splitTextToSize(T(v), cw[i] - 3));
     const rh = Math.max(...wr.map(w => w.length)) * 3.3 + 2.6;
     if (y + rh > H - 14) { y = pdfPage(k, title, cells) + 1; head(); }
@@ -2158,7 +2494,7 @@ function saveErr(e) {
 
 /* ---------- output sheet ---------- */
 const cache = { pdf: null, stamped: null, pdfSig: "", stSig: "", rfi: {} };
-function sig(lang, sum) { return JSON.stringify([report, photos, lang, sum, settings.ppp, settings.diagram, settings.diagLayers, zones(), settings.logoL && settings.logoL.length, settings.logoR && settings.logoR.length, settings.projectTitle, settings.contractNo]); }
+function sig(lang, sum) { return JSON.stringify([report, photos, lang, sum, settings.ppp, settings.diagram, settings.diagLayers, zones(), logoSig(), settings.projectTitle, settings.contractNo]); }
 $("#btn-generate").addEventListener("click", openOutput);
 function outPages() { const n = photos.length, per = settings.ppp === 2 ? 2 : 4; return Math.ceil(n / per) + ($("#out-sumpage").checked ? 1 : 0); }
 function renderOutSummary() {
@@ -2170,27 +2506,37 @@ function renderOutSummary() {
   $("#out-layers").innerHTML = `<span class="small muted" style="width:100%">Structure lines under the diagram (optional):</span>` + DIAG_LAYERS.filter(key => CFG.structures.some(s => structLayer(s) === key)).map(key => `<label class="lychk"><input type="checkbox" data-ly="${key}"${settings.diagLayers && settings.diagLayers[key] ? " checked" : ""}> ${esc(L.en["ly" + key])}</label>`).join("");
 }
 function openOutput() {
-  renderOutSummary();
+  renderOutSummary(); $("#out-ref").value = reportRef();
+  assignRef().then(r => { $("#out-ref").value = r; });
   const goBtns = list => list.slice(0, 20).map(([i, p]) => `<button type="button" class="gobtn" data-goto="${p.id}">${pad(i + 1)}</button>`).join("") + (list.length > 20 ? " …" : "");
   const noAct = photos.map((p, i) => [i, p]).filter(([i, p]) => !hasAct(p));
-  const noCh = photos.map((p, i) => [i, p]).filter(([i, p]) => !p.ch);
+  const noCh = photos.map((p, i) => [i, p]).filter(([i, p]) => !p.ch && !p.offsite);
   const parts = [];
   if (noAct.length) parts.push(`<div><b>No activity:</b> photo ${goBtns(noAct)}</div>`);
-  if (noCh.length) parts.push(`<div><b>No chainage:</b> photo ${goBtns(noCh)}</div>`);
+  if (noCh.length) parts.push(`<div><b>No chainage or place:</b> photo ${goBtns(noCh)}</div>`);
+  if (isPeriod()) {
+    const unsure = photos.map((p, i) => [i, p]).filter(([i, p]) => dateUnsure(p));
+    if (unsure.length) parts.push(`<div><b>Date taken not confirmed</b> (no camera date, e.g. saved from WhatsApp): photo ${goBtns(unsure)}. Check the date on each card, or select them and use Tag selected → Date taken.</div>`);
+    const a = report.date || today(), b = periodTo(), out = photos.map((p, i) => [i, p]).filter(([i, p]) => photoDay(p) < a || photoDay(p) > b);
+    if (out.length) parts.push(`<div><b>Outside the period</b> (${esc(dateText())}): photo ${goBtns(out)}</div>`);
+  }
   const warns = [];
   if (report.zone && report.zone !== "All zones") {
     const off = photos.map((p, i) => { const z = zoneOf(p.ch); return z && z !== report.zone ? `${pad(i + 1)} (CH ${normCH(p.ch)}, ${z})` : null; }).filter(Boolean);
     if (off.length) warns.push(`Header zone is ${report.zone}, but photo ${off.slice(0, 6).join(", ")}${off.length > 6 ? "…" : ""} ${off.length > 1 ? "are" : "is"} outside it. Change the zone in Report details or leave it as Not set to list zones automatically.`);
   }
   if (!report.name) warns.push("Reported by is empty (Report details).");
-  if (!settings.logoL && !settings.logoR) warns.push("No logos set. Add the JKR and WPC logos under Setup.");
+  if (!logoFor("L") && !logoFor("R")) warns.push(`No logos for team ${report.team}. Add them under Setup → Report logos (an image, or a text such as ${report.team}).`);
+  const days = photoDays();
+  if (!isPeriod() && days.length > 1) warns.push(`Photos from ${days.length} different days (${days.map(d => dayText(d, false).replace(/ \d{4}$/, "")).join(", ")}). For a weekly or monthly report, set Report type to Period in Report details.`);
   const all = parts.concat(warns.map(w => `<div>${esc(w)}</div>`));
   $("#out-warn").innerHTML = all.length
     ? `<div class="warnbox"><div style="font-weight:700;margin-bottom:4px">Check before you share</div>${all.join("")}${parts.length ? `<div class="small" style="margin-top:4px">Tap a photo number to go to it. You can still generate the report.</div>` : `<div class="small" style="margin-top:4px">You can still generate the report.</div>`}</div>`
-    : `<div class="okbox">All photos have an activity and chainage.</div>`;
+    : `<div class="okbox">All photos have an activity and a location.</div>`;
   const g = rfiGroups();
   $("#out-rfibar").innerHTML = g.size ? `<div class="rfibar"><div><b>RFI photo records</b><br><span class="small">${g.size} RFI${g.size > 1 ? "s" : ""} in this report: ${[...g.keys()].slice(0, 4).map(c => esc(c)).join(", ")}${g.size > 4 ? "…" : ""}</span></div><button class="btn acc" type="button" id="go-rfi">Make RFI photo records</button></div>` : "";
   $("#out-status").textContent = ""; $("#out-prog").hidden = true;
+  $("#out-period").hidden = !isPeriod();
   renderOutActions(); renderRfiSection();
   openSheet("#output");
 }
@@ -2207,6 +2553,8 @@ $("#out-rfibar").addEventListener("click", e => {
   const first = $("#out-rfi details"); if (first) first.open = true;
   $("#out-rfi").scrollIntoView({ behavior: "smooth", block: "start" });
 });
+$("#out-ref").addEventListener("input", e => { const v = e.target.value.trim().toUpperCase().replace(/\s+/g, "-"); if (v) { report.refNo = v; report.refManual = true; saveDraft(); } });
+$("#out-ref").addEventListener("change", async e => { if (!e.target.value.trim()) { report.refNo = ""; report.refManual = false; e.target.value = await assignRef(); } else e.target.value = report.refNo; });
 $("#out-diag").addEventListener("change", e => { settings.diagram = e.target.checked; saveDraft(); renderOutSummary(); renderOutActions(); });
 $("#out-layers").addEventListener("change", e => {
   const key = e.target.dataset.ly; if (!key) return;
@@ -2298,7 +2646,7 @@ async function afterSave(msg) {
 async function runOut(btn, fn) {
   if (busy) return;
   busy = true; $$("#output .sheet-b button").forEach(x => x.disabled = true);
-  try { await fn(); }
+  try { await assignRef(); $("#out-ref").value = reportRef(); await fn(); }
   catch (err) { prog(false); $("#out-status").textContent = err && err.name === "NotAllowedError" ? "Ready. Tap the same button again to share." : saveErr(err); console.warn(err); }
   finally { busy = false; $$("#output .sheet-b button").forEach(x => x.disabled = false); }
 }
@@ -2336,6 +2684,8 @@ $("#out-actions").addEventListener("click", async e => {
       for (const code of rfiGroups().keys()) root.folder("rfi_photo_records").file(rfiFileName(code), await getRfiPDF(code));
       root.file("photo_log.csv", csvPhotos([reportEntry()]));
       root.file("whatsapp_summary.txt", whatsappText(report.lang || "en"));
+      // machine-readable copy of the report, for compiling period reports from several people's archives later
+      root.file("report_data.json", JSON.stringify({ kind: "wp12-sdr-report", app: APP_VERSION, entry: reportEntry() }, null, 1));
       prog(true, 1, 1, "Packing ZIP…");
       const z = await zip.generateAsync({ type: "blob", compression: "STORE" });
       prog(false); await saveFile(z, baseName() + ".zip"); await afterSave(`Saved ${baseName()}.zip (${(z.size / 1048576).toFixed(1)} MB).`);
@@ -2795,7 +3145,7 @@ async function regLoad() {
 }
 async function regSave() { await sput("kv", "register", REG); }
 function photoRow(p, i) {
-  return { no: i + 1, time: timeStr(p.time), actEN: actName(p, "en"), actBM: actName(p, "bm"), bq: refFor(p), struct: STRUCT.get(p.struct)?.name || "", el: p.el || "", ch: normCH(p.ch), ch2: normCH(p.ch2), side: p.side || "", rfi: rfiCode(p), rem: p.rem || "", status: statusText(p, "en"), lat: p.gps ? +p.gps.lat.toFixed(6) : "", lon: p.gps ? +p.gps.lon.toFixed(6) : "", gch: p.auto ? fmtCH(p.auto.ch) : "", file: photoFileName(p, i) };
+  return { no: i + 1, time: timeStr(p.time), actEN: actName(p, "en"), actBM: actName(p, "bm"), bq: refFor(p), struct: STRUCT.get(p.struct)?.name || "", el: p.el || "", ch: normCH(p.ch), ch2: normCH(p.ch2), side: p.side || "", rfi: rfiCode(p), rem: p.rem || "", status: statusText(p, "en"), lat: p.gps ? +p.gps.lat.toFixed(6) : "", lon: p.gps ? +p.gps.lon.toFixed(6) : "", gch: p.auto ? fmtCH(p.auto.ch) : "", file: photoFileName(p, i), place: p.offsite ? placeText(p, "en") : "", prog: String(p.prog ?? ""), date: photoDay(p), result: resultText(p, "en") };
 }
 function rfisFromRows(rows) {
   const out = {};
@@ -2803,21 +3153,23 @@ function rfisFromRows(rows) {
     if (!r.rfi) continue;
     const o = out[r.rfi] = out[r.rfi] || { acts: new Set(), chs: [], sides: new Set(), times: [], n: 0, sts: new Set() };
     if (r.status) o.sts.add(r.status);
+    if (r.result) o.sts.add("Result: " + r.result);
     if (r.actEN) o.acts.add(r.actEN); [parseCH(r.ch), parseCH(r.ch2)].forEach(v => { if (!isNaN(v)) o.chs.push(v); });
     if (r.side) o.sides.add(r.side); if (r.time) o.times.push(r.time); o.n++;
+    if (r.place) (o.places = o.places || new Set()).add(r.place);
     const z = zoneOf(r.ch); if (z) (o.zones = o.zones || new Set()).add(z);
   }
   for (const [c, o] of Object.entries(out)) {
     const a = o.chs.length ? Math.min(...o.chs) : NaN, b = o.chs.length ? Math.max(...o.chs) : NaN, t = o.times.sort();
     const z = o.zones && o.zones.size ? zoneSort([...o.zones]).join(", ") : null;
-    out[c] = { desc: [...o.acts].join("; "), loc: (z ? z + ": " : "") + (isNaN(a) ? "" : "CH " + fmtCH(a) + (b - a >= 1 ? " – " + fmtCH(b) : "")) + (o.sides.size ? " " + [...o.sides].join(" / ") : ""), t1: t[0] || "", t2: t[t.length - 1] || "", n: o.n, status: [...o.sts].join("; ") };
+    out[c] = { desc: [...o.acts].join("; "), loc: (z ? z + ": " : "") + (isNaN(a) ? "" : "CH " + fmtCH(a) + (b - a >= 1 ? " – " + fmtCH(b) : "")) + (o.sides.size ? " " + [...o.sides].join(" / ") : "") + (o.places ? (o.chs.length ? "; " : "") + [...o.places].join("; ") : ""), t1: t[0] || "", t2: t[t.length - 1] || "", n: o.n, status: [...o.sts].join("; ") };
   }
   return out;
 }
 function reportEntry() {
   const rows = photos.map(photoRow), rf = rfisFromRows(rows);
   for (const [code, r] of Object.entries(rf)) { const inf = (report.rfi || {})[code] || {}; if (inf.desc) r.desc = inf.desc; }
-  return { rid: report.rid, date: report.date, team: report.team, name: report.name, desig: report.designation, zone: reportZone(), wxAM: report.wxAM, wxPM: report.wxPM, photos: rows, rfis: rf, logged: new Date().toISOString(), source: "this device" };
+  return { rid: report.rid, ref: reportRef(), kind: isPeriod() ? "period" : "day", dateTo: isPeriod() ? periodTo() : "", date: report.date, team: report.team, name: report.name, desig: report.designation, zone: reportZone(), wxAM: report.wxAM, wxPM: report.wxPM, photos: rows, rfis: rf, logged: new Date().toISOString(), source: "this device" };
 }
 async function logReport() {
   if (!photos.length) return false;
@@ -2861,7 +3213,7 @@ function renderRegister() {
     count = `${es.length} report${es.length !== 1 ? "s" : ""} · ${es.reduce((a, e) => a + (e.photos || []).length, 0)} photos`;
     html = es.map(e => {
       const acts = [...new Set((e.photos || []).map(p => p.actEN).filter(Boolean))], [c1, c2] = chRange(e), rf = Object.keys(e.rfis || {});
-      return `<div class="rgrow"><div class="t"><span>${esc(dShort(e.date))}</span><span class="tag">${esc(e.team || "")}</span><span class="muted small">${esc([e.name, e.desig].filter(Boolean).join(", "))}</span></div>
+      return `<div class="rgrow"><div class="t"><span>${esc(dShort(e.date))}${e.dateTo && e.dateTo !== e.date ? " – " + esc(dShort(e.dateTo)) : ""}</span><span class="tag">${esc(e.team || "")}</span><span class="muted small">${esc([e.name, e.desig].filter(Boolean).join(", "))}</span>${e.ref ? `<span class="mono small">${esc(e.ref)}</span>` : ""}</div>
         <div class="s">${(e.photos || []).length} photos · ${esc(acts.slice(0, 4).join("; "))}${acts.length > 4 ? "…" : ""}</div>
         <div class="s">${c1 ? "CH " + esc(c1) + (c2 !== c1 ? " – " + esc(c2) : "") : ""}${e.zone ? " · " + esc(e.zone) : ""}${rf.length ? " · RFI " + esc(rf.join(", ")) : ""}</div>
         <div class="r"><span class="small muted">${e.source === "this device" ? "This device" : "Imported"}${e.synced ? " · sent to team sheet" : ""}</span><button class="tbtn danger" type="button" data-rgdel="${esc(e.rid)}">Remove</button></div></div>`;
@@ -2875,8 +3227,8 @@ function renderRegister() {
   } else {
     const rows = photoRows(es);
     count = `${rows.length} photo${rows.length !== 1 ? "s" : ""}${rows.length > 300 ? " (showing the latest 300; export for all)" : ""}`;
-    html = rows.slice(0, 300).map(({ e, p }) => `<div class="rgrow"><div class="t"><span class="mono">${esc(p.ch ? "CH " + p.ch : "no CH")}${p.side ? " " + esc(p.side) : ""}</span><span class="small muted">${esc(dShort(e.date))} ${esc(p.time || "")} · ${esc(e.team || "")}</span></div>
-      <div class="s">${esc(p.actEN || "Not tagged")}${p.bq ? " · " + (/^(BQ|QC)\b/.test(p.bq) ? "" : "BQ ") + esc(p.bq) : ""}${p.struct ? " · " + esc(p.struct) : ""}${p.el ? " · " + esc(p.el) : ""}${p.rfi ? " · RFI " + esc(p.rfi) : ""}${p.status ? " · " + esc(p.status) : ""}</div>${p.rem ? `<div class="s">${esc(p.rem)}</div>` : ""}</div>`).join("");
+    html = rows.slice(0, 300).map(({ e, p }) => `<div class="rgrow"><div class="t"><span class="mono">${esc(p.place ? p.place : p.ch ? "CH " + p.ch : "no CH")}${p.side ? " " + esc(p.side) : ""}</span><span class="small muted">${esc(dShort(e.date))} ${esc(p.time || "")} · ${esc(e.team || "")}</span></div>
+      <div class="s">${esc(p.actEN || "Not tagged")}${p.bq ? " · " + (/^(BQ|QC)\b/.test(p.bq) ? "" : "BQ ") + esc(p.bq) : ""}${p.struct ? " · " + esc(p.struct) : ""}${p.el ? " · " + esc(p.el) : ""}${p.rfi ? " · RFI " + esc(p.rfi) : ""}${p.status ? " · " + esc(p.status) : ""}${p.result ? " · Result: " + esc(p.result) : ""}${p.prog ? " · " + esc(p.prog) + "%" : ""}</div>${p.rem ? `<div class="s">${esc(p.rem)}</div>` : ""}</div>`).join("");
   }
   if (!Object.keys(REG.reports).length) html = `<div class="empty"><b>No reports logged yet</b><span class="small muted">Each report you save or share from Generate report is logged here. You can also import the photo_log.csv from other people's ZIP archives with Import log.</span></div>`;
   else if (!html) html = `<p class="muted">Nothing matches the filters.</p>`;
@@ -2895,13 +3247,13 @@ $("#rg-list").addEventListener("click", async e => {
 });
 const csvq = v => { const s = String(v ?? ""); return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
 const csvOut = rows => "﻿" + rows.map(r => r.map(csvq).join(",")).join("\r\n");
-const PHOTO_HEAD = ["Report ID", "Date", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "No", "Time", "Activity (EN)", "Activity (BM)", "BQ ref", "Structure", "Element", "CH from", "CH to", "Side", "RFI", "Remarks", "GPS lat", "GPS lon", "GPS CH", "File", "Status"];
+const PHOTO_HEAD = ["Report ID", "Date", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "No", "Time", "Activity (EN)", "Activity (BM)", "BQ ref", "Structure", "Element", "CH from", "CH to", "Side", "RFI", "Remarks", "GPS lat", "GPS lon", "GPS CH", "File", "Status", "Place", "Progress %", "Report ref", "Photo date", "Test result"];
 function csvPhotos(entries) {
-  return csvOut([PHOTO_HEAD, ...entries.flatMap(e => (e.photos || []).map(p => [e.rid, e.date, e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, pad(p.no), p.time, p.actEN, p.actBM, p.bq, p.struct, p.el, p.ch, p.ch2, p.side, p.rfi ? CFG.rfiPrefix + p.rfi : "", p.rem, p.lat, p.lon, p.gch, p.file, p.status || ""]))]);
+  return csvOut([PHOTO_HEAD, ...entries.flatMap(e => (e.photos || []).map(p => [e.rid, e.date, e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, pad(p.no), p.time, p.actEN, p.actBM, p.bq, p.struct, p.el, p.ch, p.ch2, p.side, p.rfi ? CFG.rfiPrefix + p.rfi : "", p.rem, p.lat, p.lon, p.gch, p.file, p.status || "", p.place || "", p.prog || "", e.ref || "", p.date || e.date, p.result || ""]))]);
 }
 function csvReports(entries) {
-  return csvOut([["Report ID", "Date", "Day", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "Photos", "Activities", "CH from", "CH to", "RFIs", "Logged", "Source"],
-    ...entries.map(e => { const [a, b] = chRange(e); return [e.rid, e.date, dShort(e.date).slice(0, 3), e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, (e.photos || []).length, [...new Set((e.photos || []).map(p => p.actEN).filter(Boolean))].join("; "), a, b, Object.keys(e.rfis || {}).map(c => CFG.rfiPrefix + c).join("; "), e.logged, e.source]; })]);
+  return csvOut([["Report ID", "Date", "Day", "Team", "Reported by", "Designation", "Zone", "Weather AM", "Weather PM", "Photos", "Activities", "CH from", "CH to", "RFIs", "Logged", "Source", "Report ref", "Date to"],
+    ...entries.map(e => { const [a, b] = chRange(e); return [e.rid, e.date, dShort(e.date).slice(0, 3), e.team, e.name, e.desig, e.zone, e.wxAM, e.wxPM, (e.photos || []).length, [...new Set((e.photos || []).map(p => p.actEN).filter(Boolean))].join("; "), a, b, Object.keys(e.rfis || {}).map(c => CFG.rfiPrefix + c).join("; "), e.logged, e.source, e.ref || "", e.dateTo || ""]; })]);
 }
 function csvRfis(entries) {
   return csvOut([["No", "RFI Reference No.", "Inspection Date", "Time of Inspection", "Description", "Location", "PIC", "Team", "Photos", "Photo status", "Report ID"],
@@ -2942,9 +3294,9 @@ $("#in-reglog").addEventListener("change", async e => {
     for (const r of rows.slice(1)) {
       const v = n => (col(n) >= 0 ? (r[col(n)] || "").trim() : "");
       const rid = v("Report ID") || `imp-${v("Date")}-${v("Team")}-${slug(v("Reported by"), 20)}`;
-      const en = g[rid] = g[rid] || { rid, date: v("Date"), team: v("Team"), name: v("Reported by"), desig: v("Designation"), zone: v("Zone"), wxAM: v("Weather AM"), wxPM: v("Weather PM"), photos: [], logged: new Date().toISOString(), source: "imported: " + f.name };
+      const en = g[rid] = g[rid] || { rid, date: v("Date"), team: v("Team"), name: v("Reported by"), desig: v("Designation"), zone: v("Zone"), wxAM: v("Weather AM"), wxPM: v("Weather PM"), photos: [], logged: new Date().toISOString(), source: "imported: " + f.name, ref: v("Report ref") };
       let rfi = v("RFI").toUpperCase(); if (rfi.startsWith(CFG.rfiPrefix)) rfi = rfi.slice(CFG.rfiPrefix.length);
-      en.photos.push({ no: +v("No") || en.photos.length + 1, time: v("Time"), actEN: v("Activity (EN)"), actBM: v("Activity (BM)"), bq: v("BQ ref"), struct: v("Structure"), el: v("Element"), ch: v("CH from"), ch2: v("CH to"), side: v("Side"), rfi, rem: v("Remarks"), status: v("Status"), lat: v("GPS lat"), lon: v("GPS lon"), gch: v("GPS CH"), file: v("File") });
+      en.photos.push({ no: +v("No") || en.photos.length + 1, time: v("Time"), actEN: v("Activity (EN)"), actBM: v("Activity (BM)"), bq: v("BQ ref"), struct: v("Structure"), el: v("Element"), ch: v("CH from"), ch2: v("CH to"), side: v("Side"), rfi, rem: v("Remarks"), status: v("Status"), lat: v("GPS lat"), lon: v("GPS lon"), gch: v("GPS CH"), file: v("File"), place: v("Place"), prog: v("Progress %"), date: v("Photo date"), result: v("Test result") });
     }
     for (const en of Object.values(g)) {
       const ex = REG.reports[en.rid];
@@ -2991,8 +3343,7 @@ function renderSettings() {
   $("#st-feedback").href = feedbackUrl();
   $("#st-help").href = guideUrl(); $("#st-help").hidden = false; $("#st-changes").href = changesUrl();
   $("#st-rfl").checked = rflShow();
-  const prev = (id, d, label) => { $(id).innerHTML = d ? `<img alt="${label}" src="${d}">` : label; };
-  prev("#lg-l-prev", settings.logoL, "Left"); prev("#lg-r-prev", settings.logoR, "Right");
+  logoTeam = report.team || "CST"; renderLogos();
   $("#st-title-in").value = projectTitle();
   $("#st-contract").value = settings.contractNo || "";
   $("#st-zteam").hidden = !settings.zonesCustom;
@@ -3050,10 +3401,31 @@ $("#st-alist").addEventListener("click", e => {
   settings.extraActs = (settings.extraActs || []).filter(a => a.id !== b.dataset.arm);
   indexConfig(); saveDraft(); renderSettings();
 });
-let logoSlot = "L";
+let logoSlot = "L", logoTeam = "CST";
+function teamLogos(team = logoTeam) { settings.logosByTeam = settings.logosByTeam || {}; return settings.logosByTeam[team] = settings.logosByTeam[team] || {}; }
+function renderLogos() {
+  $("#lg-team").innerHTML = CFG.teams.map(t => `<button type="button" data-lgteam="${esc(t)}" aria-pressed="${t === logoTeam}">${esc(t)}</button>`).join("");
+  const own = (settings.logosByTeam || {})[logoTeam] || {};
+  $("#lg-slots").innerHTML = [["L", "Left logo", "e.g. JKR"], ["R", "Right logo", "e.g. WPC, or CST for internal reports"]].map(([k, t, hint]) => {
+    const l = logoFor(k, logoTeam), mine = own[k] !== undefined;
+    const pv = !l ? `<span>None</span>` : l.text ? `<b style="font-size:15px;color:#14212b;padding:4px;text-align:center">${esc(l.text)}</b>` : `<img alt="${t}" src="${l.img}">`;
+    return `<div class="logo-slot"><div class="logo-prev">${pv}</div><div style="display:grid;gap:6px"><b>${t} <span class="muted small" style="font-weight:400">${esc(hint)}</span></b>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" data-logo="${k}" type="button">Choose image</button><button class="btn" data-logorm="${k}" type="button">None</button>${mine && (settings["logo" + k]) ? `<button class="btn" data-logodef="${k}" type="button">Use setup logo</button>` : ""}</div>
+      <div style="display:flex;gap:6px"><input type="text" data-lgtext="${k}" value="${esc(l && l.text ? l.text : "")}" placeholder="Or a text, e.g. ${k === "L" ? "JKR" : logoTeam}" aria-label="${t} as text"></div>
+      <span class="small muted">${mine ? `Set for ${esc(logoTeam)} on this phone.` : l ? "From the team setup (all teams)." : "Not set."}</span></div></div>`;
+  }).join("");
+}
 $("#settings").addEventListener("click", e => {
+  const tb = e.target.closest("[data-lgteam]"); if (tb) { logoTeam = tb.dataset.lgteam; renderLogos(); return; }
   const b = e.target.closest("[data-logo]"); if (b) { logoSlot = b.dataset.logo; $("#in-logo").click(); return; }
-  const r = e.target.closest("[data-logorm]"); if (r) { settings["logo" + r.dataset.logorm] = null; renderSettings(); saveDraft(); }
+  const r = e.target.closest("[data-logorm]"); if (r) { teamLogos()[r.dataset.logorm] = "none"; renderLogos(); saveDraft(); return; }
+  const d = e.target.closest("[data-logodef]"); if (d) { delete teamLogos()[d.dataset.logodef]; renderLogos(); saveDraft(); }
+});
+$("#settings").addEventListener("change", e => {
+  const k = e.target.dataset.lgtext; if (!k) return;
+  const v = e.target.value.trim().slice(0, 40);
+  if (v) teamLogos()[k] = { text: v }; else if ((teamLogos()[k] || {}).text) delete teamLogos()[k];
+  renderLogos(); saveDraft();
 });
 $("#in-logo").addEventListener("change", async e => {
   const f = e.target.files[0]; e.target.value = ""; if (!f) return;
@@ -3062,12 +3434,12 @@ $("#in-logo").addEventListener("change", async e => {
     const s = Math.min(1, 480 / Math.max(im.naturalWidth, im.naturalHeight));
     const cv = document.createElement("canvas"); cv.width = Math.round(im.naturalWidth * s); cv.height = Math.round(im.naturalHeight * s);
     cv.getContext("2d").drawImage(im, 0, 0, cv.width, cv.height);
-    settings["logo" + logoSlot] = cv.toDataURL("image/png");
-    renderSettings(); saveDraft(); toast("Logo saved on this device");
+    teamLogos()[logoSlot] = { img: cv.toDataURL("image/png") };
+    renderLogos(); saveDraft(); toast(`Logo saved for ${logoTeam} on this device`);
   } catch (err) { toast("That image could not be opened. Use a PNG or JPG."); }
 });
 function setupObject() {
-  return Object.assign({}, CFG, { activities: ACTS, projectTitle: projectTitle(), contractNo: settings.contractNo || "", zones: zones(), logos: { L: settings.logoL, R: settings.logoR }, exported: new Date().toISOString(), kind: "wp12-sdr-setup" });
+  return Object.assign({}, CFG, { activities: ACTS, projectTitle: projectTitle(), contractNo: settings.contractNo || "", zones: zones(), logos: { L: settings.logoL, R: settings.logoR }, teamLogos: settings.logosByTeam || {}, exported: new Date().toISOString(), kind: "wp12-sdr-setup" });
 }
 $("#st-export").addEventListener("click", async () => {
   try { await saveFile(new Blob([JSON.stringify(setupObject())], { type: "application/json" }), IN_CLAUDE ? "WP12_SDR_setup.json" : "setup.json"); toast("Setup file saved"); }
@@ -3076,7 +3448,7 @@ $("#st-export").addEventListener("click", async () => {
 $("#st-import").addEventListener("click", () => $("#in-setup").click());
 function mergeCfg(j) {
   const base = DEFAULT_CONFIG, newer = (j.version || 1) >= (base.version || 1);
-  const { logos, exported, kind, projectTitle: _pt, contractNo: _cn, zones: _z, ...rest } = j;
+  const { logos, teamLogos, exported, kind, projectTitle: _pt, contractNo: _cn, zones: _z, ...rest } = j;
   if (newer) return Object.assign({}, base, rest);
   // setup made by an older app version: keep the newer built-in lists, add any activities that only the setup has
   const ids = new Set(base.activities.map(a => a.id));
@@ -3087,6 +3459,7 @@ async function applySetup(j) {
   CFG = mergeCfg(j);
   await sput("kv", "config", CFG);
   if (j.logos) { if (j.logos.L) settings.logoL = j.logos.L; if (j.logos.R) settings.logoR = j.logos.R; }
+  if (j.teamLogos && typeof j.teamLogos === "object") for (const [t, v] of Object.entries(j.teamLogos)) if (v && typeof v === "object") settings.logosByTeam = Object.assign({}, settings.logosByTeam, { [t]: Object.assign({}, (settings.logosByTeam || {})[t], v) });
   if (j.zones) { settings.teamZones = j.zones; if (!settings.zonesCustom) settings.zones = j.zones; }
   if (j.projectTitle) settings.projectTitle = j.projectTitle;
   if (j.contractNo != null) settings.contractNo = j.contractNo;
@@ -3156,7 +3529,7 @@ $("#btn-sample").addEventListener("click", async () => {
 });
 
 /* ---------- notices ---------- */
-const WHATS_NEW = "Choose 2 or 4 photos per page, give each photo a status, and type the level (e.g. Berm 3) and RFI no. on the photo card. Same as previous now copies remarks too. Add a chainage range with + Chainage to, and set your own zones in Setup. New to try: an alignment diagram with optional structure lines (tick it on the report screen), and for WPC an RFI inspection list for the next day.";
+const WHATS_NEW = "Photos taken away from the road (lab, factory, other site) can now be set to Elsewhere with a place name. Each photo can have a progress % (e.g. 50%), tests a result (Passed, Failed, Pending…), and the element box now says what to type (Sampling point W1, Element Pier 2, Layer 3). Every report gets a ref. no. such as WP12-WPC-SYA-20261012-1 (type your initials in Report details). Each team can have its own logos, as an image or a text. HEIC photos can be added. New to try: a Period report for a week or month.";
 async function showNotices() {
   const ver = APP_VERSION.split(" ")[0], out = [];
   const existing = settings.seenVersion || settings.setupStamp || settings.name || photos.length;
@@ -3212,7 +3585,7 @@ async function keepStorage() {
     }
   } catch (e) {}
   $$(".rfipre").forEach(x => x.textContent = CFG.rfiPrefix);
-  renderReportForm(); renderList(); updateRfiList();
+  renderReportForm(); renderList(); updateRfiList(); renderPlaceList();
   if (photos.length) toast(`Draft restored: ${photos.length} photo${photos.length > 1 ? "s" : ""}`);
   showNotices(); keepStorage();
   autoSetup();

@@ -34,7 +34,7 @@ Features are added only when users ask for them.
 | Shared team register (Google Sheet) | One register for all reports, without collecting CSVs by hand | When a team asks for it |
 | Site observation memo | Turns selected photos into a site memo draft with photo attachments | Later |
 | Photo map by chainage | Photos for a period on a strip map or map view | Later |
-| Weekly / monthly photo summary | Photos grouped by activity and zone for the monthly progress report | Later |
+| Period report (experimental in v1.2.4) | One report for a week or month from photos collected over several days: progress table, then photos day by day | Feedback at the pilot review. Next step: compile a period report from several people's daily ZIPs (*report_data.json*) |
 | Alignment diagram (experimental in v1.2.3) | A line from the start to the end chainage with the zones, showing where each photo was taken, on the daily report and RFI photo record. Optional structure lines under it (bridges, pipe culverts, box culverts, junction culverts, RS walls), each ticked on its own | Feedback at the pilot review: which structure lines are used |
 | Alignment diagram: zoomed detail | A zoomed strip of the day's chainage range so photos close together are shown separately, with the structures in that range named in full | v1.3, if the pilot finds the diagram useful |
 | Alignment diagram preview | A small version of the diagram on the report screen, to check markers before sharing | v1.3 |
