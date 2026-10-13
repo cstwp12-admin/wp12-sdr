@@ -6,7 +6,7 @@ Take or add the day's photos, tag each one with the activity (BQ item), chainage
 
 **Open the app:** [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/) (also under **About** at the top right of this page). **New to the app?** Read the [user guide](GUIDE.md).
 
-**News:** [The pilot starts on 13 October](posts/2026-10-12-pilot-starts.md)
+**News:** [Effective daily reporting with the app (v1.2.5)](posts/2026-10-13-effective-daily-reporting.md) · [The pilot starts on 13 October](posts/2026-10-12-pilot-starts.md)
 
 <p>
   <img src="screenshot-app.png" alt="The app on a phone: report details, photo list with GPS chainage and activity" width="280">
@@ -44,13 +44,17 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
 | **Zones** | The team's zones load with the setup. A team that reports by other zones, e.g. 5 zones for CST, can set its own in **Setup → Zones**; a team setup update keeps them. |
 | **Sort by time or chainage** | Photos are in the order taken; **Sort by chainage** puts them in order along the alignment instead, matching the diagram. |
 | **Tag many photos at once** | Select several photos and apply the same activity, chainage, side, status, RFI no. or remarks in one step. **Same as previous** copies the tags and remarks from the photo above, but keeps a photo's own GPS chainage. |
-| **PDF report** | A4, 4 photos per page or 2 larger photos per page, with logos for each team (an image or a text, e.g. JKR + WPC, or JKR + CST for internal reports), report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
-| **Captioned photos** | Each photo with the date, time, chainage, activity, BQ ref and RFI printed on it, renamed in order (e.g. `20261009_CST_03_CH71+770_Box-culvert-concreting.jpg`). The caption stays with the photo when it is forwarded. |
+| **PDF report** | A4, 2 photos per page (the default) or 4 per page, with logos for each team (an image or a text, e.g. JKR + WPC, or JKR + CST for internal reports), report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both. |
+| **Captioned photos** | Each photo with the date, time, chainage, activity, BQ ref and RFI printed on it, renamed in order (e.g. `20261009_CST_03_CH71+770_Box-culvert-concreting.jpg`). The caption stays with the photo when it is forwarded. *Preview* shows them before sharing; the photo no. (off by default) and team on the first line can be switched on or off. |
+| **Location strip** | A small line of the whole alignment on each photo, with its zone shaded and a marker at its chainage, under the caption (default) or across the top of the photo, in the PDF and on captioned photos. |
+| **Share the app** | Setup shows a QR code of the app's address, and every PDF has a small QR code to the app on its last page. |
 | **RFI photo record** | One PDF per RFI no., set out to accompany the JKR Sabah *Request For Inspection* form (Arahan Jabatan Bil. 11/2026). It is an attachment, so it carries what the photos show: location, description, activities with their BQ / QC refs, structure and level, a photo index with each photo's status, comments, sign-off blocks for **Prepared by (WPC)** and **Checked by (CST)**, and the photos. The drawing reference, stage and result stay on the signed RFI form. |
-| **Alignment diagram (experimental)** | An optional line from CH 62+700 to 77+508 with the zones, showing where each photo was taken: above the line for LHS, on it for CL, below it for RHS. Photos close together share one marker, and a line under it gives the chainage range covered. Optional structure lines under it show the bridges, pipe culverts, box culverts, junction culverts and RS walls, each ticked on its own. Tick it on the report screen; it is added to page 1 of the daily report and of each RFI photo record. |
-| **Report ref. no.** | Every report gets a reference, e.g. *WP12-WPC-SYA-20261012-1*: package, team, the reporter's initials, date and the report no. of the day on that phone. It prints on the PDF, the WhatsApp text, the RFI photo record, the file names and the register, so a report is easy to find and cross-reference. |
+| **Alignment diagram (experimental)** | An optional line from CH 62+700 to 77+508 with the zones, showing where each photo was taken, with the length of each zone and the total length: above the line for LHS, on it for CL, below it for RHS. Photos close together share one marker, and a line under it gives the chainage range covered. Optional structure lines under it show the bridges, pipe culverts, box culverts, junction culverts and RS walls, each ticked on its own. Tick it on the report screen; it is added to page 1 of the daily report and of each RFI photo record. |
+| **Report ref. no.** | Every report gets a reference, e.g. *WP12-WPC-SYA-20261012-1*: package, team, the reporter's initials, date and the report no. of the day on that phone. It prints on the PDF, the WhatsApp text, the RFI photo record, the file names and the register, so a report is easy to find and cross-reference. Each report on a phone gets its own no.: *New report*, or changing the photos of a sent report, gives the next no. |
 | **Check before you share** | Before you share, the app lists photos with no activity or no location. Tap a photo number to go straight to it. |
 | **WhatsApp message** | A short list of activities and chainages to paste with the PDF. |
+| **Drawing references (experimental)** | Attach a snippet of a drawing (layout plan, structure detail, schedule) to a photo. Snippets are kept in a drawing library on the phone, suggested for photos at the same structure or chainage, named in the photo caption (*Drawing: D1 WD/JKR/WP12/…*) and printed on Drawing reference pages at the end of the report and the RFI photo record. |
+| **Preview and Word** | *Preview* shows the PDF in the app before sharing. *Save Word* (experimental) saves the same report, RFI photo record or RFI inspection list as an editable Word file set out like the PDF. |
 | **Period report (experimental)** | Report type *Period* keeps collecting photos over several days, then makes one report for the week or month: a progress table (latest status and progress for each activity and place), then the photos day by day. |
 | **RFI inspection list (experimental, for WPC)** | The daily RFI summary list for the next day's inspections: paste the rows from Excel or add RFIs one by one (with the activity list, chainage, structure, PIC and time), then share it as an A4 PDF in the same layout as the Excel list, as WhatsApp text or as a CSV. On the inspection day, RFI nos. typed on photo cards are suggested from the list, and the RFI photo record takes its description. |
 | **Register log** | Every report saved or shared is logged on the device, with Reports, RFIs and Photos views, filters and CSV export (opens in Excel). Logs from other users can be imported. |
@@ -126,16 +130,21 @@ Step-by-step instructions with screenshots are in [GUIDE.md](GUIDE.md); in the a
 
 | File | What it is |
 |---|---|
-| `index.html` | The app |
+| `index.html` | The app, built from `src/` by `tools/build.py` (not edited by hand) |
 | `setup.json` | Project setup: logos, zones, activities, structures, centreline |
 | `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png` | Let the app install on a phone and work offline |
 | `heic2any.min.js` | Converts HEIC / HEIF photos (loaded only when one is added) |
+| `pdfjs.min.js`, `pdfjs.worker.min.js` | Opens PDF drawings for drawing references (loaded only when one is added) |
 | `GUIDE.md`, `guide/` | User guide and its screenshots |
 | `posts/` | News posts, e.g. the pilot announcement |
 | `CHANGELOG.md` | Revision history |
 | `ROADMAP.md` | Pilot and rollout plan, future features |
 | `TEAM_REGISTER.md`, `Code.gs` | Optional: guide and script for a team register in Google Sheets |
 | `screenshot-*.png` | Pictures used on this page |
+| `src/` | The app's source: code in `src/js/`, page template `src/app.html`, project data in `src/config/` |
+| `tools/` | `build.py` builds the app from `src/`; `make_setup.py` refreshes `setup.json` |
+| `tests/` | Automatic checks of the app (`test_app.py`) with sample photos |
+| `CLAUDE.md`, `DEVELOPING.md` | How changes are made, checked and published |
 
 ## Ringkasan (BM)
 

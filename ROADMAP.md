@@ -43,3 +43,8 @@ Features are added only when users ask for them.
 | Weather by period | Optional time periods beside AM / PM, e.g. *08–10 Fine · 11–14 Heavy rain* | To be discussed at the pilot review |
 | Level / layer as its own field | Filter the register by berm level or layer, e.g. every *Berm 3* inspection over a chainage range | After the pilot, if needed |
 | Other work packages | A choice of project setups (WP12, WP13, …) from one app | When another package adopts it |
+| More photo layouts | *1 per page* (fit to the page) for defects and close-ups, and a *photo log* layout (photo left, caption table right, 3 per page); a choice to show the whole photo or fill the frame | v1.3 |
+| Report subject | An optional subject (e.g. *Bored piling*, *Safety observation*) under the title and in the file name, for teams that send separate reports by activity on the same day | v1.3 |
+| Location strip (v1.2.5, on by default) | A small line of the whole alignment on each photo with a marker at its chainage. Next step: a zoomed snippet (about ±500 m with nearby structures) | Feedback at the pilot review |
+| RFI list line diagram (experimental in v1.2.5) | Inspection locations and times along the alignment above the RFI summary list | Feedback from WPC at the pilot review |
+| App name and look | A short app name with a plain descriptor (site photo reports and RFI records), icon and About screen; the web address stays the same | Decided during the pilot, applied in v1.3 for go-live |
