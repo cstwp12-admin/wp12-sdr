@@ -1,0 +1,31 @@
+# Documentation site (GitHub Pages, Jekyll). The app itself is index.html and is not touched by Jekyll.
+title: WP12 Site Photo Report
+description: Site photos with captions, reports and RFI lists for Pan Borneo Sabah Phase 1B, Work Package 12.
+remote_theme: just-the-docs/just-the-docs@v0.10.0
+plugins:
+  - jekyll-remote-theme
+color_scheme: wp12
+search_enabled: true
+heading_anchors: true
+back_to_top: true
+back_to_top_text: "Back to top"
+nav_external_links:
+  - title: Open the app
+    url: https://cstwp12-admin.github.io/wp12-sdr/
+aux_links:
+  "Open the app":
+    - "https://cstwp12-admin.github.io/wp12-sdr/"
+footer_content: "Made by Willon Paul for the WP12 supervision and works teams."
+exclude:
+  - src/
+  - tests/
+  - tools/
+  - dist/
+  - posts/
+  - CLAUDE.md
+  - DEVELOPING.md
+  - Code.gs
+  - TEAM_REGISTER.md
+  - "*.min.js"
+  - sw.js
+  - setup.json

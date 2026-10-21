@@ -47,4 +47,10 @@ Features are added only when users ask for them.
 | Report subject | An optional subject (e.g. *Bored piling*, *Safety observation*) under the title and in the file name, for teams that send separate reports by activity on the same day | v1.3 |
 | Location strip (v1.2.5, on by default) | A small line of the whole alignment on each photo with a marker at its chainage. Next step: a zoomed snippet (about ±500 m with nearby structures) | Feedback at the pilot review |
 | RFI list line diagram (experimental in v1.2.5) | Inspection locations and times along the alignment above the RFI summary list | Feedback from WPC at the pilot review |
+| Quick post, save to phone, RFI list steps (v1.2.6) | Snap, caption and share to WhatsApp in one screen; the photos also go into the day's report | Feedback at the pilot review: which caption style people use |
+| QR codes for sharing information (v1.2.6) | RFI request tickets, the RFI list as a board with a QR code (Today's RFIs), the report record on page 1 and Register → Import PDF | Next: dashboard and weekly / monthly summary from the Register (v1.3) |
+| Scan a document (experimental in v1.2.6) | Photograph a page and straighten it by dragging four corners; black and white or colour; added as a *Scanned page* photo | Feedback at the pilot review. Next step (v1.3): find the page corners automatically |
+| Video post | Share a short video with its caption as the message and a title card (a frame with the caption and location strip); later, the caption burned into the video | After the pilot review, in stages |
+| Photo editor | Rotate, fit / fill, crop and mark-up (arrow, circle, short note) on a photo; zoom in the drawing snippet editor | v1.3 |
+| Report cover page | Optional cover with the preparer, a table of contents, the report record QR code and a summary | v1.3 |
 | App name and look | A short app name with a plain descriptor (site photo reports and RFI records), icon and About screen; the web address stays the same | Decided during the pilot, applied in v1.3 for go-live |
