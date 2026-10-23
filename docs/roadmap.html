@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roadmap · WP12 Site Photo Report</title>
+<meta name="description" content="What is planned and what is being tried. Site photos with captions, reports and RFI lists for Pan Borneo Sabah Phase 1B, Work Package 12.">
+<link rel="icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{--bg:#F5F7F8;--surface:#FFFFFF;--sunk:#EDF0F2;--ink:#14212B;--muted:#596873;--line:#D3DAE0;--accent:#B93A0A;--accent2:#D9480F;--accent-soft:#FDEBDF;--side:#14212B;--side-ink:#E6ECF0;--side-muted:#97A5AF;--code:#EDF0F2;--shadow:0 1px 2px rgba(20,33,43,.06),0 8px 24px rgba(20,33,43,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}}
+:root[data-theme=dark]{--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Barlow,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--accent);text-underline-offset:3px}a:hover{color:var(--accent2)}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;height:60px;padding:0 18px;background:var(--side);color:var(--side-ink);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.top .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.2px}
+.plate{background:var(--accent2);color:#fff;font:600 13px "IBM Plex Mono",ui-monospace,monospace;padding:3px 8px;border-radius:5px}
+.top .ver{font:500 12px "IBM Plex Mono",ui-monospace,monospace;color:var(--side-muted)}
+.top .sp{flex:1}.bt{white-space:nowrap}
+.top input[type=search]{width:min(260px,34vw);height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;padding:0 12px;font:inherit;font-size:15px}
+.top input::placeholder{color:var(--side-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:9px 16px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-height:42px;cursor:pointer;font-size:15.5px}
+.btn.acc{background:var(--accent2);border-color:var(--accent2);color:#fff}.btn.acc:hover{background:var(--accent);color:#fff}
+.top .btn{min-height:36px;padding:6px 12px;font-size:16px;background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+.top .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.menu{display:none}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr) 220px;max-width:1380px;margin:0 auto;gap:0}
+nav.side{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:22px 14px 40px 18px;border-right:1px solid var(--line)}
+nav.side .grp{font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:2px 0 10px 10px}
+nav.side a.p{display:block;padding:8px 10px;border-radius:9px;color:var(--ink);text-decoration:none;font-weight:600}
+nav.side a.p:hover{background:var(--sunk)}
+nav.side a.p.on{background:var(--accent-soft);color:var(--accent)}
+nav.side ol{list-style:none;margin:2px 0 10px;padding:0 0 0 12px;border-left:2px solid var(--line);margin-left:14px}
+nav.side ol a{display:block;padding:4px 10px;color:var(--muted);text-decoration:none;font-size:14.5px;line-height:1.35;border-radius:6px}
+nav.side ol a:hover,nav.side ol a.on{color:var(--accent);background:var(--sunk)}
+main{padding:34px clamp(18px,4vw,52px) 70px;min-width:0}
+article{max-width:820px}
+article h1{font:700 40px/1.08 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.3px;margin:0 0 6px}
+.lead{color:var(--muted);font-size:18px;margin:0 0 26px}
+article h2{font:700 27px/1.15 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.4px;margin:44px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
+article h2:first-of-type{border-top:0;padding-top:0;margin-top:30px}
+article h3{font-size:20px;margin:30px 0 8px}
+article h4{font-size:17px;margin:22px 0 6px}
+article p,article li{max-width:75ch}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);margin:6px 0}
+article p>img+img{margin-left:8px}
+article code{font:500 .88em "IBM Plex Mono",ui-monospace,monospace;background:var(--code);padding:2px 6px;border-radius:5px}
+article pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow:auto;border:1px solid var(--line)}article pre code{background:none;padding:0}
+article blockquote{margin:16px 0;padding:10px 16px;border-left:4px solid var(--accent2);background:var(--accent-soft);border-radius:0 10px 10px 0}
+article details{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px 14px;margin:12px 0}
+article summary{cursor:pointer;font-weight:600}
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{background:var(--sunk);text-align:left;font-weight:600;white-space:nowrap}
+th,td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+aside.toc{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:34px 18px 40px 6px;font-size:14px}
+aside.toc b{display:block;font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+aside.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 12px;border-left:2px solid var(--line);line-height:1.35}
+aside.toc a:hover,aside.toc a.on{color:var(--accent);border-left-color:var(--accent2)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;background:linear-gradient(135deg,#14212B 0%,#1E3544 100%);color:#fff;border-radius:18px;padding:36px clamp(22px,4vw,44px);margin:0 0 30px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--accent2)}
+.hero .k{font:600 12.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:2px;text-transform:uppercase;color:#F08A5D}
+.hero h1{color:#fff;font-size:clamp(34px,5vw,52px);margin:8px 0 10px}
+.hero p{color:#D7DEE3;font-size:18px;margin:0 0 22px;max-width:46ch}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}.hero .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.hero img{width:190px;border-radius:22px;border:3px solid #0A1014;box-shadow:0 16px 40px rgba(0,0,0,.4);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:0 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.card b{display:block;font-size:17.5px;margin-bottom:4px}.card span{color:var(--muted);font-size:15px;line-height:1.45;display:block}
+.card .n{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--accent2);margin-bottom:6px}
+.rel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 22px 14px;margin:0 0 16px;box-shadow:var(--shadow)}
+.rel header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:6px}
+.rel h2{border:0!important;padding:14px 0 10px!important;margin:0!important;font-size:25px!important}
+.rel .date{color:var(--muted);font:500 13.5px "IBM Plex Mono",ui-monospace,monospace}
+.badge{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;padding:2px 9px;border-radius:999px;letter-spacing:.5px;text-transform:uppercase}
+.rel ul{padding-left:20px;margin:10px 0 0}.rel li{margin:0 0 9px;max-width:none}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:50px 0 0}
+.pn a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;background:var(--surface)}
+.pn a small{display:block;color:var(--muted);font:500 12px "IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px}
+.pn a b{color:var(--ink)}.pn a:last-child{text-align:right}.pn a:hover{border-color:var(--accent2)}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:18px;color:var(--muted);font-size:14.5px;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+#res{position:absolute;right:18px;top:56px;width:min(420px,calc(100vw - 36px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.25);max-height:70vh;overflow:auto;display:none}
+#res a{display:block;padding:10px 14px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}#res a:last-child{border:0}#res a:hover{background:var(--sunk)}
+#res small{display:block;color:var(--muted)}#res b{color:var(--accent)}
+@media (max-width:1180px){.layout{grid-template-columns:250px minmax(0,1fr)}aside.toc{display:none}}
+@media (max-width:640px){.bt{display:none}}
+@media (max-width:860px){.layout{display:block}.menu{display:inline-flex}
+ nav.side{position:fixed;left:0;top:60px;bottom:0;width:min(310px,86vw);z-index:25;background:var(--bg);transform:translateX(-102%);transition:transform .2s,visibility .2s;visibility:hidden}
+ body.nav nav.side{transform:none;visibility:visible;box-shadow:0 0 40px rgba(0,0,0,.35)}
+ .hero{grid-template-columns:1fr}.hero img{display:none}.top .ver,.top .hide-s{display:none}.top input[type=search]{width:100%;min-width:0}.top .sp{display:none}#q{flex:1}
+ article h1{font-size:34px}.pn{grid-template-columns:1fr}}
+@media print{.top,nav.side,aside.toc,.pn,footer .no-print{display:none}.layout{display:block}body{background:#fff}}
+</style></head><body>
+<header class="top"><button class="btn menu" id="menu" type="button" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><span class="plate">WP12</span><span class="bt">Site Photo Report</span></a><span class="ver">v1.2.7</span><span class="sp"></span>
+<input type="search" id="q" style="flex:0 1 auto" placeholder="Search  ( / )" aria-label="Search the documentation" autocomplete="off"><div id="res"></div>
+<button class="btn" id="theme" type="button" aria-label="Light or dark">◐</button><a class="btn acc hide-s" href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></header>
+<div class="layout"><nav class="side" aria-label="Pages"><div class="grp">Documentation</div><a class="p" href="index.html">Home</a><a class="p" href="user-guide.html">User guide</a><a class="p on" href="roadmap.html">Roadmap</a><ol><li><a href="#pilot-and-rollout-oct-dec-2026">Pilot and rollout, Oct – Dec 2026</a></li><li><a href="#how-feedback-is-handled">How feedback is handled</a></li><li><a href="#future-features-under-consideration">Future features under consideration</a></li></ol><a class="p" href="changelog.html">What changed</a><a class="p" href="licences.html">Licences</a></nav>
+<main><article><h1>Roadmap</h1><p class=lead>What is planned and what is being tried</p><p>Plan for the WP12 Site Photo Report, from pilot test to use by all CST, WPC and SOR site staff. Dates are targets and may move; changes are noted in the <a href="changelog.html">change log</a>.</p>
+<h2 id="pilot-and-rollout-oct-dec-2026">Pilot and rollout, Oct – Dec 2026</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Dates</th>
+<th>What happens</th>
+<th>Moves on when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Preparation</td>
+<td>Fri 9 – Mon 12 Oct</td>
+<td>v1.2.3 published and checked on iPhone, Android and laptop. Pilot users picked from CST and WPC. Hands-on briefing on Mon 12 Oct; everyone installs the app and makes a test report.</td>
+<td>All pilot users have the app and have made a test report</td>
+</tr>
+<tr>
+<td>2. Pilot</td>
+<td>Tue 13 – Mon 26 Oct (2 weeks)</td>
+<td>Pilot users make their daily report in the app and post its PDF in the WhatsApp group, in place of loose photos. RFI photo records from the first day. Mid-pilot check on Mon 19 Oct. Feedback and bugs posted in the existing WP12 RFI coordination WhatsApp group.</td>
+<td>Reports on at least 8 of 10 working days per user, no data lost, no bug that stops a report being made</td>
+</tr>
+<tr>
+<td>3. Pilot review discussion</td>
+<td>Tue 27 Oct (one session)</td>
+<td>CST and WPC pilot users go through the feedback and agree what is fixed now and what waits.</td>
+<td>List of fixes for v1.3 agreed</td>
+</tr>
+<tr>
+<td>4. Fix and improve</td>
+<td>Wed 28 Oct – Tue 3 Nov</td>
+<td>Fixes made and released as <strong>v1.3</strong>. Activity list and quick guide updated.</td>
+<td>v1.3 published</td>
+</tr>
+<tr>
+<td>5. Retrial</td>
+<td>Wed 4 – Tue 10 Nov (1 week)</td>
+<td>Same pilot group on v1.3; each fix confirmed with the person who reported it. Go / no-go meeting on Tue 10 Nov.</td>
+<td>No blocking issues open; pilot users agree it is quicker than the old way</td>
+</tr>
+<tr>
+<td>6. Full implementation</td>
+<td>From Wed 11 Nov</td>
+<td>App used by all CST, WPC and SOR site staff. Short briefing for each team. One-month review on Fri 11 Dec.</td>
+<td>Then updated as needed, each change with a version number</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="how-feedback-is-handled">How feedback is handled</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Meaning</th>
+<th>Dealt with</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Must fix</td>
+<td>Stops a report being made, loses data, or prints wrong information (chainage, BQ, RFI)</td>
+<td>Within 1–2 days during the pilot</td>
+</tr>
+<tr>
+<td>Should fix</td>
+<td>Slows people down or confuses them, but there is a way round it</td>
+<td>In v1.3</td>
+</tr>
+<tr>
+<td>Later</td>
+<td>A new feature or a nice-to-have</td>
+<td>Added to the list below</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="future-features-under-consideration">Future features under consideration</h2>
+<p>Features are added only when users ask for them.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>What it gives</th>
+<th>When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Report type (daily progress, inspection, site observation, site visit)</td>
+<td>The PDF title and file name show what the report is for</td>
+<td>Soon after go-live</td>
+</tr>
+<tr>
+<td>Mark-up on photos (arrow, circle, short note)</td>
+<td>Points to the defect or item in the photo itself</td>
+<td>Soon after go-live</td>
+</tr>
+<tr>
+<td>Favourite activities per user</td>
+<td>The activities a person uses most sit at the top of the list</td>
+<td>Soon after go-live</td>
+</tr>
+<tr>
+<td>Next-day RFI inspection list (experimental in v1.2.3)</td>
+<td>WPC prepares the daily RFI summary list in the app (paste from Excel or add one by one) and shares it as a PDF in the Excel list's layout</td>
+<td>Feedback from WPC at the pilot review: keep, adjust the format, or remove</td>
+</tr>
+<tr>
+<td>Shared team register (Google Sheet)</td>
+<td>One register for all reports, without collecting CSVs by hand</td>
+<td>When a team asks for it</td>
+</tr>
+<tr>
+<td>Site observation memo</td>
+<td>Turns selected photos into a site memo draft with photo attachments</td>
+<td>Later</td>
+</tr>
+<tr>
+<td>Photo map by chainage</td>
+<td>Photos for a period on a strip map or map view</td>
+<td>Later</td>
+</tr>
+<tr>
+<td>Period report (experimental in v1.2.4)</td>
+<td>One report for a week or month from photos collected over several days: progress table, then photos day by day</td>
+<td>Feedback at the pilot review. Next step: compile a period report from several people's daily ZIPs (<em>report_data.json</em>)</td>
+</tr>
+<tr>
+<td>Alignment diagram (experimental in v1.2.3)</td>
+<td>A line from the start to the end chainage with the zones, showing where each photo was taken, on the daily report and RFI photo record. Optional structure lines under it (bridges, pipe culverts, box culverts, junction culverts, RS walls), each ticked on its own</td>
+<td>Feedback at the pilot review: which structure lines are used</td>
+</tr>
+<tr>
+<td>Alignment diagram: zoomed detail</td>
+<td>A zoomed strip of the day's chainage range so photos close together are shown separately, with the structures in that range named in full</td>
+<td>v1.3, if the pilot finds the diagram useful</td>
+</tr>
+<tr>
+<td>Alignment diagram preview</td>
+<td>A small version of the diagram on the report screen, to check markers before sharing</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Diagram markers coloured by status</td>
+<td>e.g. <em>Rectification required</em> in red, <em>Inspected</em> in green, with a one-line legend</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Register filter by chainage range or zone</td>
+<td>e.g. every photo between CH 70+000 and 71+000 over the pilot weeks</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Weather by period</td>
+<td>Optional time periods beside AM / PM, e.g. <em>08–10 Fine · 11–14 Heavy rain</em></td>
+<td>To be discussed at the pilot review</td>
+</tr>
+<tr>
+<td>Level / layer as its own field</td>
+<td>Filter the register by berm level or layer, e.g. every <em>Berm 3</em> inspection over a chainage range</td>
+<td>After the pilot, if needed</td>
+</tr>
+<tr>
+<td>Other work packages</td>
+<td>A choice of project setups (WP12, WP13, …) from one app</td>
+<td>When another package adopts it</td>
+</tr>
+<tr>
+<td>More photo layouts</td>
+<td><em>1 per page</em> (fit to the page) for defects and close-ups, and a <em>photo log</em> layout (photo left, caption table right, 3 per page); a choice to show the whole photo or fill the frame</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Report subject</td>
+<td>An optional subject (e.g. <em>Bored piling</em>, <em>Safety observation</em>) under the title and in the file name, for teams that send separate reports by activity on the same day</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Location strip (v1.2.5, on by default)</td>
+<td>A small line of the whole alignment on each photo with a marker at its chainage. Next step: a zoomed snippet (about ±500 m with nearby structures)</td>
+<td>Feedback at the pilot review</td>
+</tr>
+<tr>
+<td>RFI list line diagram (experimental in v1.2.5)</td>
+<td>Inspection locations and times along the alignment above the RFI summary list</td>
+<td>Feedback from WPC at the pilot review</td>
+</tr>
+<tr>
+<td>Quick post, save to phone, RFI list steps (v1.2.6)</td>
+<td>Snap, caption and share to WhatsApp in one screen; the photos also go into the day's report</td>
+<td>Feedback at the pilot review: which caption style people use</td>
+</tr>
+<tr>
+<td>QR codes for sharing information (v1.2.6)</td>
+<td>RFI request tickets, the RFI list as a board with a QR code (Today's RFIs), the report record on page 1 and Register → Import PDF</td>
+<td>Next: dashboard and weekly / monthly summary from the Register (v1.3)</td>
+</tr>
+<tr>
+<td>Scan a document (experimental in v1.2.6, finds the page by itself and is on by default in v1.2.7)</td>
+<td>Photograph a page; the corners are found by the app and can be dragged; clean, grey, black and white or original look with brightness and contrast; preview; added as a <em>Scanned page</em> photo</td>
+<td>Feedback at the pilot review: how often the corners need correcting. Next step (v1.3): better detection on paper that is the same colour as the table</td>
+</tr>
+<tr>
+<td>Back button, "Same as above" clone and tidier photo cards (planned for the next batch)</td>
+<td>The phone's Back button closes the open screen first; secondary fields folded on the card; a one-tap copy of the previous photo's tags</td>
+<td>After the pilot review</td>
+</tr>
+<tr>
+<td>Video post</td>
+<td>Share a short video with its caption as the message and a title card (a frame with the caption and location strip); later, the caption burned into the video</td>
+<td>After the pilot review, in stages</td>
+</tr>
+<tr>
+<td>Photo editor</td>
+<td>Rotate, fit / fill, crop and mark-up (arrow, circle, short note) on a photo; zoom in the drawing snippet editor</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>Report cover page</td>
+<td>Optional cover with the preparer, a table of contents, the report record QR code and a summary</td>
+<td>v1.3</td>
+</tr>
+<tr>
+<td>App name and look</td>
+<td>A short app name with a plain descriptor (site photo reports and RFI records), icon and About screen; the web address stays the same</td>
+<td>Decided during the pilot, applied in v1.3 for go-live</td>
+</tr>
+</tbody>
+</table></div>
+<div class="pn"><a href="user-guide.html"><small>Previous</small><b>User guide</b></a><a href="changelog.html"><small>Next</small><b>What changed</b></a></div>
+<footer><span>Made by WPN.</span><span><a href="licences.html">Licences</a> · <a href="https://github.com/cstwp12-admin/wp12-sdr">Repository</a> · <a href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></span></footer></article></main>
+<aside class="toc"><b>On this page</b><a href="#pilot-and-rollout-oct-dec-2026">Pilot and rollout, Oct – Dec 2026</a><a href="#how-feedback-is-handled">How feedback is handled</a><a href="#future-features-under-consideration">Future features under consideration</a></aside></div><script>
+(function(){
+var d=document,b=d.body,r=d.documentElement;
+try{var t=localStorage.getItem('wp12doc-theme');if(t)r.setAttribute('data-theme',t)}catch(e){}
+d.getElementById('theme').addEventListener('click',function(){var c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('wp12doc-theme',n)}catch(e){}});
+d.getElementById('menu').addEventListener('click',function(){b.classList.toggle('nav')});
+d.addEventListener('click',function(e){if(b.classList.contains('nav')&&!e.target.closest('nav.side,#menu'))b.classList.remove('nav');if(!e.target.closest('#res,#q'))d.getElementById('res').style.display='none'});
+var hs=[].slice.call(d.querySelectorAll('article h2[id],article h3[id],.rel[id]')),links=[].slice.call(d.querySelectorAll('aside.toc a,nav.side ol a'));
+function spy(){var y=scrollY+90,cur=null;hs.forEach(function(h){if(h.offsetTop<=y)cur=h.id});links.forEach(function(a){a.classList.toggle('on',cur&&a.getAttribute('href')==='#'+cur)})}
+addEventListener('scroll',spy,{passive:true});spy();
+var idx=null,q=d.getElementById('q'),res=d.getElementById('res');
+function load(c){if(idx)return c();fetch('search.json').then(function(r){return r.json()}).then(function(j){idx=j;c()}).catch(function(){})}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();if(v.length<2){res.style.display='none';return}
+ load(function(){var w=v.split(/\s+/),hits=[];idx.forEach(function(s){var h=(s.t+' '+s.x).toLowerCase(),ok=w.every(function(k){return h.indexOf(k)>=0});if(ok){var sc=(s.t.toLowerCase().indexOf(v)>=0?10:0)+(s.t.toLowerCase().indexOf(w[0])>=0?5:0);hits.push([sc,s])}});
+ hits.sort(function(a,b){return b[0]-a[0]});
+ res.innerHTML=hits.length?hits.slice(0,10).map(function(h){var s=h[1],i=s.x.toLowerCase().indexOf(w[0]),sn=s.x.slice(Math.max(0,i-40),i+90);return '<a href="'+s.u+'"><b>'+esc(s.t)+'</b><small>'+esc(s.p)+' \u00b7 '+esc(sn)+'</small></a>'}).join(''):'<a><small>Nothing found for "'+esc(v)+'".</small></a>';res.style.display='block'})});
+q.addEventListener('keydown',function(e){if(e.key==='Escape'){res.style.display='none';q.blur()}});
+addEventListener('keydown',function(e){if(e.key==='/'&&!/INPUT|TEXTAREA/.test((d.activeElement||{}).tagName||'')){e.preventDefault();q.focus()}});
+})();
+</script></body></html>

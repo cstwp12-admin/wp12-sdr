@@ -1,6 +1,6 @@
 # WP12 Site Photo Report: the pilot starts on 13 October
 
-*12 October 2026 · Willon Paul*
+*12 October 2026 · WPN*
 
 From Tuesday 13 October, a small group from the Consultant Supervision Team (CST) and the Works Package Contractor (WPC) will make their daily site photo reports in a new web app, the **WP12 Site Photo Report**, for two weeks. If the pilot goes well, the app becomes the standard way to report site photos on WP12 from Wednesday 11 November.
 

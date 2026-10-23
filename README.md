@@ -6,7 +6,7 @@ Take or add the day's photos, tag each one with the activity (BQ item), chainage
 
 **Open the app:** [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/) (also under **About** at the top right of this page). **New to the app?** Read the [user guide](GUIDE.md).
 
-**News:** [Effective daily reporting with the app (v1.2.5)](posts/2026-10-13-effective-daily-reporting.md) · [The pilot starts on 13 October](posts/2026-10-12-pilot-starts.md)
+**News:** [From site photos to an RFI photo record: a worked example](posts/2026-10-22-rfi-photo-records.md) · [Effective daily reporting with the app (v1.2.5)](posts/2026-10-13-effective-daily-reporting.md) · [The pilot starts on 13 October](posts/2026-10-12-pilot-starts.md)
 
 <p>
   <img src="screenshot-app.png" alt="The app on a phone: report details, photo list with GPS chainage and activity" width="280">
@@ -61,7 +61,7 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
 | **Check before you share** | Before you share, the app lists photos with no activity or no location. Tap a photo number to go straight to it. |
 | **WhatsApp message** | A short list of activities and chainages to paste with the PDF. |
 | **Drawings and references (experimental)** | Attach a snippet of a drawing (layout plan, structure detail, schedule), or of a memo, specification, letter or method statement, to a photo. Snippets are kept in a drawing library on the phone, suggested for photos at the same structure or chainage, named in the photo caption (*Drawing: D1 WD/JKR/WP12/…*) and printed on Drawing reference pages at the end of the report and the RFI photo record. |
-| **Scan a document (experimental)** | Photograph a page, drag four corner handles onto it, and the app straightens it into a flat page, in black and white or colour. Added as a photo marked *Scanned page*. Switch on in Setup → Experimental features; the button sits beside *Take photo* and in Quick post. Corners are set by hand; automatic detection is planned for v1.3. |
+| **Scan a document (experimental, on by default)** | Photograph a page; the app finds its corners, straightens it into a flat page, with a clean, grey, black-and-white or original look and brightness / contrast sliders, and shows a preview before it is added as a photo marked *Scanned page*. The button sits beside *Take photo* and in Quick post; Setup → Experimental features switches it off. |
 | **Preview and Word** | *Preview* shows the PDF in the app before sharing. *Save Word* (experimental) saves the same report, RFI photo record or RFI inspection list as an editable Word file set out like the PDF. |
 | **Period report (experimental)** | Report type *Period* keeps collecting photos over several days, then makes one report for the week or month: a progress table (latest status and progress for each activity and place), then the photos day by day. |
 | **RFI inspection list (experimental, for WPC)** | The daily RFI summary list for the next day's inspections: paste the rows from Excel or add RFIs one by one (with the activity list, chainage, structure, PIC and time), then share it as an A4 PDF in the same layout as the Excel list, as WhatsApp text or as a CSV. On the inspection day, RFI nos. typed on photo cards are suggested from the list, and the RFI photo record takes its description. |
@@ -86,7 +86,7 @@ It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to
 1. **Take photo** at site, or **Add photos** from the gallery afterwards.
 2. For each photo, or for several selected together, choose the **activity** (one or more) and check the **chainage** and **side** (tap **+ Chainage to** for a stretch of work). Add the level or element (e.g. *Berm 3*, *Layer 2*, *P2*), structure, status, RFI no. and remarks where needed.
 3. Tap **Generate report**, check the list of photos still missing an activity or chainage, choose 2 or 4 photos per page and, if wanted, the alignment diagram, then:
-   - **Share PDF**: pick WhatsApp and the group;
+   - **Save PDF** or **Share PDF** (pick WhatsApp and the group);
    - **Share photos**: the captioned photos;
    - **Copy text**: the WhatsApp summary;
    - **Make RFI photo records**: one per RFI, to attach to the RFI form (shown at the top when any photo has an RFI no.);
@@ -160,4 +160,4 @@ Aplikasi web untuk merekod kerja tapak, pemeriksaan, pemerhatian dan lawatan tap
 
 ---
 
-Developed for the WP12 Consultant Supervision Team. Maintained by Willon Paul.
+Developed for the WP12 Consultant Supervision Team. Maintained by WPN.

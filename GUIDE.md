@@ -1,6 +1,6 @@
 # WP12 Site Photo Report – User Guide
 
-For app version 1.2.6. **Open the app:** [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/). The link is also under **About** on the [repository page](README.md), pinned in the WP12 RFI coordination WhatsApp group, and as a QR code in Setup → **Share this app**.
+For app version 1.2.7. **Open the app:** [cstwp12-admin.github.io/wp12-sdr](https://cstwp12-admin.github.io/wp12-sdr/). The link is also under **About** on the [repository page](README.md), pinned in the WP12 RFI coordination WhatsApp group, and as a QR code in Setup → **Share this app**.
 
 Photos and logos in the screenshots are blurred.
 
@@ -14,7 +14,7 @@ A daily photo report takes three steps: add the photos, tag each one, then gener
 
 1. **Add photos.** Tap **Take photo** on site, or **Add photos** to pick them from the gallery afterwards.
 2. **Tag each photo.** Choose the **activity**, check the **chainage** and **side**, then add the element or level (e.g. *Berm 3*), status and RFI no. where they apply. Every photo needs at least an activity and a chainage (or a place, for photos away from the road).
-3. **Generate and share.** Tap **Generate report**, fix anything in *Check before you share*, then **Share PDF** to the WhatsApp group. Inspection photos also get an **RFI photo record**.
+3. **Generate and share.** Tap **Generate report**, fix anything in *Check before you share*, then **Save PDF** or **Share PDF** to the WhatsApp group. Inspection photos also get an **RFI photo record**.
 
 The app keeps your draft if the phone closes the browser. Start the next report with **New report** (the red button beside *Sort by chainage*; tap it twice). It clears the photos, so share or save the report first; it sets the report type back to Daily and gives the next report no.
 
@@ -152,7 +152,7 @@ The phone remembers these choices.
 Each button makes its file the first time and reuses it after:
 
 - **Preview** (beside the PDF button): the pages in the app before sending them. **Share PDF** at the bottom of the preview sends the same file. (The preview downloads its PDF viewer the first time, so do it once with signal.)
-- **Share PDF**: the report. Pick WhatsApp, then the group. Once made, its size shows in the PDF row.
+- **Save PDF** puts the file in Downloads or Files; **Share PDF** opens the share menu: pick WhatsApp, then the group. Once made, its size shows in the PDF row.
 - **Captioned photos**: each photo with its caption, renamed in order. **Preview** shows them first. *Caption*: **On the photo** (as before) or **Below the photo** (the photo whole, the caption as a table under it). *Show*: tap the parts to leave out or add, e.g. the **photo no.** (off by default), the **team**, **your name**, the BQ / QC ref. or the location strip. The same choices apply to Quick post.
 - **Copy text**: a short list of activities and chainages to paste with the PDF.
 - **Save Word** (experimental): the same report as an editable Word file (.docx), set out like the PDF, saved to the phone (Downloads, or Files on iPhone). Open it in Word or WPS, edit, then send it from there. **Share Word** opens the share menu instead. If nothing appears, tap **Save again** in the bar at the bottom.
@@ -268,7 +268,7 @@ The photos follow from page 2, then the **drawing references** for that RFI's ph
 7. **Preview**, then **Share** or **Save** the record (or **Save Word** to edit it first) and attach it to the RFI form.
 8. **Sign on paper:** **Prepared by (WPC)** and **Checked by (CST)**.
 
-<p><img src="guide/rfi_pair.png" alt="The RFI panel in the app with Preview, Save Word and Save RFI photo record (left), and the RFI photo record PDF, page 1 (right)" width="680"></p>
+<p><img src="guide/rfi_pair.png" alt="The RFI panel in the app with Preview, Save PDF and Save Word (left), and the RFI photo record PDF, page 1 (right)" width="680"></p>
 
 ## 7. Register and backup
 
@@ -291,22 +291,20 @@ A team that wants one shared register can connect the app to its own Google Shee
 
 The daily RFI summary list that WPC posts for the next day's inspections can be made in the app, in the same layout as the Excel list: No., RFI reference no., issued date, inspection date, description, location, PIC and time of inspection.
 
-The **RFI inspection list** button is on the main screen, under Report details, when the team is **WPC**. The screen has three steps at the top: **1 RFIs** (dates and the RFIs), **2 Layout** (table, schedule or schedule in 2 columns, the line diagram, *Preview the PDF*, *Preview the board*) and **3 Share** (board, PDF, Word, text). *Requests* (late or extra inspections) is at the top of step 1, so it is seen first. **Colour by zone** (step 2) puts a coloured stripe and a legend by zone on the Schedule layouts and the board. Other teams can switch it on in Setup → *Experimental features*.
+The **RFI inspection list** button is on the main screen, under Report details, when the team is **WPC**. The screen has two steps at the top: **1 RFIs** (dates and the RFIs, with *Requests* for late or extra inspections first) and **2 Share** (the PDF first, then other formats; *Layout and options* and the optional *Visual board* fold underneath). **Colour by zone** (under *Layout and options*) puts a coloured stripe and a legend by zone on the Schedule layouts and the board. Other teams can switch it on in Setup → *Experimental features*.
 
 <p><img src="guide/rfi_list_button.png" alt="Main screen for team WPC with the RFI inspection list button under Report details" width="300"></p>
 
-<p><img src="guide/rfi_steps.png" alt="The RFI inspection list in three steps: RFIs, Layout and Share; the Layout step shows the PDF layouts and the preview buttons" width="300"></p>
+<p><img src="guide/rfi_steps.png" alt="The RFI inspection list in two steps: RFIs and Share" width="300"></p>
 
 1. **Set the dates.** The *Inspection date* starts as tomorrow and the *Issued date* as today; change them if needed.
 2. **Add the RFIs**, in either way:
    - **Paste from Excel:** in your Excel list, select the rows, with the heading row if you can, and copy. Tap **Paste from Excel**, paste in the box and check the table: the app matches the columns by their headings. A location written as a chainage, e.g. *Zone 4: CH76+500 - CH77+075 LHS*, goes into the chainage and side boxes; any other place, e.g. *Site Laboratory WP12*, stays as the other location. Tap **Add**.
    - **+ Add RFI:** type the RFI no. (the prefix *JKR-RFI-WP12-* is fixed), and optionally choose the activity: it fills in the description. Add the location, the PIC and the time. **Save and add another** keeps the form open.
 3. **Check the list.** Use **Edit**, **↑ / ↓** and **×** on each row. **Sort: by time** or **by RFI no. (trade)**.
-4. **List options** (at the top): choose the **PDF layout**: **Table (Excel layout)**, as WPC's Excel list, or **Schedule**: the RFIs in time order, grouped *Morning* and *Afternoon*, with the time in large type and a location strip for each RFI. Tick **Line diagram above the table** to show each RFI's location along the alignment, marked with its list no. and time of inspection (e.g. *01 · 9.30 AM*), and tick the **structure lines** to show (bridges, culverts, RS walls). RFIs elsewhere, such as the site laboratory, are listed under the diagram. Each RFI can also have **Remarks** (in the Add / Edit form), printed in their own column.
-5. **Share the list:**
-   - **Share board**: the list as a departures board in time order, up to 8 RFIs per page (a long list gives several pages, sent together), each page with an alignment strip down the right side marking every RFI's list no. at its chainage. The message with it has the list as text and a **link** that loads it in the app (*Today's RFIs*, below);
-   - **Board PDF**: the same pages as one PDF document (stays sharp in WhatsApp; also for printing);
-   - **Preview**, then **Share PDF** (A4 landscape, in the layout chosen above);
+4. **Layout and options** (in step 2, folded under the share buttons): choose the **PDF layout**: **Table (Excel layout)**, as WPC's Excel list, or **Schedule**: the RFIs in time order, grouped *Morning* and *Afternoon*, with the time in large type and a location strip for each RFI. Tick **Line diagram above the table** to show each RFI's location along the alignment, marked with its list no. and time of inspection (e.g. *01 · 9.30 AM*), and tick the **structure lines** to show (bridges, culverts, RS walls). RFIs elsewhere, such as the site laboratory, are listed under the diagram. Each RFI can also have **Remarks** (in the Add / Edit form), printed in their own column.
+5. **Share the list** (step 2):
+   - **Save PDF** or **Share PDF** (A4 landscape, in the layout chosen above), with **Preview** beside them. Save puts the file in Downloads or Files; Share opens the phone's share menu (pick WhatsApp);
    - **Save Word** (or **Share Word**): the same list as an editable Word file;
    - **Copy text**: a short list to paste in the WhatsApp group;
    - **Save CSV (Excel)**.
@@ -386,22 +384,23 @@ Experimental features are working, but still being tried during the pilot. Tell 
 | Alignment diagram and structure lines | Report screen → *Include alignment diagram* | Off |
 | Period report (week or month) | Report details → *Report type* | Daily |
 | Word document (report, RFI photo record, RFI list) | *Save Word* / *Share Word* buttons | – |
-| Scan a document or page | Setup → *Experimental features* → *Show Scan a document*; then a button beside *Take photo* and a tile in Quick post | Off |
+| Scan a document or page | A button beside *Take photo* and a tile in Quick post; Setup → *Experimental features* switches it off | On |
 | RFI inspection list | Main screen for WPC; Setup → *Experimental features* | WPC only |
 | RFI list line diagram and structure lines | RFI inspection list → *List options* | Off |
 | RFI request tickets, board, Schedule layout and Today's RFIs | RFI inspection list; main screen after loading a list | Table layout |
 
-**Scan a document or page (experimental).** For a letter, a method statement or a page of a drawing book that belongs with the photos:
+**Scan a document or page (experimental, on by default).** For a letter, a method statement or a page of a drawing book that belongs with the photos:
 
-1. Switch it on in Setup → *Experimental features*. A button *Scan a document or page* appears under *Take photo*, and Quick post gets a *Scan page* tile.
-2. Take a photo of the page, as flat and square-on as you can, with the whole page in view.
-3. Drag the four round handles onto the corners of the page.
-4. Choose *Black and white* (like a scan) or *Keep colour*, then tap **Use scan**. *Use the whole photo* adds the photo as taken.
-5. The page is added as a photo with the tag *Scanned page*. Tag it like any other photo. It prints in the report like a photo.
-
-The corners are placed by hand. Finding them automatically is planned for v1.3.
+1. Tap **Scan a document or page** under *Take photo* (or *Scan page* in Quick post). Setup → *Experimental features* switches it off.
+2. Take a photo of the page, as flat and square-on as you can, with the whole page in view and a different colour behind it.
+3. The app looks for the page and puts the four round handles on its corners. Drag any handle that is off. If the page could not be found (for example white paper on a white table), drag the handles yourself, or tap **Find the page again** after turning the photo with **Rotate**.
+4. Tap **Next**.
+5. Check the straightened page. Choose the look: *Clean* (default, keeps colour and fine detail and evens out shadows), *Grey*, *Black and white* (like a photocopy, but harsh on small print) or *Original*. If it is too dark, pale or hard, use the **Brightness** and **Contrast** sliders (**Reset sliders** puts them back). **Add to report** keeps it; **Adjust corners** goes back. **Retake photo** starts again; *Use the whole photo* skips the straightening.
+6. The page is added as a photo with the tag *Scanned page*. Tag it like any other photo. It prints in the report like a photo.
 
 <p><img src="guide/setup_exp.png" alt="Setup, Experimental features: Show the RFI inspection list, Show Drawing references, and the Drawing library button" width="300"></p>
+
+**New in 1.2.7, in short:** a coloured chip on a photo card (*Needs activity*, *Needs location*) shows what still blocks that photo; typing `71775` in a chainage box gives `71+775`; **Chainage to** appears only when you tap *+ Chainage to* (photo card, Quick post, Tag selected, RFI request); the RFI request sheet has *On the alignment | Elsewhere*; the report screen is grouped into *Page layout* and *Save or share*; the **◐** button in the top bar changes the screen theme (Auto, Dark, Light, Sunlight, which is black on white for reading outdoors); a request still waiting in *My requests* has an **Edit** button (same ticket no., *Rev. 1*); Setup → *About and licences* lists the open-source parts the app uses.
 
 ## 11. Updates, feedback and common problems
 
@@ -431,3 +430,5 @@ The corners are placed by hand. Finding them automatically is planned for v1.3.
 ---
 
 The pilot and rollout plan is in [ROADMAP.md](ROADMAP.md).
+
+   - **Visual board (optional)**: the list as clean pages in time order, up to 8 RFIs per page (a long list gives several pages), each with an alignment card marking every RFI's list no. at its chainage. **Share images** (or **Save images**) sends the pages with a message that has the list as text and a **link** that loads it in the app (*Today's RFIs*, below); **Save board PDF** / **Share board PDF** is the same pages as one document.

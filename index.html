@@ -28,6 +28,12 @@
   --bg:#0E1418; --surface:#172027; --sunk:#121A20; --ink:#E6ECF0; --muted:#97A5AF; --line:#2A3640;
   --accent:#FF7A33; --accent-ink:#1A0C03; --accent-soft:#3A2214; --ok:#6CC27A; --ok-soft:#18301D; --warn:#E3A93B; --warn-soft:#33270F;
   --chip:#22303A; --scrim:rgba(0,0,0,.6); --shadow:0 1px 2px rgba(0,0,0,.3); color-scheme:dark}
+:root[data-theme="sunlight"]{
+  --bg:#FFFFFF; --surface:#FFFFFF; --sunk:#F0F4F7; --ink:#000000; --muted:#1A2530; --line:#000000;
+  --accent:#B23A0A; --accent-ink:#FFFFFF; --accent-soft:#FFE9DA; --ok:#1B5E20; --ok-soft:#DDF0DF; --warn:#7A4500; --warn-soft:#FFEFC9;
+  --chip:#E1E7EC; --scrim:rgba(0,0,0,.65); --shadow:none; color-scheme:light}
+:root[data-theme="sunlight"] input,:root[data-theme="sunlight"] select,:root[data-theme="sunlight"] textarea,:root[data-theme="sunlight"] .btn,:root[data-theme="sunlight"] .actbtn,:root[data-theme="sunlight"] .seg button,:root[data-theme="sunlight"] .tbtn,:root[data-theme="sunlight"] .chipbtn,:root[data-theme="sunlight"] .stepbtn{border:2px solid #000}
+:root[data-theme="sunlight"] .card{border:2px solid #000}
 *{box-sizing:border-box}
 html,body{background:var(--bg);color:var(--ink)}
 body{font-family:var(--f-body);font-size:16px;line-height:1.4;-webkit-text-size-adjust:100%}
@@ -88,6 +94,11 @@ select{appearance:auto}
 .bigbtn.primary span{color:color-mix(in srgb,var(--bg) 75%,transparent)}
 .listhead{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .listhead h2{font-size:19px}
+.dsl{display:grid;grid-template-columns:90px minmax(0,1fr) 36px;gap:8px;align-items:center}.dsl label{font-weight:600;font-size:14px}.dsl input{width:100%;accent-color:var(--accent)}.dsl output{font:600 13px var(--f-mono);text-align:right}
+.listbar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 8px;margin:0 -2px;scrollbar-width:none}.listbar::-webkit-scrollbar{display:none}
+.chipbtn{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 12px;font-weight:600;font-size:13.5px;min-height:36px;white-space:nowrap}
+.chipbtn.danger{color:var(--warn);border-color:var(--warn)}
+.listbar:not(:has(.chipbtn:not([hidden]))){display:none}
 .linkbtn{background:none;border:none;color:var(--accent);font-weight:600;padding:6px 2px;text-decoration:underline;text-underline-offset:3px}
 
 /* empty state */
@@ -124,13 +135,13 @@ select{appearance:auto}
 .tag{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:600;background:var(--chip);color:var(--ink)}
 .tag.gps{background:var(--ok-soft);color:var(--ok)}
 .tag.far{background:var(--warn-soft);color:var(--warn)}
-.tag.need{background:var(--warn-soft);color:var(--warn)}
+.tag.need{background:var(--warn-soft);color:var(--warn)}.ntag{display:contents}
 .actbtn{width:100%;text-align:left;border:1.5px solid var(--line);background:var(--sunk);border-radius:8px;padding:9px 11px;display:grid;gap:2px;min-height:48px}
 .actbtn.unset{border-style:dashed;border-color:var(--accent);color:var(--accent);font-weight:600}
 .actbtn .an{font-weight:600}
 .actbtn .ab{font-size:13px;color:var(--muted)}
 .bq{font-family:var(--f-mono);font-size:12.5px;background:var(--chip);border-radius:4px;padding:1px 6px;color:var(--ink);white-space:nowrap}
-.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.rowend{align-items:end}.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
 .locseg button{flex:1 1 auto}
 .btn.danger{color:var(--accent);border-color:var(--accent)}
 .dwgrow{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.dwchip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--line);background:var(--sunk);border-radius:999px;padding:3px 4px 3px 10px;font-size:13px;font-weight:600}.dwchip button{border:none;background:none;font-size:16px;line-height:1;padding:2px 6px;color:var(--muted)}.dwsug{border:1px dashed var(--accent);background:var(--accent-soft);color:var(--ink);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:600}
@@ -152,7 +163,7 @@ select{appearance:auto}
 .outlayers{display:flex;flex-wrap:wrap;gap:6px 14px;margin:-4px 0 0 28px}
 .lychk{display:inline-flex;gap:6px;align-items:center;font-size:14px}
 .lychk input{width:18px;height:18px;accent-color:var(--accent)}
-.addch2{width:100%;min-height:44px;border:1px dashed var(--line);border-radius:9px;background:transparent;color:var(--muted);font-weight:600}
+.addch2{width:100%;min-height:42px;box-sizing:border-box;border:1px dashed var(--line);border-radius:9px;background:transparent;color:var(--muted);font-weight:600}
 .chin input{font-family:var(--f-mono);font-weight:600;padding-left:38px}
 .chin::before{content:"CH";position:absolute;left:10px;bottom:12px;font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--accent)}
 .chin input.bad{border-color:var(--warn);background:var(--warn-soft)}
@@ -210,6 +221,8 @@ details.more[open] summary{margin-bottom:8px}
 .oa b{font-size:16px}
 .notice{display:grid;gap:10px;background:var(--accent-soft);border:1px solid var(--accent);border-radius:10px;padding:12px 14px;margin:12px 0 0;font-size:14.5px}
 .notice .nbtns{display:flex;gap:8px;flex-wrap:wrap}
+.rfitip{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 12px;margin:0 0 10px;font-size:14px}.rfitip .acts{display:flex;gap:8px;flex-wrap:wrap}
+.optpanel{border:1px solid var(--line);border-radius:12px;padding:12px;display:grid;gap:12px;background:var(--surface)}.optpanel h4,.sech{margin:0;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}.sech{margin-top:4px}
 .rfibar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border:1px solid var(--accent);background:var(--accent-soft);border-radius:10px;padding:10px 12px;font-size:14.5px}
 .gobtn{border:1px solid currentColor;background:transparent;color:inherit;border-radius:6px;padding:2px 8px;margin:2px 4px 2px 0;font-weight:700;font-family:var(--f-mono);font-size:13px;min-height:30px}
 a.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:inherit}
@@ -279,7 +292,7 @@ a.btn.acc{color:var(--accent-ink)}
 .tdb{display:grid;gap:2px;min-width:0;overflow-wrap:anywhere}.tdbtns{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .scanbtn{display:inline-flex;align-items:center;gap:6px;padding:6px 9px}
 .h1short{display:none}
-@media (max-width:639px){.scanlbl{display:none}.top h1{white-space:normal;font-size:18px;line-height:1.05;overflow:visible}.top .wrap{gap:8px}}
+@media (max-width:639px){.scanlbl{display:none}.top h1{white-space:normal;font-size:17px;line-height:1.05;overflow:visible;flex:1 1 0;min-width:0}.top .iconbtn{padding:6px 8px;font-size:13px}.top .themebtn{font-size:18px;line-height:1;padding:5px 9px}.top .wrap{gap:6px}.top .wrap{gap:8px}}
 .tkfold summary{cursor:pointer;font-size:14px;font-weight:600;color:var(--muted);padding:4px 0}.tkfold[open] summary{margin-bottom:6px}
 .scanview{position:relative;background:#000;border-radius:10px;overflow:hidden;aspect-ratio:4/3;max-height:52vh}
 .scanview video{width:100%;height:100%;object-fit:cover;display:block}
@@ -299,6 +312,7 @@ a.btn.acc{color:var(--accent-ink)}
     <span class="plate">WP12</span>
     <h1><span class="h1full">Site Photo Report</span><span class="h1short">SDR</span></h1>
     <button class="iconbtn scanbtn" id="btn-scan" type="button" aria-label="Scan a QR code" title="Scan a QR code"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9V5a2 2 0 0 1 2-2h4M15 3h4a2 2 0 0 1 2 2v4M21 15v4a2 2 0 0 1-2 2h-4M9 21H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 7h4v4H7zM13 13h4v4h-4zM13 7h4v2h-4zM7 15h2v2H7z" fill="currentColor"/></svg><span class="scanlbl">Scan</span></button>
+    <button class="iconbtn themebtn" id="btn-theme" type="button" aria-label="Screen theme: Auto" title="Screen theme: Auto">◐</button>
     <button class="iconbtn" id="btn-register" type="button">Register</button>
     <button class="iconbtn" id="btn-settings" type="button">Setup</button>
   </div>
@@ -345,12 +359,13 @@ a.btn.acc{color:var(--accent-ink)}
 
     <div class="listhead">
       <h2 id="h-photos">Photos <span class="mono muted" id="count"></span></h2>
-      <div style="display:flex;gap:4px;flex-wrap:wrap">
-        <button class="linkbtn" id="btn-collapseall" type="button" hidden>Collapse all</button>
-        <button class="linkbtn" id="btn-selectall" type="button" hidden>Select all</button>
-        <button class="linkbtn" id="btn-sort" type="button" hidden>Sort by time</button> <button class="linkbtn" id="btn-sortch" type="button" hidden>Sort by chainage</button>
-        <button class="btn danger sm" id="btn-new" type="button" hidden>New report</button>
-      </div>
+      <button class="linkbtn" id="btn-collapseall" type="button" hidden>Collapse all</button>
+    </div>
+    <div class="listbar" id="listbar" role="toolbar" aria-label="Photo list">
+      <button class="chipbtn" id="btn-selectall" type="button" hidden>Select all</button>
+      <button class="chipbtn" id="btn-sort" type="button" hidden>Sort by time</button>
+      <button class="chipbtn" id="btn-sortch" type="button" hidden>Sort by chainage</button>
+      <button class="chipbtn danger" id="btn-new" type="button" hidden>New report</button>
     </div>
 
     <div class="bulkbar" id="bulkbar" hidden>
@@ -366,9 +381,12 @@ a.btn.acc{color:var(--accent-ink)}
         <li><span>Add the day's photos. Photos with GPS get their chainage worked out from the WP12 centreline.</span></li>
         <li><span>Tag each photo, or select several and tag them together: activity (with BQ item), structure, chainage, side, RFI no.</span></li>
         <li><span>Generate the PDF report (4 photos per page) and captioned photos, then share them to the WhatsApp group.</span></li>
+        <li><span><b>For an RFI inspection:</b> type the RFI no. on the photos. The app then makes an <b>RFI photo record</b>, one PDF for each RFI, to attach to the JKR RFI form.</span></li>
       </ol>
       <div><button class="btn" id="btn-sample" type="button">Try it with 4 sample photos</button></div>
     </div>
+
+    <div id="rfitip" hidden></div>
 
     <ol id="list"></ol>
 
@@ -425,10 +443,10 @@ a.btn.acc{color:var(--accent-ink)}
       </div>
       <div id="bk-dwg-w"><span class="lbl">Drawings and references <span class="tag">Experimental</span></span><button class="actbtn unset" id="bk-dwg" type="button">Attach drawings (optional)</button></div>
       <div><label class="lbl" for="bk-place">Elsewhere: place <span class="muted small">(instead of chainage)</span></label><input type="text" id="bk-place" placeholder="e.g. Site laboratory WP12" list="place-list" autocomplete="off"></div>
-      <div class="chrow">
-        <div class="chin"><label class="lbl" for="bk-ch">Chainage from</label><input type="text" id="bk-ch" inputmode="decimal" placeholder="71+775"></div>
-        <span class="to">to</span>
-        <div class="chin"><label class="lbl" for="bk-ch2">to (optional)</label><input type="text" id="bk-ch2" inputmode="decimal" placeholder="71+900"></div>
+      <div class="row2 rowend">
+        <div class="chin"><label class="lbl" for="bk-ch">Chainage</label><input type="text" id="bk-ch" inputmode="numeric" placeholder="71+775"></div>
+        <div id="bk-ch2add"><span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" id="bk-addch2">+ Chainage to</button></div>
+        <div class="chin" id="bk-ch2x" hidden><label class="lbl lblrow" for="bk-ch2"><span>Chainage to</span><button type="button" class="xbtn" id="bk-rmch2" aria-label="Remove chainage range">× Remove</button></label><input type="text" id="bk-ch2" inputmode="numeric" placeholder="71+900"></div>
       </div>
       <div><span class="lbl">Side</span><div class="seg" id="bk-side"></div></div>
       <div><label class="lbl" for="bk-rfi">RFI no.</label><div class="rfi"><span class="rfipre"></span><input type="text" id="bk-rfi" placeholder="TES-651" list="rfi-list" autocomplete="off"></div></div>
@@ -454,15 +472,18 @@ a.btn.acc{color:var(--accent-ink)}
       <div id="out-period" class="small" hidden><span class="tag">Experimental</span> <b>Period report:</b> a progress table for the period, then the photos day by day. The photos stay on this phone until you start a New report, so keep the app on your Home Screen and save the ZIP (Everything) at least once a week.</div>
       <div id="out-warn"></div>
       <div id="out-rfibar"></div>
+      <div class="optpanel"><h4>Page layout</h4>
       <div><div style="font-size:14.5px;margin-bottom:6px">Photos per page</div><div class="pppick" id="out-ppp" role="group" aria-label="Photos per page"><button type="button" data-ppp="2" aria-pressed="true"><svg viewBox="0 0 30 40" aria-hidden="true"><rect x="1" y="1" width="28" height="38" rx="2"/><rect class="f" x="5" y="5" width="20" height="13"/><rect class="f" x="5" y="22" width="20" height="13"/></svg><span><b>2 per page</b><small></small></span></button><button type="button" data-ppp="4" aria-pressed="false"><svg viewBox="0 0 30 40" aria-hidden="true"><rect x="1" y="1" width="28" height="38" rx="2"/><rect class="f" x="4" y="5" width="10" height="12"/><rect class="f" x="16" y="5" width="10" height="12"/><rect class="f" x="4" y="22" width="10" height="12"/><rect class="f" x="16" y="22" width="10" height="12"/></svg><span><b>4 per page</b><small></small></span></button></div></div>
       <label style="display:flex;gap:8px;align-items:center;font-size:14.5px"><input type="checkbox" id="out-sumpage" checked style="width:20px;height:20px;accent-color:var(--accent)"> Include summary table on page 1</label>
       <label id="out-orig-w" style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px" hidden><input type="checkbox" id="out-orig" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Include the camera originals in the ZIP<br><span class="small muted" id="out-orig-info"></span></span></label>
       <label style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px"><input type="checkbox" id="out-diag" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Include alignment diagram <span class="tag">Experimental</span><br><span class="small muted">A line from CH start to end with the zones, showing where each photo was taken. Also added to RFI photo records.</span></span></label>
       <div id="out-layers" class="outlayers" hidden></div>
-      <div class="fitrow" style="display:grid;gap:6px"><span style="font-size:14.5px">Location strip on each photo <span class="tag">New</span></span><div class="seg" id="out-strip" role="group" aria-label="Location strip on each photo"><button type="button" data-strip="off">Off</button><button type="button" data-strip="under">Under the caption</button><button type="button" data-strip="top">Top of the photo</button></div><span class="small muted">A small line of the whole alignment with a marker at the photo's chainage, in the PDF and on captioned photos.</span></div>
+      <div class="fitrow" style="display:grid;gap:6px"><span style="font-size:14.5px">Location strip on each photo </span><div class="seg" id="out-strip" role="group" aria-label="Location strip on each photo"><button type="button" data-strip="off">Off</button><button type="button" data-strip="under">Under the caption</button><button type="button" data-strip="top">Top of the photo</button></div><span class="small muted">A small line of the whole alignment with a marker at the photo's chainage, in the PDF and on captioned photos.</span></div>
       <div id="out-dwgfit-w" class="fitrow" hidden><span style="font-size:14.5px">Drawing pages</span><div class="seg" id="out-dwgfit" role="group" aria-label="Drawing reference pages"><button type="button" data-fit="auto">Auto</button><button type="button" data-fit="1">1 per page</button><button type="button" data-fit="2">2 per page</button><button type="button" data-fit="4">4 per page</button></div></div>
+      </div>
       <div class="progress" id="out-prog" hidden><i></i></div>
       <div id="out-status" class="small muted" aria-live="polite"></div>
+      <h4 class="sech">Save or share</h4>
       <div class="out-actions" id="out-actions"></div>
       <div id="out-rfi" style="display:grid;gap:10px"></div>
     </div>
@@ -478,6 +499,16 @@ a.btn.acc{color:var(--accent-ink)}
         <h3 style="font-size:17px">Help and feedback</h3>
         <p class="muted small" style="margin:0">Found a problem or have an idea? Send it to the WP12 RFI coordination group. The app version and your phone type are filled in for you.</p>
         <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn acc" id="st-feedback" href="#" target="_blank" rel="noopener">Send feedback on WhatsApp</a><a class="btn" id="st-help" href="#" target="_blank" rel="noopener" hidden>User guide</a><a class="btn" id="st-changes" href="#" target="_blank" rel="noopener">What changed</a></div>
+      </div>
+      <div class="panel" style="display:grid;gap:10px">
+        <h3 style="font-size:17px">About and licences</h3>
+        <p class="muted small" style="margin:0">WP12 Site Photo Report. Made by WPN. It runs on open-source software, used under their licences:</p>
+        <ul class="small" style="margin:0;padding-left:18px;display:grid;gap:3px">
+          <li>jsPDF 2.5.1: MIT</li><li>JSZip 3.10.1 and pako: MIT</li><li>qrcode-generator 1.4.4: MIT</li>
+          <li>pdf.js 3.11 (Mozilla): Apache-2.0</li><li>jsQR 1.4.0: Apache-2.0</li>
+          <li>heic2any: MIT, with libheif and libde265: LGPL-3.0</li><li>Barlow and IBM Plex fonts: SIL Open Font Licence 1.1</li>
+        </ul>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" id="st-lic" href="#" target="_blank" rel="noopener">Full licence notices</a></div>
       </div>
       <div class="panel" style="display:grid;gap:10px">
         <h3 style="font-size:17px">Share this app</h3>
@@ -562,11 +593,20 @@ a.btn.acc{color:var(--accent-ink)}
   <div class="box">
     <div class="sheet-h"><h3 id="ds-title">Scan a document</h3><button class="btn" data-close type="button">Cancel</button></div>
     <div class="sheet-b" style="gap:10px">
-      <p class="small muted" style="margin:0">Drag the four round handles onto the corners of the page. Then tap <b>Use scan</b>.</p>
-      <div class="dwgcanvas" id="ds-box"><canvas id="ds-canvas" aria-label="Photo of the page with four corner handles"></canvas></div>
-      <div><span class="lbl">Result</span><div class="seg" id="ds-mode" role="group" aria-label="Result"><button type="button" data-dm="bw" aria-pressed="true">Black and white</button><button type="button" data-dm="col" aria-pressed="false">Keep colour</button></div></div>
+      <div id="ds-edit" style="display:grid;gap:10px">
+        <p class="small muted" style="margin:0" id="ds-msg">Drag the four round handles onto the corners of the page. Then tap <b>Next</b>.</p>
+        <div class="dwgcanvas" id="ds-box"><canvas id="ds-canvas" aria-label="Photo of the page with four corner handles"></canvas></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" id="ds-rot" type="button">Rotate</button><button class="btn sm" id="ds-auto" type="button">Find the page again</button><button class="btn sm" id="ds-retake" type="button">Retake photo</button></div>
+      </div>
+      <div id="ds-pv" hidden style="display:grid;gap:10px"><p class="small muted" style="margin:0">This is how the page will be added. Choose the look; use the sliders if it is too dark, too pale or too hard.</p>
+        <div class="dwgcanvas"><canvas id="ds-pvcv" style="width:100%;display:block;background:#fff" aria-label="The scanned page"></canvas></div>
+        <div><span class="lbl">Look</span><div class="seg" id="ds-mode" role="group" aria-label="Look of the scan"><button type="button" data-dm="clean" aria-pressed="true">Clean</button><button type="button" data-dm="gray" aria-pressed="false">Grey</button><button type="button" data-dm="bw" aria-pressed="false">Black and white</button><button type="button" data-dm="col" aria-pressed="false">Original</button></div></div>
+        <div class="dsl"><label for="ds-bri">Brightness</label><input type="range" id="ds-bri" min="-50" max="50" step="1" value="0"><output id="ds-bri-v">0</output></div>
+        <div class="dsl"><label for="ds-con">Contrast</label><input type="range" id="ds-con" min="-50" max="50" step="1" value="0"><output id="ds-con-v">0</output></div>
+        <div><button class="linkbtn" id="ds-reset" type="button">Reset sliders</button></div></div>
     </div>
-    <div class="sheet-f"><button class="btn" id="ds-whole" type="button">Use the whole photo</button><button class="btn acc" id="ds-use" type="button">Use scan</button></div>
+    <div class="sheet-f" id="ds-f1"><button class="btn" id="ds-whole" type="button">Use the whole photo</button><button class="btn acc" id="ds-use" type="button">Next</button></div>
+    <div class="sheet-f" id="ds-f2" hidden><button class="btn" id="ds-back" type="button">Adjust corners</button><button class="btn acc" id="ds-add" type="button">Add to report</button></div>
   </div>
 </div>
 
@@ -575,7 +615,7 @@ a.btn.acc{color:var(--accent-ink)}
   <div class="box">
     <div class="sheet-h"><h3 id="pv-title">Preview</h3><button class="btn" data-close type="button">Close</button></div>
     <div class="sheet-b" style="gap:10px"><div id="pv-info" class="small muted"></div><div id="pv-pages" class="pvpages"></div></div>
-    <div class="sheet-f"><span class="small muted" style="flex:1;min-width:0">Check the pages, then share.</span><button class="btn acc" id="pv-share" type="button">Share PDF</button></div>
+    <div class="sheet-f"><span class="small muted" style="flex:1;min-width:0">Check the pages, then save or share.</span><button class="btn" id="pv-save" type="button" hidden>Save</button><button class="btn acc" id="pv-share" type="button">Share PDF</button></div>
   </div>
 </div>
 
@@ -614,9 +654,9 @@ a.btn.acc{color:var(--accent-ink)}
       <div><label class="lbl" for="de-title" id="de-titlel">Drawing title</label><input type="text" id="de-title" placeholder="e.g. Drainage plan and profile from CH 63+400 to 64+100" autocomplete="off"></div>
       <div><label class="lbl" for="de-note">What this snippet shows <span class="muted small">(optional)</span></label><input type="text" id="de-note" placeholder="e.g. Culvert C3 and toe drain, plan" autocomplete="off"></div>
       <div class="chrow">
-        <div class="chin"><label class="lbl" for="de-ch1">Covers CH from</label><input type="text" id="de-ch1" inputmode="decimal" placeholder="63+400"></div>
+        <div class="chin"><label class="lbl" for="de-ch1">Covers CH from</label><input type="text" id="de-ch1" inputmode="numeric" placeholder="63+400"></div>
         <span class="to">to</span>
-        <div class="chin"><label class="lbl" for="de-ch2">to</label><input type="text" id="de-ch2" inputmode="decimal" placeholder="64+100"></div>
+        <div class="chin"><label class="lbl" for="de-ch2">to</label><input type="text" id="de-ch2" inputmode="numeric" placeholder="64+100"></div>
       </div>
       <p class="muted small" style="margin:0">With a structure or chainage range, the app suggests this drawing on matching photos.</p>
     </div>
@@ -648,7 +688,7 @@ a.btn.acc{color:var(--accent-ink)}
   <div class="box">
     <div class="sheet-h"><h3 id="rl-title">RFI inspection list <span class="tag">Experimental</span></h3><button class="btn" data-close type="button">Close</button></div>
     <div class="sheet-b">
-      <div class="seg rlsteps" id="rl-steps" role="group" aria-label="Steps"><button type="button" data-rs="1" aria-pressed="true"><b>1</b> RFIs</button><button type="button" data-rs="2" aria-pressed="false"><b>2</b> Layout</button><button type="button" data-rs="3" aria-pressed="false"><b>3</b> Share</button></div>
+      <div class="seg rlsteps" id="rl-steps" role="group" aria-label="Steps"><button type="button" data-rs="1" aria-pressed="true"><b>1</b> RFIs</button><button type="button" data-rs="3" aria-pressed="false"><b>2</b> Share</button></div>
       <div id="rl-s1" style="display:grid;gap:12px">
         <div class="tkpanel" id="rl-reqbox">
           <div class="tkhead"><b>Requests</b> <span class="small muted" id="rl-reqsum">Ask for an inspection that is not on the list</span></div>
@@ -667,29 +707,37 @@ a.btn.acc{color:var(--accent-ink)}
       <div id="rl-count" class="small muted"></div>
       <div class="empty" id="rl-empty"><div class="small">No RFIs yet. Tap <b>+ Add RFI</b>, or copy the rows from Excel and tap <b>Paste from Excel</b>.</div></div>
       <ol id="rl-list" class="rllist"></ol>
-        <div class="rlnext"><button class="btn acc" type="button" data-rsgo="2">Next: layout ›</button></div>
+        <div class="rlnext"><button class="btn acc" type="button" data-rsgo="3">Next: share ›</button></div>
       </div>
-      <div id="rl-s2" style="display:grid;gap:12px" hidden>
-      <div class="panel rlopts" style="display:grid;gap:8px">
+      <div id="rl-s3" style="display:grid;gap:12px" hidden>
+        <div class="empty" id="rl-noout"><div class="small">Add at least one RFI in step 1, then share the list here.</div></div>
+      <div id="rl-out" style="display:grid;gap:12px" hidden>
+        <div class="panel" style="display:grid;gap:10px">
+          <b>Share the list</b>
+          <span class="small muted">The inspection list as an A4 PDF (landscape), to post in the WhatsApp group.</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-pdf" type="button">Save PDF</button><button class="btn acc" id="rl-pdfshare" type="button" hidden>Share PDF</button><button class="btn" id="rl-pv" type="button">Preview</button></div>
+          <div id="rl-rev" class="small muted"></div>
+          <div class="small muted" style="margin-top:2px">Other formats</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-word" type="button">Save Word</button><button class="btn" id="rl-wordshare" type="button" hidden>Share Word</button><button class="btn" id="rl-copy" type="button">Copy text</button><button class="btn" id="rl-csv" type="button">Save CSV (Excel)</button></div>
+          <div id="rl-status" class="small muted" aria-live="polite"></div>
+          <textarea id="rl-text" class="copybox" rows="8" hidden readonly></textarea>
+        </div>
+        <details class="rfi-card" id="rl-optd"><summary><b>Layout and options</b> <span class="small muted">Table, schedule, zone colours</span></summary>
+      <div class="rlopts" style="display:grid;gap:8px;margin-top:8px">
         <b style="font-size:15px">List options</b>
         <div style="display:grid;gap:4px"><span class="small">PDF layout</span><div class="seg" id="rl-layout" role="group" aria-label="PDF layout"><button type="button" data-lay="table">Table (Excel layout)</button><button type="button" data-lay="schedule">Schedule</button><button type="button" data-lay="schedule2">Schedule, 2 columns</button></div><span class="small muted">Schedule: in time order, morning and afternoon, the time in large type, a location strip for each RFI. 2 columns: two RFIs side by side, for a long list (no location strip, the chainage is in the text).</span></div>
         <label style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px"><input type="checkbox" id="rl-zcol" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Colour the RFIs by zone<br><span class="small muted">A colour bar for each RFI in its zone (Schedule layouts, the board and this list), with the zone names at the top.</span></span></label>
         <label style="display:flex;gap:8px;align-items:flex-start;font-size:14.5px"><input type="checkbox" id="rl-diag" style="width:20px;height:20px;flex:none;accent-color:var(--accent)"> <span>Line diagram above the table <span class="tag">Experimental</span><br><span class="small muted">The inspection locations along the alignment, each marked with its list no. and time.</span></span></label>
         <div id="rl-layers" class="outlayers" hidden></div>
       </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-pv" type="button">Preview the PDF</button><button class="btn" id="rl-bpv" type="button">Preview the board</button></div>
-        <div class="rlnext"><button class="btn acc" type="button" data-rsgo="3">Next: share ›</button></div>
-      </div>
-      <div id="rl-s3" style="display:grid;gap:12px" hidden>
-        <div class="empty" id="rl-noout"><div class="small">Add at least one RFI in step 1, then share the list here.</div></div>
-      <div id="rl-out" class="panel" style="display:grid;gap:10px" hidden>
-        <b>Share the list</b>
-        <div style="display:grid;gap:4px"><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn acc" id="rl-board" type="button">Share board</button><button class="btn" id="rl-boardpdf" type="button">Board PDF</button></div><span class="small muted">The RFIs as a board in time order, up to 8 per page, with an alignment strip. The message has a link that loads the list in the app (Today's RFIs); the list PDF and the board PDF carry it too.</span></div>
-        <div id="rl-rev" class="small muted"></div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-pdf" type="button">Share PDF</button><button class="btn" id="rl-word" type="button">Save Word</button><button class="btn" id="rl-wordshare" type="button" hidden>Share Word</button><button class="btn" id="rl-copy" type="button">Copy text</button><button class="btn" id="rl-csv" type="button">Save CSV (Excel)</button></div>
-        <div id="rl-status" class="small muted" aria-live="polite"></div>
-        <textarea id="rl-text" class="copybox" rows="8" hidden readonly></textarea>
-        <p class="small muted" style="margin:0">The PDF is A4 landscape, with the name and caption language shown at the top of this screen.</p>
+        </details>
+        <details class="rfi-card" id="rl-boardd"><summary><b>Visual board</b> <span class="tag">Optional</span> <span class="small muted">Pages for a quick look in WhatsApp</span></summary>
+          <div style="display:grid;gap:8px;margin-top:8px">
+            <span class="small muted">The RFIs as clean pages in time order, up to 8 per page, with an alignment strip. The message carries a link that loads the list in the app (Today's RFIs).</span>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-bpv" type="button">Preview</button><button class="btn" id="rl-boardsave" type="button">Save images</button><button class="btn acc" id="rl-board" type="button">Share images</button></div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="rl-boardpdf" type="button">Save board PDF</button><button class="btn" id="rl-boardpdfshare" type="button" hidden>Share board PDF</button></div>
+          </div>
+        </details>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button class="btn" id="rl-new" type="button">New list</button><button class="btn" id="rl-clear" type="button" hidden>Clear list</button></div>
       <details id="rl-hist" class="rfi-card" hidden><summary id="rl-histsum">Earlier lists</summary><div id="rl-histlist" class="rllist" style="margin-top:8px"></div></details>
@@ -708,12 +756,13 @@ a.btn.acc{color:var(--accent-ink)}
       <div><span class="lbl">Activity (optional)</span><button class="actbtn unset" id="re-act" type="button">Choose activity (optional)</button></div>
       <div><label class="lbl" for="re-desc">Description</label><textarea id="re-desc" rows="3" placeholder="e.g. Joint inspection for cube compressive strength test, 28 days (G25)"></textarea><div class="small muted" style="margin-top:4px">Choosing an activity fills this in. Change the wording as you like; a second line is fine, e.g. Casting location.</div></div>
       <div><label class="lbl" for="re-struct">Structure</label><select id="re-struct"></select></div>
-      <div class="row2">
-        <div class="chin"><label class="lbl" for="re-ch">Chainage</label><input type="text" id="re-ch" inputmode="decimal" placeholder="76+500"></div>
-        <div class="chin"><label class="lbl" for="re-ch2">Chainage to</label><input type="text" id="re-ch2" inputmode="decimal" placeholder="77+075"></div>
+      <div class="seg locseg" id="re-locseg" role="group" aria-label="Location"><button type="button" data-rloc="on" aria-pressed="true">On the alignment</button><button type="button" data-rloc="off" aria-pressed="false">Elsewhere</button></div>
+      <div id="re-onal" style="display:grid;gap:10px">
+        <div class="row2 rowend" id="re-chrow"></div>
+        <div><span class="lbl">Side</span><div class="seg" id="re-side" role="group" aria-label="Side"></div></div>
       </div>
-      <div><span class="lbl">Side</span><div class="seg" id="re-side" role="group" aria-label="Side"></div></div>
-      <div><label class="lbl" for="re-loc">Other location</label><input type="text" id="re-loc" list="rfl-locs" placeholder="e.g. Site Laboratory WP12" autocomplete="off"><div class="small muted" style="margin-top:4px" id="re-locprev"></div></div>
+      <div id="re-elsew" hidden><label class="lbl" for="re-loc">Place <span class="muted small">(lab, factory, other site)</span></label><input type="text" id="re-loc" list="rfl-locs" placeholder="e.g. Site Laboratory WP12" autocomplete="off"></div>
+      <div class="small muted" id="re-locprev"></div>
       <div id="re-tkdate-w" hidden><label class="lbl" for="re-tkdate">Inspection date</label><input type="date" id="re-tkdate"></div>
       <div class="row2">
         <div><label class="lbl" for="re-pic">PIC</label><input type="text" id="re-pic" list="rfl-pics" placeholder="Name" autocomplete="off"></div>
@@ -746,7 +795,7 @@ a.btn.acc{color:var(--accent-ink)}
         </div>
         <div class="seg locseg" id="qp-loc" role="group" aria-label="Location"><button type="button" data-ql="on">On the alignment</button><button type="button" data-ql="off">Elsewhere</button></div>
         <div id="qp-onal" style="display:grid;gap:10px">
-          <div class="row2"><div class="chin"><label class="lbl" for="qp-ch">Chainage <span id="qp-chsrc"></span></label><input type="text" id="qp-ch" inputmode="decimal" autocomplete="off" placeholder="71+775"></div><div id="qp-ch2w"></div></div>
+          <div class="row2 rowend"><div class="chin"><label class="lbl" for="qp-ch">Chainage <span id="qp-chsrc"></span></label><input type="text" id="qp-ch" inputmode="numeric" autocomplete="off" placeholder="71+775"></div><div id="qp-ch2w"></div></div>
           <div><span class="lbl">Side</span><div class="seg" id="qp-side"></div></div>
         </div>
         <div id="qp-offal" hidden><label class="lbl" for="qp-place">Place <span class="muted small">(lab, office, factory, other site)</span></label><input type="text" id="qp-place" placeholder="e.g. Site laboratory WP12, Site office" list="place-list" autocomplete="off"></div>
@@ -1239,7 +1288,7 @@ const DEFAULT_CONFIG = {"version":7,"projectCode":"WP12","projectTitle":"PROJEK 
 <script>
 "use strict";
 /* ============ WP12 Site Photo Report ============ */
-const APP_VERSION = "1.2.6 (15 Oct 2026)";
+const APP_VERSION = "1.2.7 (22 Oct 2026)";
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -1505,6 +1554,13 @@ function saveDraft() {
   }, 400);
 }
 
+
+/* v1.2.7: typing 71775 in any chainage box becomes 71+775 at once (the box shows the numeric keypad) */
+document.addEventListener("input", e => {
+  const el = e.target; if (!el || el.tagName !== "INPUT" || !/^(?:ch|ch2)$/.test(el.dataset.f || "") && !/^(?:bk-ch2?|qp-ch2?|re-ch2?|de-ch[12])$/.test(el.id || "")) return;
+  const v = el.value.trim();
+  if (/^\d{5}$/.test(v)) el.value = v.slice(0, 2) + "+" + v.slice(2);
+}, true);
 /* ---------- activity helpers ---------- */
 function bridgeOf(p) { const s = STRUCT.get(p.struct); return s && s.grp === "Bridge" ? s.id : null; }
 // A photo can carry several activities: p.acts = [{id, text}] (id "custom" = typed wording). p.act / p.actText keep the first one.
@@ -1669,8 +1725,14 @@ function loadHeic() {
   return heicP = heicP || new Promise((res, rej) => { const sc = document.createElement("script"); sc.src = "heic2any.min.js"; sc.onload = () => window.heic2any ? res() : rej(new Error("heic")); sc.onerror = () => { heicP = null; rej(new Error("heic")); }; document.head.appendChild(sc); });
 }
 async function heicToJpeg(f) {
-  await loadHeic();
-  const out = await window.heic2any({ blob: f, toType: "image/jpeg", quality: 0.92 });
+  try { await loadHeic(); } catch (e) { const er = new Error("The HEIC converter could not be loaded"); er.kind = "load"; throw er; }
+  let out;
+  try { out = await window.heic2any({ blob: f, toType: "image/jpeg", quality: 0.92 }); }
+  catch (e) {
+    const m = String((e && (e.message || e.code)) || e || "");
+    if (/already browser readable/i.test(m)) return f;   // not really HEIC: let the browser open it as it is
+    const er = new Error(m); er.kind = "format"; throw er;   // the converter loaded but cannot read this photo
+  }
   return Array.isArray(out) ? out[0] : out;
 }
 // date and GPS from a HEIC file: the Exif item found through the meta box (iinf + iloc)
@@ -1712,7 +1774,7 @@ async function readHeicExif(file) {
 async function importFiles(files, fromCamera, maxPx) {   // maxPx: larger size for a scanned page (default 1600)
   if (!files.length) return [];
   toast(`Adding ${files.length} photo${files.length > 1 ? "s" : ""}…`);
-  let added = 0, failed = [], heicFail = 0, dups = 0; const out = [];
+  let added = 0, failed = [], heicFail = 0, heicFmt = "", dups = 0; const out = [];
   for (const f of files) {
     try {
       const heic = await isHeic(f);
@@ -1723,7 +1785,7 @@ async function importFiles(files, fromCamera, maxPx) {   // maxPx: larger size f
       try { big = await resizeTo(f, maxPx || 1600, 0.86); } catch (e) { big = null; }
       if ((!big || !big.blob) && heic) {
         toast("Converting HEIC photo…", 8000);
-        try { big = await resizeTo(await heicToJpeg(f), maxPx || 1600, 0.86); } catch (e) { heicFail++; throw e; }
+        try { big = await resizeTo(await heicToJpeg(f), maxPx || 1600, 0.86); } catch (e) { heicFail++; if (e && e.kind === "format") heicFmt = e.message || "format"; throw e; }
       }
       if (!big || !big.blob) throw new Error("decode");
       const th = await resizeTo(big.blob, 480, 0.78);
@@ -1744,7 +1806,10 @@ async function importFiles(files, fromCamera, maxPx) {   // maxPx: larger size f
     } catch (e) { failed.push(f.name || "photo"); }
   }
   renderList(); saveDraft();
-  if (failed.length) toast(heicFail ? `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). The HEIC converter needs internet the first time; try again with signal, or set the iPhone camera to Most Compatible (Settings → Camera → Formats).` : `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). Use JPG, PNG or HEIC photos.`, 8000);
+  if (failed.length) toast(heicFail ? (heicFmt
+    ? `${failed.length} HEIC photo(s) could not be converted (${failed.slice(0, 2).join(", ")}). The converter loaded but cannot read this kind of HEIC (${heicFmt.slice(0, 60)}). On the iPhone choose Settings → Camera → Formats → Most Compatible, or share the photo as JPEG.`
+    : `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). The HEIC converter could not be loaded: it needs internet the first time. Try again with signal.`)
+    : `${failed.length} file(s) could not be opened (${failed.slice(0, 2).join(", ")}). Use JPG, PNG or HEIC photos.`, 9000);
   else if (fromCamera && out.length && (settings.saveCopy || "auto") !== "off") offerSaveCopy(out.map(x => x[0]));
   else toast(`${added} photo${added !== 1 ? "s" : ""} added` + (dups ? `. ${dups} ${dups > 1 ? "were" : "was"} already in the report and ${dups > 1 ? "were" : "was"} not added again.` : ""), dups ? 6000 : 2600);
   return out;
@@ -1842,8 +1907,16 @@ function refreshCard(id) {
   const st = $("[data-f=struct]", li), sv = p.struct || (p.structOn ? "__other" : ""); if (st.value !== sv) st.value = sv;
   $$("[data-side]", li).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === p.side));
   $(".hintslot", li).innerHTML = hintHTML(p);
+  const nt = $(".ntag", li); if (nt) nt.innerHTML = needChips(p);
   const z = zoneOf(p.ch); $(".ztag", li).innerHTML = z ? `<span class="tag">${esc(z)}</span>` : "";
   renderStatus();
+}
+// what still blocks this photo (v1.2.7): coloured chips on the open card, so it is clear at a glance
+function needChips(p) {
+  const c = cardSummary(p), out = [];
+  if (!c.act) out.push("Needs activity");
+  if (c.miss.indexOf("no location") >= 0) out.push("Needs location");
+  return out.map(t => `<span class="tag need">${t}</span>`).join("");
 }
 // collapsed card (v1.2.6, like Claimpack): the thumbnail, the number and one line about the photo; tap to open
 function cardSummary(p) {
@@ -1877,7 +1950,7 @@ function cardHTML(p, i) {
     <label class="selbox"><input type="checkbox" data-a="sel"${selected.has(p.id) ? " checked" : ""}> Select</label></div>
   <div class="body">
     ${dateUnsure(p) || p.timeSrc === "manual" ? `<div class="dateline${dateUnsure(p) ? " unsure" : ""}"><label class="lbl" for="pd-${p.id}">Date taken</label><input id="pd-${p.id}" type="date" data-f="pdate" value="${photoDay(p)}"><input type="time" data-f="ptime" value="${timeStr(p.time)}" aria-label="Time taken"><span class="small">${p.timeSrc === "file" ? "No camera date: this is the file's date. Check it." : p.timeSrc === "name" ? "Date from the file name. Check it." : "Set by you."}</span></div>` : ""}
-    <div class="meta"><span class="mono">${dateUnsure(p) || p.timeSrc === "manual" ? "" : (isPeriod() ? dayText(photoDay(p), false).replace(/ \d{4}$/, "") + " " : "") + timeStr(p.time)}</span>${gpsTag}${p.gps && p.gps.src === "device" ? `<span class="small">phone location</span>` : ""}${p.doc ? '<span class="tag">Scanned page</span>' : ""}<span class="ztag">${zoneOf(p.ch) ? `<span class="tag">${esc(zoneOf(p.ch))}</span>` : ""}</span></div>
+    <div class="meta"><span class="ntag">${needChips(p)}</span><span class="mono">${dateUnsure(p) || p.timeSrc === "manual" ? "" : (isPeriod() ? dayText(photoDay(p), false).replace(/ \d{4}$/, "") + " " : "") + timeStr(p.time)}</span>${gpsTag}${p.gps && p.gps.src === "device" ? `<span class="small">phone location</span>` : ""}${p.doc ? '<span class="tag">Scanned page</span>' : ""}<span class="ztag">${zoneOf(p.ch) ? `<span class="tag">${esc(zoneOf(p.ch))}</span>` : ""}</span></div>
     <button type="button" class="actbtn${a ? "" : " unset"}" data-a="pick">${actBtnInner(p)}</button>
     <div class="row2">
       <div><label class="lbl" for="st-${p.id}">Structure</label><select id="st-${p.id}" data-f="struct">${structOptions(p.struct || (p.structOn ? "__other" : ""), true)}</select>${p.structOn && !p.struct ? `<input type="text" data-f="structOther" value="${esc(p.structOther || "")}" placeholder="Structure no., e.g. C12" aria-label="Your structure" autocomplete="off" style="margin-top:6px">` : ""}</div>
@@ -1886,9 +1959,9 @@ function cardHTML(p, i) {
     <div class="seg locseg" data-g="loc" role="group" aria-label="Location"><button type="button" data-loc="on" aria-pressed="${!p.offsite}">On the alignment</button><button type="button" data-loc="off" aria-pressed="${!!p.offsite}">Elsewhere</button></div>
     ${p.offsite ? `<div><label class="lbl" for="pl-${p.id}">Place <span class="muted small">(lab, factory, other site)</span></label><input id="pl-${p.id}" type="text" data-f="place" value="${esc(p.place)}" placeholder="e.g. Site laboratory WP12, Precast yard" list="place-list" autocomplete="off"></div>` : `
     <div class="row2">
-      <div class="chin"><label class="lbl" for="ch-${p.id}">Chainage</label><input id="ch-${p.id}" type="text" inputmode="decimal" data-f="ch" value="${esc(p.ch)}" placeholder="71+775"${chBad ? ' class="bad"' : ""}></div>
+      <div class="chin"><label class="lbl" for="ch-${p.id}">Chainage</label><input id="ch-${p.id}" type="text" inputmode="numeric" data-f="ch" value="${esc(p.ch)}" placeholder="71+775"${chBad ? ' class="bad"' : ""}></div>
       ${p.ch2 || p.showCh2
-        ? `<div class="chin"><label class="lbl lblrow" for="c2-${p.id}"><span>Chainage to</span><button type="button" class="xbtn" data-a="rmch2" aria-label="Remove chainage range">× Remove</button></label><input id="c2-${p.id}" type="text" inputmode="decimal" data-f="ch2" value="${esc(p.ch2)}" placeholder="71+900"${ch2Bad ? ' class="bad"' : ""}></div>`
+        ? `<div class="chin"><label class="lbl lblrow" for="c2-${p.id}"><span>Chainage to</span><button type="button" class="xbtn" data-a="rmch2" aria-label="Remove chainage range">× Remove</button></label><input id="c2-${p.id}" type="text" inputmode="numeric" data-f="ch2" value="${esc(p.ch2)}" placeholder="71+900"${ch2Bad ? ' class="bad"' : ""}></div>`
         : `<div><span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" data-a="addch2">+ Chainage to</button></div>`}
     </div>
     <div class="seg" data-g="side">${sideButtons(p.side, "data-side")}</div>`}
@@ -1942,7 +2015,22 @@ function renderStatus() {
   const n = photos.length, tagged = photos.filter(p => hasAct(p) && (p.ch || p.offsite)).length;
   $("#dockstat").innerHTML = n ? `<b>${n}</b> photo${n > 1 ? "s" : ""} · <b>${tagged}</b> tagged${tagged < n ? ` · <span style="color:var(--warn)">${n - tagged} need activity or location</span>` : ""}` : "No photos yet";
   $("#btn-generate").disabled = !n;
+  rfiTip();
 }
+// a hint on the main screen so nobody thinks the app only makes the photo report
+function rfiTip() {
+  const el = $("#rfitip"); if (!el) return;
+  const g = rfiGroups(), n = photos.length;
+  if (!n) { el.hidden = true; return; }
+  if (g.size) { el.hidden = false; el.className = "rfitip"; el.innerHTML = `<div><b>${g.size} RFI${g.size > 1 ? "s" : ""} in this report</b> (${[...g.keys()].slice(0, 3).map(esc).join(", ")}${g.size > 3 ? "…" : ""}).<br><span class="small muted">The RFI photo record is a PDF to attach to the JKR RFI form.</span></div><div class="acts"><button class="btn acc" type="button" id="rt-make">Make RFI photo records</button></div>`; return; }
+  if (settings.rfiTip === false) { el.hidden = true; return; }
+  el.hidden = false; el.className = "rfitip";
+  el.innerHTML = `<div><b>Photos for an RFI inspection?</b><br><span class="small muted">Type the RFI no. on the photos (or use Tag selected). The app then makes an RFI photo record for each RFI: a PDF to attach to the JKR RFI form.</span></div><div class="acts"><button class="btn sm" type="button" id="rt-hide">Got it</button></div>`;
+}
+document.addEventListener("click", e => {
+  if (e.target.closest("#rt-make")) { openOutput(); const g = $("#go-rfi"); if (g) setTimeout(() => g.click(), 120); }
+  else if (e.target.closest("#rt-hide")) { settings.rfiTip = false; saveDraft(); rfiTip(); }
+});
 function renderBulkbar() {
   for (const id of Array.from(selected)) if (!photos.find(p => p.id === id)) selected.delete(id);
   $("#bulkbar").hidden = selected.size === 0;
@@ -2094,15 +2182,15 @@ $("#btn-new").addEventListener("click", async () => {
   renderReportForm(); renderList(); saveDraft(); toast("New report started");
 });
 
-/* ---------- Scan a document or page (v1.2.6, experimental, settings.docScan) ----------
+/* ---------- Scan a document or page (v1.2.6; on by default from v1.2.7, settings.docScan === false switches it off) ----------
    Photograph a page, drag four corner handles onto it, and the app straightens it into a flat page (and, if chosen, turns
    it black and white like a scan). The result goes in as a normal photo (p.doc = 1). Uses homography() from the drawing
    references code; the straighten and enhance steps here work on their own so the drawings editor is untouched. */
 let dsc = null;   // { im, url, blob, q, cb, mode }
 const DSC_MAX = 2400;   // longest side of a scanned page, px
-function docScanOn() { return settings.docScan === true; }
+function docScanOn() { return settings.docScan !== false; }   // on unless switched off in Setup
 function docScanUI() { $("#docscan-row").hidden = !docScanOn(); }
-function openDocScan(cb) { dsc = { cb, mode: settings.docScanMode === "col" ? "col" : "bw" }; $("#in-docscan").click(); }
+function openDocScan(cb) { dsc = { cb, mode: ["clean", "gray", "bw", "col"].includes(settings.docScanMode) ? settings.docScanMode : "clean", bri: 0, con: 0 }; $("#in-docscan").click(); }
 $("#btn-docscan").addEventListener("click", () => openDocScan(async f => {
   const out = await importFiles([f], true, DSC_MAX);
   out.forEach(([p]) => { p.doc = 1; }); renderList(); saveDraft();
@@ -2116,11 +2204,10 @@ $("#in-docscan").addEventListener("change", async e => {
     if (dsc.url) URL.revokeObjectURL(dsc.url);
     const W = im.naturalWidth, H = im.naturalHeight, m = 0.06;
     Object.assign(dsc, { im, url, blob: r.blob, q: [[W * m, H * m], [W * (1 - m), H * m], [W * (1 - m), H * (1 - m)], [W * m, H * (1 - m)]] });
-    $$("#ds-mode [data-dm]").forEach(b => b.setAttribute("aria-pressed", b.dataset.dm === dsc.mode));
-    openSheet("#docscan"); dscDraw();
+    dscShow("edit"); dscAuto(); openSheet("#docscan"); dscDraw();
   } catch (err) { toast("That photo could not be opened.", 4000); }
 });
-function docScanInit() { onSheetClose["#docscan"] = () => { if (dsc && dsc.url) URL.revokeObjectURL(dsc.url); if (dsc) { dsc.url = null; dsc.im = null; dsc.blob = null; } }; }
+function docScanInit() { onSheetClose["#docscan"] = () => { if (dsc) { if (dsc.url) URL.revokeObjectURL(dsc.url); if (dsc.pvurl) URL.revokeObjectURL(dsc.pvurl); dsc.url = dsc.pvurl = dsc.im = dsc.blob = dsc.out = dsc.warp = dsc.warpS = null; } }; }
 function dscDraw() {
   if (!dsc || !dsc.im) return;
   const cv = $("#ds-canvas"), im = dsc.im, W = Math.min(im.naturalWidth, 1100), s = W / im.naturalWidth, H = Math.round(im.naturalHeight * s);
@@ -2145,11 +2232,6 @@ function dscDraw() {
   const end = () => { drag = -1; };
   cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
 })();
-$("#ds-mode").addEventListener("click", e => {
-  const b = e.target.closest("[data-dm]"); if (!b || !dsc) return;
-  dsc.mode = b.dataset.dm; settings.docScanMode = dsc.mode; saveDraft();
-  $$("#ds-mode [data-dm]").forEach(x => x.setAttribute("aria-pressed", x.dataset.dm === dsc.mode));
-});
 // straighten: the four corners become a flat rectangle (a shape near A-size, 1 : 1.414, is set to it exactly)
 async function dscWarp(im, q) {
   const d = (a, c) => Math.hypot(a[0] - c[0], a[1] - c[1]);
@@ -2171,18 +2253,113 @@ async function dscWarp(im, q) {
   }
   ox.putImageData(od, 0, 0); return oc;
 }
-// black and white like a scan: the paper is evened out (shadows, uneven light) and set white, the print dark
-function dscBW(cv) {
-  const cx = cv.getContext("2d"), bw = Math.max(16, Math.round(cv.width / 24)), bh = Math.max(16, Math.round(cv.height / 24)), bc = document.createElement("canvas"); bc.width = bw; bc.height = bh;
+// ---- the look of the scan (v1.2.7) ----
+// clean: the paper is evened out (shadows, uneven light) and set white; colours and fine detail stay.
+// grey: the same, in grey. bw: a sharp black and white like a copier. col: the photo as it is. Then brightness and contrast.
+function dscBg(cv) {   // a blurred, small copy of the picture stretched back: the colour of the paper under each part of the page
+  const bw = Math.max(16, Math.round(cv.width / 24)), bh = Math.max(16, Math.round(cv.height / 24)), bc = document.createElement("canvas"); bc.width = bw; bc.height = bh;
   const bx = bc.getContext("2d"); bx.filter = "blur(2px)"; bx.drawImage(cv, 0, 0, bw, bh);
-  const big = document.createElement("canvas"); big.width = cv.width; big.height = cv.height; const gx = big.getContext("2d"); gx.imageSmoothingEnabled = true; gx.drawImage(bc, 0, 0, cv.width, cv.height);
-  const id = cx.getImageData(0, 0, cv.width, cv.height), d = id.data, g = gx.getImageData(0, 0, cv.width, cv.height).data;
+  const big = document.createElement("canvas"); big.width = cv.width; big.height = cv.height; const gx = big.getContext("2d", { willReadFrequently: true }); gx.imageSmoothingEnabled = true; gx.drawImage(bc, 0, 0, cv.width, cv.height);
+  return gx.getImageData(0, 0, cv.width, cv.height).data;
+}
+function dscLook(src, mode, bri, con) {
+  const cv = document.createElement("canvas"); cv.width = src.width; cv.height = src.height;
+  const cx = cv.getContext("2d", { willReadFrequently: true }); cx.drawImage(src, 0, 0);
+  const id = cx.getImageData(0, 0, cv.width, cv.height), d = id.data, g = mode === "col" ? null : dscBg(src);
+  const k = 1 + con / 100, off = bri * 1.28;
   for (let i = 0; i < d.length; i += 4) {
-    const l = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2], bg = Math.max(60, 0.299 * g[i] + 0.587 * g[i + 1] + 0.114 * g[i + 2]);
-    let v = Math.min(1, l / bg); v = v > 0.88 ? 1 : Math.pow(v / 0.88, 1.6);
-    d[i] = d[i + 1] = d[i + 2] = Math.round(v * 255);
+    let r = d[i], gg = d[i + 1], b = d[i + 2];
+    if (mode === "clean" || mode === "gray") {
+      r = Math.min(255, r / Math.max(70, g[i]) * 248); gg = Math.min(255, gg / Math.max(70, g[i + 1]) * 248); b = Math.min(255, b / Math.max(70, g[i + 2]) * 248);
+      if (mode === "gray") r = gg = b = 0.299 * r + 0.587 * gg + 0.114 * b;
+    } else if (mode === "bw") {
+      const l = 0.299 * r + 0.587 * gg + 0.114 * b, bg = Math.max(60, 0.299 * g[i] + 0.587 * g[i + 1] + 0.114 * g[i + 2]);
+      let v = Math.min(1, l / bg); v = v > 0.88 ? 1 : Math.pow(v / 0.88, 1.6); r = gg = b = v * 255;
+    }
+    d[i] = Math.max(0, Math.min(255, (r - 128) * k + 128 + off)); d[i + 1] = Math.max(0, Math.min(255, (gg - 128) * k + 128 + off)); d[i + 2] = Math.max(0, Math.min(255, (b - 128) * k + 128 + off));
   }
   cx.putImageData(id, 0, 0); return cv;
+}
+function dscPvDraw() {   // the preview is made on a smaller copy so the sliders stay quick
+  if (!dsc || !dsc.warpS) return;
+  const o = dscLook(dsc.warpS, dsc.mode, dsc.bri, dsc.con), t = $("#ds-pvcv"); t.width = o.width; t.height = o.height; t.getContext("2d").drawImage(o, 0, 0);
+}
+let dscRaf = 0;
+function dscPvSoon() { cancelAnimationFrame(dscRaf); dscRaf = requestAnimationFrame(dscPvDraw); }
+$("#ds-mode").addEventListener("click", e => {
+  const b = e.target.closest("[data-dm]"); if (!b || !dsc) return;
+  dsc.mode = b.dataset.dm; settings.docScanMode = dsc.mode; saveDraft();
+  $$("#ds-mode [data-dm]").forEach(x => x.setAttribute("aria-pressed", x.dataset.dm === dsc.mode)); dscPvDraw();
+});
+["bri", "con"].forEach(k => $("#ds-" + k).addEventListener("input", e => { if (!dsc) return; dsc[k] = +e.target.value; $("#ds-" + k + "-v").textContent = (dsc[k] > 0 ? "+" : "") + dsc[k]; dscPvSoon(); }));
+$("#ds-reset").addEventListener("click", () => { if (!dsc) return; dsc.bri = dsc.con = 0; ["bri", "con"].forEach(k => { $("#ds-" + k).value = 0; $("#ds-" + k + "-v").textContent = "0"; }); dscPvDraw(); });
+// ---- v1.2.7: find the page by itself, rotate, retake, preview ----
+// The photo is made small, the page is taken as the large light (or dark) area around the middle of the picture, and its
+// four extreme points become the corners. When nothing clear is found the corners stay where they were and the sheet says so.
+function dscFind(im) {
+  const k = Math.min(1, 360 / Math.max(im.naturalWidth, im.naturalHeight)), w = Math.max(8, Math.round(im.naturalWidth * k)), h = Math.max(8, Math.round(im.naturalHeight * k));
+  const c = document.createElement("canvas"); c.width = w; c.height = h; const x = c.getContext("2d", { willReadFrequently: true }); x.filter = "blur(2px)"; x.drawImage(im, 0, 0, w, h);
+  const d = x.getImageData(0, 0, w, h).data, g = new Uint8Array(w * h), hist = new Array(256).fill(0);
+  for (let i = 0; i < w * h; i++) { const v = Math.round(0.299 * d[i * 4] + 0.587 * d[i * 4 + 1] + 0.114 * d[i * 4 + 2]); g[i] = v; hist[v]++; }
+  let sum = 0; for (let i = 0; i < 256; i++) sum += i * hist[i];
+  let wb = 0, sb = 0, best = 0, T = 128;
+  for (let t = 0; t < 256; t++) { wb += hist[t]; if (!wb) continue; const wf = w * h - wb; if (!wf) break; sb += t * hist[t]; const mb = sb / wb, mf = (sum - sb) / wf, v = wb * wf * (mb - mf) * (mb - mf); if (v > best) { best = v; T = t; } }
+  let res = null;
+  for (const bright of [true, false]) {
+    const m = new Uint8Array(w * h); for (let i = 0; i < w * h; i++) m[i] = (bright ? g[i] > T : g[i] <= T) ? 1 : 0;
+    // start from the mask pixel nearest the middle
+    let seed = -1, bd = 1e9; for (let yy = Math.round(h * 0.3); yy < h * 0.7; yy++) for (let xx = Math.round(w * 0.3); xx < w * 0.7; xx++) { const i = yy * w + xx; if (m[i]) { const dd = (xx - w / 2) ** 2 + (yy - h / 2) ** 2; if (dd < bd) { bd = dd; seed = i; } } }
+    if (seed < 0) continue;
+    const comp = new Uint8Array(w * h), st = [seed]; comp[seed] = 1; let n = 1;
+    while (st.length) { const i = st.pop(), px = i % w, py = (i / w) | 0; for (const j of [px > 0 ? i - 1 : -1, px < w - 1 ? i + 1 : -1, py > 0 ? i - w : -1, py < h - 1 ? i + w : -1]) if (j >= 0 && m[j] && !comp[j]) { comp[j] = 1; n++; st.push(j); } }
+    // holes (print on the page) belong to the page: whatever the outside cannot reach
+    const out = new Uint8Array(w * h), q2 = []; for (let i = 0; i < w * h; i++) { const px = i % w, py = (i / w) | 0; if ((px === 0 || py === 0 || px === w - 1 || py === h - 1) && !comp[i]) { out[i] = 1; q2.push(i); } }
+    while (q2.length) { const i = q2.pop(), px = i % w, py = (i / w) | 0; for (const j of [px > 0 ? i - 1 : -1, px < w - 1 ? i + 1 : -1, py > 0 ? i - w : -1, py < h - 1 ? i + w : -1]) if (j >= 0 && !comp[j] && !out[j]) { out[j] = 1; q2.push(j); } }
+    let area = 0, tl = null, tr = null, br = null, bl = null, a1 = 1e9, a2 = -1e9, a3 = -1e9, a4 = 1e9;
+    for (let i = 0; i < w * h; i++) { if (out[i]) continue; area++; const px = i % w, py = (i / w) | 0, s1 = px + py, s2 = px - py; if (s1 < a1) { a1 = s1; tl = [px, py]; } if (s1 > a3) { a3 = s1; br = [px, py]; } if (s2 > a2) { a2 = s2; tr = [px, py]; } if (s2 < a4) { a4 = s2; bl = [px, py]; } }
+    const frac = area / (w * h); if (frac < 0.12 || frac > 0.985) continue;
+    const q = [tl, tr, br, bl], qa = Math.abs(q.reduce((s2, p, i) => { const nx = q[(i + 1) % 4]; return s2 + p[0] * nx[1] - nx[0] * p[1]; }, 0)) / 2;
+    const solid = area / Math.max(1, qa); if (solid < 0.82 || solid > 1.12) continue;
+    if (!res || solid > res.solid) res = { q, solid };
+  }
+  if (!res) return null;
+  return res.q.map(([px, py]) => [Math.min(im.naturalWidth, Math.max(0, px / k)), Math.min(im.naturalHeight, Math.max(0, py / k))]);
+}
+function dscAuto() {
+  if (!dsc || !dsc.im) return;
+  let q = null; try { q = dscFind(dsc.im); } catch (e) { q = null; }
+  const msg = $("#ds-msg");
+  if (q) { dsc.q = q; dsc.found = true; msg.innerHTML = "The page was found. Check the four corners and drag any that are off. Then tap <b>Next</b>."; }
+  else { dsc.found = false; msg.innerHTML = "The page edges could not be found by themselves. Drag the four round handles onto the corners of the page. Then tap <b>Next</b>."; }
+  dscDraw();
+}
+function dscShow(which) {
+  $("#ds-edit").hidden = which !== "edit"; $("#ds-f1").hidden = which !== "edit";
+  $("#ds-pv").hidden = which !== "pv"; $("#ds-f2").hidden = which !== "pv";
+  $("#ds-title").textContent = which === "pv" ? "Check the scan" : "Scan a document";
+}
+async function dscRotate() {
+  if (!dsc || !dsc.im) return;
+  const im = dsc.im, c = document.createElement("canvas"); c.width = im.naturalHeight; c.height = im.naturalWidth;
+  const x = c.getContext("2d"); x.translate(c.width, 0); x.rotate(Math.PI / 2); x.drawImage(im, 0, 0);
+  const blob = await canvasBlob(c, 0.92), url = URL.createObjectURL(blob), ni = await loadImg(url);
+  if (dsc.url) URL.revokeObjectURL(dsc.url);
+  dsc.url = url; dsc.blob = blob; dsc.im = ni; dscAuto();
+}
+$("#ds-rot").addEventListener("click", () => dscRotate().catch(() => toast("Could not rotate the photo.", 3000)));
+$("#ds-auto").addEventListener("click", dscAuto);
+$("#ds-retake").addEventListener("click", () => { closeSheet("#docscan"); setTimeout(() => $("#in-docscan").click(), 0); });
+async function dscPreview() {
+  if (!dsc || !dsc.im) return;
+  toast("Making the scan…", 6000); await new Promise(r => setTimeout(r, 30));
+  try {
+    dsc.warp = await dscWarp(dsc.im, dsc.q);
+    const k = Math.min(1, 900 / Math.max(dsc.warp.width, dsc.warp.height)), sm = document.createElement("canvas"); sm.width = Math.max(1, Math.round(dsc.warp.width * k)); sm.height = Math.max(1, Math.round(dsc.warp.height * k));
+    sm.getContext("2d").drawImage(dsc.warp, 0, 0, sm.width, sm.height); dsc.warpS = sm;
+    dsc.bri = dsc.con = 0; ["bri", "con"].forEach(q => { $("#ds-" + q).value = 0; $("#ds-" + q + "-v").textContent = "0"; });
+    $$("#ds-mode [data-dm]").forEach(x => x.setAttribute("aria-pressed", x.dataset.dm === dsc.mode));
+    dscPvDraw(); dscShow("pv");
+  } catch (err) { toast("Could not make the scan. Try again, or use the whole photo.", 5000); }
 }
 async function dscUse(whole) {
   if (!dsc || !dsc.im) return;
@@ -2190,17 +2367,18 @@ async function dscUse(whole) {
   try {
     if (whole) blob = dsc.blob;
     else {
-      toast("Making the scan…", 6000);
-      await new Promise(r => setTimeout(r, 30));
-      let cv = await dscWarp(dsc.im, dsc.q); if (dsc.mode === "bw") cv = dscBW(cv);
-      blob = await canvasBlob(cv, 0.9);
+      toast("Making the scan…", 6000); await new Promise(r => setTimeout(r, 30));
+      if (!dsc.warp) dsc.warp = await dscWarp(dsc.im, dsc.q);
+      blob = await canvasBlob(dscLook(dsc.warp, dsc.mode, dsc.bri || 0, dsc.con || 0), 0.9);
     }
   } catch (err) { toast("Could not make the scan. Try again, or use the whole photo.", 5000); return; }
   const d = new Date(), name = `scan_${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}_${pad(d.getHours())}${pad(d.getMinutes())}${pad(d.getSeconds())}.jpg`;
   closeSheet("#docscan");
   if (cb) await cb(new File([blob], name, { type: "image/jpeg", lastModified: Date.now() }));
 }
-$("#ds-use").addEventListener("click", () => dscUse(false));
+$("#ds-use").addEventListener("click", dscPreview);
+$("#ds-back").addEventListener("click", () => dscShow("edit"));
+$("#ds-add").addEventListener("click", () => dscUse(false));
 $("#ds-whole").addEventListener("click", () => dscUse(true));
 $("#st-docscan").addEventListener("change", e => { settings.docScan = e.target.checked; saveDraft(); docScanUI(); if (!$("#qp").hidden) renderQp(); });
 /* ---------- activity picker ---------- */
@@ -2280,6 +2458,7 @@ $("#btn-bulk").addEventListener("click", () => {
   $("#bk-title").textContent = `Tag ${selected.size} selected photo${selected.size > 1 ? "s" : ""}`;
   $("#bk-struct").innerHTML = structOptions("");
   ["#bk-el", "#bk-ch", "#bk-ch2", "#bk-rfi", "#bk-rem", "#bk-stext", "#bk-place", "#bk-prog", "#bk-date"].forEach(s => $(s).value = "");
+  bkCh2(false);
   $("#bk-status").innerHTML = statusOptions("", "Keep as is"); $("#bk-stext-w").hidden = true;
   $("#bk-result").innerHTML = resultOptions("", "Keep as is"); $("#bk-rtext-w").hidden = true; $("#bk-rtext").value = "";
   $("#bk-side").innerHTML = sideButtons("", "data-bside");
@@ -2298,6 +2477,9 @@ $("#bk-side").addEventListener("click", e => { const b = e.target.closest("[data
 $("#bk-ch").addEventListener("change", e => e.target.value = normCH(e.target.value));
 $("#bk-status").addEventListener("change", e => { $("#bk-stext-w").hidden = e.target.value !== "other"; });
 $("#bk-result").addEventListener("change", e => { $("#bk-rtext-w").hidden = e.target.value !== "other"; });
+function bkCh2(on) { $("#bk-ch2add").hidden = on; $("#bk-ch2x").hidden = !on; if (!on) $("#bk-ch2").value = ""; }
+$("#bk-addch2").addEventListener("click", () => { bkCh2(true); $("#bk-ch2").focus(); });
+$("#bk-rmch2").addEventListener("click", () => bkCh2(false));
 $("#bk-ch2").addEventListener("change", e => e.target.value = normCH(e.target.value));
 $("#bk-apply").addEventListener("click", () => {
   const st = $("#bk-struct").value, el = $("#bk-el").value.trim(), ch = normCH($("#bk-ch").value), ch2 = normCH($("#bk-ch2").value);
@@ -2652,7 +2834,7 @@ function renderQp() {
   // chainage to: only when asked for, in line with the chainage (as on the photo card)
   const w = $("#qp-ch2w"), show = !p.offsite && (p.ch2 || p.showCh2);
   w.className = show ? "chin" : "";
-  w.innerHTML = show ? `<label class="lbl lblrow" for="qp-ch2"><span>Chainage to</span><button type="button" class="xbtn" id="qp-rmch2" aria-label="Remove chainage range">× Remove</button></label><input type="text" id="qp-ch2" inputmode="decimal" autocomplete="off" placeholder="71+900" value="${esc(p.ch2 || "")}">`
+  w.innerHTML = show ? `<label class="lbl lblrow" for="qp-ch2"><span>Chainage to</span><button type="button" class="xbtn" id="qp-rmch2" aria-label="Remove chainage range">× Remove</button></label><input type="text" id="qp-ch2" inputmode="numeric" autocomplete="off" placeholder="71+900" value="${esc(p.ch2 || "")}">`
     : `<span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" id="qp-addch2">+ Chainage to</button>`;
   $("#qp-status").innerHTML = STATUS.map(s => `<button type="button" data-qst="${s[0]}" aria-pressed="${p.status === s[0]}">${esc(lg === "bm" ? s[2] : s[1])}</button>`).join("") + `<button type="button" class="more" data-qst="other" aria-pressed="${p.status === "other"}">Other…</button>`;
   $("#qp-stext").hidden = p.status !== "other"; $("#qp-stext").value = p.statusText || "";
@@ -3583,12 +3765,12 @@ function shareSupported() {
 function renderOutActions() {
   const share = shareSupported();
   const acts = [];
-  acts.push(["pdf", "PDF report", `${settings.ppp === 2 ? 2 : 4} photos per A4 page with captions${locStripOn() ? ", location strip on each photo" : ""}${$("#out-sumpage").checked ? ", summary table first" : ""}${settings.diagram ? ", alignment diagram on page 1" + (diagLayersOn().length ? " with structure lines" : "") : ""}.`, share ? "Share PDF" : "Save PDF"]);
-  acts.push(["stamped", "Captioned photos", settings.capStyle === "below" ? "Each photo as taken, with its caption as a table below it, renamed in order." : "Each photo with its caption printed on it, renamed in order.", share ? "Share photos" : "Save photos (ZIP)"]);
+  acts.push(["pdf", "PDF report", `${settings.ppp === 2 ? 2 : 4} photos per A4 page with captions${locStripOn() ? ", location strip on each photo" : ""}${$("#out-sumpage").checked ? ", summary table first" : ""}${settings.diagram ? ", alignment diagram on page 1" + (diagLayersOn().length ? " with structure lines" : "") : ""}.`, "Save PDF"]);
+  acts.push(["stamped", "Captioned photos", settings.capStyle === "below" ? "Each photo as taken, with its caption as a table below it, renamed in order." : "Each photo with its caption printed on it, renamed in order.", "Save photos (ZIP)"]);
   acts.push(["text", "WhatsApp message", "Short list of activities and chainages to paste with the PDF.", "Copy text"]);
   acts.push(["word", "Word document <span class=\"tag\">Experimental</span>", "The same report as an editable Word file (.docx), set out like the PDF: details, summary, photos with captions and drawing references.", "Save Word"]);
   acts.push(["zip", "Everything (archive)", "PDF, captioned photos, RFI photo records and a CSV photo log in one ZIP for your own records.", "Save ZIP"]);
-  $("#out-actions").innerHTML = acts.map(([k, t, d, b]) => `<div class="oa"><b>${t}</b><span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">${k === "pdf" ? `<button class="btn" type="button" data-out="preview">Preview</button>` : k === "stamped" ? `<button class="btn" type="button" data-out="stpreview">Preview</button>` : ""}<button class="btn ${k === "pdf" ? "acc" : ""}" type="button" data-out="${k}">${b}</button>${k === "word" && share ? `<button class="btn" type="button" data-out="wordshare">Share Word</button>` : ""}</span><p style="grid-column:1/-1">${d}${k === "pdf" ? `<b id="out-pdfinfo" style="font-size:inherit;color:var(--ink)"></b>` : ""}</p>${k === "stamped" ? `<div class="capopts capsty" style="grid-column:1/-1"><span class="small muted">Caption:</span><div class="seg" role="group" aria-label="Caption style"><button type="button" data-capstyle="on" aria-pressed="${settings.capStyle !== "below"}">On the photo</button><button type="button" data-capstyle="below" aria-pressed="${settings.capStyle === "below"}">Below the photo</button></div></div><div class="capopts capshow" style="grid-column:1/-1"><span class="small muted">Show:</span><div class="chips capchips">${capChips(["time", "team", "by", "no", "loc", "act", "ref", "rfi", "dwg", "status", "rem", "strip", "link"].filter(x => x !== "dwg" || dwgOn()))}</div></div>` : ""}</div>`).join("")
+  $("#out-actions").innerHTML = acts.map(([k, t, d, b]) => `<div class="oa"><b>${t}</b><span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end">${k === "pdf" ? `<button class="btn" type="button" data-out="preview">Preview</button>` : k === "stamped" ? `<button class="btn" type="button" data-out="stpreview">Preview</button>` : ""}${k === "pdf" || k === "stamped" ? `<button class="btn ${share ? "" : "acc"}" type="button" data-out="${k}">${b}</button>${share ? `<button class="btn acc" type="button" data-out="${k}share">${k === "pdf" ? "Share PDF" : "Share photos"}</button>` : ""}` : `<button class="btn" type="button" data-out="${k}">${b}</button>`}${k === "word" && share ? `<button class="btn" type="button" data-out="wordshare">Share Word</button>` : ""}</span><p style="grid-column:1/-1">${d}${k === "pdf" ? `<b id="out-pdfinfo" style="font-size:inherit;color:var(--ink)"></b>` : ""}</p>${k === "stamped" ? `<div class="capopts capsty" style="grid-column:1/-1"><span class="small muted">Caption:</span><div class="seg" role="group" aria-label="Caption style"><button type="button" data-capstyle="on" aria-pressed="${settings.capStyle !== "below"}">On the photo</button><button type="button" data-capstyle="below" aria-pressed="${settings.capStyle === "below"}">Below the photo</button></div></div><div class="capopts capshow" style="grid-column:1/-1"><span class="small muted">Show:</span><div class="chips capchips">${capChips(["time", "team", "by", "no", "loc", "act", "ref", "rfi", "dwg", "status", "rem", "strip", "link"].filter(x => x !== "dwg" || dwgOn()))}</div></div>` : ""}</div>`).join("")
     + (share ? `<p class="muted small" style="margin:0">Share opens your phone's share menu. Pick WhatsApp, then the group.</p>` : "")
     + (IN_CLAUDE ? `<p class="muted small" style="margin:0">Each save asks you to confirm. On a phone, open the saved file and share it to WhatsApp from there.</p>` : "")
     + `<p class="muted small" style="margin:0">Saving or sharing a report also logs it in the Register.</p>`
@@ -3610,7 +3792,7 @@ function renderRfiSection() {
         <div class="small muted">Location from the photos: ${esc(a.loc || "–")}</div>
         <div><label class="lbl">Description of works</label><textarea data-rf="desc" rows="2" placeholder="${esc(rflDescFor(code) || a.desc)}">${esc(inf.desc)}</textarea></div>
         <div><label class="lbl">Comments</label><textarea data-rf="com" rows="2">${esc(inf.com)}</textarea></div>
-        <div style="display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap"><button class="btn" type="button" data-rfipv="${esc(code)}">Preview</button><button class="btn" type="button" data-rfiword="${esc(code)}">Save Word</button>${share ? `<button class="btn" type="button" data-rfiword="${esc(code)}" data-wshare="1">Share Word</button>` : ""}<button class="btn acc" type="button" data-rfiout="${esc(code)}">${share ? "Share" : "Save"} RFI photo record</button></div>
+        <div style="display:grid;gap:6px"><div style="display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;align-items:center"><span class="small muted" style="margin-right:auto">PDF</span><button class="btn" type="button" data-rfipv="${esc(code)}">Preview</button><button class="btn ${share ? "" : "acc"}" type="button" data-rfiout="${esc(code)}">Save PDF</button>${share ? `<button class="btn acc" type="button" data-rfishare="${esc(code)}">Share PDF</button>` : ""}</div><div style="display:flex;justify-content:flex-end;gap:6px;flex-wrap:wrap;align-items:center"><span class="small muted" style="margin-right:auto">Word (editable)</span><button class="btn" type="button" data-rfiword="${esc(code)}">Save Word</button>${share ? `<button class="btn" type="button" data-rfiword="${esc(code)}" data-wshare="1">Share Word</button>` : ""}</div></div>
       </div></details>`;
   }
   if (g.size > 1) html += `<div style="display:flex;justify-content:flex-end"><button class="btn" type="button" data-rfiall="1">Save all ${g.size} RFI records (ZIP)</button></div>`;
@@ -3687,9 +3869,9 @@ $("#out-actions").addEventListener("click", e => {
 });
 // captioned photos: share them all, or save a ZIP where the phone cannot share files.
 // A slow build can lose the phone's tap permission: then the bar at the bottom offers "Share".
-async function outStamped(list) {
+async function outStamped(list, saveOnly) {
   const files = list.map(x => new File([x.blob], x.name, { type: "image/jpeg" }));
-  if (canShareFiles(files)) {
+  if (!saveOnly && canShareFiles(files)) {
     try { await navigator.share({ files }); return "Shared."; }
     catch (err) {
       if (err && err.name === "AbortError") return "";
@@ -3725,14 +3907,15 @@ $("#out-actions").addEventListener("click", async e => {
       if (m) await afterSave(m);
       return;
     }
-    if (k === "pdf") {
+    if (k === "pdf" || k === "pdfshare") {
       const pdf = await getPDF(); const name = baseName() + ".pdf";
       prog(false, 0, 0, "");
+      if (k === "pdf") { await saveFile(pdf, name); toast(`Saved ${name}. Find it in Downloads or Files.`, 6000); await afterSave(`Saved ${name} (${(pdf.size / 1048576).toFixed(1)} MB).`); return; }
       const r = await shareOrSave(pdf, name, "application/pdf", `WP12 site photo report ${dateText()}`);
       if (r === "shared" || r === "saved") await afterSave(r === "shared" ? "Shared." : `Saved ${name} (${(pdf.size / 1048576).toFixed(1)} MB).`);
-    } else if (k === "stamped") {
+    } else if (k === "stamped" || k === "stampedshare") {
       const list = await getStamped(); prog(false, 0, 0, "");
-      const m = await outStamped(list); if (m) await afterSave(m);
+      const m = await outStamped(list, k === "stamped"); if (m) await afterSave(m);
     } else if (k === "zip") {
       const pdf = await getPDF(); const list = await getStamped();
       const zip = new JSZip(); const root = zip.folder(baseName());
@@ -3755,12 +3938,13 @@ $("#out-rfi").addEventListener("click", e => {
   if (wd) { runOut(wd, async () => { const code = wd.dataset.rfiword; toast("Making the Word document…", 20000); const doc = await buildRfiDocx(code, report.lang || "en"); prog(false, 0, 0, ""); const m = await outWord(doc, rfiFileName(code).replace(/\.pdf$/, ".docx"), wd.dataset.wshare ? "share" : "save"); if (m) await afterSave(m); }); return; }
   const pv = e.target.closest("[data-rfipv]");
   if (pv) { runOut(pv, async () => { const code = pv.dataset.rfipv, blob = await getRfiPDF(code); prog(false, 0, 0, ""); await openPreview(blob, rfiFileName(code), "rfi", code); }); return; }
-  const one = e.target.closest("[data-rfiout]"), all = e.target.closest("[data-rfiall]");
+  const one = e.target.closest("[data-rfiout], [data-rfishare]"), all = e.target.closest("[data-rfiall]");
   if (!one && !all) return;
   runOut(one || all, async () => {
     if (one) {
-      const code = one.dataset.rfiout, blob = await getRfiPDF(code), name = rfiFileName(code);
+      const code = one.dataset.rfiout || one.dataset.rfishare, blob = await getRfiPDF(code), name = rfiFileName(code);
       prog(false, 0, 0, "");
+      if (one.dataset.rfiout) { await saveFile(blob, name); toast(`Saved ${name}. Find it in Downloads or Files.`, 6000); await afterSave(`Saved ${name}.`); return; }
       const r = await shareOrSave(blob, name, "application/pdf");
       if (r === "shared" || r === "saved") await afterSave(r === "shared" ? "Shared." : `Saved ${name}.`);
     } else {
@@ -3900,8 +4084,8 @@ function renderRfl() {
   $("#rl-out").hidden = !rows.length; $("#rl-noout").hidden = rows.length > 0; $("#rl-sorts").hidden = rows.length < 2;
   $("#rl-count").textContent = rows.length ? `${rows.length} RFI${rows.length > 1 ? "s" : ""} for inspection on ${rflDateLong(RFL.insp)}` : "No RFIs yet";
   const share = shareSupported();
-  $("#rl-pdf").textContent = share ? "Share PDF" : "Save PDF"; $("#rl-wordshare").hidden = !share; renderRflOpts();
-  $("#rl-board").textContent = share ? "Share board" : "Save board";
+  $("#rl-pdfshare").hidden = !share; $("#rl-pdf").classList.toggle("acc", !share); $("#rl-wordshare").hidden = !share; renderRflOpts();
+  $("#rl-board").hidden = !share; $("#rl-boardpdfshare").hidden = !share; $("#rl-boardsave").classList.toggle("acc", !share);
   $("#rl-rev").textContent = RFL.rev ? `Revision ${RFL.rev}: shared again after changes${RFL.sharedAt ? ", last shared " + tkWhen(RFL.sharedAt) : ""}.` : RFL.sharedAt ? `Shared ${tkWhen(RFL.sharedAt)}. Sharing again after a change makes it revision 1.` : "";
   const ks = Object.keys(RFL_HIST).sort().reverse();
   $("#rl-hist").hidden = !ks.length; $("#rl-histsum").textContent = `Earlier lists (${ks.length})`;
@@ -3966,16 +4150,16 @@ $("#rl-histlist").addEventListener("click", e => {
 
 /* add / edit one RFI */
 // mode "ticket" (v1.2.6): the same form makes an RFI request ticket instead of a list row
-function rflOpenEdit(i, mode) {
+function rflOpenEdit(i, mode, tkEdit) {
   const tk = mode === "ticket", last = tk ? {} : RFL.rows[RFL.rows.length - 1] || {};
-  const r = i == null ? { ref: "", acts: [], desc: "", struct: "", ch: "", ch2: "", side: "", locText: "", pic: tk ? report.name || "" : last.pic || "", time: "", issued: "", insp: "", rem: "" } : rflSplitRow(JSON.parse(JSON.stringify(RFL.rows[i])));
-  rflEd = { i, r, auto: "", mode: tk ? "ticket" : "" };
-  $("#re-title").textContent = tk ? "Request an RFI inspection" : i == null ? "Add an RFI" : `Edit RFI ${pad(i + 1)}`;
+  const r = tkEdit ? Object.assign({ ref: "", acts: [], desc: "", struct: "", ch: "", ch2: "", side: "", locText: "", pic: "", time: "", issued: "", rem: "" }, JSON.parse(JSON.stringify(tkEdit))) : i == null ? { ref: "", acts: [], desc: "", struct: "", ch: "", ch2: "", side: "", locText: "", pic: tk ? report.name || "" : last.pic || "", time: "", issued: "", insp: "", rem: "" } : rflSplitRow(JSON.parse(JSON.stringify(RFL.rows[i])));
+  rflEd = { i, r, auto: "", mode: tk ? "ticket" : "", tkEdit: tkEdit || null };
+  $("#re-title").textContent = tkEdit ? `Edit your RFI request (Rev. ${(+tkEdit.rev || 0) + 1})` : tk ? "Request an RFI inspection" : i == null ? "Add an RFI" : `Edit RFI ${pad(i + 1)}`;
   $("#re-tknote").hidden = !tk; $("#re-tkdate-w").hidden = !tk; $("#re-dates").hidden = tk;
-  $("#re-tkdate").value = RFL.insp && RFL.insp > today() ? RFL.insp : isoAdd(today(), 1);
-  $("#re-save").textContent = tk ? "Make ticket" : "Save"; $("#re-rem").value = r.rem || "";
+  $("#re-tkdate").value = tkEdit && tkEdit.insp ? tkEdit.insp : RFL.insp && RFL.insp > today() ? RFL.insp : isoAdd(today(), 1);
+  $("#re-save").textContent = tkEdit ? "Update ticket" : tk ? "Make ticket" : "Save"; $("#re-rem").value = r.rem || "";
   $("#re-ref").value = r.ref; $("#re-desc").value = r.desc || ""; $("#re-struct").innerHTML = structOptions(r.struct);
-  $("#re-ch").value = r.ch || ""; $("#re-ch2").value = r.ch2 || ""; $("#re-loc").value = r.locText || "";
+  $("#re-loc").value = r.locText || ""; rflEd.off = !!r.locText && !r.ch && !r.ch2; rflEd.showCh2 = !!r.ch2; rflEd.stash = null; $("#re-chrow").innerHTML = "";
   $("#re-pic").value = r.pic || ""; $("#re-time").value = r.time || ""; $("#re-timetext").textContent = !r.time && r.timeText ? `Pasted as "${r.timeText}". Pick the time to replace it.` : "";
   $("#re-issued").value = r.issued || ""; $("#re-insp").value = r.insp || "";
   $("#re-dates").open = !!(r.issued || r.insp);
@@ -3989,16 +4173,26 @@ function rflOpenEdit(i, mode) {
   setTimeout(() => { if (i == null) $("#re-ref").focus(); }, 60);
 }
 function rflEdRender() {
+  if ($("#re-ch")) rflEdRead();   // keep what was typed before the boxes are drawn again
   const r = rflEd.r, lg = (report.lang || "en") === "bm" ? "bm" : "en", b = $("#re-act"), acts = r.acts || [];
   b.classList.toggle("unset", !acts.length);
   b.innerHTML = acts.length ? acts.map(e => { const a = entryAct(e); return `<span class="aent"><span class="an">${esc(entryName(e, lg))}</span>${a ? `<span class="bq">${esc(refChip(a))}</span>` : ""}</span>`; }).join("") + `<span class="small muted">Tap to add or change</span>` : "Choose activity (optional)";
   $("#re-side").innerHTML = sideButtons(r.side, "data-side");
+  const keep = rflEd.r.ch || "", keep2 = rflEd.r.ch2 || "";
+  $("#re-chrow").innerHTML = `<div class="chin"><label class="lbl" for="re-ch">Chainage</label><input type="text" id="re-ch" inputmode="numeric" autocomplete="off" placeholder="76+500" value="${esc(keep)}"></div>`
+    + (rflEd.showCh2 ? `<div class="chin"><label class="lbl lblrow" for="re-ch2"><span>Chainage to</span><button type="button" class="xbtn" id="re-rmch2" aria-label="Remove chainage range">× Remove</button></label><input type="text" id="re-ch2" inputmode="numeric" autocomplete="off" placeholder="77+075" value="${esc(keep2)}"></div>`
+      : `<div><span class="lbl" aria-hidden="true">&nbsp;</span><button type="button" class="addch2" id="re-addch2">+ Chainage to</button></div>`);
+  $$("#re-locseg [data-rloc]").forEach(x => x.setAttribute("aria-pressed", (x.dataset.rloc === "off") === !!rflEd.off));
+  $("#re-onal").hidden = !!rflEd.off; $("#re-elsew").hidden = !rflEd.off;
   rflEdPreview();
 }
 function rflEdRead() {
   const r = rflEd.r;
   r.ref = rflRef($("#re-ref").value); r.desc = $("#re-desc").value.trim(); r.struct = $("#re-struct").value;
-  r.ch = normCH($("#re-ch").value); r.ch2 = normCH($("#re-ch2").value); r.locText = $("#re-loc").value.trim();
+  const c1 = $("#re-ch"), c2 = $("#re-ch2");
+  if (rflEd.off) { r.ch = ""; r.ch2 = ""; r.side = ""; }
+  else { if (c1) r.ch = normCH(c1.value); r.ch2 = c2 ? normCH(c2.value) : ""; }
+  r.locText = $("#re-loc").value.trim();
   r.pic = $("#re-pic").value.trim(); const t = $("#re-time").value; if (t) { r.time = t; r.timeText = ""; }
   r.issued = $("#re-issued").value; r.insp = $("#re-insp").value; r.rem = $("#re-rem").value.trim();
   if (rflEd.mode === "ticket") { r.insp = $("#re-tkdate").value; r.issued = ""; }
@@ -4009,9 +4203,19 @@ function rflEdPreview() {
   $("#re-locprev").textContent = rflLoc(r, lg) ? "Prints as: " + rflLoc(r, lg) : "Type a chainage, pick a structure, or type the place.";
 }
 $("#rfl-ed").addEventListener("input", e => { if (e.target.closest("#re-ch, #re-ch2, #re-loc")) rflEdPreview(); });
+$("#rfl-ed").addEventListener("click", e => {
+  if (e.target.closest("#re-addch2")) { rflEdRead(); rflEd.showCh2 = true; rflEdRender(); $("#re-ch2").focus(); return; }
+  if (e.target.closest("#re-rmch2")) { rflEdRead(); rflEd.r.ch2 = ""; rflEd.showCh2 = false; rflEdRender(); return; }
+  const b = e.target.closest("[data-rloc]"); if (!b) return;
+  const off = b.dataset.rloc === "off"; if (off === !!rflEd.off) return;
+  rflEdRead();
+  if (off) { rflEd.stash = { ch: rflEd.r.ch, ch2: rflEd.r.ch2, side: rflEd.r.side }; rflEd.off = true; rflEd.r.ch = rflEd.r.ch2 = rflEd.r.side = ""; }
+  else { rflEd.off = false; const s0 = rflEd.stash; if (s0) Object.assign(rflEd.r, s0); rflEd.showCh2 = !!rflEd.r.ch2; }
+  $("#re-chrow").innerHTML = ""; rflEdRender(); if (off) $("#re-loc").focus();
+});
 $("#re-struct").addEventListener("change", () => {
   const st = STRUCT.get($("#re-struct").value);
-  if (st && !$("#re-ch").value.trim()) $("#re-ch").value = fmtCH(st.ch);
+  if (st && !rflEd.off && $("#re-ch") && !$("#re-ch").value.trim()) $("#re-ch").value = fmtCH(st.ch);
   if (st && st.side && !rflEd.r.side) rflEd.r.side = st.side;
   rflEdRender();
 });
@@ -4034,7 +4238,7 @@ function rflEdSave() {
   if (rflEd.mode === "ticket") {
     if (!r.insp) { $("#re-msg").textContent = "Pick the inspection date."; return false; }
     if (!report.name && !r.pic) { $("#re-msg").textContent = "Type your name in PIC (or in Report details), so the list keeper knows who asked."; return false; }
-    tkMake(r).then(t => { closeSheet("#rfl-ed"); openTicket(t, "mine"); renderRfl(); });
+    tkMake(r, rflEd.tkEdit).then(t => { closeSheet("#rfl-ed"); openTicket(t, "mine"); renderRfl(); });
     return "ticket";
   }
   const dup = r.ref ? RFL.rows.findIndex((x, j) => x.ref === r.ref && j !== rflEd.i) : -1;
@@ -4326,14 +4530,15 @@ async function rflRun(fn) {
   try { await fn(); } catch (err) { const m = err && err.name === "NotAllowedError" ? "Ready. Tap the same button again to share." : saveErr(err); $("#rl-status").textContent = m; toast(m, 10000); console.warn(err); }
   finally { rflBusy = false; $$("#rl-out button").forEach(x => x.disabled = false); }
 }
-$("#rl-pdf").addEventListener("click", () => rflRun(async () => {
+["#rl-pdf", "#rl-pdfshare"].forEach(id => $(id).addEventListener("click", () => rflRun(async () => {
   $("#rl-status").textContent = "Making the PDF…";
   const blob = await buildRflPDF(report.lang || "en"), name = rflFileBase() + ".pdf";
   rflKeep();
+  if (id === "#rl-pdf") { await saveFile(blob, name); rflShared(); toast(`Saved ${name}. Find it in Downloads or Files.`, 6000); $("#rl-status").textContent = `Saved ${name}.`; return; }
   const r = await shareOrSave(blob, name, "application/pdf", `WP12 RFI summary list ${rflDateLong(RFL.insp)}`);
   if (r === "shared" || r === "saved") rflShared();
   $("#rl-status").textContent = r === "shared" ? "Shared." : r === "saved" ? `Saved ${name}.` : "";
-}));
+})));
 $("#rl-zcol").addEventListener("change", e => { settings.rflZones = e.target.checked; saveDraft(); renderRfl(); });
 $("#rl-diag").addEventListener("change", e => { settings.rflDiag = e.target.checked; saveDraft(); renderRflOpts(); });
 $("#rl-layers").addEventListener("change", e => { const k = e.target.dataset.ly; if (!k) return; settings.rflLayers = Object.assign({}, settings.rflLayers, { [k]: e.target.checked }); saveDraft(); });
@@ -4351,13 +4556,14 @@ function rflShared() {
 // v1.2.6: the board as images (pages of up to 8 RFIs) with the list as text and the link in the message;
 // Board PDF: the same pages as one PDF document, with the list inside it
 function rflMessage(link) { const bm = (report.lang || "en") === "bm"; return rflText(report.lang || "en") + `\n\n${bm ? "Muatkan senarai dalam aplikasi (tekan pautan):" : "Load the list in the app (tap the link):"}\n${link}`; }
-$("#rl-board").addEventListener("click", () => rflRun(async () => {
+["#rl-board", "#rl-boardsave"].forEach(id => $(id).addEventListener("click", () => rflRun(async () => {
+  const saveOnly = id === "#rl-boardsave";
   $("#rl-status").textContent = "Making the board…";
   const pages = await rflBoardPages(), link = await rflLink(), text = rflMessage(link);
   const files = pages.map((b, i) => new File([b], `${rflFileBase()}_board${pages.length > 1 ? "_" + (i + 1) : ""}.jpg`, { type: "image/jpeg" }));
   rflKeep();
   if (navigator.clipboard) navigator.clipboard.writeText(text).catch(() => {});
-  if (canShareFiles(files)) {
+  if (!saveOnly && canShareFiles(files)) {
     try { await navigator.share({ files, text }); rflShared(); $("#rl-status").textContent = `Shared ${files.length} board page${files.length > 1 ? "s" : ""}. The message with the link is also copied.`; return; }
     catch (err) {
       if (err && err.name === "AbortError") { $("#rl-status").textContent = ""; return; }
@@ -4366,15 +4572,16 @@ $("#rl-board").addEventListener("click", () => rflRun(async () => {
   }
   for (const f of files) await saveFile(f, f.name);
   rflShared(); $("#rl-status").textContent = `Saved ${files.length} board page${files.length > 1 ? "s" : ""}. The message with the link is copied: paste it with the images.`;
-}));
-$("#rl-boardpdf").addEventListener("click", () => rflRun(async () => {
+})));
+["#rl-boardpdf", "#rl-boardpdfshare"].forEach(id => $(id).addEventListener("click", () => rflRun(async () => {
   $("#rl-status").textContent = "Making the board PDF…";
   const pdf = await rflBoardPDF(await rflBoardPages()), name = rflFileBase() + "_board.pdf";
   rflKeep();
+  if (id === "#rl-boardpdf") { await saveFile(pdf, name); rflShared(); toast(`Saved ${name}. Find it in Downloads or Files.`, 6000); $("#rl-status").textContent = `Saved ${name}.`; return; }
   const r = await shareOrSave(pdf, name, "application/pdf", `WP12 RFI board ${rflDateLong(RFL.insp)}`);
   if (r === "shared" || r === "saved") rflShared();
   $("#rl-status").textContent = r === "shared" ? "Shared." : r === "saved" ? `Saved ${name}.` : "";
-}));
+})));
 $("#rl-layout").addEventListener("click", e => { const b = e.target.closest("[data-lay]"); if (!b) return; settings.rflLayout = b.dataset.lay; saveDraft(); renderRflOpts(); });
 $("#rl-pv").addEventListener("click", () => rflRun(async () => {
   $("#rl-status").textContent = "";
@@ -4400,7 +4607,7 @@ $("#rl-csv").addEventListener("click", () => rflRun(async () => {
 /* v1.2.6 guided flow: 1 RFIs, 2 Layout, 3 Share */
 function rlStep(n) {
   $$("#rl-steps [data-rs]").forEach(b => b.setAttribute("aria-pressed", b.dataset.rs === String(n)));
-  [1, 2, 3].forEach(i => $("#rl-s" + i).hidden = i !== n);
+  [1, 3].forEach(i => $("#rl-s" + i).hidden = i !== n);
   $("#rfl .sheet-b").scrollTop = 0;
 }
 $("#rl-steps").addEventListener("click", e => { const b = e.target.closest("[data-rs]"); if (b) rlStep(+b.dataset.rs); });
@@ -4412,7 +4619,7 @@ $("#rl-bpv").addEventListener("click", () => rflRun(async () => {
   const pages = await rflBoardPages();
   pvUrls.forEach(u => URL.revokeObjectURL(u)); pvUrls = pages.map(b => URL.createObjectURL(b));
   pvState = { kind: "board", pages };
-  $("#pv-title").textContent = "Preview: board"; $("#pv-share").textContent = "Share board";
+  $("#pv-title").textContent = "Preview: board"; $("#pv-share").textContent = "Share board"; $("#pv-save").hidden = false;
   $("#pv-info").textContent = `${pages.length} page${pages.length > 1 ? "s" : ""} · ${(pages.reduce((a, b) => a + b.size, 0) / 1048576).toFixed(1)} MB · as WhatsApp will show them`;
   $("#pv-pages").innerHTML = pages.map((b, i) => `<img src="${pvUrls[i]}" alt="Board page ${i + 1}">`).join("");
   openSheet("#pv");
@@ -4428,18 +4635,39 @@ async function zipBytes(bytes, pack) {
   const cs = pack ? new CompressionStream("deflate") : new DecompressionStream("deflate");
   return new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(cs)).arrayBuffer());
 }
+// v1.2.7 short form "2" for RFI request tickets: the fields in a fixed order, plain text with only link-safe characters
+// (space = _, anything else outside A-Z a-z 0-9 - = ~ + two hex digits per byte), fields split by ".", activities by ",".
+const t2esc = v => Array.from(new TextEncoder().encode(String(v))).map(b => { const c = String.fromCharCode(b); return /[A-Za-z0-9+:-]/.test(c) ? c : c === " " ? "_" : "~" + (b < 16 ? "0" : "") + b.toString(16); }).join("");
+const t2dec = v => decodeURIComponent(v.replace(/_/g, " ").replace(/~([0-9a-f]{2})/gi, "%$1").replace(/%(?![0-9a-f]{2})/gi, "%25"));
+function t2pack(o) {
+  const f = TK_KEYS.map(([, k]) => { return t2esc(o[k] || ""); });
+  return ("2" + f.join(".") + "." + (o.ac || []).map(t2esc).join(",")).replace(/\.+$/, "");   // no dot at the end: chat apps drop it from a link
+}
+function t2unpack(s) {
+  const p = s.slice(1).split("."), o = { k: "tk", v: 1 };
+  TK_KEYS.forEach(([, k], i) => { const v = p[i] ? t2dec(p[i]) : ""; if (v) o[k] = v; });
+  const ac = p[TK_KEYS.length]; if (ac) o.ac = ac.split(",").map(t2dec);
+  return o;
+}
 async function packData(obj) {
+  let best = null;
+  if (obj && obj.k === "tk") { try { best = t2pack(obj); } catch (e) {} }
+  const full = await packData1(obj);
+  return best && best.length <= full.length ? best : full;
+}
+async function packData1(obj) {
   const raw = new TextEncoder().encode(JSON.stringify(obj));
   if (typeof CompressionStream === "function") { try { const z = await zipBytes(raw, true); if (z.length < raw.length) return "1" + b64u(z); } catch (e) {} }
   return "0" + b64u(raw);
 }
 async function unpackData(s) {
+  if (s[0] === "2") return t2unpack(s);
   const body = unb64u(s.slice(1));
   if (s[0] === "1" && typeof DecompressionStream !== "function") throw new Error("old");
   return JSON.parse(new TextDecoder().decode(s[0] === "1" ? await zipBytes(body, false) : body));
 }
 async function dataLink(obj) { return appUrl() + "#d=" + await packData(obj); }
-function linkData(text) { const m = /[#&?]d=([0-9A-Za-z_-]{8,})/.exec(String(text || "")); return m ? m[1] : null; }
+function linkData(text) { const m = /[#&?]d=([0-9A-Za-z_~.,+:-]{8,})/.exec(String(text || "")); return m ? m[1] : null; }
 async function openData(code, how) {
   let o;
   try { o = await unpackData(code); }
@@ -4586,7 +4814,7 @@ $("#sc-go").addEventListener("click", () => {
 let TK = null;
 async function tkLoad() { if (TK) return TK; try { TK = await sget("kv", "rfitk"); } catch (e) {} if (!TK || !Array.isArray(TK.mine)) TK = { mine: [], inbox: [] }; TK.inbox = TK.inbox || []; return TK; }
 function tkSave() { const cut = a => a.slice(-80); TK.mine = cut(TK.mine); TK.inbox = cut(TK.inbox); sput("kv", "rfitk", TK).catch(() => {}); renderRflStrip(); }
-const TK_KEYS = [["id", "i"], ["ref", "r"], ["desc", "d"], ["struct", "s"], ["ch", "c"], ["ch2", "c2"], ["side", "sd"], ["locText", "l"], ["insp", "dt"], ["time", "t"], ["pic", "p"], ["by", "b"], ["desig", "g"], ["team", "tm"], ["at", "a"], ["rem", "m"]];
+const TK_KEYS = [["id", "i"], ["ref", "r"], ["desc", "d"], ["struct", "s"], ["ch", "c"], ["ch2", "c2"], ["side", "sd"], ["locText", "l"], ["insp", "dt"], ["time", "t"], ["pic", "p"], ["by", "b"], ["desig", "g"], ["team", "tm"], ["at", "a"], ["rem", "m"], ["rev", "rv"]];
 // times travel as minutes since 1970 in base 36 (7 characters instead of 24)
 const tMin = iso => { const v = Date.parse(iso); return isNaN(v) ? "" : Math.round(v / 6e4).toString(36); };
 const tIso = m => { if (!m) return ""; if (/[-:]/.test(m)) return m; const v = parseInt(m, 36) * 6e4; return isNaN(v) ? "" : new Date(v).toISOString(); };
@@ -4616,7 +4844,8 @@ function tkText(t, link, mode) {
   const lg = tkLg(), bm = lg === "bm", out = [];
   const st = mode || "req";
   out.push(st === "req" ? (bm ? "*Permohonan pemeriksaan RFI*" : "*RFI inspection request*") : st === "acc" ? (bm ? "*Permohonan RFI diterima*" : "*RFI request accepted*") : (bm ? "*Permohonan RFI ditolak*" : "*RFI request declined*"));
-  out.push(t.id);
+  out.push(t.id + (+t.rev ? " Rev. " + t.rev : ""));
+  if (+t.rev && st === "req") out.push(bm ? "Dikemas kini: gantikan permohonan terdahulu." : "Updated: replaces the earlier request.");
   out.push(`RFI: ${tkRefText(t) || (bm ? "belum diberi" : "to be assigned")}`);
   const d = rflDescText(t, lg); if (d) out.push(`${bm ? "Kerja" : "Work"}: ${d.replace(/\n/g, " · ")}`);
   const l = rflLoc(t, lg); if (l) out.push(`${bm ? "Lokasi" : "Location"}: ${l}`);
@@ -4688,7 +4917,7 @@ async function ticketImage(t, mode, link) {
       cx.font = tkF(700, 30, "mono"); cx.fillText(CFG.projectCode || "WP12", X0, M + 58);
       const pw = cx.measureText(CFG.projectCode || "WP12").width;
       cx.font = tkF(700, 46, "disp"); cx.fillText(tkL(st).toUpperCase(), X0 + pw + 22, M + 60);
-      cx.font = tkF(600, 30, "mono"); cx.fillStyle = "rgba(255,255,255,0.88)"; cx.fillText(t.id, X0, M + 118);
+      cx.font = tkF(600, 30, "mono"); cx.fillStyle = "rgba(255,255,255,0.88)"; cx.fillText(t.id + (+t.rev ? "  ·  Rev. " + t.rev : ""), X0, M + 118);
     }
     y += hh + 54;
     const top = y;
@@ -4803,8 +5032,13 @@ async function ticketImage(t, mode, link) {
 }
 
 /* making a ticket (from the RFI edit sheet in ticket mode) */
-async function tkMake(r) {
+async function tkMake(r, edit) {
   await tkLoad();
+  if (edit) {   // v1.2.7: a request still waiting is changed and made again: same ticket no., revision raised
+    ["ref", "acts", "desc", "struct", "ch", "ch2", "side", "locText", "time", "pic", "rem", "insp"].forEach(f => { edit[f] = JSON.parse(JSON.stringify(r[f] == null ? "" : r[f])); });
+    edit.rev = (+edit.rev || 0) + 1; edit.at = new Date().toISOString(); edit.st = "sent"; delete edit.miss; tkSave();
+    return edit;
+  }
   const t = Object.assign({ ref: "", acts: [], desc: "", struct: "", ch: "", ch2: "", side: "", locText: "", time: "", pic: "", rem: "" }, JSON.parse(JSON.stringify(r)));
   delete t.issued; delete t.timeText; delete t.late; delete t.req;
   t.id = tkNextId(); t.insp = r.insp || isoAdd(today(), 1); t.by = report.name || r.pic || ""; t.desig = report.designation || ""; t.team = report.team || ""; t.at = new Date().toISOString(); t.st = "sent";
@@ -4880,7 +5114,9 @@ async function receiveTicket(t, how) {
   await tkLoad();
   const mine = TK.mine.find(x => x.id === t.id); if (mine) { openTicket(mine, "mine"); toast("This is your own ticket."); return; }
   let got = TK.inbox.find(x => x.id === t.id);
-  if (got) toast(got.st === "new" ? "Already received. Accept or decline it." : `Already ${got.st === "acc" ? "accepted" : "declined"}.`, 4000);
+  if (got && got.st === "new" && (+t.rev || 0) > (+got.rev || 0)) {   // the requester changed it: take the new details
+    Object.keys(t).forEach(k => { if (k !== "id") got[k] = t[k]; }); tkSave(); renderTickets(); toast(`The request was updated (Rev. ${t.rev}).`, 4000);
+  } else if (got) toast(got.st === "new" ? "Already received. Accept or decline it." : `Already ${got.st === "acc" ? "accepted" : "declined"}.`, 4000);
   else { got = Object.assign(t, { st: "new", got: new Date().toISOString() }); TK.inbox.push(got); tkSave(); }
   openTicket(got, "inbox");
 }
@@ -4902,7 +5138,7 @@ function renderTickets() {
     // "No reply yet" after 3 hours or on the inspection day; Remind shares the ticket again
     const quiet = kind === "mine" && t.st === "sent" && (Date.now() - Date.parse(t.at || 0) > 3 * 36e5 || (t.insp && t.insp <= today()));
     const stt = t.st === "acc" ? `<span class="tag tk-acc">Accepted · no. ${pad(t.no || 0)}${t.viaList ? " (on the list)" : ""}</span>` : t.st === "dec" ? `<span class="tag tk-dec">Declined</span>` : kind === "in" ? `<span class="tag tk-new">New</span>` : t.miss ? `<span class="tag tk-dec">Not on the list for ${esc(t.miss)}</span>` : quiet ? `<span class="tag tk-dec">No reply yet</span>` : `<span class="tag">Sent</span>`;
-    return `<div class="tkrow" data-tk="${esc(t.id)}" data-kind="${kind}"><div class="tkb"><div><b class="mono">${esc(tkRefText(t) || "RFI no. to be assigned")}</b> ${stt}</div><div class="small">${esc(rflDescText(t, lg) || "-")}</div><div class="small muted">${esc([rflDateLong(t.insp) + (rflTime(t) ? " " + rflTime(t) : ""), rflLoc(t, lg), kind === "in" ? tkWho(t) : ""].filter(Boolean).join(" · "))}</div></div><span class="tktools"><button class="tbtn" type="button" data-tkopen>${kind === "in" && t.st === "new" ? "Open" : kind === "mine" && t.st === "sent" && (quiet || t.miss) ? "Remind" : "View"}</button><button class="tbtn danger" type="button" data-tkdel>${kind === "mine" && t.st === "sent" ? "Withdraw" : "Remove"}</button></span></div>`;
+    return `<div class="tkrow" data-tk="${esc(t.id)}" data-kind="${kind}"><div class="tkb"><div><b class="mono">${esc(tkRefText(t) || "RFI no. to be assigned")}</b> ${stt}${+t.rev ? ` <span class="tag">Rev. ${+t.rev}</span>` : ""}</div><div class="small">${esc(rflDescText(t, lg) || "-")}</div><div class="small muted">${esc([rflDateLong(t.insp) + (rflTime(t) ? " " + rflTime(t) : ""), rflLoc(t, lg), kind === "in" ? tkWho(t) : ""].filter(Boolean).join(" · "))}</div></div><span class="tktools"><button class="tbtn" type="button" data-tkopen>${kind === "in" && t.st === "new" ? "Open" : kind === "mine" && t.st === "sent" && (quiet || t.miss) ? "Remind" : "View"}</button>${kind === "mine" && t.st === "sent" ? `<button class="tbtn" type="button" data-tkedit>Edit</button>` : ""}<button class="tbtn danger" type="button" data-tkdel>${kind === "mine" && t.st === "sent" ? "Withdraw" : "Remove"}</button></span></div>`;
   };
   // waiting requests open; handled ones (last 7 days) and my own (last 14 days) folded
   const recent = (t, d) => Date.now() - Date.parse(t.stAt || t.got || t.at || 0) < d * 864e5;
@@ -4928,6 +5164,10 @@ $("#rfl").addEventListener("click", e => {
   const b = e.target.closest("[data-tkopen]"); if (!b) return;
   const r = b.closest("[data-tk]"), list = r.dataset.kind === "in" ? TK.inbox : TK.mine, t = list.find(x => x.id === r.dataset.tk);
   if (t) openTicket(t, r.dataset.kind === "in" ? "inbox" : "mine");
+});
+$("#rfl").addEventListener("click", e => {
+  const b = e.target.closest("[data-tkedit]"); if (!b) return;
+  const t = TK.mine.find(x => x.id === b.closest("[data-tk]").dataset.tk); if (t) rflOpenEdit(null, "ticket", t);
 });
 $("#rl-req").addEventListener("click", () => rflOpenEdit(null, "ticket"));
 $("#rl-scan").addEventListener("click", openScanner);
@@ -5059,75 +5299,79 @@ async function tkConfirmFromList(rows, o) {
    in time order, with a vertical alignment strip on the right marking each RFI's list no. at its chainage */
 async function rflBoardPages() {
   await tkFonts();
-  const W = 1080, M = 40, MAXH = 1600, SW = 200, lg = (report.lang || "en") === "bm" ? "bm" : "en";
+  const W = 1080, M = 36, MAXH = 1600, SW = 210, GAP = 14, lg = (report.lang || "en") === "bm" ? "bm" : "en";
   const rows = RFL.rows.map((r, i) => ({ ...r, no: i + 1 })).sort((a, b) => (a.time || "99").localeCompare(b.time || "99"));
-  const BG = "#0E1418", AMB = "#FFB020", DIM = "#8796A1", LINE = "#24313B", HEAD = 232, FOOT = 120, TX = M + 168, tw = W - TX - SW - M - 14;
+  const INK = "#14212B", ACC = "#D9480F", PAGE = "#EDF0F3", CARD = "#FFFFFF", LINE = "#D9E0E6", MUT = "#5F6E7A", HEAD = 214, TOP = 30, FOOT = 112;
+  const CW = W - 2 * M - SW - 18, TX = M + 190, tw = CW - 190 - 26;   // card width, text column left, text width
   const mc = document.createElement("canvas").getContext("2d");
   const meas = r => {
-    const dl = tkWrap(mc, rflDescText(r, lg) || "-", tkF(600, 29), tw, 2), ll = tkWrap(mc, [rflLoc(r, lg), r.pic ? "PIC " + r.pic : ""].filter(Boolean).join(" · ") || "-", tkF(500, 24), tw, 2), rl = r.rem ? tkWrap(mc, r.rem, tkF(500, 23), tw, 2) : [];
-    return { dl, ll, rl, h: 20 + 42 + dl.length * 36 + ll.length * 30 + rl.length * 29 + 16 };
+    const dl = tkWrap(mc, rflDescText(r, lg) || "-", tkF(600, 29), tw, 2), ll = tkWrap(mc, [rflLoc(r, lg), r.pic ? "PIC " + r.pic : ""].filter(Boolean).join("  ·  ") || "-", tkF(500, 24), tw, 2), rl = r.rem ? tkWrap(mc, r.rem, tkF(500, 23), tw - 28, 2) : [];
+    return { dl, ll, rl, h: Math.max(132, 26 + 40 + 8 + dl.length * 36 + ll.length * 30 + (rl.length ? rl.length * 29 + 24 : 0) + 20) + GAP };
   };
   // pages: up to 8 RFIs, no taller than WhatsApp keeps
-  const pages = []; let cur = [], hh = HEAD + FOOT;
-  for (const r of rows) { const m = meas(r); if (cur.length && (cur.length >= 8 || hh + m.h > MAXH)) { pages.push(cur); cur = []; hh = HEAD + FOOT; } cur.push({ r, m }); hh += m.h; }
+  const pages = []; let cur = [], hh = HEAD + TOP + FOOT;
+  for (const r of rows) { const m = meas(r); if (cur.length && (cur.length >= 8 || hh + m.h > MAXH)) { pages.push(cur); cur = []; hh = HEAD + TOP + FOOT; } cur.push({ r, m }); hh += m.h; }
   if (cur.length || !pages.length) pages.push(cur);
   const a = CFG.chFrom, b = CFG.chTo, secs = secOn(), out = [];
   for (let pi = 0; pi < pages.length; pi++) {
-    const pg = pages[pi], rowsH = Math.max(820, pg.reduce((s, x) => s + x.m.h, 0)), H = HEAD + rowsH + FOOT;
+    const pg = pages[pi], rowsH = Math.max(780, pg.reduce((s, x) => s + x.m.h, 0)), H = HEAD + TOP + rowsH + FOOT;
     const cv = document.createElement("canvas"); cv.width = W; cv.height = H; const cx = cv.getContext("2d");
-    cx.fillStyle = BG; cx.fillRect(0, 0, W, H); cx.textBaseline = "alphabetic";
-    // header
-    cx.fillStyle = AMB; cx.font = tkF(700, 28, "mono"); cx.fillText((CFG.projectCode || "WP12") + "  ·  RFI INSPECTIONS", M, M + 28);
-    cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 66, "disp"); cx.fillText(rflDateLong(RFL.insp).toUpperCase(), M, M + 98);
-    cx.fillStyle = DIM; cx.font = tkF(500, 25); cx.fillText(`${rows.length} RFI${rows.length > 1 ? "s" : ""} · ${[report.name, report.team].filter(Boolean).join(", ")}${pages.length > 1 ? ` · page ${pi + 1} of ${pages.length}` : ""}`, M, M + 138);
-    if (RFL.rev) { const t = `REV. ${RFL.rev}`; cx.font = tkF(700, 30, "mono"); const w = cx.measureText(t).width + 30; cx.strokeStyle = AMB; cx.lineWidth = 3; rrect(cx, W - M - w, M + 2, w, 50, 8); cx.stroke(); cx.fillStyle = AMB; cx.fillText(t, W - M - w + 15, M + 38); }
-    cx.fillStyle = DIM; cx.font = tkF(600, 21); cx.fillText("TIME", M, HEAD - 14); cx.fillText("RFI / WORK / LOCATION", TX, HEAD - 14); cx.fillText("ALIGNMENT", W - M - SW + 20, HEAD - 14);
-    cx.fillStyle = LINE; cx.fillRect(M, HEAD - 4, W - 2 * M, 3);
-    // rows
-    let y = HEAD; const marks = [];
-    pg.forEach(({ r, m }, i) => {
-      if (i % 2) { cx.fillStyle = "#141D24"; cx.fillRect(M - 12, y, W - 2 * M - SW + 4, m.h); }
-      cx.fillStyle = AMB; cx.font = tkF(700, 42, "mono"); cx.fillText(r.time || "--:--", M, y + 56);
-      rrect(cx, M, y + 72, 70, 32, 6); cx.fillStyle = AMB; cx.fill(); cx.fillStyle = BG; cx.font = tkF(700, 22, "mono"); cx.fillText(pad(r.no), M + 21, y + 96);
-      let yy = y + 52; const ref = r.ref ? CFG.rfiPrefix + r.ref : "RFI no. to be assigned";
-      const fs = tkFit(cx, ref, 600, 30, "mono", tw - (r.late ? 110 : 0)); cx.font = tkF(600, fs, "mono"); cx.fillStyle = "#FFFFFF"; cx.fillText(ref, TX, yy);
-      if (r.late) { const rw = cx.measureText(ref).width; cx.fillStyle = "#D9480F"; rrect(cx, TX + rw + 14, yy - 29, 88, 34, 6); cx.fill(); cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 21); cx.fillText("LATE", TX + rw + 31, yy - 5); }
-      yy += 40; cx.fillStyle = "#E6ECF0"; cx.font = tkF(600, 29); m.dl.forEach(l => { cx.fillText(l, TX, yy); yy += 36; });
-      cx.fillStyle = DIM; cx.font = tkF(500, 24); m.ll.forEach(l => { cx.fillText(l, TX, yy - 4); yy += 30; });
-      cx.fillStyle = "#FFD9A8"; cx.font = tkF(500, 23); m.rl.forEach(l => { cx.fillText(l, TX, yy - 4); yy += 29; });
-      if (zoneColOn() && rflZone(r)) { cx.fillStyle = zoneHex(rflZone(r)); cx.fillRect(M - 22, y + 4, 8, m.h - 10); }
-      cx.fillStyle = LINE; cx.fillRect(M, y + m.h - 2, W - 2 * M - SW, 2);
+    cx.fillStyle = PAGE; cx.fillRect(0, 0, W, H); cx.textBaseline = "alphabetic";
+    // header band
+    cx.fillStyle = INK; cx.fillRect(0, 0, W, HEAD); cx.fillStyle = ACC; cx.fillRect(0, HEAD, W, 6);
+    cx.fillStyle = "#FF9B66"; cx.font = tkF(700, 24, "mono"); cx.fillText((CFG.projectCode || "WP12") + "  ·  RFI INSPECTIONS", M, M + 26);
+    cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 64, "disp"); cx.fillText(rflDateLong(RFL.insp).toUpperCase(), M, M + 100);
+    cx.fillStyle = "#AAB6BF"; cx.font = tkF(500, 25); cx.fillText(`${rows.length} RFI${rows.length > 1 ? "s" : ""} · ${[report.name, report.team].filter(Boolean).join(", ")}${pages.length > 1 ? ` · page ${pi + 1} of ${pages.length}` : ""}`, M, M + 142);
+    if (RFL.rev) { const t = `REV. ${RFL.rev}`; cx.font = tkF(700, 28, "mono"); const w = cx.measureText(t).width + 30; cx.strokeStyle = "#FF9B66"; cx.lineWidth = 3; rrect(cx, W - M - w, M, w, 48, 24); cx.stroke(); cx.fillStyle = "#FF9B66"; cx.fillText(t, W - M - w + 15, M + 34); }
+    // rows as cards
+    let y = HEAD + TOP; const marks = [];
+    pg.forEach(({ r, m }) => {
+      const ch = m.h - GAP;
+      cx.save(); cx.shadowColor = "rgba(20,33,43,0.10)"; cx.shadowBlur = 10; cx.shadowOffsetY = 3; cx.fillStyle = CARD; rrect(cx, M, y, CW, ch, 16); cx.fill(); cx.restore();
+      cx.strokeStyle = LINE; cx.lineWidth = 1.5; rrect(cx, M, y, CW, ch, 16); cx.stroke();
+      if (zoneColOn() && rflZone(r)) { cx.save(); rrect(cx, M, y, CW, ch, 16); cx.clip(); cx.fillStyle = zoneHex(rflZone(r)); cx.fillRect(M, y, 10, ch); cx.restore(); }
+      cx.fillStyle = INK; cx.font = tkF(700, 42, "mono"); cx.fillText(r.time || "--:--", M + 30, y + 62);
+      rrect(cx, M + 30, y + 80, 64, 34, 17); cx.fillStyle = INK; cx.fill(); cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 21, "mono"); cx.textAlign = "center"; cx.fillText(pad(r.no), M + 62, y + 104); cx.textAlign = "left";
+      let yy = y + 50; const ref = r.ref ? CFG.rfiPrefix + r.ref : "RFI no. to be assigned";
+      const fs = tkFit(cx, ref, 700, 28, "mono", tw - (r.late ? 110 : 0)); cx.font = tkF(700, fs, "mono"); cx.fillStyle = INK; cx.fillText(ref, TX, yy);
+      if (r.late) { const rw = cx.measureText(ref).width; cx.fillStyle = ACC; rrect(cx, TX + rw + 14, yy - 28, 84, 34, 17); cx.fill(); cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 20); cx.fillText("LATE", TX + rw + 32, yy - 5); }
+      yy += 42; cx.fillStyle = INK; cx.font = tkF(600, 29); m.dl.forEach(l => { cx.fillText(l, TX, yy); yy += 36; });
+      cx.fillStyle = MUT; cx.font = tkF(500, 24); m.ll.forEach(l => { cx.fillText(l, TX, yy - 4); yy += 30; });
+      if (m.rl.length) { const bh = m.rl.length * 29 + 14; cx.fillStyle = "#FFF1E6"; rrect(cx, TX - 8, yy - 8, tw + 8, bh, 8); cx.fill(); cx.fillStyle = "#9A3412"; cx.font = tkF(500, 23); let ry = yy + 17; m.rl.forEach(l => { cx.fillText(l, TX, ry); ry += 29; }); }
       const c1 = parseCH(r.ch), c2 = parseCH(r.ch2);
       if (!isNaN(c1) && chInRange(r.ch)) marks.push({ no: r.no, c1, c2: isNaN(c2) ? c1 : c2 });
       y += m.h;
     });
-    // vertical alignment strip: start chainage at the top, end at the bottom; zones and sections as bands
-    const sx = W - M - SW + 92, y0 = HEAD + 34, y1 = HEAD + rowsH - 40, Y = c => y0 + (Math.min(Math.max(c, a), b) - a) / (b - a) * (y1 - y0);
+    // alignment card: start chainage at the top, end at the bottom; zones and sections as bands
+    const bx = W - M - SW, by = HEAD + TOP, bh = rowsH - GAP;
+    cx.save(); cx.shadowColor = "rgba(20,33,43,0.10)"; cx.shadowBlur = 10; cx.shadowOffsetY = 3; cx.fillStyle = CARD; rrect(cx, bx, by, SW, bh, 16); cx.fill(); cx.restore();
+    cx.strokeStyle = LINE; cx.lineWidth = 1.5; rrect(cx, bx, by, SW, bh, 16); cx.stroke();
+    cx.fillStyle = MUT; cx.font = tkF(700, 17); cx.textAlign = "center"; cx.fillText("ALIGNMENT", bx + SW / 2, by + 30); cx.textAlign = "left";
+    const sx = bx + 108, y0 = by + 74, y1 = by + bh - 48, Y = c => y0 + (Math.min(Math.max(c, a), b) - a) / (b - a) * (y1 - y0);
     const zs = zones().filter(z => z.from != null && z.to != null && z.to > z.from).sort((p, q) => p.from - q.from);
     (zs.length ? zs : [{ name: "", from: a, to: b }]).forEach((z, i) => {
       const ya = Y(Math.max(a, z.from)), yb = Y(Math.min(b, z.to));
-      cx.fillStyle = zoneColOn() && z.name ? zoneHex(z.name) : i % 2 ? "#3A4954" : "#2A3640"; cx.fillRect(sx, ya, 26, Math.max(2, yb - ya - 2));
-      if (z.name) { cx.save(); cx.translate(sx + 13, (ya + yb) / 2); cx.rotate(Math.PI / 2); cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 16); cx.textAlign = "center"; cx.textBaseline = "middle"; cx.fillText(zoneShort(z.name), 0, 0); cx.restore(); }
+      cx.fillStyle = zoneColOn() && z.name ? zoneHex(z.name) : i % 2 ? "#B7C2CB" : "#CBD4DB"; cx.fillRect(sx, ya, 28, Math.max(2, yb - ya - 2));
+      if (z.name) { cx.save(); cx.translate(sx + 14, (ya + yb) / 2); cx.rotate(Math.PI / 2); cx.fillStyle = zoneColOn() ? "#FFFFFF" : INK; cx.font = tkF(700, 16); cx.textAlign = "center"; cx.textBaseline = "middle"; cx.fillText(zoneShort(z.name), 0, 0); cx.restore(); }
     });
     if (secs) secs.list.forEach((s2, i) => {
       const ya = Y(Math.max(a, s2.from)), yb = Y(Math.min(b, s2.to));
-      cx.fillStyle = i % 2 ? "rgba(110,170,230,0.50)" : "rgba(110,170,230,0.30)"; cx.fillRect(sx + 36, ya, 18, Math.max(2, yb - ya - 2));
-      cx.save(); cx.translate(sx + 45, (ya + yb) / 2); cx.rotate(Math.PI / 2); cx.fillStyle = "#D6E8FA"; cx.font = tkF(600, 13); cx.textAlign = "center"; cx.textBaseline = "middle"; cx.fillText(s2.name, 0, 0); cx.restore();
+      cx.fillStyle = i % 2 ? "rgba(52,120,190,0.55)" : "rgba(52,120,190,0.32)"; cx.fillRect(sx + 36, ya, 20, Math.max(2, yb - ya - 2));
+      cx.save(); cx.translate(sx + 46, (ya + yb) / 2); cx.rotate(Math.PI / 2); cx.fillStyle = "#0F3A63"; cx.font = tkF(600, 13); cx.textAlign = "center"; cx.textBaseline = "middle"; cx.fillText(s2.name, 0, 0); cx.restore();
     });
-    cx.fillStyle = DIM; cx.font = tkF(500, 18, "mono"); cx.textAlign = "center"; cx.fillText(fmtCH(a), sx + 13, y0 - 12); cx.fillText(fmtCH(b), sx + 13, y1 + 26); cx.textAlign = "left";
+    cx.fillStyle = MUT; cx.font = tkF(600, 18, "mono"); cx.textAlign = "center"; cx.fillText(fmtCH(a), sx + 14, y0 - 12); cx.fillText(fmtCH(b), sx + 14, y1 + 28); cx.textAlign = "left";
     // markers: the list no. left of the bar at its chainage, pushed apart when close; a range is a bar beside it
     marks.sort((p, q) => p.c1 - q.c1); let last = -1e9;
     marks.forEach(mk => {
       const ym = Y(mk.c1), ty = Math.max(ym, last + 34); last = ty;
-      if (Math.abs(Y(mk.c2) - ym) > 3) { cx.fillStyle = AMB; cx.fillRect(sx - 7, Math.min(ym, Y(mk.c2)), 6, Math.abs(Y(mk.c2) - ym)); }
-      cx.strokeStyle = AMB; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(sx - 2, ym); cx.lineTo(sx - 22, ty); cx.stroke();
-      rrect(cx, sx - 72, ty - 15, 50, 30, 6); cx.fillStyle = AMB; cx.fill(); cx.fillStyle = BG; cx.font = tkF(700, 20, "mono"); cx.textAlign = "center"; cx.fillText(pad(mk.no), sx - 47, ty + 7); cx.textAlign = "left";
+      if (Math.abs(Y(mk.c2) - ym) > 3) { cx.fillStyle = ACC; cx.fillRect(sx - 7, Math.min(ym, Y(mk.c2)), 6, Math.abs(Y(mk.c2) - ym)); }
+      cx.strokeStyle = INK; cx.lineWidth = 2; cx.beginPath(); cx.moveTo(sx - 2, ym); cx.lineTo(sx - 22, ty); cx.stroke();
+      rrect(cx, sx - 74, ty - 15, 52, 30, 15); cx.fillStyle = INK; cx.fill(); cx.fillStyle = "#FFFFFF"; cx.font = tkF(700, 19, "mono"); cx.textAlign = "center"; cx.fillText(pad(mk.no), sx - 48, ty + 7); cx.textAlign = "left";
     });
     // footer
-    const fy = H - FOOT + 36, help = tkWrap(cx, `Load this list in the ${CFG.projectCode || "WP12"} Site Photo Report app: tap the link in the message, or save the RFI list PDF and tap Scan → Load from a PDF.`, tkF(500, 23), W - 2 * M, 2);
-    cx.fillStyle = LINE; cx.fillRect(M, H - FOOT, W - 2 * M, 2);
-    cx.fillStyle = "#C9D3DA"; cx.font = tkF(500, 23); help.forEach((l, k) => cx.fillText(l, M, fy + k * 30));
-    cx.fillStyle = "#5B6872"; cx.font = tkF(500, 19); cx.fillText(creditText(), M, H - 16);
+    const fy = H - FOOT + 40, help = tkWrap(cx, `Load this list in the ${CFG.projectCode || "WP12"} Site Photo Report app: tap the link in the message, or save the RFI list PDF and tap Scan → Load from a PDF.`, tkF(500, 22), W - 2 * M, 2);
+    cx.fillStyle = MUT; cx.font = tkF(500, 22); help.forEach((l, k) => cx.fillText(l, M, fy + k * 29));
+    cx.fillStyle = "#8896A1"; cx.font = tkF(500, 19); cx.fillText(creditText(), M, H - 18);
     out.push(await jpegCredit(await canvasBlob(cv, 0.9)));
   }
   return out;
@@ -5138,7 +5382,7 @@ async function rflBoardPDF(pages) {
   for (let i = 0; i < pages.length; i++) {
     const im = await loadImg(URL.createObjectURL(pages[i])), w = 190, h = w * im.naturalHeight / im.naturalWidth, s = Math.min(1, 277 / h);
     if (i) doc.addPage("a4", "portrait");
-    doc.setFillColor(14, 20, 24); doc.rect(0, 0, 210, 297, "F");
+    doc.setFillColor(237, 240, 243); doc.rect(0, 0, 210, 297, "F");
     doc.addImage(new Uint8Array(await pages[i].arrayBuffer()), "JPEG", 10 + (190 - w * s) / 2, 10, w * s, h * s, undefined, "NONE");
   }
   doc.setProperties({ title: pdfSafe(`WP12 RFI board ${RFL.insp}`), creator: pdfSafe(creditText()), keywords: await rflPdfData() });
@@ -5427,7 +5671,7 @@ function guideUrl() { return repoUrl() + "/blob/main/GUIDE.md"; }
 function changesUrl() { return repoUrl() + "/blob/main/CHANGELOG.md"; }
 function renderSettings() {
   $("#st-feedback").href = feedbackUrl();
-  $("#st-help").href = guideUrl(); $("#st-help").hidden = false; $("#st-changes").href = changesUrl();
+  $("#st-help").href = guideUrl(); $("#st-help").hidden = false; $("#st-changes").href = changesUrl(); $("#st-lic").href = repoUrl() + "/blob/main/THIRD_PARTY_LICENSES.md";
   $("#st-rfl").checked = rflShow(); $("#st-dwg").checked = dwgOn(); $("#st-docscan").checked = docScanOn(); renderDwgInfo();
   $("#st-qr").innerHTML = qrSVG(appUrl(), 124); $("#st-url").textContent = appUrl(); $("#st-pdfqr").checked = settings.pdfQR !== false; $("#st-recqr").checked = settings.recQR === true;
   $$("#st-savecopy [data-sc]").forEach(b => b.setAttribute("aria-pressed", b.dataset.sc === (settings.saveCopy || "auto")));
@@ -6059,7 +6303,7 @@ let pvState = null;
 async function openPreview(blob, name, kind, code) {
   pvState = { blob, name, kind, code };
   $("#pv-title").textContent = kind === "rfi" ? `Preview: ${CFG.rfiPrefix}${code}` : kind === "rfl" ? "Preview: RFI list" : "Preview: report";
-  $("#pv-share").textContent = shareSupported() ? "Share PDF" : "Save PDF";
+  $("#pv-share").textContent = shareSupported() ? "Share PDF" : "Save PDF"; $("#pv-save").hidden = !shareSupported();
   $("#pv-pages").innerHTML = ""; $("#pv-info").textContent = "Opening the preview…";
   openSheet("#pv");
   try {
@@ -6082,12 +6326,22 @@ function openPhotoPreview(list) {
   pvUrls.forEach(u => URL.revokeObjectURL(u)); pvUrls = list.map(x => URL.createObjectURL(x.blob));
   pvState = { kind: "photos", list };
   $("#pv-title").textContent = "Preview: captioned photos";
-  $("#pv-share").textContent = canShareFiles([new File(["x"], "x.jpg", { type: "image/jpeg" })]) ? "Share photos" : "Save photos (ZIP)";
+  $("#pv-share").textContent = canShareFiles([new File(["x"], "x.jpg", { type: "image/jpeg" })]) ? "Share photos" : "Save photos (ZIP)"; $("#pv-save").hidden = !canShareFiles([new File(["x"], "x.jpg", { type: "image/jpeg" })]);
   const mb = list.reduce((a, x) => a + x.blob.size, 0) / 1048576;
   $("#pv-info").textContent = `${list.length} photo${list.length > 1 ? "s" : ""} · ${mb.toFixed(1)} MB`;
   $("#pv-pages").innerHTML = list.map((x, i) => `<img src="${pvUrls[i]}" alt="Captioned photo ${i + 1}"><div class="pn">${esc(x.name)}</div>`).join("");
   openSheet("#pv");
 }
+$("#pv-save").addEventListener("click", async () => {
+  if (!pvState) return;
+  if (pvState.kind === "board") { closeSheet("#pv"); $("#rl-boardsave").click(); return; }
+  if (pvState.kind === "photos") {
+    try { const m = await outStamped(pvState.list, true); if (m) { await afterSave(m); closeSheet("#pv"); } } catch (err) { toast(saveErr(err), 4000); }
+    return;
+  }
+  const { blob, name, kind } = pvState;
+  try { await saveFile(blob, name); toast(`Saved ${name}. Find it in Downloads or Files.`, 6000); if (kind === "rfl") rflKeep(); else await afterSave(`Saved ${name}.`); closeSheet("#pv"); } catch (err) { toast(saveErr(err), 4000); }
+});
 $("#pv-share").addEventListener("click", async () => {
   if (!pvState) return;
   if (pvState.kind === "board") { closeSheet("#pv"); $("#rl-board").click(); return; }
@@ -6377,7 +6631,7 @@ $("#btn-sample").addEventListener("click", async () => {
 });
 
 /* ---------- notices ---------- */
-const WHATS_NEW = "New: Quick post at the top of the screen: snap a photo, tag it and send it to WhatsApp, with the caption below the photo as a table. A Scan button reads QR codes: RFI request tickets, the RFI list (shown as Today's RFIs) and the report record on page 1 of reports. Also: the CST sections line under the location strip, memos, specifications and letters beside drawings, and Register → Import PDF. Photos taken in the app are saved to the phone, photos can be collapsed in the list, Quick post waits for your choice, the RFI list has three steps with zone colours, and an optional Scan a document (Setup → Experimental features) straightens a photographed page. See the user guide (Setup → User guide).";
+const WHATS_NEW = "New: Scan a document is on and finds the page edges by itself (then Rotate, Next and Add to report, with Brightness and Contrast sliders). Chainage to shows only when you tap it, in the RFI request too. The report screen is tidier and the RFI photo record is easier to find. Photo cards show what is missing (Needs activity, Needs location). Typing 71775 gives 71+775. A Sunlight screen theme for outdoors (the ◐ button). A waiting RFI request can be edited. HEIC photos that cannot be read now say why. Licences are listed under Setup → About and licences. See the user guide (Setup → User guide).";
 async function showNotices() {
   const ver = APP_VERSION.split(" ")[0], out = [];
   const existing = settings.seenVersion || settings.setupStamp || settings.name || photos.length;
@@ -6435,7 +6689,7 @@ async function keepStorage() {
   } catch (e) {}
   $$(".rfipre").forEach(x => x.textContent = CFG.rfiPrefix);
   await dwgLoad();
-  renderReportForm(); renderList(); updateRfiList(); renderPlaceList(); docScanInit(); docScanUI();
+  renderReportForm(); renderList(); updateRfiList(); renderPlaceList(); docScanInit(); docScanUI(); applyTheme();
   if (photos.length) toast(`Draft restored: ${photos.length} photo${photos.length > 1 ? "s" : ""}`);
   showNotices(); keepStorage();
   tkLoad().then(renderRflStrip).catch(() => {});
@@ -6443,6 +6697,18 @@ async function keepStorage() {
   openHashData();
   autoSetup();
 })();
+
+/* v1.2.7: screen theme button in the top bar: Auto (follows the phone), Dark, Light, Sunlight (black on white, for outdoors) */
+var THEMES = [["auto", "Auto"], ["dark", "Dark"], ["light", "Light"], ["sunlight", "Sunlight"]];
+function applyTheme() {
+  const t = THEMES.some(x => x[0] === settings.theme) ? settings.theme : "auto", r = document.documentElement;
+  if (t === "auto") r.removeAttribute("data-theme"); else r.setAttribute("data-theme", t);
+  const b = $("#btn-theme"); if (b) { const n = THEMES.find(x => x[0] === t)[1]; b.setAttribute("aria-label", "Screen theme: " + n); b.title = "Screen theme: " + n; }
+}
+$("#btn-theme").addEventListener("click", () => {
+  const i = THEMES.findIndex(x => x[0] === (settings.theme || "auto")); settings.theme = THEMES[(i + 1) % THEMES.length][0];
+  saveDraft(); applyTheme(); toast("Screen theme: " + THEMES.find(x => x[0] === settings.theme)[1], 1800);
+});
 
 </script>
 <script>

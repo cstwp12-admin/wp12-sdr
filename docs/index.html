@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home · WP12 Site Photo Report</title>
+<meta name="description" content="What the app is for and what it does. Site photos with captions, reports and RFI lists for Pan Borneo Sabah Phase 1B, Work Package 12.">
+<link rel="icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{--bg:#F5F7F8;--surface:#FFFFFF;--sunk:#EDF0F2;--ink:#14212B;--muted:#596873;--line:#D3DAE0;--accent:#B93A0A;--accent2:#D9480F;--accent-soft:#FDEBDF;--side:#14212B;--side-ink:#E6ECF0;--side-muted:#97A5AF;--code:#EDF0F2;--shadow:0 1px 2px rgba(20,33,43,.06),0 8px 24px rgba(20,33,43,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}}
+:root[data-theme=dark]{--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Barlow,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--accent);text-underline-offset:3px}a:hover{color:var(--accent2)}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;height:60px;padding:0 18px;background:var(--side);color:var(--side-ink);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.top .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.2px}
+.plate{background:var(--accent2);color:#fff;font:600 13px "IBM Plex Mono",ui-monospace,monospace;padding:3px 8px;border-radius:5px}
+.top .ver{font:500 12px "IBM Plex Mono",ui-monospace,monospace;color:var(--side-muted)}
+.top .sp{flex:1}.bt{white-space:nowrap}
+.top input[type=search]{width:min(260px,34vw);height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;padding:0 12px;font:inherit;font-size:15px}
+.top input::placeholder{color:var(--side-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:9px 16px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-height:42px;cursor:pointer;font-size:15.5px}
+.btn.acc{background:var(--accent2);border-color:var(--accent2);color:#fff}.btn.acc:hover{background:var(--accent);color:#fff}
+.top .btn{min-height:36px;padding:6px 12px;font-size:16px;background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+.top .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.menu{display:none}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr) 220px;max-width:1380px;margin:0 auto;gap:0}
+nav.side{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:22px 14px 40px 18px;border-right:1px solid var(--line)}
+nav.side .grp{font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:2px 0 10px 10px}
+nav.side a.p{display:block;padding:8px 10px;border-radius:9px;color:var(--ink);text-decoration:none;font-weight:600}
+nav.side a.p:hover{background:var(--sunk)}
+nav.side a.p.on{background:var(--accent-soft);color:var(--accent)}
+nav.side ol{list-style:none;margin:2px 0 10px;padding:0 0 0 12px;border-left:2px solid var(--line);margin-left:14px}
+nav.side ol a{display:block;padding:4px 10px;color:var(--muted);text-decoration:none;font-size:14.5px;line-height:1.35;border-radius:6px}
+nav.side ol a:hover,nav.side ol a.on{color:var(--accent);background:var(--sunk)}
+main{padding:34px clamp(18px,4vw,52px) 70px;min-width:0}
+article{max-width:820px}
+article h1{font:700 40px/1.08 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.3px;margin:0 0 6px}
+.lead{color:var(--muted);font-size:18px;margin:0 0 26px}
+article h2{font:700 27px/1.15 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.4px;margin:44px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
+article h2:first-of-type{border-top:0;padding-top:0;margin-top:30px}
+article h3{font-size:20px;margin:30px 0 8px}
+article h4{font-size:17px;margin:22px 0 6px}
+article p,article li{max-width:75ch}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);margin:6px 0}
+article p>img+img{margin-left:8px}
+article code{font:500 .88em "IBM Plex Mono",ui-monospace,monospace;background:var(--code);padding:2px 6px;border-radius:5px}
+article pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow:auto;border:1px solid var(--line)}article pre code{background:none;padding:0}
+article blockquote{margin:16px 0;padding:10px 16px;border-left:4px solid var(--accent2);background:var(--accent-soft);border-radius:0 10px 10px 0}
+article details{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px 14px;margin:12px 0}
+article summary{cursor:pointer;font-weight:600}
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{background:var(--sunk);text-align:left;font-weight:600;white-space:nowrap}
+th,td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+aside.toc{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:34px 18px 40px 6px;font-size:14px}
+aside.toc b{display:block;font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+aside.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 12px;border-left:2px solid var(--line);line-height:1.35}
+aside.toc a:hover,aside.toc a.on{color:var(--accent);border-left-color:var(--accent2)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;background:linear-gradient(135deg,#14212B 0%,#1E3544 100%);color:#fff;border-radius:18px;padding:36px clamp(22px,4vw,44px);margin:0 0 30px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--accent2)}
+.hero .k{font:600 12.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:2px;text-transform:uppercase;color:#F08A5D}
+.hero h1{color:#fff;font-size:clamp(34px,5vw,52px);margin:8px 0 10px}
+.hero p{color:#D7DEE3;font-size:18px;margin:0 0 22px;max-width:46ch}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}.hero .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.hero img{width:190px;border-radius:22px;border:3px solid #0A1014;box-shadow:0 16px 40px rgba(0,0,0,.4);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:0 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.card b{display:block;font-size:17.5px;margin-bottom:4px}.card span{color:var(--muted);font-size:15px;line-height:1.45;display:block}
+.card .n{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--accent2);margin-bottom:6px}
+.rel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 22px 14px;margin:0 0 16px;box-shadow:var(--shadow)}
+.rel header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:6px}
+.rel h2{border:0!important;padding:14px 0 10px!important;margin:0!important;font-size:25px!important}
+.rel .date{color:var(--muted);font:500 13.5px "IBM Plex Mono",ui-monospace,monospace}
+.badge{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;padding:2px 9px;border-radius:999px;letter-spacing:.5px;text-transform:uppercase}
+.rel ul{padding-left:20px;margin:10px 0 0}.rel li{margin:0 0 9px;max-width:none}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:50px 0 0}
+.pn a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;background:var(--surface)}
+.pn a small{display:block;color:var(--muted);font:500 12px "IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px}
+.pn a b{color:var(--ink)}.pn a:last-child{text-align:right}.pn a:hover{border-color:var(--accent2)}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:18px;color:var(--muted);font-size:14.5px;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+#res{position:absolute;right:18px;top:56px;width:min(420px,calc(100vw - 36px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.25);max-height:70vh;overflow:auto;display:none}
+#res a{display:block;padding:10px 14px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}#res a:last-child{border:0}#res a:hover{background:var(--sunk)}
+#res small{display:block;color:var(--muted)}#res b{color:var(--accent)}
+@media (max-width:1180px){.layout{grid-template-columns:250px minmax(0,1fr)}aside.toc{display:none}}
+@media (max-width:640px){.bt{display:none}}
+@media (max-width:860px){.layout{display:block}.menu{display:inline-flex}
+ nav.side{position:fixed;left:0;top:60px;bottom:0;width:min(310px,86vw);z-index:25;background:var(--bg);transform:translateX(-102%);transition:transform .2s,visibility .2s;visibility:hidden}
+ body.nav nav.side{transform:none;visibility:visible;box-shadow:0 0 40px rgba(0,0,0,.35)}
+ .hero{grid-template-columns:1fr}.hero img{display:none}.top .ver,.top .hide-s{display:none}.top input[type=search]{width:100%;min-width:0}.top .sp{display:none}#q{flex:1}
+ article h1{font-size:34px}.pn{grid-template-columns:1fr}}
+@media print{.top,nav.side,aside.toc,.pn,footer .no-print{display:none}.layout{display:block}body{background:#fff}}
+</style></head><body>
+<header class="top"><button class="btn menu" id="menu" type="button" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><span class="plate">WP12</span><span class="bt">Site Photo Report</span></a><span class="ver">v1.2.7</span><span class="sp"></span>
+<input type="search" id="q" style="flex:0 1 auto" placeholder="Search  ( / )" aria-label="Search the documentation" autocomplete="off"><div id="res"></div>
+<button class="btn" id="theme" type="button" aria-label="Light or dark">◐</button><a class="btn acc hide-s" href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></header>
+<div class="layout"><nav class="side" aria-label="Pages"><div class="grp">Documentation</div><a class="p on" href="index.html">Home</a><ol><li><a href="#what-it-is-for">What it is for</a></li><li><a href="#what-it-does">What it does</a></li><li><a href="#getting-started">Getting started</a></li><li><a href="#daily-use">Daily use</a></li><li><a href="#records-and-data">Records and data</a></li><li><a href="#accuracy-notes">Accuracy notes</a></li><li><a href="#updating-the-setup">Updating the setup</a></li><li><a href="#using-it-on-other-work-packages">Using it on other work packages</a></li><li><a href="#user-guide-version-history-and-roadmap">User guide, version history and roadmap</a></li><li><a href="#files">Files</a></li><li><a href="#ringkasan-bm">Ringkasan (BM)</a></li></ol><a class="p" href="user-guide.html">User guide</a><a class="p" href="roadmap.html">Roadmap</a><a class="p" href="changelog.html">What changed</a><a class="p" href="licences.html">Licences</a></nav>
+<main><article><div class="hero"><div><div class="k">Pan Borneo Sabah Phase 1B · WP12</div><h1>Site Photo Report</h1>
+<p>Take the day's photos, tag them with activity and chainage, and share a captioned report on WhatsApp.</p>
+<div class="row"><a class="btn acc" href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a><a class="btn" href="user-guide.html">User guide</a><a class="btn" href="changelog.html">What changed</a></div></div>
+<img src="../screenshot-app.png" alt="The app on a phone: report details, photo list with GPS chainage and activity" width="190"></div>
+<div class="cards">
+<div class="card"><div class="n">01</div><b>Quick post</b><span>Snap, caption and send one photo to the group from one screen.</span></div>
+<div class="card"><div class="n">02</div><b>Reports</b><span>Captioned PDF, photos, RFI photo records and Word files.</span></div>
+<div class="card"><div class="n">03</div><b>RFI list</b><span>Next-day list, request tickets and Today's RFIs for the inspectors.</span></div>
+<div class="card"><div class="n">04</div><b>Scan a page</b><span>Straighten a photographed letter or drawing into a flat page.</span></div></div><p>A web app for recording site work with photos on <strong>Projek Lebuhraya Pan Borneo Sabah Fasa 1B, Work Package 12 (Sarang – Temuno, CH 62+700 to 77+508)</strong>.</p>
+<p>Take or add the day's photos, tag each one with the activity (BQ item), chainage, structure and RFI number, then produce a captioned PDF report and photo set to share on WhatsApp and keep on record. It works on iPhone, Android and laptop, in the browser, with nothing to install from an app store.</p>
+<p><strong>Open the app:</strong> <a href="https://cstwp12-admin.github.io/wp12-sdr/">cstwp12-admin.github.io/wp12-sdr</a> (also under <strong>About</strong> at the top right of this page). <strong>New to the app?</strong> Read the <a href="user-guide.html">user guide</a>.</p>
+<p><strong>News:</strong> <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/posts/2026-10-22-rfi-photo-records.md">From site photos to an RFI photo record: a worked example</a> · <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/posts/2026-10-13-effective-daily-reporting.md">Effective daily reporting with the app (v1.2.5)</a> · <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/posts/2026-10-12-pilot-starts.md">The pilot starts on 13 October</a></p>
+<p>
+  <img loading="lazy" src="../screenshot-app.png" alt="The app on a phone: report details, photo list with GPS chainage and activity" width="280">
+  &nbsp;
+  <img loading="lazy" src="../screenshot-report.png" alt="PDF report page: four captioned photos per A4 page with JKR and contractor logos" width="420">
+</p>
+
+<h2 id="what-it-is-for">What it is for</h2>
+<p>The app is a simple, consistent way to record:</p>
+<ul>
+<li><strong>site work progress</strong>: what was done, where (chainage, side, structure) and under which BQ item;</li>
+<li><strong>inspections</strong>: photos tied to the RFI number, with an RFI photo record for closing the RFI;</li>
+<li><strong>site observations</strong>: ESCP, safety, traffic management, slope condition, weather and site condition;</li>
+<li><strong>site visits</strong>: a dated, captioned photo record of what was seen.</li>
+</ul>
+<p>It is meant for all three parties on the contract: the <strong>Consultant Supervision Team (CST)</strong>, the <strong>Works Package Contractor (WPC)</strong> and the <strong>S.O. Representative (SOR)</strong>. Each party uses the same app and keeps its own records and register.</p>
+<p>It replaces forwarding loose photos to WhatsApp groups. Those photos are hard to caption one by one, lose their context when forwarded, and often can no longer be downloaded later.</p>
+<h2 id="what-it-does">What it does</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Activity list from the contract BQ</strong></td>
+<td>143 activities grouped by bill (earthworks, ground treatment, drainage, pavement, bridges, road furniture, ESCP, traffic, safety, QA testing &amp; inspection, weather). Each shows its BQ item no., e.g. <em>Berm drain – concreting · BQ 9.2.3</em>. Bridge items show the BQ ref for the selected bridge. Search works in English or BM.</td>
+</tr>
+<tr>
+<td><strong>QC tests required by the contract</strong></td>
+<td>50 quality control tests that are not BQ items: joint sampling, laboratory tests, FDT, coring, plate load, CBR, DCP, spray rate, gradation, cube tests (G20–G50, grout), rebound hammer, RC pipe, geotextile and PVD tests. They are marked <strong>QC</strong> in the list and in the report, e.g. <em>Cube test – G40 · QC</em>.</td>
+</tr>
+<tr>
+<td><strong>More than one activity per photo</strong></td>
+<td>A photo can be tagged with several activities, e.g. <em>Box culvert – concreting</em> + <em>Cube test – G30</em>. Tap each one in the list, then <strong>Done</strong>.</td>
+</tr>
+<tr>
+<td><strong>Chainage from GPS</strong></td>
+<td>Photos with a GPS position get their chainage and side (LHS/RHS) from the WP12 centreline, e.g. <em>CH 70+000, 20 m RHS</em>. Chainage can always be typed or adjusted by hand. For a stretch of work, tap <strong>+ Chainage to</strong> beside it, e.g. <em>CH 70+120 – 70+300</em>.</td>
+</tr>
+<tr>
+<td><strong>Element / point</strong></td>
+<td>The box on the photo card is named for the activity: <em>Sampling point</em> for monitoring and sampling (e.g. <em>W1</em>, printed as <em>Sampling point W1</em>), <em>Element</em> for bridges and culverts (e.g. <em>Abutment A</em>, <em>Pier 2</em>), <em>Layer / level</em> for earthworks and pavement (e.g. <em>Layer 3</em>, <em>Berm 2</em>).</td>
+</tr>
+<tr>
+<td><strong>Elsewhere</strong></td>
+<td>For photos taken away from the alignment, e.g. at the site laboratory, a third-party laboratory, a factory or precast yard: tap <strong>Elsewhere</strong> and type the place instead of a chainage. Places are remembered on the phone.</td>
+</tr>
+<tr>
+<td><strong>Test result</strong></td>
+<td>For testing and sampling activities: Passed, Failed, Retest required, Pending test result, Pending official test result, or your own wording. Prints with the status and goes into the register.</td>
+</tr>
+<tr>
+<td><strong>Progress %</strong></td>
+<td>An optional estimate on each photo, e.g. <em>Reinforcement installation, 20% complete</em>, for work followed over several days.</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Each photo can have a status: In progress, Completed, Ready for inspection, Inspected, Re-inspection required, Rectification required, Observation, or your own wording. It prints in English and BM.</td>
+</tr>
+<tr>
+<td><strong>Structure list</strong></td>
+<td>Bridges B1–B4, culverts C1–C32, junction culverts JC1–JC13 and the reinforced soil walls. Picking one fills in its drawing chainage, which you then adjust to the actual site position.</td>
+</tr>
+<tr>
+<td><strong>Zones</strong></td>
+<td>The team's zones load with the setup. A team that reports by other zones, e.g. 5 zones for CST, can set its own in <strong>Setup → Zones</strong>; a team setup update keeps them.</td>
+</tr>
+<tr>
+<td><strong>Sort by time or chainage</strong></td>
+<td>Photos are in the order taken; <strong>Sort by chainage</strong> puts them in order along the alignment instead, matching the diagram.</td>
+</tr>
+<tr>
+<td><strong>Tag many photos at once</strong></td>
+<td>Select several photos and apply the same activity, chainage, side, status, RFI no. or remarks in one step. <strong>Same as previous</strong> copies the tags and remarks from the photo above, but keeps a photo's own GPS chainage.</td>
+</tr>
+<tr>
+<td><strong>PDF report</strong></td>
+<td>A4, 2 photos per page (the default) or 4 per page, with logos for each team (an image or a text, e.g. JKR + WPC, or JKR + CST for internal reports), report details, weather, an optional summary table, and a caption under each photo. Captions in English, Bahasa Malaysia, or both.</td>
+</tr>
+<tr>
+<td><strong>Captioned photos</strong></td>
+<td>Each photo with the date, time, chainage, activity, BQ ref and RFI printed on it, renamed in order (e.g. <code>20261009_CST_03_CH71+770_Box-culvert-concreting.jpg</code>). The caption stays with the photo when it is forwarded. <em>Preview</em> shows them before sharing; the photo no. (off by default) and team on the first line can be switched on or off.</td>
+</tr>
+<tr>
+<td><strong>Location strip</strong></td>
+<td>A small line of the whole alignment on each photo, with its zone shaded and a marker at its chainage, under the caption (default) or across the top of the photo, in the PDF and on captioned photos.</td>
+</tr>
+<tr>
+<td><strong>Share the app</strong></td>
+<td>Setup shows a QR code of the app's address. Page 1 of every PDF report has a <em>Get the app</em> QR code (RFI records and the RFI list: at the end of the last page).</td>
+</tr>
+<tr>
+<td><strong>Quick post</strong></td>
+<td>The button at the top: pick photos from the gallery (or take one), tag them on one screen (GPS chainage, side, activity and structure drawers, status, remarks) and share it to WhatsApp. The caption goes below the photo as a table (the photo is not covered), on the photo, or as the message text with the photo as taken. Choose which parts the caption shows. The photos also go into the day's report.</td>
+</tr>
+<tr>
+<td><strong>Save to phone</strong></td>
+<td>Photos taken in the app keep their camera original; the app offers to save a copy to the phone (Android: Downloads; iPhone: share menu → Save Image), and Save ZIP can include the originals.</td>
+</tr>
+<tr>
+<td><strong>Scan QR codes, load PDFs</strong></td>
+<td>The <em>Scan</em> button reads QR codes with the camera or from a saved image (request tickets, report records) and loads PDFs made by the app (RFI lists, reports). Links in WhatsApp messages open the app at the same place. Nothing is sent to a server: the data is in the code, the link or the PDF itself.</td>
+</tr>
+<tr>
+<td><strong>RFI request tickets (WPC)</strong></td>
+<td>A late request for the RFI list is made as a ticket with a QR code and shared in the group. The person keeping the list scans it, accepts it (added to the list as a late request, with its remarks) or declines it with a reason, and shares the reply ticket back.</td>
+</tr>
+<tr>
+<td><strong>Today's RFIs</strong></td>
+<td>The RFI list (board pages with an alignment strip, or the PDF in Table or Schedule layout) carries the whole list in its PDF and in the link in the message. Inspectors load it: the RFIs show on their main screen in time order, with a countdown, <em>Start record</em> (photos tagged with the RFI no., activity, structure and chainage from the list) and <em>Inspected</em>.</td>
+</tr>
+<tr>
+<td><strong>Report record</strong></td>
+<td>Page 1 of the PDF report can carry a report record QR code (orange frame, off by default; Setup switches it on): another phone with the app scans it into its Register. <strong>Register → Import PDF</strong> reads every photo's details from a PDF report itself, e.g. one received on WhatsApp.</td>
+</tr>
+<tr>
+<td><strong>Sections line (CST)</strong></td>
+<td>CST-S1 to CST-S5 under the location strip, with <em>CST structures</em> for photos at a structure. On for team CST; other teams can switch it on in Setup.</td>
+</tr>
+<tr>
+<td><strong>RFI photo record</strong></td>
+<td>One PDF per RFI no., set out to accompany the JKR Sabah <em>Request For Inspection</em> form (Arahan Jabatan Bil. 11/2026). It is an attachment, so it carries what the photos show: location, description, activities with their BQ / QC refs, structure and level, a photo index with each photo's status, comments, sign-off blocks for <strong>Prepared by (WPC)</strong> and <strong>Checked by (CST)</strong>, and the photos. The drawing reference, stage and result stay on the signed RFI form.</td>
+</tr>
+<tr>
+<td><strong>Alignment diagram (experimental)</strong></td>
+<td>An optional line from CH 62+700 to 77+508 with the zones, showing where each photo was taken, with the length of each zone and the total length: above the line for LHS, on it for CL, below it for RHS. Photos close together share one marker, and a line under it gives the chainage range covered. Optional structure lines under it show the bridges, pipe culverts, box culverts, junction culverts and RS walls, each ticked on its own. Tick it on the report screen; it is added to page 1 of the daily report and of each RFI photo record.</td>
+</tr>
+<tr>
+<td><strong>Report ref. no.</strong></td>
+<td>Every report gets a reference, e.g. <em>WP12-WPC-SYA-20261012-1</em>: package, team, the reporter's initials, date and the report no. of the day on that phone. It prints on the PDF, the WhatsApp text, the RFI photo record, the file names and the register, so a report is easy to find and cross-reference. Each report on a phone gets its own no.: <em>New report</em>, or changing the photos of a sent report, gives the next no.</td>
+</tr>
+<tr>
+<td><strong>Check before you share</strong></td>
+<td>Before you share, the app lists photos with no activity or no location. Tap a photo number to go straight to it.</td>
+</tr>
+<tr>
+<td><strong>WhatsApp message</strong></td>
+<td>A short list of activities and chainages to paste with the PDF.</td>
+</tr>
+<tr>
+<td><strong>Drawings and references (experimental)</strong></td>
+<td>Attach a snippet of a drawing (layout plan, structure detail, schedule), or of a memo, specification, letter or method statement, to a photo. Snippets are kept in a drawing library on the phone, suggested for photos at the same structure or chainage, named in the photo caption (<em>Drawing: D1 WD/JKR/WP12/…</em>) and printed on Drawing reference pages at the end of the report and the RFI photo record.</td>
+</tr>
+<tr>
+<td><strong>Scan a document (experimental, on by default)</strong></td>
+<td>Photograph a page; the app finds its corners, straightens it into a flat page, with a clean, grey, black-and-white or original look and brightness / contrast sliders, and shows a preview before it is added as a photo marked <em>Scanned page</em>. The button sits beside <em>Take photo</em> and in Quick post; Setup → Experimental features switches it off.</td>
+</tr>
+<tr>
+<td><strong>Preview and Word</strong></td>
+<td><em>Preview</em> shows the PDF in the app before sharing. <em>Save Word</em> (experimental) saves the same report, RFI photo record or RFI inspection list as an editable Word file set out like the PDF.</td>
+</tr>
+<tr>
+<td><strong>Period report (experimental)</strong></td>
+<td>Report type <em>Period</em> keeps collecting photos over several days, then makes one report for the week or month: a progress table (latest status and progress for each activity and place), then the photos day by day.</td>
+</tr>
+<tr>
+<td><strong>RFI inspection list (experimental, for WPC)</strong></td>
+<td>The daily RFI summary list for the next day's inspections: paste the rows from Excel or add RFIs one by one (with the activity list, chainage, structure, PIC and time), then share it as an A4 PDF in the same layout as the Excel list, as WhatsApp text or as a CSV. On the inspection day, RFI nos. typed on photo cards are suggested from the list, and the RFI photo record takes its description.</td>
+</tr>
+<tr>
+<td><strong>Register log</strong></td>
+<td>Every report saved or shared is logged on the device, with Reports, RFIs and Photos views, filters and CSV export (opens in Excel). Logs from other users can be imported.</td>
+</tr>
+<tr>
+<td><strong>Works offline</strong></td>
+<td>Once opened, it works without signal on site. Drafts are kept if the phone closes the browser. The app asks the browser to keep its data, and reminds you to export the register if it has not been exported for 7 days.</td>
+</tr>
+<tr>
+<td><strong>Feedback</strong></td>
+<td>Setup → <strong>Send feedback on WhatsApp</strong> opens a message with the app version and phone type filled in, ready to post in the RFI coordination group.</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" src="../screenshot-rfi-record.png" alt="RFI photo record: details, photo index with status, comments and sign-off blocks for WPC and CST" width="420"></p>
+
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>Open <a href="https://cstwp12-admin.github.io/wp12-sdr/">cstwp12-admin.github.io/wp12-sdr</a> on your phone.</li>
+<li>Add it to the home screen:
+   - <strong>iPhone (Safari):</strong> Share → <em>Add to Home Screen</em>
+   - <strong>Android (Chrome):</strong> menu ⋮ → <em>Install app</em> or <em>Add to home screen</em></li>
+<li>Open it from the home screen icon. The project setup (logos, zones, activity list, structures and centreline) loads by itself.</li>
+<li>In <strong>Report details</strong>, choose your team (CST, WPC or SOR) and enter your name and designation. These are remembered.</li>
+<li>Allow location when the camera asks, so photos taken in the app get their chainage. Photos saved from WhatsApp have no location, so add the original camera photos when you want the chainage filled in.</li>
+</ol>
+<h2 id="daily-use">Daily use</h2>
+<ol>
+<li><strong>Take photo</strong> at site, or <strong>Add photos</strong> from the gallery afterwards.</li>
+<li>For each photo, or for several selected together, choose the <strong>activity</strong> (one or more) and check the <strong>chainage</strong> and <strong>side</strong> (tap <strong>+ Chainage to</strong> for a stretch of work). Add the level or element (e.g. <em>Berm 3</em>, <em>Layer 2</em>, <em>P2</em>), structure, status, RFI no. and remarks where needed.</li>
+<li>Tap <strong>Generate report</strong>, check the list of photos still missing an activity or chainage, choose 2 or 4 photos per page and, if wanted, the alignment diagram, then:
+   - <strong>Save PDF</strong> or <strong>Share PDF</strong> (pick WhatsApp and the group);
+   - <strong>Share photos</strong>: the captioned photos;
+   - <strong>Copy text</strong>: the WhatsApp summary;
+   - <strong>Make RFI photo records</strong>: one per RFI, to attach to the RFI form (shown at the top when any photo has an RFI no.);
+   - <strong>Save ZIP</strong>: everything, plus a CSV photo log, for your own files.</li>
+<li>Start the next day with <strong>New report</strong> (below the last photo).</li>
+</ol>
+<p>RFI numbers use the fixed prefix <code>JKR-RFI-WP12-</code>, so only the trade code and number are typed, e.g. <code>TES-651</code>.</p>
+<h2 id="records-and-data">Records and data</h2>
+<ul>
+<li><strong>There is no server and no login.</strong> Photos, reports and the register stay on the phone or laptop that made them. Nothing is uploaded to this site.</li>
+<li>Each party keeps its own records: the PDF and ZIP files it saves, and the <strong>Register</strong> in the app. Export the register to CSV regularly and keep it with your project files. Clearing the browser's data removes it from the device.</li>
+<li>To combine records, import other users' <code>photo_log.csv</code> (inside their ZIP) under <strong>Register → Import log</strong>.</li>
+<li>A team that wants one shared register can connect the app to its own Google Sheet (Setup → <em>Team register</em>). The guide is in <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/TEAM_REGISTER.md">TEAM_REGISTER.md</a> and the script is <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/Code.gs">Code.gs</a>. It is optional, and the sheet belongs to that team.</li>
+<li>This repository is public. It holds only the app, the logos, the activity list (BQ item numbers, no rates), structure chainages and the road centreline.</li>
+</ul>
+<h2 id="accuracy-notes">Accuracy notes</h2>
+<ul>
+<li>Phone GPS is typically accurate to about 5–10 m, so GPS chainage is rounded to the nearest 5 m. Check it against site pegs where it matters.</li>
+<li>The centreline is the tender alignment from the project KMZ. Structure chainages are taken from the drawings and BQ and are <strong>indicative only</strong>.</li>
+<li>The app produces photo records. It does not replace the contract documents, the signed RFI form or formal correspondence.</li>
+</ul>
+<h2 id="updating-the-setup">Updating the setup</h2>
+<p>The file <code>setup.json</code> holds the project setup for everyone: logos, project title, zones, activity list, structures and centreline.</p>
+<ol>
+<li>In the app, make the change in <strong>Setup</strong> (for example <em>Add an activity</em>), then tap <strong>Save setup file</strong>. It saves as <code>setup.json</code>.</li>
+<li>In this repository: <strong>Add file → Upload files</strong>, drop in the new <code>setup.json</code>, then <strong>Commit changes</strong>.</li>
+<li>Phones pick it up the next time the app is opened with signal.</li>
+</ol>
+<p>A new version of the app (<code>index.html</code>) is updated the same way.</p>
+<h2 id="using-it-on-other-work-packages">Using it on other work packages</h2>
+<p>The app is built so the project data is separate from the app itself. For another work package, make a copy of this repository (e.g. <code>wp13-sdr</code>) and replace <code>setup.json</code> with that package's:</p>
+<ul>
+<li>project title, contract no. and RFI prefix;</li>
+<li>chainage limits and zones;</li>
+<li>activity list, prepared from that package's BQ;</li>
+<li>structure list (bridges, culverts and so on), from its drawings;</li>
+<li>road centreline with chainages, from the alignment KMZ or setting-out data;</li>
+<li>client and contractor logos.</li>
+</ul>
+<h2 id="user-guide-version-history-and-roadmap">User guide, version history and roadmap</h2>
+<p>Step-by-step instructions with screenshots are in <a href="user-guide.html">GUIDE.md</a>; in the app, Setup → <strong>User guide</strong> opens it. The current version is shown in the app under <strong>Setup</strong> (bottom panel). Changes are listed in <a href="changelog.html">CHANGELOG.md</a>; in the app, Setup → <strong>What changed</strong> opens it. The pilot and rollout plan and the features under consideration are in <a href="roadmap.html">ROADMAP.md</a>.</p>
+<h2 id="files">Files</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>File</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>index.html</code></td>
+<td>The app, built from <code>src/</code> by <code>tools/build.py</code> (not edited by hand)</td>
+</tr>
+<tr>
+<td><code>setup.json</code></td>
+<td>Project setup: logos, zones, activities, structures, centreline</td>
+</tr>
+<tr>
+<td><code>manifest.webmanifest</code>, <code>sw.js</code>, <code>icon-192.png</code>, <code>icon-512.png</code></td>
+<td>Let the app install on a phone and work offline</td>
+</tr>
+<tr>
+<td><code>heic2any.min.js</code></td>
+<td>Converts HEIC / HEIF photos (loaded only when one is added)</td>
+</tr>
+<tr>
+<td><code>pdfjs.min.js</code>, <code>pdfjs.worker.min.js</code></td>
+<td>Opens PDF drawings for drawing references (loaded only when one is added)</td>
+</tr>
+<tr>
+<td><code>GUIDE.md</code>, <code>guide/</code></td>
+<td>User guide and its screenshots</td>
+</tr>
+<tr>
+<td><code>posts/</code></td>
+<td>News posts, e.g. the pilot announcement</td>
+</tr>
+<tr>
+<td><code>CHANGELOG.md</code></td>
+<td>Revision history</td>
+</tr>
+<tr>
+<td><code>ROADMAP.md</code></td>
+<td>Pilot and rollout plan, future features</td>
+</tr>
+<tr>
+<td><code>TEAM_REGISTER.md</code>, <code>Code.gs</code></td>
+<td>Optional: guide and script for a team register in Google Sheets</td>
+</tr>
+<tr>
+<td><code>screenshot-*.png</code></td>
+<td>Pictures used on this page</td>
+</tr>
+<tr>
+<td><code>src/</code></td>
+<td>The app's source: code in <code>src/js/</code>, page template <code>src/app.html</code>, project data in <code>src/config/</code></td>
+</tr>
+<tr>
+<td><code>tools/</code></td>
+<td><code>build.py</code> builds the app from <code>src/</code>; <code>make_setup.py</code> refreshes <code>setup.json</code></td>
+</tr>
+<tr>
+<td><code>tests/</code></td>
+<td>Automatic checks of the app (<code>test_app.py</code>) with sample photos</td>
+</tr>
+<tr>
+<td><code>CLAUDE.md</code>, <code>DEVELOPING.md</code></td>
+<td>How changes are made, checked and published</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="ringkasan-bm">Ringkasan (BM)</h2>
+<p>Aplikasi web untuk merekod kerja tapak, pemeriksaan, pemerhatian dan lawatan tapak WP12 menggunakan foto. Setiap foto ditanda dengan aktiviti (item BQ), rantaian (chainage), struktur dan no. RFI. Aplikasi kemudian menghasilkan laporan PDF (4 foto setiap muka surat), foto berkapsyen, rekod foto RFI dan log daftar. Ia boleh digunakan oleh CST, WPC dan SOR pada iPhone, Android dan komputer riba. Semua data disimpan dalam peranti pengguna sendiri.</p>
+<hr />
+<p>Developed for the WP12 Consultant Supervision Team. Maintained by WPN.</p>
+<div class="pn"><span></span><a href="user-guide.html"><small>Next</small><b>User guide</b></a></div>
+<footer><span>Made by WPN.</span><span><a href="licences.html">Licences</a> · <a href="https://github.com/cstwp12-admin/wp12-sdr">Repository</a> · <a href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></span></footer></article></main>
+<aside class="toc"><b>On this page</b><a href="#what-it-is-for">What it is for</a><a href="#what-it-does">What it does</a><a href="#getting-started">Getting started</a><a href="#daily-use">Daily use</a><a href="#records-and-data">Records and data</a><a href="#accuracy-notes">Accuracy notes</a><a href="#updating-the-setup">Updating the setup</a><a href="#using-it-on-other-work-packages">Using it on other work packages</a><a href="#user-guide-version-history-and-roadmap">User guide, version history and roadmap</a><a href="#files">Files</a><a href="#ringkasan-bm">Ringkasan (BM)</a></aside></div><script>
+(function(){
+var d=document,b=d.body,r=d.documentElement;
+try{var t=localStorage.getItem('wp12doc-theme');if(t)r.setAttribute('data-theme',t)}catch(e){}
+d.getElementById('theme').addEventListener('click',function(){var c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('wp12doc-theme',n)}catch(e){}});
+d.getElementById('menu').addEventListener('click',function(){b.classList.toggle('nav')});
+d.addEventListener('click',function(e){if(b.classList.contains('nav')&&!e.target.closest('nav.side,#menu'))b.classList.remove('nav');if(!e.target.closest('#res,#q'))d.getElementById('res').style.display='none'});
+var hs=[].slice.call(d.querySelectorAll('article h2[id],article h3[id],.rel[id]')),links=[].slice.call(d.querySelectorAll('aside.toc a,nav.side ol a'));
+function spy(){var y=scrollY+90,cur=null;hs.forEach(function(h){if(h.offsetTop<=y)cur=h.id});links.forEach(function(a){a.classList.toggle('on',cur&&a.getAttribute('href')==='#'+cur)})}
+addEventListener('scroll',spy,{passive:true});spy();
+var idx=null,q=d.getElementById('q'),res=d.getElementById('res');
+function load(c){if(idx)return c();fetch('search.json').then(function(r){return r.json()}).then(function(j){idx=j;c()}).catch(function(){})}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();if(v.length<2){res.style.display='none';return}
+ load(function(){var w=v.split(/\s+/),hits=[];idx.forEach(function(s){var h=(s.t+' '+s.x).toLowerCase(),ok=w.every(function(k){return h.indexOf(k)>=0});if(ok){var sc=(s.t.toLowerCase().indexOf(v)>=0?10:0)+(s.t.toLowerCase().indexOf(w[0])>=0?5:0);hits.push([sc,s])}});
+ hits.sort(function(a,b){return b[0]-a[0]});
+ res.innerHTML=hits.length?hits.slice(0,10).map(function(h){var s=h[1],i=s.x.toLowerCase().indexOf(w[0]),sn=s.x.slice(Math.max(0,i-40),i+90);return '<a href="'+s.u+'"><b>'+esc(s.t)+'</b><small>'+esc(s.p)+' \u00b7 '+esc(sn)+'</small></a>'}).join(''):'<a><small>Nothing found for "'+esc(v)+'".</small></a>';res.style.display='block'})});
+q.addEventListener('keydown',function(e){if(e.key==='Escape'){res.style.display='none';q.blur()}});
+addEventListener('keydown',function(e){if(e.key==='/'&&!/INPUT|TEXTAREA/.test((d.activeElement||{}).tagName||'')){e.preventDefault();q.focus()}});
+})();
+</script></body></html>

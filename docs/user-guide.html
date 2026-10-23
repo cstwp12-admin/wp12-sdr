@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide · WP12 Site Photo Report</title>
+<meta name="description" content="Step by step, from installing to sharing the report. Site photos with captions, reports and RFI lists for Pan Borneo Sabah Phase 1B, Work Package 12.">
+<link rel="icon" href="../icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+:root{--bg:#F5F7F8;--surface:#FFFFFF;--sunk:#EDF0F2;--ink:#14212B;--muted:#596873;--line:#D3DAE0;--accent:#B93A0A;--accent2:#D9480F;--accent-soft:#FDEBDF;--side:#14212B;--side-ink:#E6ECF0;--side-muted:#97A5AF;--code:#EDF0F2;--shadow:0 1px 2px rgba(20,33,43,.06),0 8px 24px rgba(20,33,43,.07)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}}
+:root[data-theme=dark]{--bg:#0E1418;--surface:#172027;--sunk:#121A20;--ink:#E6ECF0;--muted:#97A5AF;--line:#2A3640;--accent:#FF8A4D;--accent2:#FF7A33;--accent-soft:#3A2214;--side:#0A1014;--code:#1D2830;--shadow:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Barlow,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+a{color:var(--accent);text-underline-offset:3px}a:hover{color:var(--accent2)}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;height:60px;padding:0 18px;background:var(--side);color:var(--side-ink);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+.top .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:18px;letter-spacing:.2px}
+.plate{background:var(--accent2);color:#fff;font:600 13px "IBM Plex Mono",ui-monospace,monospace;padding:3px 8px;border-radius:5px}
+.top .ver{font:500 12px "IBM Plex Mono",ui-monospace,monospace;color:var(--side-muted)}
+.top .sp{flex:1}.bt{white-space:nowrap}
+.top input[type=search]{width:min(260px,34vw);height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:#fff;padding:0 12px;font:inherit;font-size:15px}
+.top input::placeholder{color:var(--side-muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:10px;padding:9px 16px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-height:42px;cursor:pointer;font-size:15.5px}
+.btn.acc{background:var(--accent2);border-color:var(--accent2);color:#fff}.btn.acc:hover{background:var(--accent);color:#fff}
+.top .btn{min-height:36px;padding:6px 12px;font-size:16px;background:transparent;color:#fff;border-color:rgba(255,255,255,.25)}
+.top .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.menu{display:none}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr) 220px;max-width:1380px;margin:0 auto;gap:0}
+nav.side{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:22px 14px 40px 18px;border-right:1px solid var(--line)}
+nav.side .grp{font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin:2px 0 10px 10px}
+nav.side a.p{display:block;padding:8px 10px;border-radius:9px;color:var(--ink);text-decoration:none;font-weight:600}
+nav.side a.p:hover{background:var(--sunk)}
+nav.side a.p.on{background:var(--accent-soft);color:var(--accent)}
+nav.side ol{list-style:none;margin:2px 0 10px;padding:0 0 0 12px;border-left:2px solid var(--line);margin-left:14px}
+nav.side ol a{display:block;padding:4px 10px;color:var(--muted);text-decoration:none;font-size:14.5px;line-height:1.35;border-radius:6px}
+nav.side ol a:hover,nav.side ol a.on{color:var(--accent);background:var(--sunk)}
+main{padding:34px clamp(18px,4vw,52px) 70px;min-width:0}
+article{max-width:820px}
+article h1{font:700 40px/1.08 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.3px;margin:0 0 6px}
+.lead{color:var(--muted);font-size:18px;margin:0 0 26px}
+article h2{font:700 27px/1.15 "Barlow Condensed",Barlow,sans-serif;text-transform:uppercase;letter-spacing:.4px;margin:44px 0 12px;padding-top:22px;border-top:1px solid var(--line)}
+article h2:first-of-type{border-top:0;padding-top:0;margin-top:30px}
+article h3{font-size:20px;margin:30px 0 8px}
+article h4{font-size:17px;margin:22px 0 6px}
+article p,article li{max-width:75ch}
+article img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);margin:6px 0}
+article p>img+img{margin-left:8px}
+article code{font:500 .88em "IBM Plex Mono",ui-monospace,monospace;background:var(--code);padding:2px 6px;border-radius:5px}
+article pre{background:var(--code);padding:14px 16px;border-radius:10px;overflow:auto;border:1px solid var(--line)}article pre code{background:none;padding:0}
+article blockquote{margin:16px 0;padding:10px 16px;border-left:4px solid var(--accent2);background:var(--accent-soft);border-radius:0 10px 10px 0}
+article details{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:10px 14px;margin:12px 0}
+article summary{cursor:pointer;font-weight:600}
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{background:var(--sunk);text-align:left;font-weight:600;white-space:nowrap}
+th,td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+aside.toc{position:sticky;top:60px;align-self:start;height:calc(100vh - 60px);overflow:auto;padding:34px 18px 40px 6px;font-size:14px}
+aside.toc b{display:block;font:600 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+aside.toc a{display:block;color:var(--muted);text-decoration:none;padding:4px 0 4px 12px;border-left:2px solid var(--line);line-height:1.35}
+aside.toc a:hover,aside.toc a.on{color:var(--accent);border-left-color:var(--accent2)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:30px;align-items:center;background:linear-gradient(135deg,#14212B 0%,#1E3544 100%);color:#fff;border-radius:18px;padding:36px clamp(22px,4vw,44px);margin:0 0 30px;overflow:hidden;position:relative}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--accent2)}
+.hero .k{font:600 12.5px "IBM Plex Mono",ui-monospace,monospace;letter-spacing:2px;text-transform:uppercase;color:#F08A5D}
+.hero h1{color:#fff;font-size:clamp(34px,5vw,52px);margin:8px 0 10px}
+.hero p{color:#D7DEE3;font-size:18px;margin:0 0 22px;max-width:46ch}
+.hero .row{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}.hero .btn.acc{background:var(--accent2);border-color:var(--accent2)}
+.hero img{width:190px;border-radius:22px;border:3px solid #0A1014;box-shadow:0 16px 40px rgba(0,0,0,.4);margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:0 0 10px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.card b{display:block;font-size:17.5px;margin-bottom:4px}.card span{color:var(--muted);font-size:15px;line-height:1.45;display:block}
+.card .n{font:600 13px "IBM Plex Mono",ui-monospace,monospace;color:var(--accent2);margin-bottom:6px}
+.rel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 22px 14px;margin:0 0 16px;box-shadow:var(--shadow)}
+.rel header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:6px}
+.rel h2{border:0!important;padding:14px 0 10px!important;margin:0!important;font-size:25px!important}
+.rel .date{color:var(--muted);font:500 13.5px "IBM Plex Mono",ui-monospace,monospace}
+.badge{background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12px;padding:2px 9px;border-radius:999px;letter-spacing:.5px;text-transform:uppercase}
+.rel ul{padding-left:20px;margin:10px 0 0}.rel li{margin:0 0 9px;max-width:none}
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:50px 0 0}
+.pn a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px 16px;text-decoration:none;background:var(--surface)}
+.pn a small{display:block;color:var(--muted);font:500 12px "IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.6px}
+.pn a b{color:var(--ink)}.pn a:last-child{text-align:right}.pn a:hover{border-color:var(--accent2)}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:18px;color:var(--muted);font-size:14.5px;display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+#res{position:absolute;right:18px;top:56px;width:min(420px,calc(100vw - 36px));background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.25);max-height:70vh;overflow:auto;display:none}
+#res a{display:block;padding:10px 14px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--line)}#res a:last-child{border:0}#res a:hover{background:var(--sunk)}
+#res small{display:block;color:var(--muted)}#res b{color:var(--accent)}
+@media (max-width:1180px){.layout{grid-template-columns:250px minmax(0,1fr)}aside.toc{display:none}}
+@media (max-width:640px){.bt{display:none}}
+@media (max-width:860px){.layout{display:block}.menu{display:inline-flex}
+ nav.side{position:fixed;left:0;top:60px;bottom:0;width:min(310px,86vw);z-index:25;background:var(--bg);transform:translateX(-102%);transition:transform .2s,visibility .2s;visibility:hidden}
+ body.nav nav.side{transform:none;visibility:visible;box-shadow:0 0 40px rgba(0,0,0,.35)}
+ .hero{grid-template-columns:1fr}.hero img{display:none}.top .ver,.top .hide-s{display:none}.top input[type=search]{width:100%;min-width:0}.top .sp{display:none}#q{flex:1}
+ article h1{font-size:34px}.pn{grid-template-columns:1fr}}
+@media print{.top,nav.side,aside.toc,.pn,footer .no-print{display:none}.layout{display:block}body{background:#fff}}
+</style></head><body>
+<header class="top"><button class="btn menu" id="menu" type="button" aria-label="Menu">☰</button>
+<a class="brand" href="index.html"><span class="plate">WP12</span><span class="bt">Site Photo Report</span></a><span class="ver">v1.2.7</span><span class="sp"></span>
+<input type="search" id="q" style="flex:0 1 auto" placeholder="Search  ( / )" aria-label="Search the documentation" autocomplete="off"><div id="res"></div>
+<button class="btn" id="theme" type="button" aria-label="Light or dark">◐</button><a class="btn acc hide-s" href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></header>
+<div class="layout"><nav class="side" aria-label="Pages"><div class="grp">Documentation</div><a class="p" href="index.html">Home</a><a class="p on" href="user-guide.html">User guide</a><ol><li><a href="#quick-guide-the-3-daily-steps">Quick guide: the 3 daily steps</a></li><li><a href="#quick-post-snap-caption-send">Quick post: snap, caption, send</a></li><li><a href="#1-install-the-app-and-set-up-once">Install the app and set up once</a></li><li><a href="#2-add-photos">Add photos</a></li><li><a href="#3-tag-each-photo">Tag each photo</a></li><li><a href="#4-generate-and-share-the-report">Generate and share the report</a></li><li><a href="#5-drawings-and-references-step-by-step-experimental">Drawings and references: step by step (experimental)</a></li><li><a href="#6-rfi-photo-record">RFI photo record</a></li><li><a href="#7-register-and-backup">Register and backup</a></li><li><a href="#8-rfi-inspection-list-request-tickets-and-todays-rfis-experimental">RFI inspection list, request tickets and Today&#x27;s RFIs (experimental)</a></li><li><a href="#9-qr-codes-scan-and-share">QR codes: scan and share</a></li><li><a href="#10-experimental-features">Experimental features</a></li><li><a href="#11-updates-feedback-and-common-problems">Updates, feedback and common problems</a></li></ol><a class="p" href="roadmap.html">Roadmap</a><a class="p" href="changelog.html">What changed</a><a class="p" href="licences.html">Licences</a></nav>
+<main><article><h1>User guide</h1><p class=lead>Step by step, from installing to sharing the report</p><p>For app version 1.2.7. <strong>Open the app:</strong> <a href="https://cstwp12-admin.github.io/wp12-sdr/">cstwp12-admin.github.io/wp12-sdr</a>. The link is also under <strong>About</strong> on the <a href="index.html">repository page</a>, pinned in the WP12 RFI coordination WhatsApp group, and as a QR code in Setup → <strong>Share this app</strong>.</p>
+<p>Photos and logos in the screenshots are blurred.</p>
+<p><strong>Contents:</strong> <a href="#quick-guide-the-3-daily-steps">Quick guide</a> · <a href="#quick-post-snap-caption-send">Quick post</a> · <a href="#1-install-the-app-and-set-up-once">1. Install</a> · <a href="#2-add-photos">2. Add photos</a> · <a href="#3-tag-each-photo">3. Tag each photo</a> · <a href="#4-generate-and-share-the-report">4. Generate and share</a> · <a href="#5-drawings-and-references-step-by-step-experimental">5. Drawings and references</a> · <a href="#6-rfi-photo-record">6. RFI photo record</a> · <a href="#7-register-and-backup">7. Register and backup</a> · <a href="#8-rfi-inspection-list-request-tickets-and-todays-rfis-experimental">8. RFI inspection list, request tickets and Today's RFIs</a> · <a href="#9-qr-codes-scan-and-share">9. QR codes: scan and share</a> · <a href="#10-experimental-features">10. Experimental features</a> · <a href="#11-updates-feedback-and-common-problems">11. Updates, feedback and common problems</a></p>
+<h2 id="quick-guide-the-3-daily-steps">Quick guide: the 3 daily steps</h2>
+<p>A daily photo report takes three steps: add the photos, tag each one, then generate and share.</p>
+<p><img loading="lazy" src="../guide/quick.png" alt="The three daily steps: Report details and the Take photo and Add photos buttons, a tagged photo card, and the report screen" width="720"></p>
+
+<ol>
+<li><strong>Add photos.</strong> Tap <strong>Take photo</strong> on site, or <strong>Add photos</strong> to pick them from the gallery afterwards.</li>
+<li><strong>Tag each photo.</strong> Choose the <strong>activity</strong>, check the <strong>chainage</strong> and <strong>side</strong>, then add the element or level (e.g. <em>Berm 3</em>), status and RFI no. where they apply. Every photo needs at least an activity and a chainage (or a place, for photos away from the road).</li>
+<li><strong>Generate and share.</strong> Tap <strong>Generate report</strong>, fix anything in <em>Check before you share</em>, then <strong>Save PDF</strong> or <strong>Share PDF</strong> to the WhatsApp group. Inspection photos also get an <strong>RFI photo record</strong>.</li>
+</ol>
+<p>The app keeps your draft if the phone closes the browser. Start the next report with <strong>New report</strong> (the red button beside <em>Sort by chainage</em>; tap it twice). It clears the photos, so share or save the report first; it sets the report type back to Daily and gives the next report no.</p>
+<p><strong>Good habits that make the report more useful:</strong></p>
+<ul>
+<li>Use the phone camera's original photos (or <strong>Take photo</strong>), not photos saved from WhatsApp: the GPS chainage then fills in by itself.</li>
+<li>Fill in the <strong>status</strong> on every photo, and the <strong>test result</strong> on testing photos. The reader then knows what the photo shows without asking.</li>
+<li>Put the <strong>RFI no.</strong> on inspection photos and attach the <strong>drawing reference</strong> they were checked against (section 5).</li>
+<li>Check <em>Check before you share</em> and the <strong>Preview</strong> before sending.</li>
+<li>One report a day is simplest. Several reports a day (e.g. one for bored piling, one for safety observations) are fine: each gets its own no.</li>
+</ul>
+<h2 id="quick-post-snap-caption-send">Quick post: snap, caption, send</h2>
+<p>For a photo you want in the WhatsApp group straight away, instead of the phone camera and a typed message.</p>
+<p><img loading="lazy" src="../guide/quickpost.png" alt="Quick post: the orange button at the top of the main screen, the one-screen form with chainage, side, activity chips, status and remarks, the caption choices, and the photo shared with its caption as a table below it" width="720"></p>
+
+<ol>
+<li>Tap <strong>Quick post</strong> (the orange button at the top). It opens and waits: tap <strong>Gallery</strong> to pick the photos you took with the phone's own camera app (their GPS and time are kept), or <strong>Take photo</strong> / <strong>Take another</strong> for the camera inside the app. <strong>Settings ›</strong> (top of the sheet) goes to Setup → <em>Photos and Quick post</em>, where Quick post can open the gallery or the camera by itself.</li>
+<li><strong>Tag it on one screen:</strong> the <strong>activity</strong> and the <strong>structure</strong> are chosen in a drawer (tap the box; the structure drawer has a search and <em>Other</em> to type your own). The <strong>status</strong> also has <em>Other…</em> to type your own. Then the location: <strong>On the alignment</strong> (the <strong>chainage</strong> comes from GPS, type it if needed; tap <strong>+ Chainage to</strong> for a stretch, and <strong>× Remove</strong> to take it away; the <strong>side</strong>) or <strong>Elsewhere</strong> with a place, e.g. <em>Site laboratory</em> or <em>Site office</em>. Then the <strong>status</strong> and any <strong>remarks</strong>. <em>Element, RFI no.</em> is under the last line.</li>
+<li><strong>Caption:</strong> <strong>Below the photo</strong> (the default: the photo is not covered, the caption is a table under it), <strong>On the photo</strong>, or <strong>Text only</strong> (the photo as taken, the caption as the WhatsApp message). Under <em>Show</em>, tap the parts to leave out, e.g. <em>BQ / QC ref.</em> or <em>Location strip</em>. The preview shows the result.</li>
+<li>Tap <strong>Share to WhatsApp</strong>, pick the group and send.</li>
+</ol>
+<p>The photos also go into today's report, with their tags, so the evening PDF report is mostly done. The caption choices are remembered.</p>
+<p><strong>Photos taken in the app and the phone's gallery.</strong> A web app cannot put a photo in the camera roll by itself. So the app keeps the camera original of every photo taken inside it and offers <strong>Save to phone</strong> (Android: the file goes to Downloads; iPhone: the share menu opens, choose <em>Save Image</em>). By default a copy is saved at once (Android); Setup → <em>Photos and Quick post</em> can ask each time or stop. The originals stay in the app until you start a New report, and <strong>Save ZIP</strong> (report screen) can include them in an <em>original_photos</em> folder. If WhatsApp does not show the message text with the photo (some iPhones), paste it: the app copies it for you.</p>
+<h2 id="1-install-the-app-and-set-up-once">1. Install the app and set up once</h2>
+<p>The app runs in the phone's browser; there is nothing to download from an app store.</p>
+<ol>
+<li>Open the app link on your phone, or scan the QR code on a colleague's phone (Setup → <strong>Share this app</strong>).</li>
+<li>Add it to the home screen:
+   - <strong>iPhone (Safari):</strong> Share → <em>Add to Home Screen</em>.
+   - <strong>Android (Chrome):</strong> menu ⋮ → <em>Install app</em> or <em>Add to home screen</em>.
+   - <strong>Laptop:</strong> open the link in Chrome or Edge and bookmark it.</li>
+<li>Open the app from the home-screen icon. The project setup (logos, zones, activity list, structures, centreline) loads by itself the first time you open it with signal.</li>
+<li>In <strong>Report details</strong>, choose your <strong>team</strong> (CST, WPC or SOR) and type your <strong>name</strong>, <strong>designation</strong> and <strong>initials</strong> (used in the report ref. no., e.g. <em>SAM</em>). The app remembers them.</li>
+<li>Choose the <strong>caption language</strong>: English, BM, or English + BM. Set the <strong>weather</strong> for the morning and afternoon.</li>
+</ol>
+<p><img loading="lazy" src="../guide/main.png" alt="Report details: team, report type, date, zone, name, initials, designation, caption language and weather" width="300"></p>
+
+<p>Leave <strong>Zone</strong> as <em>Not set</em> unless all your photos are in one zone; the report then lists the zones from the photos' chainages.</p>
+<h3 id="logos-for-each-team">Logos for each team</h3>
+<p>The logos come with the team setup: team CST gets JKR and the CST logo, WPC and SOR get JKR and the WPC logo. To change them, <strong>Setup → Report logos</strong>: pick the team, then for the left and right logo choose an image, type a text (e.g. <em>CST</em>), or tap <em>None</em>. A logo chosen on the phone comes first; <em>Use setup logo</em> goes back to the team setup's.</p>
+<p><img loading="lazy" src="../guide/logos.png" alt="Setup, Report logos: team buttons CST, WPC and SOR, the left and right logo with Choose image, None and a text box" width="300"></p>
+
+<h3 id="your-own-zones-optional">Your own zones (optional)</h3>
+<p>The app starts with the team's 4 zones. If your team reports by different zones, e.g. 5 zones for CST, set them in <strong>Setup → Zones</strong>:</p>
+<ol>
+<li>Type each zone's name and its <strong>From CH</strong> and <strong>To CH</strong>.</li>
+<li><strong>+ Add zone</strong> adds a row; <strong>×</strong> removes one.</li>
+<li><strong>Use team zones</strong> goes back to the team's zones.</li>
+</ol>
+<p>Your zones stay on your phone: a team setup update does not change them. They are used for the zone list in the report header, the zone tag on each photo card, the zone bands in the alignment diagram and the location strip.</p>
+<p><img loading="lazy" src="../guide/zones.png" alt="Setup, Zones: zones 1 to 4 with From CH and To CH, a remove button on each row, and the Add zone button" width="300"></p>
+
+<h2 id="2-add-photos">2. Add photos</h2>
+<p>Photos with a GPS position get their chainage and side filled in automatically from the WP12 centreline, so add the original camera photos whenever you can.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Way to add</th>
+<th>Chainage filled in?</th>
+<th>Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Take photo</strong> (in the app)</td>
+<td>Yes, from the phone's location</td>
+<td>You are on site with the app open. Allow location when asked.</td>
+</tr>
+<tr>
+<td><strong>Add photos</strong>, original camera photos</td>
+<td>Yes, if the camera saved the location</td>
+<td>You took photos with the phone camera and tag them later.</td>
+</tr>
+<tr>
+<td><strong>Add photos</strong>, photos saved from WhatsApp</td>
+<td>No: WhatsApp removes the location</td>
+<td>Only when you have no original. Type the chainage yourself.</td>
+</tr>
+</tbody>
+</table></div>
+<p>JPG, PNG and <strong>HEIC / HEIF</strong> photos can be added. On Android and laptops a HEIC photo is converted on the phone; the converter downloads the first time it is needed, so do that once with signal. On iPhone you can also set the camera to <em>Most Compatible</em> (Settings → Camera → Formats) to take JPG photos.</p>
+<p>Each photo card shows what was found: a green <strong>GPS → CH 70+120 · 18 m RHS</strong> tag, an orange tag when the position is more than 150 m from the road, or <strong>No GPS in photo</strong>. GPS is accurate to about 5–10 m, so the chainage is rounded to 5 m; check it against the site pegs where it matters.</p>
+<p><strong>Date taken.</strong> A photo saved from WhatsApp has lost its camera date. The app then takes the date from the file name if it has one (e.g. <em>IMG-20261010-WA0012.jpg</em>), otherwise the file's date, and shows a <strong>Date taken</strong> box in orange on the card: check it and change it if needed.</p>
+<p><strong>The same photo twice.</strong> Adding a photo that is already in the report (same file and time taken) is skipped, with a note at the bottom of the screen.</p>
+<p>Photos are sorted by the time taken. <strong>Sort by chainage</strong> puts them in order along the alignment instead (photos with no chainage go to the end); <strong>Sort by time</strong> puts them back. Use <strong>↑ / ↓</strong> on a card to move one photo, and <strong>Remove</strong> to delete one (you can undo it for a few seconds).</p>
+<h2 id="3-tag-each-photo">3. Tag each photo</h2>
+<p>Every photo needs an activity and a location; the other fields are optional and only print when filled in.</p>
+<p><img loading="lazy" src="../guide/card_picker.png" alt="A tagged photo card: GPS chainage, activity, element, side, status, RFI no. and drawing refs (left and middle), and the activity list with search (right)" width="720"></p>
+
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What to enter</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Activity</strong></td>
+<td>Tap the activity box, search in English or BM, or by BQ item no. Tap each activity that applies (they get a tick), then <strong>Done</strong>. QC tests are marked <em>QC</em>. Not in the list? Type it under <em>Not in the list?</em> and tap <strong>Add</strong>.</td>
+<td><em>Berm drain – concreting</em> + <em>Cube test – G30</em></td>
+</tr>
+<tr>
+<td><strong>Structure</strong></td>
+<td>Pick a bridge, culvert or wall. Its drawing chainage fills in; adjust it to the actual position.</td>
+<td><em>B3 Sg. Taburan Bridge</em></td>
+</tr>
+<tr>
+<td><strong>On the alignment / Elsewhere</strong></td>
+<td>Leave <em>On the alignment</em> for work on the road. For a photo at the site laboratory, a third-party laboratory, a factory, a precast yard or another site, tap <strong>Elsewhere</strong> and type the place; the place is printed instead of a chainage and is remembered for next time.</td>
+<td><em>Site laboratory WP12</em></td>
+</tr>
+<tr>
+<td><strong>Chainage</strong></td>
+<td>Check the GPS chainage, or type it. For a stretch of work, tap <strong>+ Chainage to</strong> and type the end chainage; <strong>× Remove</strong> takes the range off.</td>
+<td><em>70+120</em>, or <em>70+120</em> to <em>70+300</em></td>
+</tr>
+<tr>
+<td><strong>Side</strong></td>
+<td>LHS, RHS, CL or Both.</td>
+<td><em>RHS</em></td>
+</tr>
+<tr>
+<td><strong>Element / point</strong></td>
+<td>The box is named for the activity. <em>Sampling point</em> for water, air and noise monitoring: type the point, e.g. <em>W1</em>. <em>Element</em> for bridges, culverts or a structure: <em>Abutment A</em>, <em>Pier 2</em>, <em>Base slab</em>. <em>Layer / level</em> for earthworks and pavement: <em>Layer 3</em>, <em>Berm 2</em>, <em>Subgrade</em>.</td>
+<td><em>W1</em>, <em>P2</em>, <em>Layer 3</em></td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Choose one, or <em>Other…</em> to type your own.</td>
+<td><em>Inspected</em></td>
+</tr>
+<tr>
+<td><strong>Test result</strong></td>
+<td>Shown for testing and sampling activities. Passed, Failed, Retest required, Pending test result, Pending official test result, or <em>Other…</em>. Prints with the status, e.g. <em>Inspected, Result: Pending test result</em>.</td>
+<td><em>Pending test result</em></td>
+</tr>
+<tr>
+<td><strong>Progress</strong></td>
+<td>Optional estimate in %, beside <em>Status</em>. Prints with the status, e.g. <em>In progress, 60% complete</em>.</td>
+<td><em>60</em></td>
+</tr>
+<tr>
+<td><strong>RFI no.</strong></td>
+<td>Only for inspection photos. Type the trade code and number; the prefix <em>JKR-RFI-WP12-</em> is fixed.</td>
+<td><em>EW-215</em></td>
+</tr>
+<tr>
+<td><strong>Drawing refs</strong> (experimental)</td>
+<td>The drawing the work was checked against. See section 5.</td>
+<td><em>D1 WD/JKR/WP12/CS/DR/PNP/002</em></td>
+</tr>
+<tr>
+<td><strong>Remarks</strong></td>
+<td>Tap <em>Remarks</em> to open.</td>
+<td><em>Boring for pile P2-3</em></td>
+</tr>
+</tbody>
+</table></div>
+<p>The statuses print in English and BM: In progress, Completed, Ready for inspection, Inspected, Re-inspection required, Rectification required, Observation.</p>
+<h3 id="save-time-when-photos-share-the-same-tags">Save time when photos share the same tags</h3>
+<ul>
+<li><strong>Same as previous</strong> (on each card from photo 2): copies the activity, structure, element, status, RFI no. and remarks from the photo above. A photo with its own GPS chainage keeps it.</li>
+<li><strong>Tag several photos at once:</strong> tick <strong>Select</strong> on each photo, tap <strong>Tag selected</strong>, fill in only the fields to change, then <strong>Apply</strong>. Empty fields leave each photo as it is. Drawings and the date taken can be set this way too.</li>
+<li><strong>Remove several photos:</strong> select them and tap <strong>Remove</strong> in the orange bar. <strong>Undo</strong> puts them back for a few seconds.</li>
+</ul>
+<p><img loading="lazy" src="../guide/bulk.png" alt="Tagging two selected photos at once: activity, structure, element, drawing refs, place, chainage, side, RFI no. and status" width="300"></p>
+
+<h2 id="4-generate-and-share-the-report">4. Generate and share the report</h2>
+<p>Tap <strong>Generate report</strong> at the bottom of the screen. The report screen opens with a check of your photos, the choices for the PDF and the share buttons.</p>
+<p><img loading="lazy" src="../guide/output.png" alt="Report screen: ref. no., check before you share and RFI photo records (left); photos per page, summary table, alignment diagram and location strip (middle); the PDF, captioned photos, WhatsApp, Word and ZIP buttons (right)" width="720"></p>
+
+<ol>
+<li><strong>Report ref. no.</strong> The report gets a reference such as <em>WP12-CST-SAM-20261013-1</em>: package, team, your initials, date and the report no. of the day on this phone. It can be changed in the box. Each report has its own no.:
+   - a no. counts as used once it is shown here, so <strong>New report</strong> always gives the next one (-2, -3 …), even if the last draft was never sent;
+   - if you change the photos of a report that was already shared or saved, the next one becomes a new report with the next no.;
+   - changing captions or details keeps the same no.;
+   - the count is kept on this phone, so after clearing the phone's data, check the no. of a second report on the same day.</li>
+<li><strong>Check before you share.</strong> The box lists photos with no activity or no location. Tap a photo number to go straight to that photo, fix it, then tap <strong>Generate report</strong> again.</li>
+<li><strong>Photos per page.</strong> <strong>2 per page</strong> (the default) gives larger, clearer photos; <strong>4 per page</strong> gives a shorter report. Each choice shows how many pages it makes.</li>
+<li><strong>Summary table.</strong> Leave <em>Include summary table on page 1</em> ticked for a list of all photos on the first page.</li>
+<li><strong>Alignment diagram (experimental).</strong> Tick <em>Include alignment diagram</em> to add a line of the whole alignment on page 1 (see below), with optional structure lines under it.</li>
+<li><strong>Location strip on each photo.</strong> <em>Under the caption</em> (the default), <em>Top of the photo</em> or <em>Off</em>. For team CST a second line under it shows the <strong>CST sections</strong> (CST-S1 to CST-S5, one IOW each) as a thin blue-grey line, apart from the project's zone bar above it, with the photo's section highlighted; a photo at a structure is also tagged <em>CST structures</em>. Setup → <em>Project</em> switches the sections line on or off, and lets you change the sections (names, from and to chainages, and the tag for photos at a structure); <strong>Use project sections</strong> goes back to the project's. Each photo gets a small line of the whole alignment, with its zone shaded and a marker at its chainage, e.g. <em>CH 70+120 RHS · Zone 3</em>, in the PDF and on the captioned photos. Photos marked <em>Elsewhere</em> show their place instead.</li>
+<li><strong>Drawing pages</strong> (when photos have drawing refs): <em>Auto</em>, <em>1 per page</em>, <em>2 per page</em> or <em>4 per page</em> (section 5).</li>
+</ol>
+<p>The phone remembers these choices.</p>
+<h3 id="share">Share</h3>
+<p>Each button makes its file the first time and reuses it after:</p>
+<ul>
+<li><strong>Preview</strong> (beside the PDF button): the pages in the app before sending them. <strong>Share PDF</strong> at the bottom of the preview sends the same file. (The preview downloads its PDF viewer the first time, so do it once with signal.)</li>
+<li><strong>Save PDF</strong> puts the file in Downloads or Files; <strong>Share PDF</strong> opens the share menu: pick WhatsApp, then the group. Once made, its size shows in the PDF row.</li>
+<li><strong>Captioned photos</strong>: each photo with its caption, renamed in order. <strong>Preview</strong> shows them first. <em>Caption</em>: <strong>On the photo</strong> (as before) or <strong>Below the photo</strong> (the photo whole, the caption as a table under it). <em>Show</em>: tap the parts to leave out or add, e.g. the <strong>photo no.</strong> (off by default), the <strong>team</strong>, <strong>your name</strong>, the BQ / QC ref. or the location strip. The same choices apply to Quick post.</li>
+<li><strong>Copy text</strong>: a short list of activities and chainages to paste with the PDF.</li>
+<li><strong>Save Word</strong> (experimental): the same report as an editable Word file (.docx), set out like the PDF, saved to the phone (Downloads, or Files on iPhone). Open it in Word or WPS, edit, then send it from there. <strong>Share Word</strong> opens the share menu instead. If nothing appears, tap <strong>Save again</strong> in the bar at the bottom.</li>
+<li><strong>Save ZIP</strong>: the PDF, captioned photos, RFI photo records and a CSV photo log, for your own files.</li>
+</ul>
+<p>If a PDF takes a few seconds to make, the phone may not open the share menu straight away. The bar at the bottom then says <em>… is ready</em>: tap <strong>Share</strong> on it. On a laptop the share buttons save the files instead; send them from WhatsApp Web or Desktop.</p>
+<p><img loading="lazy" src="../guide/preview_pair.png" alt="Preview of the PDF report in the app (left) and preview of the captioned photos (right)" width="560"></p>
+
+<p>The PDF report: details and summary on page 1, then the photos with their captions and location strips. The footer of page 1 has two small QR codes in its corners:</p>
+<ul>
+<li><strong>Scan for the app</strong> (bottom right): anyone scans it with the phone camera to open the app;</li>
+<li><strong>Report record</strong> (bottom left; <strong>off by default</strong>, switch it on in Setup): another phone with the app scans it to add the report to its Register (section 9).</li>
+</ul>
+<p>Both can be switched off or on in Setup → <em>Share this app</em>.</p>
+<p><img loading="lazy" src="../guide/qr_footer.png" alt="The footer of page 1 of the PDF report: the report record QR code at the left corner and the Scan for the app QR code at the right corner" width="720"></p>
+
+<p><img loading="lazy" src="../guide/pdf_both.png" alt="PDF report pages: 2 photos per page with location strips under the captions (left) and 4 photos per page (right)" width="720"></p>
+
+<p><img loading="lazy" src="../guide/stamp.jpg" alt="A captioned photo: date, time, team, chainage, activity, BQ ref, RFI no., drawing, status and the location strip printed on the photo" width="560"></p>
+
+<h3 id="alignment-diagram-experimental">Alignment diagram (experimental)</h3>
+<p>The diagram shows where the day's photos were taken along the whole alignment. Each marker carries the photo number:</p>
+<ul>
+<li><strong>above the line:</strong> LHS · <strong>on the line:</strong> CL, or no side chosen · <strong>below the line:</strong> RHS · <strong>Both:</strong> above and below;</li>
+<li><strong>a short bar</strong> along the line: a photo with <em>Chainage to</em>;</li>
+<li><strong>one marker for several photos</strong> (e.g. <em>2–4</em>) when they are close together. Each photo's caption still gives its exact chainage;</li>
+<li>above the line, the length of each zone, and on the right the total length (14.81 km, CH 62+700 to 77+508);</li>
+<li>a line under the diagram gives the chainage range covered, e.g. <em>Photos from CH 68+800 to 70+200 (Zone 2, Zone 3)</em>;</li>
+<li>photos with no chainage, or more than 150 m from the road by GPS, are left out, and a note says how many.</li>
+</ul>
+<p><strong>Structure lines.</strong> Under <em>Include alignment diagram</em>, tick <strong>Bridges</strong>, <strong>Pipe culverts</strong>, <strong>Box culverts</strong>, <strong>Junction culverts</strong> and <strong>RS walls</strong> to show each on its own line, with the structure no. at its drawing chainage. Structure positions are indicative.</p>
+<p><img loading="lazy" src="../guide/diagram.png" alt="Alignment diagram: zone lengths 2.10, 4.00, 3.55 and 5.16 km and the total length above the line, photo markers 1,6 on the line, 5 above and 2–4 below, with bridge and box culvert lines under it" width="720"></p>
+
+<h3 id="period-report-a-week-or-a-month-experimental">Period report: a week or a month (experimental)</h3>
+<p>For a weekly or monthly report, set <strong>Report type</strong> to <em>Period</em> in Report details. Keep adding photos day by day (do not start a New report in between); each photo keeps its own date. <em>From</em> and <em>To</em> fill in from the photos and can be changed. <strong>Generate report</strong> then makes:</p>
+<ul>
+<li>a <strong>progress table</strong> for the period: each activity and place, the photo numbers, the days photographed, and the latest status and progress %;</li>
+<li>the <strong>photos day by day</strong>, each day starting on a new page with its date;</li>
+<li>a WhatsApp text grouped by day, and a ref. no. ending with <em>P</em> and the last date, e.g. <em>WP12-CST-SAM-P20261018-1</em>.</li>
+</ul>
+<p>Photos with no camera date show a <strong>Date taken</strong> box in orange (section 2); <em>Check before you share</em> lists photos whose date is not confirmed or outside the period. The photos stay on this phone until you start a New report, so keep the app on the Home Screen and <strong>Save ZIP</strong> at least once a week.</p>
+<p>Saving or sharing a report also logs it in the <strong>Register</strong> (section 7).</p>
+<h2 id="5-drawings-and-references-step-by-step-experimental">5. Drawings and references: step by step (experimental)</h2>
+<p>Attach the part of a drawing that a photo refers to, e.g. the drainage plan for a berm drain, or the culvert detail for a box culvert pour. In the RFI photo record this shows the drawing the work was inspected against, next to the photos, so the record attached to the RFI form is complete.</p>
+<p>Add a drawing once; it stays in the drawing library on your phone and can be attached to photos on any day.</p>
+<p><img loading="lazy" src="../guide/dwg_steps1.png" alt="Steps 1 to 4: + Drawing ref on the photo card, the drawing library with Add from file and Scan with camera, a box dragged over the part of a PDF drawing, and the drawing details" width="720"></p>
+
+<ol>
+<li><strong>On the photo card, tap + Drawing ref</strong> (under the RFI no.).</li>
+<li><strong>Tap + Add from file</strong> and pick the drawing: a <strong>PDF</strong> (the PDF viewer downloads the first time, so do this once with signal), or an image (JPG, PNG, HEIC or a screenshot). For a paper drawing, tap <strong>Scan with camera</strong> instead (see below).</li>
+<li><strong>Box the part to keep.</strong> For a PDF with several pages, choose the <strong>PDF page</strong> first. To see the detail, <strong>pinch</strong> with two fingers or tap <strong>+</strong>; turn <strong>Move</strong> on to drag around the zoomed sheet, then off again to draw the box. <strong>Fit</strong> shows the whole sheet again. Drag a box over the part that matters, or tap <strong>Whole image</strong> to keep the whole sheet. <strong>Enhance</strong> gives a clean white background.</li>
+<li><strong>Fill in the drawing details, then tap Save:</strong>
+   - <strong>Drawing no.:</strong> the usual start <em>WD/JKR/WP12/CS/</em> is already in the first box, so type only the rest, e.g. <em>DR/PNP/002</em>. Tap a recent trade (e.g. <em>DR/PNP/…</em>) to start it. If a drawing has another start, change the first box; the phone remembers it;
+   - <strong>Rev.</strong> and <strong>drawing title</strong>;
+   - <strong>What this snippet shows</strong>, e.g. <em>Berm drains and cascade drain, RHS</em>;
+   - optionally the <strong>structure</strong> (e.g. <em>C19</em>) and the <strong>chainage range</strong> it covers. A title such as <em>… FROM CH. 70000.000 TO CH. 70300.000</em> fills the range in for you.</li>
+</ol>
+<p><img loading="lazy" src="../guide/dwg_steps2.png" alt="Steps 5 to 7: the drawing saved and attached, the drawing suggested on another photo card, and the Drawing pages choice on the report screen" width="720"></p>
+
+<ol start="5">
+<li><strong>It is attached</strong> to the photo you started from (<em>Attached</em>), and listed in the library. Tap <strong>Done</strong>.</li>
+<li><strong>On other photos</strong>, a photo at the same structure, or with a chainage in the drawing's range, shows the drawing as a suggestion (e.g. <em>+ PNP/002</em>): one tap attaches it. Otherwise tap <strong>+ Drawing ref</strong> and pick it from the library. <strong>Tag selected</strong> attaches drawings to several photos at once.</li>
+<li><strong>On the report screen</strong>, choose <strong>Drawing pages</strong>: <em>Auto</em> (a wide snippet such as a plan takes the full width; two upright snippets such as sections share a row), <em>1 per page</em> (each drawing fitted to its own page; a wide drawing gets a landscape page), <em>2 per page</em> or <em>4 per page</em>.</li>
+</ol>
+<p><strong>Scan a paper drawing.</strong> Tap <strong>Scan with camera</strong> and take a photo of the sheet. Drag the 4 orange corners onto the corners of the sheet (or of the part you need), tap <strong>Straighten</strong>, then <strong>Enhance</strong>. An A-size sheet is set to its exact shape.</p>
+<p><img loading="lazy" src="../guide/dwg_scan.png" alt="Scanning a paper drawing: the 4 corners dragged onto the sheet, and the straightened result" width="560"></p>
+
+<p><strong>In the PDF report and the RFI photo record</strong>, the caption of each photo reads <em>Drawing: D1 WD/JKR/WP12/CS/DR/PNP/002</em>, and the snippets are printed on <strong>Drawing reference</strong> pages at the end, each with its drawing no., rev., title, what it shows and the photo numbers that refer to it.</p>
+<p><img loading="lazy" src="../guide/dwg_pdf.png" alt="The photo caption with Drawing D1 (left), the Drawing references page of the report (middle) and of the RFI photo record (right)" width="720"></p>
+
+<p>Good practice:</p>
+<ul>
+<li>Use a PDF drawing where you can; it gives the sharpest print. For a screenshot, zoom in on the drawing first.</li>
+<li>Keep the snippet to the part the photo shows: the drawing references go wherever the PDF is shared.</li>
+<li>Snippets are for reference: the current issue of each drawing governs. Note the rev. so the reader can check it.</li>
+<li>Setup → <em>Experimental features</em> → <strong>Drawings and references</strong> to edit or delete them, or to hide the feature.</li>
+</ul>
+<h3 id="other-references-memos-specifications-letters">Other references: memos, specifications, letters</h3>
+<p>The same library holds documents too. In step 4, choose the <strong>Type</strong>: <em>Drawing</em>, <em>Specification</em>, <em>Memo</em>, <em>Letter</em>, <em>Method statement</em> or <em>Other</em>. For a document, type its reference no. as written (e.g. <em>PYK/WP12/MEMO/045</em>), its title or subject, and its date or revision. Box the paragraph or table that matters, as for a drawing.</p>
+<p>In the report and the RFI photo record, drawings are numbered D1, D2 …, and the other references by type: S1 for a specification, M1 for a memo, L1 for a letter, MS1 for a method statement. The caption reads e.g. <em>References: D1 WD/JKR/WP12/CS/DR/PNP/002; M1 Memo PYK/WP12/MEMO/045</em>, and the snippets print on the <em>References</em> pages.</p>
+<h2 id="6-rfi-photo-record">6. RFI photo record</h2>
+<p>The RFI photo record is a PDF attachment to the JKR Sabah RFI form (Arahan Jabatan Bil. 11/2026): one record per RFI no. It shows what the photos show; the stage and inspection result stay on the signed RFI form, which remains the record of inspection.</p>
+<p>Page 1 has:</p>
+<ul>
+<li><strong>details:</strong> location (zone, chainage range, side), description of works, activities with their BQ / QC refs, structure and element, the number of photos and the report it came from;</li>
+<li><strong>photo index:</strong> one line per photo with its no., time, activity, location, element and status;</li>
+<li>the <strong>alignment diagram</strong>, if ticked;</li>
+<li><strong>comments</strong>, and sign-off blocks for <strong>Prepared by (WPC)</strong> and <strong>Checked by (CST)</strong>.</li>
+</ul>
+<p>The photos follow from page 2, then the <strong>drawing references</strong> for that RFI's photos.</p>
+<ol>
+<li><strong>Tag the inspection photos with the RFI no.</strong> On each photo card, type the trade code and number in <strong>RFI no.</strong>, e.g. <em>EW-215</em>. Several photos can share one RFI no.</li>
+<li><strong>Attach the drawing reference</strong> to those photos (section 5).</li>
+<li><strong>Tap Generate report.</strong> When any photo has an RFI no., the report screen shows <strong>RFI photo records</strong> near the top. Tap <strong>Make RFI photo records</strong>.</li>
+<li><strong>Open the RFI.</strong> Each RFI no. has its own panel, with the location and description taken from its photos.</li>
+<li><strong>Fill in if needed:</strong> <em>Description of works</em> (leave it to use the activities, or type the RFI form's wording) and <em>Comments</em>.</li>
+<li><strong>Check each photo's status</strong> on the photo cards (e.g. <em>Ready for inspection</em>, <em>Inspected</em>); it is printed in the photo index.</li>
+<li><strong>Preview</strong>, then <strong>Share</strong> or <strong>Save</strong> the record (or <strong>Save Word</strong> to edit it first) and attach it to the RFI form.</li>
+<li><strong>Sign on paper:</strong> <strong>Prepared by (WPC)</strong> and <strong>Checked by (CST)</strong>.</li>
+</ol>
+<p><img loading="lazy" src="../guide/rfi_pair.png" alt="The RFI panel in the app with Preview, Save PDF and Save Word (left), and the RFI photo record PDF, page 1 (right)" width="680"></p>
+
+<h2 id="7-register-and-backup">7. Register and backup</h2>
+<p>Every report you save or share is logged in the <strong>Register</strong> on your phone, so you can find past photos and RFIs without scrolling through WhatsApp.</p>
+<p><img loading="lazy" src="../guide/register.png" alt="Register, Photos view: one line per photo with chainage, date, activity, BQ ref, element, RFI no. and status" width="300"></p>
+
+<ul>
+<li><strong>Views:</strong> <em>Reports</em> (one line per report), <em>RFIs</em> (one line per RFI photo record, with the status of its photos) and <em>Photos</em> (one line per photo).</li>
+<li><strong>Filters:</strong> date from and to, team, and a search box for activity, chainage, RFI no., structure or name.</li>
+<li><strong>Export CSV:</strong> saves the current view as a CSV file that opens in Excel.</li>
+<li><strong>Import log (CSV):</strong> adds another person's records. Use the <code>photo_log.csv</code> inside their ZIP.</li>
+<li><strong>Import PDF:</strong> adds a PDF report made by the app (version 1.2.6 or later), e.g. one received on WhatsApp: every photo's details are inside the PDF. Save the PDF from WhatsApp first, then pick it here.</li>
+<li><strong>A scanned report record</strong> (Scan, then the orange-framed QR code on page 1 of someone's report) adds a short line: report no., date, team, name, number of photos, chainages, activities and RFIs. Import the PDF for the photo details.</li>
+</ul>
+<p><strong>Back up the register.</strong> It lives only in this phone's browser; clearing the browser data deletes it. If you have not exported the register for 7 days the app shows a reminder: tap <strong>Export now</strong> to save the full photo log, or <strong>Later</strong>. Keep the exported CSV with your project files.</p>
+<p>A team that wants one shared register can connect the app to its own Google Sheet (Setup → <em>Team register</em>); the steps are in <a href="https://github.com/cstwp12-admin/wp12-sdr/blob/main/TEAM_REGISTER.md">TEAM_REGISTER.md</a>.</p>
+<h2 id="8-rfi-inspection-list-request-tickets-and-todays-rfis-experimental">8. RFI inspection list, request tickets and Today's RFIs (experimental)</h2>
+<p>The daily RFI summary list that WPC posts for the next day's inspections can be made in the app, in the same layout as the Excel list: No., RFI reference no., issued date, inspection date, description, location, PIC and time of inspection.</p>
+<p>The <strong>RFI inspection list</strong> button is on the main screen, under Report details, when the team is <strong>WPC</strong>. The screen has two steps at the top: <strong>1 RFIs</strong> (dates and the RFIs, with <em>Requests</em> for late or extra inspections first) and <strong>2 Share</strong> (the PDF first, then other formats; <em>Layout and options</em> and the optional <em>Visual board</em> fold underneath). <strong>Colour by zone</strong> (under <em>Layout and options</em>) puts a coloured stripe and a legend by zone on the Schedule layouts and the board. Other teams can switch it on in Setup → <em>Experimental features</em>.</p>
+<p><img loading="lazy" src="../guide/rfi_list_button.png" alt="Main screen for team WPC with the RFI inspection list button under Report details" width="300"></p>
+
+<p><img loading="lazy" src="../guide/rfi_steps.png" alt="The RFI inspection list in two steps: RFIs and Share" width="300"></p>
+
+<ol>
+<li><strong>Set the dates.</strong> The <em>Inspection date</em> starts as tomorrow and the <em>Issued date</em> as today; change them if needed.</li>
+<li><strong>Add the RFIs</strong>, in either way:
+   - <strong>Paste from Excel:</strong> in your Excel list, select the rows, with the heading row if you can, and copy. Tap <strong>Paste from Excel</strong>, paste in the box and check the table: the app matches the columns by their headings. A location written as a chainage, e.g. <em>Zone 4: CH76+500 - CH77+075 LHS</em>, goes into the chainage and side boxes; any other place, e.g. <em>Site Laboratory WP12</em>, stays as the other location. Tap <strong>Add</strong>.
+   - <strong>+ Add RFI:</strong> type the RFI no. (the prefix <em>JKR-RFI-WP12-</em> is fixed), and optionally choose the activity: it fills in the description. Add the location, the PIC and the time. <strong>Save and add another</strong> keeps the form open.</li>
+<li><strong>Check the list.</strong> Use <strong>Edit</strong>, <strong>↑ / ↓</strong> and <strong>×</strong> on each row. <strong>Sort: by time</strong> or <strong>by RFI no. (trade)</strong>.</li>
+<li><strong>Layout and options</strong> (in step 2, folded under the share buttons): choose the <strong>PDF layout</strong>: <strong>Table (Excel layout)</strong>, as WPC's Excel list, or <strong>Schedule</strong>: the RFIs in time order, grouped <em>Morning</em> and <em>Afternoon</em>, with the time in large type and a location strip for each RFI. Tick <strong>Line diagram above the table</strong> to show each RFI's location along the alignment, marked with its list no. and time of inspection (e.g. <em>01 · 9.30 AM</em>), and tick the <strong>structure lines</strong> to show (bridges, culverts, RS walls). RFIs elsewhere, such as the site laboratory, are listed under the diagram. Each RFI can also have <strong>Remarks</strong> (in the Add / Edit form), printed in their own column.</li>
+<li><strong>Share the list</strong> (step 2):
+   - <strong>Save PDF</strong> or <strong>Share PDF</strong> (A4 landscape, in the layout chosen above), with <strong>Preview</strong> beside them. Save puts the file in Downloads or Files; Share opens the phone's share menu (pick WhatsApp);
+   - <strong>Save Word</strong> (or <strong>Share Word</strong>): the same list as an editable Word file;
+   - <strong>Copy text</strong>: a short list to paste in the WhatsApp group;
+   - <strong>Save CSV (Excel)</strong>.</li>
+<li><strong>Next day:</strong> tap <strong>New list</strong>. The last list is kept under <strong>Earlier lists</strong>.</li>
+</ol>
+<p>A list shared again after a change (e.g. a late request added) gets a <strong>revision no.</strong> (<em>Rev. 1</em>, <em>Rev. 2</em> …) on the PDF and the board.</p>
+<p><strong>The list travels inside the PDFs and the link</strong>, not in QR codes: a phone camera cannot read a long list from a code, and WhatsApp shrinks images. The RFI list PDF and the board PDF both carry the whole list, so anyone with the app can load it from either.</p>
+<p><img loading="lazy" src="../guide/rfi_list.png" alt="RFI inspection list: paste from Excel with a preview table (left), the Add an RFI form (middle), and the list with Include a line diagram and the share buttons (right)" width="720"></p>
+
+<p><img loading="lazy" src="../guide/rfi_list_pdf.png" alt="Daily RFI summary list PDF with the line diagram: markers 01 9.30 AM to 03 11.00 AM along the alignment, the RFI at the site laboratory listed under it, then the table of RFIs" width="720"></p>
+
+<p><img loading="lazy" src="../guide/board.png" alt="A board page: times, list nos., RFI nos., work and location, a late request marked LATE, and the alignment strip on the right with the list nos. at their chainages" width="360"> &nbsp; <img loading="lazy" src="../guide/schedule.png" alt="The RFI list PDF in the Schedule layout: morning group, times in large type, LATE tag, remarks and a location strip for each RFI" width="560"></p>
+
+<h3 id="request-an-inspection-the-rfi-request-ticket">Request an inspection: the RFI request ticket</h3>
+<p>Anyone at WPC who needs an inspection, e.g. after the list was posted, makes a ticket instead of a message:</p>
+<ol>
+<li><strong>RFI inspection list → Request an inspection.</strong> Fill in the RFI no. (leave it empty if it is not issued yet), the activity or description, the location, the <strong>inspection date</strong>, the time wanted, the PIC and the <strong>remarks</strong> (e.g. why it is late). Tap <strong>Make ticket</strong>.</li>
+<li><strong>Share ticket</strong>: the ticket image with a QR code goes to the group, with a message and a link.</li>
+<li><strong>The person keeping the list</strong> saves the image and taps <strong>Scan → Scan from image</strong> (or taps the link in the message, or scans the ticket on another phone's screen). The ticket opens with <strong>Accept and add to the list</strong> and <strong>Decline</strong>:
+   - <strong>Accept</strong>: the RFI joins the list, marked <em>Late request</em>, with its remarks and the ticket no.;
+   - <strong>Decline</strong>: type the reason (e.g. <em>No inspector free at 3 pm; choose a morning slot</em>).</li>
+<li>Either way the app makes a <strong>reply ticket</strong> (green <em>Accepted</em> with the list no., or red <em>Declined</em> with the reason). Share it back; the requester scans it and the ticket under <em>My requests</em> shows the result.</li>
+<li><strong>How you know it was approved</strong>, under <em>My requests</em>:
+   - <strong>Accepted</strong>: the reply ticket was scanned, <strong>or</strong> you loaded the next RFI list (link or PDF) and your ticket no. is on it: the official list is the proof;
+   - <strong>Not on the list for (date)</strong>: a list for that day was loaded without your request;
+   - <strong>No reply yet</strong>: 3 hours after sending, or on the inspection day. Tap <strong>Remind</strong> to share the ticket again.</li>
+<li>A request still waiting can be <strong>withdrawn</strong> (tap <strong>Withdraw</strong> twice); tell the group too. Handled requests can be removed from the lists.</li>
+</ol>
+<p><img loading="lazy" src="../guide/ticket.png" alt="An RFI request ticket with its QR code (left) and the same request accepted, with the list no. (right)" width="560"></p>
+
+<h3 id="todays-rfis-inspectors">Today's RFIs (inspectors)</h3>
+<p>Load the list in one of three ways, and the RFIs show on the main screen under <strong>Today's RFIs</strong>, in time order, with how long until each slot:</p>
+<ul>
+<li><strong>tap the link</strong> in the list keeper's message;</li>
+<li>save the <strong>RFI list PDF</strong> or <strong>board PDF</strong> from WhatsApp, then tap <strong>Scan → Load from a PDF</strong> (or <em>Load a newer list (PDF)</em> on the panel);</li>
+<li>copy the whole message and paste it in <strong>Scan → Paste the message or link instead</strong>.</li>
+</ul>
+<p>Loading a newer list replaces it.</p>
+<ul>
+<li><strong>Start record:</strong> the camera opens; the photos you take get the RFI no., activity, structure and chainage from the list. Set the status, then <em>Generate report</em> → <em>RFI photo records</em>.</li>
+<li>An RFI shows <strong>Inspected</strong> once a photo with its RFI no. has the status <em>Inspected</em> (or <em>Re-inspection</em> / <em>Rectification required</em>), or when you tap <strong>Inspected</strong>.</li>
+<li><strong>Hide</strong> takes the panel away until you load the next list.</li>
+</ul>
+<p><img loading="lazy" src="../guide/today.png" alt="Today's RFIs on the main screen: each RFI with its time and countdown, the late request marked, and the Start record and Inspected buttons" width="300"></p>
+
+<p><strong>On the inspection day</strong>, typing an RFI no. on a photo card suggests the RFIs in the list. When the photo has no activity, structure or chainage yet, it takes them from the list (check them against the photo). The RFI photo record uses the list's description unless you type another one.</p>
+<h2 id="9-qr-codes-scan-and-share">9. QR codes: scan and share</h2>
+<p>The <strong>Scan</strong> button (top of the screen, beside Register) reads the QR codes the app makes, and loads PDFs made by the app. Nothing goes to a server: the information is in the code, the link after <em>#</em>, or the PDF itself. QR codes only carry short things; a long RFI list travels in the PDF and the link (section 8).</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>QR code</th>
+<th>Where it comes from</th>
+<th>What scanning it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RFI request ticket</td>
+<td>A late request shared in the group</td>
+<td>Opens it with <em>Accept</em> / <em>Decline</em> (section 8)</td>
+</tr>
+<tr>
+<td>Reply ticket</td>
+<td>The list keeper's reply</td>
+<td>Updates your ticket under <em>My requests</em></td>
+</tr>
+<tr>
+<td>Report record</td>
+<td>Page 1 of a PDF report (orange frame)</td>
+<td>Adds the report to your Register (section 7)</td>
+</tr>
+<tr>
+<td>Get the app</td>
+<td>Page 1 of a PDF report, Setup → <em>Share this app</em></td>
+<td>Opens the app (any phone camera)</td>
+</tr>
+</tbody>
+</table></div>
+<p><img loading="lazy" src="../guide/scan.png" alt="Scan a QR code: the camera view with a frame, Scan from image and Paste a link instead" width="300"></p>
+
+<ul>
+<li><strong>Scan with the camera:</strong> tap the button, then point it at the code on paper or on another phone's screen. Allow the camera when asked.</li>
+<li><strong>From a saved image:</strong> for a code received on this phone, e.g. a ticket image in WhatsApp: save the image, then pick it here. Use the image as received, not cropped.</li>
+<li><strong>Load from a PDF:</strong> an RFI list or board PDF goes to <em>Today's RFIs</em>; a report PDF goes to your Register.</li>
+<li><strong>Links:</strong> tapping the link in the message opens the app at the same place. On an iPhone with the app on the Home Screen, the link may open in Safari instead; then use <em>Scan from image</em>.</li>
+</ul>
+<h2 id="10-experimental-features">10. Experimental features</h2>
+<p>Experimental features are working, but still being tried during the pilot. Tell us at the pilot review whether to keep, change or remove them.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Where</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drawings and references</td>
+<td>Photo card → <em>+ Drawing / ref.</em>; Setup → <em>Experimental features</em></td>
+<td>Shown</td>
+</tr>
+<tr>
+<td>Alignment diagram and structure lines</td>
+<td>Report screen → <em>Include alignment diagram</em></td>
+<td>Off</td>
+</tr>
+<tr>
+<td>Period report (week or month)</td>
+<td>Report details → <em>Report type</em></td>
+<td>Daily</td>
+</tr>
+<tr>
+<td>Word document (report, RFI photo record, RFI list)</td>
+<td><em>Save Word</em> / <em>Share Word</em> buttons</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Scan a document or page</td>
+<td>A button beside <em>Take photo</em> and a tile in Quick post; Setup → <em>Experimental features</em> switches it off</td>
+<td>On</td>
+</tr>
+<tr>
+<td>RFI inspection list</td>
+<td>Main screen for WPC; Setup → <em>Experimental features</em></td>
+<td>WPC only</td>
+</tr>
+<tr>
+<td>RFI list line diagram and structure lines</td>
+<td>RFI inspection list → <em>List options</em></td>
+<td>Off</td>
+</tr>
+<tr>
+<td>RFI request tickets, board, Schedule layout and Today's RFIs</td>
+<td>RFI inspection list; main screen after loading a list</td>
+<td>Table layout</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Scan a document or page (experimental, on by default).</strong> For a letter, a method statement or a page of a drawing book that belongs with the photos:</p>
+<ol>
+<li>Tap <strong>Scan a document or page</strong> under <em>Take photo</em> (or <em>Scan page</em> in Quick post). Setup → <em>Experimental features</em> switches it off.</li>
+<li>Take a photo of the page, as flat and square-on as you can, with the whole page in view and a different colour behind it.</li>
+<li>The app looks for the page and puts the four round handles on its corners. Drag any handle that is off. If the page could not be found (for example white paper on a white table), drag the handles yourself, or tap <strong>Find the page again</strong> after turning the photo with <strong>Rotate</strong>.</li>
+<li>Tap <strong>Next</strong>.</li>
+<li>Check the straightened page. Choose the look: <em>Clean</em> (default, keeps colour and fine detail and evens out shadows), <em>Grey</em>, <em>Black and white</em> (like a photocopy, but harsh on small print) or <em>Original</em>. If it is too dark, pale or hard, use the <strong>Brightness</strong> and <strong>Contrast</strong> sliders (<strong>Reset sliders</strong> puts them back). <strong>Add to report</strong> keeps it; <strong>Adjust corners</strong> goes back. <strong>Retake photo</strong> starts again; <em>Use the whole photo</em> skips the straightening.</li>
+<li>The page is added as a photo with the tag <em>Scanned page</em>. Tag it like any other photo. It prints in the report like a photo.</li>
+</ol>
+<p><img loading="lazy" src="../guide/setup_exp.png" alt="Setup, Experimental features: Show the RFI inspection list, Show Drawing references, and the Drawing library button" width="300"></p>
+
+<p><strong>New in 1.2.7, in short:</strong> a coloured chip on a photo card (<em>Needs activity</em>, <em>Needs location</em>) shows what still blocks that photo; typing <code>71775</code> in a chainage box gives <code>71+775</code>; <strong>Chainage to</strong> appears only when you tap <em>+ Chainage to</em> (photo card, Quick post, Tag selected, RFI request); the RFI request sheet has <em>On the alignment | Elsewhere</em>; the report screen is grouped into <em>Page layout</em> and <em>Save or share</em>; the <strong>◐</strong> button in the top bar changes the screen theme (Auto, Dark, Light, Sunlight, which is black on white for reading outdoors); a request still waiting in <em>My requests</em> has an <strong>Edit</strong> button (same ticket no., <em>Rev. 1</em>); Setup → <em>About and licences</em> lists the open-source parts the app uses.</p>
+<h2 id="11-updates-feedback-and-common-problems">11. Updates, feedback and common problems</h2>
+<p><strong>Updates</strong> arrive by themselves: open the app with signal and it loads the newest version. After an update, a short notice on the main screen says what changed; tap <strong>See what changed</strong> for the full list, then <strong>OK</strong>. The version number is at the bottom of <strong>Setup</strong>, and Setup → <strong>What changed</strong> opens the list of changes (<a href="changelog.html">CHANGELOG.md</a>) at any time.</p>
+<p><strong>Share the app:</strong> Setup → <strong>Share this app</strong> shows a QR code: a colleague scans it with the phone camera to open the app, then adds it to the Home Screen. <strong>Share link</strong> sends the address in WhatsApp.</p>
+<p><img loading="lazy" src="../guide/share_app.png" alt="Setup, Share this app: a QR code of the app's address with Share link and Copy link, and the tick box for the small QR code on the last page of PDFs" width="300"></p>
+
+<p><strong>Feedback:</strong> Setup → <strong>Send feedback on WhatsApp</strong> opens a message with the app version and your phone type already filled in. Add what you tried to do, what happened and a screenshot, then post it in the WP12 RFI coordination group.</p>
+<p><img loading="lazy" src="../guide/setup.png" alt="Setup: Help and feedback, with Send feedback on WhatsApp, User guide and What changed" width="300"></p>
+
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No chainage filled in</td>
+<td>The photo has no location: it was saved from WhatsApp, or location was off. Type the chainage, or add the original camera photo. On the phone, allow location for the camera and the browser.</td>
+</tr>
+<tr>
+<td>Orange tag: GPS outside WP12</td>
+<td>The position is more than 150 m from the road. Check the photo and type the chainage, or tap <em>Elsewhere</em> for a lab or yard.</td>
+</tr>
+<tr>
+<td>The activity is not in the list</td>
+<td>Search in English, BM or by BQ no. first. Still missing: type it under <em>Not in the list?</em>, tap <strong>Add</strong>, and report it so it can be added for everyone.</td>
+</tr>
+<tr>
+<td>Share opens nothing</td>
+<td>If the bar at the bottom says <em>… is ready</em>, tap <strong>Share</strong> on it. Some browsers and laptops cannot share files: save the file, then send it from WhatsApp. On iPhone use Safari; on Android use Chrome.</td>
+</tr>
+<tr>
+<td>Word file not found</td>
+<td>It is in Downloads (Android, laptop) or Files → Downloads (iPhone). Tap <strong>Save again</strong> in the bar at the bottom if nothing appeared.</td>
+</tr>
+<tr>
+<td>Two reports with the same ref. no.</td>
+<td>From version 1.2.5 each report gets its own no. on the same phone. For an older report, type the right no. in the ref. no. box and share it again.</td>
+</tr>
+<tr>
+<td>The drawing PDF does not open</td>
+<td>The PDF viewer downloads the first time: open it once with signal. Or take a screenshot of the drawing and add that.</td>
+</tr>
+<tr>
+<td>Setup still shows the old version</td>
+<td>Open the app with signal, close it fully and open it again.</td>
+</tr>
+<tr>
+<td>Logos or activity list missing</td>
+<td>Open the app with signal so the project setup loads.</td>
+</tr>
+<tr>
+<td>Photos or register gone</td>
+<td>Browser data was cleared. Drafts and the register cannot be recovered; this is why the register should be exported regularly (section 7).</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<p>The pilot and rollout plan is in <a href="roadmap.html">ROADMAP.md</a>.</p>
+<ul>
+<li><strong>Visual board (optional)</strong>: the list as clean pages in time order, up to 8 RFIs per page (a long list gives several pages), each with an alignment card marking every RFI's list no. at its chainage. <strong>Share images</strong> (or <strong>Save images</strong>) sends the pages with a message that has the list as text and a <strong>link</strong> that loads it in the app (<em>Today's RFIs</em>, below); <strong>Save board PDF</strong> / <strong>Share board PDF</strong> is the same pages as one document.</li>
+</ul>
+<div class="pn"><a href="index.html"><small>Previous</small><b>Home</b></a><a href="roadmap.html"><small>Next</small><b>Roadmap</b></a></div>
+<footer><span>Made by WPN.</span><span><a href="licences.html">Licences</a> · <a href="https://github.com/cstwp12-admin/wp12-sdr">Repository</a> · <a href="https://cstwp12-admin.github.io/wp12-sdr/">Open the app</a></span></footer></article></main>
+<aside class="toc"><b>On this page</b><a href="#quick-guide-the-3-daily-steps">Quick guide: the 3 daily steps</a><a href="#quick-post-snap-caption-send">Quick post: snap, caption, send</a><a href="#1-install-the-app-and-set-up-once">1. Install the app and set up once</a><a href="#2-add-photos">2. Add photos</a><a href="#3-tag-each-photo">3. Tag each photo</a><a href="#4-generate-and-share-the-report">4. Generate and share the report</a><a href="#5-drawings-and-references-step-by-step-experimental">5. Drawings and references: step by step (experimental)</a><a href="#6-rfi-photo-record">6. RFI photo record</a><a href="#7-register-and-backup">7. Register and backup</a><a href="#8-rfi-inspection-list-request-tickets-and-todays-rfis-experimental">8. RFI inspection list, request tickets and Today&#x27;s RFIs (experimental)</a><a href="#9-qr-codes-scan-and-share">9. QR codes: scan and share</a><a href="#10-experimental-features">10. Experimental features</a><a href="#11-updates-feedback-and-common-problems">11. Updates, feedback and common problems</a></aside></div><script>
+(function(){
+var d=document,b=d.body,r=d.documentElement;
+try{var t=localStorage.getItem('wp12doc-theme');if(t)r.setAttribute('data-theme',t)}catch(e){}
+d.getElementById('theme').addEventListener('click',function(){var c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'),n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('wp12doc-theme',n)}catch(e){}});
+d.getElementById('menu').addEventListener('click',function(){b.classList.toggle('nav')});
+d.addEventListener('click',function(e){if(b.classList.contains('nav')&&!e.target.closest('nav.side,#menu'))b.classList.remove('nav');if(!e.target.closest('#res,#q'))d.getElementById('res').style.display='none'});
+var hs=[].slice.call(d.querySelectorAll('article h2[id],article h3[id],.rel[id]')),links=[].slice.call(d.querySelectorAll('aside.toc a,nav.side ol a'));
+function spy(){var y=scrollY+90,cur=null;hs.forEach(function(h){if(h.offsetTop<=y)cur=h.id});links.forEach(function(a){a.classList.toggle('on',cur&&a.getAttribute('href')==='#'+cur)})}
+addEventListener('scroll',spy,{passive:true});spy();
+var idx=null,q=d.getElementById('q'),res=d.getElementById('res');
+function load(c){if(idx)return c();fetch('search.json').then(function(r){return r.json()}).then(function(j){idx=j;c()}).catch(function(){})}
+function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();if(v.length<2){res.style.display='none';return}
+ load(function(){var w=v.split(/\s+/),hits=[];idx.forEach(function(s){var h=(s.t+' '+s.x).toLowerCase(),ok=w.every(function(k){return h.indexOf(k)>=0});if(ok){var sc=(s.t.toLowerCase().indexOf(v)>=0?10:0)+(s.t.toLowerCase().indexOf(w[0])>=0?5:0);hits.push([sc,s])}});
+ hits.sort(function(a,b){return b[0]-a[0]});
+ res.innerHTML=hits.length?hits.slice(0,10).map(function(h){var s=h[1],i=s.x.toLowerCase().indexOf(w[0]),sn=s.x.slice(Math.max(0,i-40),i+90);return '<a href="'+s.u+'"><b>'+esc(s.t)+'</b><small>'+esc(s.p)+' \u00b7 '+esc(sn)+'</small></a>'}).join(''):'<a><small>Nothing found for "'+esc(v)+'".</small></a>';res.style.display='block'})});
+q.addEventListener('keydown',function(e){if(e.key==='Escape'){res.style.display='none';q.blur()}});
+addEventListener('keydown',function(e){if(e.key==='/'&&!/INPUT|TEXTAREA/.test((d.activeElement||{}).tagName||'')){e.preventDefault();q.focus()}});
+})();
+</script></body></html>

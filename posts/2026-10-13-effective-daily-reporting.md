@@ -1,6 +1,6 @@
 # Effective daily reporting with the WP12 Site Photo Report
 
-*13 October 2026 · Willon Paul*
+*13 October 2026 · WPN*
 
 The first day of the pilot went well: reports came in as PDFs instead of loose photos. Looking through them, most used only the basics, an activity and a chainage. Many skipped the status, the test result, the RFI no. and the time savers that are already in the app. A few people also sent several reports on the same day with the same report no.
 
